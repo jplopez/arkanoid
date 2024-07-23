@@ -33,7 +33,15 @@ brick = class:new({
         .. tostr(self.x) .. ","
         .. tostr(self.y) .. "),"
         .. tostr(self.visible)
+  end,
+
+  __eq=function(self, b)
+    if b==nil then return false end
+    return self.x == b.x and self.y == b.y 
+        and self.clr == b.clr
+        and self.w == b.w and self.h == b.h
   end
+
 })
 
 --unbreakable
@@ -215,4 +223,31 @@ fast_large_circ_brick = move_brick:new({
   speed=0.015,
   length_x = 20 + 5,
   length_y = 8 + 5
+})
+
+bomb_brick=brick:new({
+
+  on_collision=function(self)
+
+  end
+
+})
+
+powerup_brick=brick:new({
+
+  wrapped = brick:new(),
+  powerup = nil,
+
+  update=function (self)
+    self.wrapped:update()
+  end,
+
+  draw=function(self)
+    self.wrapped:draw()
+  end,
+
+  on_collision=function (self)
+    self.powerup:draw()
+  end
+    
 })

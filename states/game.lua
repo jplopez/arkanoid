@@ -15,6 +15,16 @@ function update_game()
 
   update_bonus()
   log("update_game end ")
+
+  -- serve ball, loose a life.
+  if btn(4) then
+    local lives = _players["p1"]["lives"]
+    if lives > 0 then
+      local b = _players["p1"]["ball"]
+      --_players["p1"]["lives"]=lives-1
+      b:serve()
+    end
+  end
 end
 
 function draw_game()
