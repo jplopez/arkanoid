@@ -22,7 +22,7 @@ brick_ball_event = event:new({
       for c = 1, _cur_lvl.max_col do
         local br = bricks[r][c]
 
-        if br != nil and br.visible then
+        if br != nil and br:visible() then
           local br_x = br.x
           local br_y = br.y
           local br_x2 = br.x + br.w
@@ -87,7 +87,7 @@ brick_ball_event = event:new({
 
     --brick collision event
     self.brick:on_collision()
-    if not self.brick.visible then
+    if not self.brick:visible() then
       _cur_lvl.br_left -= 1
     end
   end,

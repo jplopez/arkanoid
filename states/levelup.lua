@@ -20,16 +20,12 @@ function draw_levelup()
 
   cls(_pals.bg[1])
   printc("level " .. tostr(l)
-        .. " clear!", 25, 8
-  )
+        .. " clear!", 25, 8)
   printc("lives : "
-        .. _players["p1"]["lives"], 40, 8
-  )
+        .. _players["p1"]["lives"], 40, 8)
   printc("current score:"
-        .. _players["p1"]["score"], 55, 10
-  )
-  printc("press ❎ to start next level", 70, 11
-  )
+        .. _players["p1"]["score"], 55, 10)
+  printc("press ❎ to start next level", 70, 11)
 end
 
 function levelup()

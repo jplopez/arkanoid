@@ -14,6 +14,7 @@ function init_players()
     _players["p1"]["score"] = 0
     _players["p1"]["level"] = 1
     _players["p1"]["lives"] = 3
+    _players["p1"]["serves"]= 2
 end
 
 function init_objects()

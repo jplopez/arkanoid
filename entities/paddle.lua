@@ -1,20 +1,28 @@
 -- paddle
+_paddle_states = {
+  idle="idle", 
+  left="left",
+  right="right",
+  hit="hit"
+ }
+
 paddle=class:new({
     x=52,
     y=120,
     w=24,
     h=3,
-    clr=12,
+    clr=rnd(_pals["paddle"]),
     
     dx=2,
     
     states = {
      idle="idle", 
      left="left",
-     right="right"
+     right="right",
+     hit="hit"
     },
     
-    state="idle",
+    state=_paddle_states.idle,
     
     hit_clr=7,
     hit_frames=3,
@@ -32,7 +40,7 @@ paddle=class:new({
       local mid_screen = _screen_left + ((_screen_right - _screen_left) / 2)
       self.x = mid_screen - (self.w / 2)
       self.dx = 2
-      self.state = "idle"
+      self.state = _paddle_states.idle
     
     end,
 
@@ -49,8 +57,8 @@ paddle=class:new({
     end,
     
     sndfx=function(self)
-      if self.state==self.states.left
-        or self.state==self.states.right then
+      if self.state==_paddle_states.left
+        or self.state==_paddle_states.right then
         --sfx(3)
       end    
     end,
@@ -66,20 +74,20 @@ paddle=class:new({
       self.y,
       self.x+self.w,
       self.y+self.h,
-      self.paddle_clr(self))
+      self:paddle_clr())
     end,
     
     left=function(self)
      if (self.x > _screen_left) then
       self.x-=self.dx
-      self.state=self.states.left
+      self.state=_paddle_states.left
      end
     end,
     
     right=function(self)
         if (self.x < _screen_right-self.w) then
          self.x+=self.dx
-         self.state=self.states.right
+         self.state=_paddle_states.right
      end
     end,
     
@@ -87,27 +95,26 @@ paddle=class:new({
     brake=function(self)
      local dx = self.dx
      self.dx = self.dx/1.7
-     if self.state == self.states.left then
+     if self.state == _paddle_states.left then
       self:left()
-     elseif self.state == self.states.right then
+     elseif self.state == _paddle_states.right then
       self:right()
      else end
      self.dx=dx
-     self.state=self.states.idle
+     self.state=_paddle_states.idle
     end,
    
+    on_collision = function(self)
+      self.hit_count = self.hit_frames
+    end,
+
     paddle_clr=function(self)
-      local c = self.clr
-      if _col_eng.ball_paddle then
-       self.hit_count = self.hit_frames
-       c = self.clr-4
-      elseif self.hit_count>0 then
+      if self.hit_count > 0 then
        self.hit_count-=1
-       c = self.clr-4
+       return self.hit_clr
       else
-       c = self.clr
+       return self.clr
       end
-      return c
     end
 })
    

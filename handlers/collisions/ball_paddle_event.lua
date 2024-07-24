@@ -26,8 +26,9 @@ ball_paddle_event=event:new({
    local paddle_x2=paddle_x+paddle.w
    local paddle_y2=paddle_y+paddle.h
    
+   local tol = 0.5
    if overlap(
-         0.5, 
+         tol, 
          ball_x,
          ball_x2,
          ball_y,
@@ -41,15 +42,13 @@ ball_paddle_event=event:new({
     _col_eng.ball_paddle=true
      
     --horizontal
-    if near(0.5,
-       ball_y2,paddle_y) 
+    if near(tol,ball_y2,paddle_y) 
     then
      self.dy_next="up"
      self.x_pos=ball_x2-paddle_x
      self.y_pos=paddle_y-ball_y2
  
-    elseif near(0.5,
-     ball_y,paddle_y2) 
+    elseif near(tol,ball_y,paddle_y2) 
     then
      self.dy_next="down"
      self.x_pos=ball_x2-paddle_x
@@ -57,18 +56,20 @@ ball_paddle_event=event:new({
     end
      
     --vertical
-    if near(0.5,
-       ball_x,paddle_x2) 
+    if near(tol,ball_x,paddle_x2) 
     then
      self.dx_next="right"
      self.x_pos=ball_x-paddle_x
      self.y_pos=ball_y2-paddle_y
-    elseif near(0.5,
-     ball_x2,paddle_x) 
+    elseif near(tol, ball_x2,paddle_x) 
     then
      self.dx_next="left"
      self.x_pos=paddle_x-ball_x2
      self.y_pos=(ball_y+ball.r)-paddle_y
+    end
+
+    if (self.dx_next != "" or self.dy_next != "") then
+      paddle:on_collision()
     end
  
     _debug_p_pos=

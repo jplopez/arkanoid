@@ -1,25 +1,63 @@
 -- brick
+
+_brick_spr = {20, 21, 22, 23, 36}
+
+_brick_hit_spr = {40, 41, 42, 43, 44}
+_brick_hit_frs = 5
+
+_brick_states = {
+  visible = "visible",
+  hit = "hit",
+  hidden = "hidden"
+}
+
 brick = class:new({
   x = _screen_left + 12,
   y = _screen_top + 10,
-  w = 10,
-  h = 4,
-  clr = 14,
-  visible = true,
+  w = 8,
+  h = 5,
+  clr = rnd(_brick_spr),
+
+  -- TODO deprecate
+  --visible = true,
+
+  state = _brick_states.visible,
+
+  hit_spr = 1,
+  hit_frs = 0,
 
   update = noop,
 
   draw = function(self)
-    if self.visible then
-      rectfill(self.x, self.y,
-        self.x + self.w,
-        self.y + self.h, self.clr)
+    if (self.state == _brick_states.visible) self:draw_visible(self.clr, self.x, self.y)
+    if (self.state == _brick_states.hit) self:draw_hit(self.x, self.y) 
+
+    -- if self.state == hidden -> do not draw
+  end,
+
+  draw_visible=function(self, n, x_pos, y_pos)
+    spr(n,x_pos,y_pos)
+  end,
+
+  draw_hit=function(self, x_pos, y_pos)
+    if self.hit_spr == #_brick_hit_spr then
+      self.state = _brick_states.hidden
+      --self.visible = false
+    else
+      if self.hit_frs >= _brick_hit_frs then
+        spr(_brick_hit_spr[self.hit_spr],x_pos,y_pos)
+        self.hit_spr += 1
+        self.hit_frs = 0
+      else
+        self.hit_frs += 1
+      end
     end
   end,
 
   on_collision = function(self)
-    self.visible = false
-    
+    --self.visible = false
+    self.state = _brick_states.hit
+
     local combo = mid(1,_players["p1"]["combo"]+1,7)
     sfx(10 + combo)
     _players["p1"]["combo"]=combo
@@ -35,6 +73,10 @@ brick = class:new({
         .. tostr(self.visible)
   end,
 
+  visible = function(self)
+    return self.state == _brick_states.visible
+  end,
+
   __eq=function(self, b)
     if b==nil then return false end
     return self.x == b.x and self.y == b.y 
@@ -46,18 +88,18 @@ brick = class:new({
 
 --unbreakable
 god_brick = brick:new({
-  clr = 10,
+  clr = 38,
 
   hit_fr=3,
   hit_count=0,
-  hit_clr=6,
+  hit_clr=4,
 
   update=function (self)
     if self.hit_count > 0 then
       self.clr = self.hit_clr
       self.hit_count-=1
     else
-      self.clr = 10
+      self.clr = 38
     end
   end,
 
@@ -73,18 +115,18 @@ god_brick = brick:new({
 shield_brick = brick:new({
   shield = 2,
   hits = 0,
-  clr = 13,
+  clr = 37,
 
   hit_fr = 3,
   hit_count = 0,
-  hit_clr = 6,
+  hit_clr = 4,
 
   update=function (self)
     if self.hit_count > 0 then
       self.clr = self.hit_clr
       self.hit_count-=1
     else
-      self.clr = 13
+      self.clr = 37
     end
   end,
 
@@ -111,8 +153,6 @@ move_brick = brick:new({
   dx = 0,
   dy = 0,
 
-  clr = 4,
-
   move_x = false,
   move_y = false,
 
@@ -125,26 +165,40 @@ move_brick = brick:new({
     self.dy = sin(self.frame) * self.length_y
   end,
 
-  draw=function(self)
+  -- draw=function(self)
 
-    if self.visible then
+  --   --TODO deprecate self.visible
+  --   if self.state == _brick_states.visible then
 
-      local x_pos = self.x
-      if self.move_x then 
-        x_pos = mid(_screen_left, x_pos + self.dx, _screen_right - self.w) 
-      end
+  --     local x_pos = self.x
+  --     if self.move_x then 
+  --       x_pos = mid(_screen_left, x_pos + self.dx, _screen_right - self.w) 
+  --     end
   
-      local y_pos = self.y
-      if self.move_y then 
-        y_pos = mid(_screen_top, y_pos + self.dy, _screen_bot - self.h) 
-      end
-  
-      rectfill(x_pos, y_pos,
-        x_pos + self.w, y_pos + self.h,
-        self.clr)
+  --     local y_pos = self.y
+  --     if self.move_y then 
+  --       y_pos = mid(_screen_top, y_pos + self.dy, _screen_bot - self.h) 
+  --     end
+  --     self:draw_visible(self.clr,x_pos,y_pos) 
+
+  --   end
+
+  -- end,
+
+  draw_visible = function(self, n, x_pos, y_pos)
+    local x_pos = self.x
+    if self.move_x then 
+      x_pos = mid(_screen_left, x_pos + self.dx, _screen_right - self.w) 
     end
 
+    local y_pos = self.y
+    if self.move_y then 
+      y_pos = mid(_screen_top, y_pos + self.dy, _screen_bot - self.h) 
+    end
+    brick.draw_visible(self, self.clr,x_pos,y_pos) 
+
   end
+
 })
 
 slow_x_brick = move_brick:new({
@@ -227,27 +281,10 @@ fast_large_circ_brick = move_brick:new({
 
 bomb_brick=brick:new({
 
+  clr = 39,
+
   on_collision=function(self)
 
   end
 
-})
-
-powerup_brick=brick:new({
-
-  wrapped = brick:new(),
-  powerup = nil,
-
-  update=function (self)
-    self.wrapped:update()
-  end,
-
-  draw=function(self)
-    self.wrapped:draw()
-  end,
-
-  on_collision=function (self)
-    self.powerup:draw()
-  end
-    
 })

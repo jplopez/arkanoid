@@ -85,8 +85,14 @@ end
    
 -- print shadow
 function prints(str,x,y,clr)
-    print(str,x+1,y+1,0)
+    print(str,x+1,y+1,7)
     print(str,x,y,clr)
+end
+
+function printo(s,x,y,c,o) -- 34 tokens, 5.7 seconds
+    color(o)
+    ?'\-f'..s..'\^g\-h'..s..'\^g\|f'..s..'\^g\|h'..s,x,y
+    ?s,x,y,c
 end
 
 -- left pad
