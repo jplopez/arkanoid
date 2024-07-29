@@ -89,7 +89,10 @@ brick_ball_event = event:new({
     self.brick:on_collision()
     if not self.brick:visible() then
       _cur_lvl.br_left -= 1
+      powerup_event:notify(self.brick)
     end
+
+    powerup_event:update(self.brick)
   end,
 
   calc_dx = function(self, br, b)

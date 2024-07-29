@@ -66,6 +66,8 @@ function draw_game_level()
 
   --level bricks
   _cur_lvl:draw()
+
+  powerup_event:draw()
 end
 
 function draw_game_ui()

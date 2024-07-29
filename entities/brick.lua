@@ -77,6 +77,14 @@ brick = class:new({
     return self.state == _brick_states.visible
   end,
 
+  is_hit = function(self)
+    return self.state == _brick_states.hit
+  end,
+
+  is_hidden = function(self)
+    return self.state == _brick_states.hidden
+  end,
+
   __eq=function(self, b)
     if b==nil then return false end
     return self.x == b.x and self.y == b.y 

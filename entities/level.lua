@@ -95,8 +95,6 @@ level = class:new({
         self:draw_br(r, c, draw_func)
       end
     end
-
-    pup_1up:draw()
   end,
 
   draw_br = function(self, r, c, draw_func)

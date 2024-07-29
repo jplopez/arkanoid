@@ -7,11 +7,11 @@ event = class:new({
   -- check is executed at the 
   -- update method, before 
   -- anything else
-  eval=noop,
+  eval = function(self, ...) end,
  
   -- applies the changes 
   -- triggered by the event
-  update=noop,
+  update = function(self, ...) end,
   
   to_string=function(self)
    return " (x,y):("

@@ -31,6 +31,7 @@ __lua__
 
 #include handlers/event.lua
 #include handlers/ball_loose_event.lua
+#include handlers/powerup_event.lua
 #include handlers/collisions/ball_paddle_event.lua
 #include handlers/collisions/brick_ball_event.lua
 
