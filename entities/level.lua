@@ -16,6 +16,13 @@ level = class:new({
 
   init = function(self, lvl)
     log("begin level init " .. lvl)
+
+    -- TEMPORARY
+    -- Restart from lvl 1 if players beats all levels
+    if (lvl > #_lvl_def) then
+      lvl = 1
+    end
+
     lvl = mid(1, lvl, #_lvl_def)
     local brick_types = _lvl_def[lvl]
 
