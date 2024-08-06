@@ -76,7 +76,7 @@ function tableconcat(t1,t2)
     end
     return t1
 end
-   
+
 -- print centered
 function printc(str,y,clr)
     local x=64-(#str*4)/2

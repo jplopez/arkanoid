@@ -38,6 +38,7 @@ function startgame(l)
   _players["p1"]["lives"] = 3
   _players["p1"]["score"] = 0
   _players["p1"]["level"] = l
+  _players["p1"]["combo"] = 0
   init_bonus()
 
   _cur_lvl:init(l)

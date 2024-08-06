@@ -1,46 +1,108 @@
 -- collision engine
 col_eng = class:new({
+  -- default tolerance
+  tol = 0,
 
-  tol = 0.8,
-  
   --collition events type
   event_types = {
     ball_paddle_event,
     ball_loose_event,
-    brick_ball_event,
-    powerup_event
+    brick_ball_event
+    --powerup_event
   },
-  
+
   events = {},
-  
+
   --to deprecate
-  ball_paddle=false,
-  
-  new=function(self,tbl)
-   tbl=class:new(self,tbl)
- 
-   for et in all(self.event_types) do
-     add(tbl.events, et:new(et))
-   end
-   return tbl
+  ball_paddle = false,
+
+  new = function(self, tbl)
+    tbl = class:new(self, tbl)
+
+    for et in all(self.event_types) do
+      add(tbl.events, et:new(et))
+    end
+    return tbl
   end,
-  
-  init=function(self)
-   self.event_types={}
-   for et in all(self.event_types) do
-     add(self.events, et:new(et))
-   end
+
+  init = function(self)
+    self.event_types = {}
+    for et in all(self.event_types) do
+      add(self.events, et:new(et))
+    end
   end,
-  
+
   -- detects collisions
   -- aka events
-  update=function(self) 
+  update = function(self)
     for e in all(self.event_types) do
-     if e:eval() then
-      e:update()
-     end
+      if e:eval() then
+        e:update()
+      end
     end
+  end,
+
+  subscribe = function(self, handler)
+    self.event_types.add(handler)
+  end,
+
+  is_circle_colliding = function(self, circle1, circle2, tolerance)
+    tolerance = tolerance or self.tol
+    -- Default to 0 if not provided
+    local dx = circle1.x - circle2.x
+    local dy = circle1.y - circle2.y
+    local distance = sqrt(dx * dx + dy * dy)
+
+    return distance < circle1.r + circle2.r + tolerance
+  end,
+
+  is_circle_rect_colliding = function(self, circle, rect, tolerance)
+    tolerance = tolerance or self.tol
+    -- Default to 0 if not provided
+    local closest_x = mid(rect.x, circle.x, rect.x + rect.w)
+    local closest_y = mid(rect.y, circle.y, rect.y + rect.h)
+
+    local dx = circle.x - closest_x
+    local dy = circle.y - closest_y
+
+    return dx * dx + dy * dy < (circle.r + tolerance) * (circle.r + tolerance)
+  end,
+
+  is_circle_rect_collision_side = function(self, circle, rect, tolerance)
+    tolerance = tolerance or self.tol
+
+    local collision = self:is_circle_rect_colliding(circle, rect, tolerance)
+
+    if collision then
+      -- Determine the side of collision
+      local left_dist = abs(circle.x - rect.x)
+      local right_dist = abs(circle.x - rect.x + rect.w)
+      local top_dist = abs(circle.y - rect.y)
+      local bottom_dist = abs(circle.y - rect.y + rect.h)
+
+      -- Find the smallest distance to determine the closest side
+      local min_dist = min(left_dist, right_dist, top_dist, bottom_dist)
+
+      if min_dist == left_dist then
+        return true, "left"
+      elseif min_dist == right_dist then
+        return true, "right"
+      elseif min_dist == top_dist then
+        return true, "up"
+      else
+        return true, "down" -- "bottom"
+      end
+    end
+
+    return false, nil
+  end,
+
+  is_rect_colliding = function(self, rect1, rect2, tolerance)
+    tolerance = tolerance or self.tol
+    -- Default to 0 if not provided
+    return rect1.x < rect2.x + rect2.w + tolerance
+        and rect1.x + rect1.w > rect2.x - tolerance
+        and rect1.y < rect2.y + rect2.h + tolerance
+        and rect1.y + rect1.h > rect2.y - tolerance
   end
- 
- })
- 
+})

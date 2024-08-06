@@ -27,51 +27,64 @@ brick_ball_event = event:new({
           local br_y = br.y
           local br_x2 = br.x + br.w
           local br_y2 = br.y + br.h
-          local tol = _col_eng.tol
-          if overlap(tol,
-            b_x, b_x2, b_y, b_y2,
-            br_x, br_x2, br_y, br_y2
-          ) then
-            log("brick_ball eval Overlap tol:"..tol)
-            log("b: ("..b_x..","..b_y..") ("..b_x2..","..b_y2.. ")")
-            log("br["..r.."]["..c.."]:("..br_x..","..br_y..") ("..br_x2..","..br_y2.. ")")
+          local tol = 0.5
+          -- if overlap(tol,
+          --   b_x, b_x2, b_y, b_y2,
+          --   br_x, br_x2, br_y, br_y2
+          -- ) then
+          local is_colliding, side = _col_eng:is_circle_rect_collision_side(b, br, tol)
+          if is_colliding then  
+            log("brick_ball eval Overlap br:("..r..","..c..") tol:"..tol.. " side:"..side)
+            -- log("b: ("..b_x..","..b_y..") ("..b_x2..","..b_y2.. ")")
+            -- log("br["..r.."]["..c.."]:("..br_x..","..br_y..") ("..br_x2..","..br_y2.. ")")
 
-            --horizontal
-            if near(tol, b_y2, br_y) then
-              -- log("up b_y2:"..b_y2.." br_y:"..br_y)
-              self.dy_next = "up"
-              self.x_pos = abs(br_x - b_x + b.r)
-              self.y_pos = abs(br_y - b_y2)
-            elseif near(tol, b_y, br_y2) then
-              -- log("down b_y:"..b_y.." br_y2:"..br_y2)
-              self.dy_next = "down"
-              self.x_pos = abs(br_x - b_x + b.r)
-              self.y_pos = abs(br_y - b_y)
+
+            -- TEMPORARY
+            if (side == "up" or side == "down") then
+              self.dy_next = side
             end
 
-            --vertical
-            if near(tol, b_x, br_x2) then
-              -- log("right b_x:"..b_x.." br_x2:"..br_x2)
-              self.dx_next = "right"
-              self.x_pos = abs(br_x - b_x)
-              self.y_pos = abs(br_y - b_y + b.r)
-            elseif near(tol, b_x2, br.x) then
-              -- log("left b_x2:"..b_x2.." br_x:"..br_x)
-              self.dx_next = "left"
-              self.x_pos = abs(br_x - b_x2)
-              self.y_pos = abs(br_y - b_y + b.r)
+            if (side == "left" or side == "right") then
+              self.dx_next = side
             end
+            -- EOTemp
+
+            -- --horizontal
+            -- if near(tol, b_y2, br_y) then
+            --   -- log("up b_y2:"..b_y2.." br_y:"..br_y)
+            --   self.dy_next = "up"
+            --   self.x_pos = abs(br_x - b_x + b.r)
+            --   self.y_pos = abs(br_y - b_y2)
+            -- elseif near(tol, b_y, br_y2) then
+            --   -- log("down b_y:"..b_y.." br_y2:"..br_y2)
+            --   self.dy_next = "down"
+            --   self.x_pos = abs(br_x - b_x + b.r)
+            --   self.y_pos = abs(br_y - b_y)
+            -- end
+
+            -- --vertical
+            -- if near(tol, b_x, br_x2) then
+            --   -- log("right b_x:"..b_x.." br_x2:"..br_x2)
+            --   self.dx_next = "right"
+            --   self.x_pos = abs(br_x - b_x)
+            --   self.y_pos = abs(br_y - b_y + b.r)
+            -- elseif near(tol, b_x2, br.x) then
+            --   -- log("left b_x2:"..b_x2.." br_x:"..br_x)
+            --   self.dx_next = "left"
+            --   self.x_pos = abs(br_x - b_x2)
+            --   self.y_pos = abs(br_y - b_y + b.r)
+            -- end
             
             if (self.dx_next != "") or (self.dy_next != "") then
               log("brick_ball eval dx_next: "..self.dx_next)
               log("brick_ball eval dy_next: "..self.dy_next)
-              log("brick_ball eval pos(x,y) ("..self.x_pos..","..self.y_pos..")")
+              -- log("brick_ball eval pos(x,y) ("..self.x_pos..","..self.y_pos..")")
               self.brick = br
               return true
             end
             log("brick_ball eval false")
             return false
-          end --overlap
+          end --is_colliding
         end --if visible
       end --for col loop
     end
@@ -89,10 +102,10 @@ brick_ball_event = event:new({
     self.brick:on_collision()
     if not self.brick:visible() then
       _cur_lvl.br_left -= 1
-      powerup_event:notify(self.brick)
+      --powerup_event:notify(self.brick)
     end
 
-    powerup_event:update(self.brick)
+    --powerup_event:update(self.brick)
   end,
 
   calc_dx = function(self, br, b)
