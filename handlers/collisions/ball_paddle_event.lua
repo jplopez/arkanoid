@@ -11,7 +11,7 @@ ball_paddle_event = event:new({
     local paddle = _players["p1"]["paddle"]
 
     -- sticky ball
-    if ball.state == ball.states.sticky then
+    if ball.state == _ball_states.sticky then
       return false
     end
 
@@ -35,19 +35,19 @@ ball_paddle_event = event:new({
         self.dy_next = "up"
         self.side = "up"
         self.x_pos = ball.x - paddle.x
-        self.y_pos = paddle.y - (ball.y + ball.r)
+        self.y_pos = paddle.y - (ball.y+ball.r)
       elseif s["bottom"] then
         self.dy_next = "down"
         self.side = "down"
         self.x_pos = ball.x - paddle.x
-        self.y_pos = (ball.y-ball.r) - (paddle.y+paddle.h)
+        self.y_pos = (paddle.y+paddle.h) - (ball.y-ball.r)
       end
 
       --vertical
       if s["right"] then
         self.dx_next = "right"
         self.side = "right"
-        self.x_pos =  (ball.x - ball.r) - (paddle.x+paddle.w)
+        self.x_pos = (ball.x - ball.r) - (paddle.x+paddle.w)
         self.y_pos = ball.y - paddle.y
       elseif s["left"] then
         self.dx_next = "left"
@@ -56,7 +56,7 @@ ball_paddle_event = event:new({
         self.y_pos = ball.y - paddle.y
       end
 
-        if (self.side != "") then
+        if (self.side ~= "") then
         paddle:on_collision()
       end
 
@@ -88,7 +88,7 @@ ball_paddle_event = event:new({
 
     --upd ball's dx and dy
     ball.dx, ball.dy = self:upd_dx_dy(ball, paddle)
-
+    sfx(1) -- ball bound in paddle sound
     _players["p1"]["combo"] = 1
   end,
 
@@ -96,11 +96,11 @@ ball_paddle_event = event:new({
     local new_dx = ball.dx
     local new_dy = ball.dy
 
-    log("upd-dx-dy pos("..self.x_pos..","..self.y_pos..")")
-
+    log("upd-dx-dy pos("..self.x_pos..","..self.y_pos..") "..self.side)
+ 
     -- if self.dy_next=="up" then
     if self.side == "up" then
-      log("upd-dx-dy - up")
+      -- log("upd-dx-dy - up")
       local seg = paddle.w / 6
       new_dy = -abs(new_dy)
       
@@ -121,18 +121,18 @@ ball_paddle_event = event:new({
 
       -- elseif self.dy_next=="down" then
     elseif self.side == "down" then
-      log("upd-dx-dy - down")
+      -- log("upd-dx-dy - down")
       new_dx = -1 * abs(new_dx)
       new_dy = abs(new_dy)
       -- side hit gives extra speed
       -- elseif self.dx_next=="left" then
     elseif self.side == "left" then
-      log("upd-dx-dy - left")
+      -- log("upd-dx-dy - left")
       new_dx = -2.5
       new_dy = -1 * abs(new_dy)
       -- elseif self.dx_next=="right" then
     elseif self.side == "right" then
-      log("upd-dx-dy - right")
+      -- log("upd-dx-dy - right")
       new_dx = 2.5
       new_dy = -1 * abs(new_dy)
     end

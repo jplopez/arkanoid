@@ -49,19 +49,19 @@ end
 
 function draw_game_level()
   --playable screen
-  rect(
-    _screen_left - 1,
-    _screen_top - 1,
-    _screen_right + 1,
-    _screen_bot + 1,
-    _pals.bg[2]
-  )
   rectfill(
-    _screen_left,
+    _screen_left ,
     _screen_top,
     _screen_right,
     _screen_bot,
     _pals.bg[1]
+  )
+  rect(
+    _screen_left,
+    _screen_top,
+    _screen_right,
+    _screen_bot,
+    _pals.bg[2]
   )
 
   --level bricks

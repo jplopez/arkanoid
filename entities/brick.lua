@@ -31,8 +31,6 @@ brick = class:new({
   draw = function(self)
     if (self.state == _brick_states.visible) self:draw_visible(self.clr, self.x, self.y)
     if (self.state == _brick_states.hit) self:draw_hit(self.x, self.y) 
-
-    -- if self.state == hidden -> do not draw
   end,
 
   draw_visible=function(self, n, x_pos, y_pos)
@@ -173,26 +171,6 @@ move_brick = brick:new({
     self.dy = sin(self.frame) * self.length_y
   end,
 
-  -- draw=function(self)
-
-  --   --TODO deprecate self.visible
-  --   if self.state == _brick_states.visible then
-
-  --     local x_pos = self.x
-  --     if self.move_x then 
-  --       x_pos = mid(_screen_left, x_pos + self.dx, _screen_right - self.w) 
-  --     end
-  
-  --     local y_pos = self.y
-  --     if self.move_y then 
-  --       y_pos = mid(_screen_top, y_pos + self.dy, _screen_bot - self.h) 
-  --     end
-  --     self:draw_visible(self.clr,x_pos,y_pos) 
-
-  --   end
-
-  -- end,
-
   draw_visible = function(self, n, x_pos, y_pos)
     local x_pos = self.x
     if self.move_x then 
@@ -204,9 +182,7 @@ move_brick = brick:new({
       y_pos = mid(_screen_top, y_pos + self.dy, _screen_bot - self.h) 
     end
     brick.draw_visible(self, self.clr,x_pos,y_pos) 
-
   end
-
 })
 
 slow_x_brick = move_brick:new({
@@ -221,78 +197,68 @@ mid_x_brick = move_brick:new({
   speed = 0.013
 })
 
-fast_x_brick = move_brick:new({
-  move_x = true,
-  move_y = false,
-  speed = 0.015
-})
+-- fast_x_brick = move_brick:new({
+--   move_x = true,
+--   move_y = false,
+--   speed = 0.015
+-- })
 
-slow_y_brick = move_brick:new({
-  move_x = false,
-  move_y = true,
-  speed = 0.01
-})
+-- slow_y_brick = move_brick:new({
+--   move_x = false,
+--   move_y = true,
+--   speed = 0.01
+-- })
 
-mid_y_brick = move_brick:new({
-  move_x = false,
-  move_y = true,
-  speed = 0.013
-})
+-- mid_y_brick = move_brick:new({
+--   move_x = false,
+--   move_y = true,
+--   speed = 0.013
+-- })
 
-fast_y_brick = move_brick:new({
-  move_x = false,
-  move_y = true,
-  speed = 0.015
-})
+-- fast_y_brick = move_brick:new({
+--   move_x = false,
+--   move_y = true,
+--   speed = 0.015
+-- })
 
-slow_circ_brick = move_brick:new({
-  move_x = true,
-  move_y = true,
-  speed=0.01
-})
+-- slow_circ_brick = move_brick:new({
+--   move_x = true,
+--   move_y = true,
+--   speed=0.01
+-- })
 
-mid_circ_brick = move_brick:new({
-  move_x = true,
-  move_y = true,
-  speed=0.013
-})
+-- mid_circ_brick = move_brick:new({
+--   move_x = true,
+--   move_y = true,
+--   speed=0.013
+-- })
 
-fast_circ_brick = move_brick:new({
-  move_x = true,
-  move_y = true,
-  speed=0.015
-})
+-- fast_circ_brick = move_brick:new({
+--   move_x = true,
+--   move_y = true,
+--   speed=0.015
+-- })
 
-slow_large_circ_brick = move_brick:new({
-  move_x = true,
-  move_y = true,
-  speed=0.01,
-  length_x = 20 + 5,
-  length_y = 8 + 5
-})
+-- slow_large_circ_brick = move_brick:new({
+--   move_x = true,
+--   move_y = true,
+--   speed=0.01,
+--   length_x = 20 + 5,
+--   length_y = 8 + 5
+-- })
 
-mid_large_circ_brick = move_brick:new({
-  move_x = true,
-  move_y = true,
-  speed=0.013,
-  length_x = 20 + 5,
-  length_y = 8 + 5
-})
+-- mid_large_circ_brick = move_brick:new({
+--   move_x = true,
+--   move_y = true,
+--   speed=0.013,
+--   length_x = 20 + 5,
+--   length_y = 8 + 5
+-- })
 
-fast_large_circ_brick = move_brick:new({
-  move_x = true,
-  move_y = true,
-  speed=0.015,
-  length_x = 20 + 5,
-  length_y = 8 + 5
-})
-
-bomb_brick=brick:new({
-
-  clr = 39,
-
-  on_collision=function(self)
-
-  end
-
-})
+-- fast_large_circ_brick = move_brick:new({
+--   move_x = true,
+--   move_y = true,
+--   speed=0.015,
+--   length_x = 20 + 5,
+--   length_y = 8 + 5
+-- })

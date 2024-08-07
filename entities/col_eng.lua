@@ -6,9 +6,9 @@ col_eng = class:new({
   --collition events type
   event_types = {
     ball_paddle_event,
+    ball_screen_event,
     ball_loose_event,
     brick_ball_event
-    --powerup_event
   },
 
   events = {},
@@ -18,10 +18,9 @@ col_eng = class:new({
 
   new = function(self, tbl)
     tbl = class:new(self, tbl)
-
-    for et in all(self.event_types) do
-      add(tbl.events, et:new(et))
-    end
+    -- for et in all(self.event_types) do
+    --   add(tbl.events, et:new(et))
+    -- end
     return tbl
   end,
 
@@ -42,10 +41,6 @@ col_eng = class:new({
     end
   end,
 
-  subscribe = function(self, handler)
-    self.event_types.add(handler)
-  end,
-
   is_circle_colliding = function(self, circle1, circle2, tolerance)
     tolerance = tolerance or self.tol
     -- Default to 0 if not provided
@@ -54,6 +49,36 @@ col_eng = class:new({
     local distance = sqrt(dx * dx + dy * dy)
 
     return distance < circle1.r + circle2.r + tolerance
+  end,
+
+  is_circle_inside_rect_colliding = function(self, circle, rec, tolerance)
+    tolerance = tolerance or self.tol
+    -- Default to 0 if not provided
+    local dx = min(abs(circle.x - rec.x),abs(circle.x - (rec.x + rec.w)))
+    local dy = min(abs(circle.y - rec.y),abs(circle.y - (rec.y + rec.h)))
+
+    return dx * dx + dy * dy < (circle.r + tolerance) * (circle.r + tolerance)
+  end,
+
+  is_circle_inside_rect_collision_side = function(self, circle, rec, tolerance)
+    tolerance = tolerance or self.tol
+
+    local collision = self:is_circle_inside_rect_colliding(circle, rec, tolerance)
+    local side = {
+      left = false,
+      right = false,
+      top = false,
+      bottom = false
+    }
+    if collision then
+      log("is_circle_inside_rect_collision_side collision detected")
+      -- determine the side of collision
+      side["left"] = (abs((circle.x - circle.r) - rec.x)) <= tolerance
+      side["right"] = (abs((circle.x + circle.r) - (rec.x + rec.w))) <= tolerance
+      side["top"] = (abs((circle.y - circle.r) - rec.y)) <= tolerance
+      side["bottom"] = (abs((circle.y + circle.r )- (rec.y + rec.h))) <= tolerance
+    end
+    return collision, side
   end,
 
   is_circle_rect_colliding = function(self, circle, rec, tolerance)
@@ -78,38 +103,13 @@ col_eng = class:new({
       top = false,
       bottom = false
     }
-
     if collision then
-
       -- determine the side of collision
-      local left_d = abs((circle.x + circle.r) - rec.x)
-      local right_d = abs((circle.x - circle.r) - (rec.x + rec.w))
-      local top_d = abs((circle.y + circle.r) - rec.y)
-      local bottom_d = abs((circle.y - circle.r )- (rec.y + rec.h))
-
-      if left_d <= tolerance then
-        side["left"] = true
-      end
-
-      if right_d <= tolerance then
-        side["right"] = true
-      end
-
-      if top_d <= tolerance then
-        side["top"] = true
-      end
-
-      if bottom_d <= tolerance then
-        side["bottom"] = true
-      end
-      log("is_circle_rect_colliding: "..tostr(collision)..
-      " side(u,d,l,r):"..tostr(side["top"])..
-        ","..tostr(side["bottom"])..
-        ","..tostr(side["left"])..
-        ","..tostr(side["right"]))
-
+      side["left"] = (abs((circle.x + circle.r) - rec.x)) <= tolerance
+      side["right"] = (abs((circle.x - circle.r) - (rec.x + rec.w))) <= tolerance
+      side["top"] = (abs((circle.y + circle.r) - rec.y)) <= tolerance
+      side["bottom"] = (abs((circle.y - circle.r )- (rec.y + rec.h))) <= tolerance
     end
-
     return collision, side
   end,
 

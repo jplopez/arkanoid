@@ -4,7 +4,6 @@ __lua__
 
 #include globals.lua
 
-
 #include entities/class.lua
 #include entities/entity.lua
 #include entities/paddle.lua
@@ -33,6 +32,7 @@ __lua__
 #include handlers/ball_loose_event.lua
 #include handlers/powerup_event.lua
 #include handlers/collisions/ball_paddle_event.lua
+#include handlers/collisions/ball_screen_event.lua
 #include handlers/collisions/brick_ball_event.lua
 
 -------------
@@ -48,8 +48,8 @@ end
 
 -- called every frame
 function _update60()
-  log("begin update60 level " .. _players["p1"]["level"])
-  log("begin update60 state " .. _state)
+  -- log("begin update60 level " .. _players["p1"]["level"])
+  -- log("begin update60 state " .. _state)
 
   if (_state == "start") update_start()
   if (_state == "game") update_game()
@@ -58,7 +58,6 @@ function _update60()
 
   log("end update60 level " .. _players["p1"]["level"])
   log("end update60 state " .. _state)
-
 end
 
 -- called every frame

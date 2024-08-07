@@ -20,57 +20,23 @@ brick_ball_event = event:new({
 
         if br ~= nil and br:visible() then
 
-          local is_colliding, side = _col_eng:is_circle_rect_collision_side(b, br, tol)
+          local is_colliding, side = _col_eng:is_circle_rect_collision_side(b, br)
           if is_colliding then  
-            log("brick_ball eval collision detected: ")
-            log("           br:("..r..","..c..") tol:"..tol)
-            log(" side(u,d,l,r):"..tostr(side["top"])..
-                ","..tostr(side["bottom"])..
-                ","..tostr(side["left"])..
-                ","..tostr(side["right"]))
-
-            -- log("b: ("..b_x..","..b_y..") ("..b_x2..","..b_y2.. ")")
-            -- log("br["..r.."]["..c.."]:("..br_x..","..br_y..") ("..br_x2..","..br_y2.. ")")
-
-
+            -- log("brick_ball eval collision detected: ")
+            -- log("           br:("..r..","..c..") tol:".._col_eng.tol)
+            -- log(" side(u,d,l,r):"..tostr(side["top"])..
+            --     ","..tostr(side["bottom"])..
+            --     ","..tostr(side["left"])..
+            --     ","..tostr(side["right"]))
             -- TEMPORARY
             if(side["top"]) then self.dy_next="up" end
             if(side["bottom"]) then self.dy_next = "down" end
             if(side["left"]) then self.dx_next = "left" end 
             if(side["right"]) then self.dx_next = "right" end
-
-          
-            -- EOTemp
-
-            -- --horizontal
-            -- if near(tol, b_y2, br_y) then
-            --   -- log("up b_y2:"..b_y2.." br_y:"..br_y)
-            --   self.dy_next = "up"
-            --   self.x_pos = abs(br_x - b_x + b.r)
-            --   self.y_pos = abs(br_y - b_y2)
-            -- elseif near(tol, b_y, br_y2) then
-            --   -- log("down b_y:"..b_y.." br_y2:"..br_y2)
-            --   self.dy_next = "down"
-            --   self.x_pos = abs(br_x - b_x + b.r)
-            --   self.y_pos = abs(br_y - b_y)
-            -- end
-
-            -- --vertical
-            -- if near(tol, b_x, br_x2) then
-            --   -- log("right b_x:"..b_x.." br_x2:"..br_x2)
-            --   self.dx_next = "right"
-            --   self.x_pos = abs(br_x - b_x)
-            --   self.y_pos = abs(br_y - b_y + b.r)
-            -- elseif near(tol, b_x2, br.x) then
-            --   -- log("left b_x2:"..b_x2.." br_x:"..br_x)
-            --   self.dx_next = "left"
-            --   self.x_pos = abs(br_x - b_x2)
-            --   self.y_pos = abs(br_y - b_y + b.r)
-            -- end
             
             if (self.dx_next ~= "") or (self.dy_next ~= "") then
-              log("brick_ball eval dx_next: "..self.dx_next)
-              log("brick_ball eval dy_next: "..self.dy_next)
+              -- log("brick_ball eval dx_next: "..self.dx_next)
+              -- log("brick_ball eval dy_next: "..self.dy_next)
               -- log("brick_ball eval pos(x,y) ("..self.x_pos..","..self.y_pos..")")
               self.brick = br
               return true
@@ -95,10 +61,7 @@ brick_ball_event = event:new({
     self.brick:on_collision()
     if not self.brick:visible() then
       _cur_lvl.br_left -= 1
-      --powerup_event:notify(self.brick)
     end
-
-    --powerup_event:update(self.brick)
   end,
 
   calc_dx = function(self, br, b)
