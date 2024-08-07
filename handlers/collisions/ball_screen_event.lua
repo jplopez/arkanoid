@@ -35,10 +35,10 @@ ball_screen_event = event:new({
     local ball = _players["p1"]["ball"]
     log("is_circle_inside_rect_collision_side update init (dx,dy):("
         ..ball.dx..","..ball.dy..")")
-    log("t,b,l,r"..tostr(self.col_side["top"]).." "
-      ..tostr(self.col_side["bottom"]).." "
-      ..tostr(self.col_side["left"]).." "
-      ..tostr(self.col_side["right"]).." ")
+    -- log("t,b,l,r"..tostr(self.col_side["top"]).." "
+    --   ..tostr(self.col_side["bottom"]).." "
+    --   ..tostr(self.col_side["left"]).." "
+    --   ..tostr(self.col_side["right"]).." ")
     
     if self.col_side["top"] then
       ball.dy = abs(ball.dy)

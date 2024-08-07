@@ -20,16 +20,6 @@ paddle = class:new({
   hit_frames = 3,
   hit_count = 0,
 
-  -- new = function(self, tbl)
-  --   tbl = tbl or {}
-  --   setmetatable(
-  --     tbl, {
-  --       __index = self
-  --     }
-  --   )
-  --   return tbl
-  -- end,
-
   init = function(self)
     local mid_screen = _screen_left + (_screen_right - _screen_left) / 2
     self.x = mid_screen - self.w / 2

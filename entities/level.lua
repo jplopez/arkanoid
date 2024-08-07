@@ -33,7 +33,7 @@ level = class:new({
       for c = 1, self.max_col do
         local br_type = brick_types[r][c]
 
-        if br_type != nil then
+        if br_type ~= nil then
           local br = br_type:new({
             x = br_x, y = br_y
           })
@@ -43,7 +43,7 @@ level = class:new({
           self.grid[r][c] = br
 
           self.br_count += 1
-          if br_type != god_brick then
+          if br_type ~= god_brick then
             self.br_left += 1
           end
         end

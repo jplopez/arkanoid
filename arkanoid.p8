@@ -5,13 +5,11 @@ __lua__
 #include globals.lua
 
 #include entities/class.lua
-#include entities/entity.lua
 #include entities/paddle.lua
 #include entities/ball.lua
 #include entities/brick.lua
 #include entities/level.lua
-#include entities/powerup.lua
-
+--#include entities/powerup.lua
 
 #include utilities/timers.lua
 #include utilities/utils.lua
