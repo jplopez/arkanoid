@@ -10,10 +10,6 @@ brick_ball_event = event:new({
     self.dy_next = ""
 
     local b = _players["p1"]["ball"]
-    local b_x = b.x
-    local b_y = b.y
-    local b_y2 = b.y + b.r * 2
-    local b_x2 = b.x + b.r * 2
     local bricks = _cur_lvl.grid
 
     log("brick_ball eval ")
@@ -22,31 +18,28 @@ brick_ball_event = event:new({
       for c = 1, _cur_lvl.max_col do
         local br = bricks[r][c]
 
-        if br != nil and br:visible() then
-          local br_x = br.x
-          local br_y = br.y
-          local br_x2 = br.x + br.w
-          local br_y2 = br.y + br.h
-          local tol = 0.5
-          -- if overlap(tol,
-          --   b_x, b_x2, b_y, b_y2,
-          --   br_x, br_x2, br_y, br_y2
-          -- ) then
+        if br ~= nil and br:visible() then
+
           local is_colliding, side = _col_eng:is_circle_rect_collision_side(b, br, tol)
           if is_colliding then  
-            log("brick_ball eval Overlap br:("..r..","..c..") tol:"..tol.. " side:"..side)
+            log("brick_ball eval collision detected: ")
+            log("           br:("..r..","..c..") tol:"..tol)
+            log(" side(u,d,l,r):"..tostr(side["top"])..
+                ","..tostr(side["bottom"])..
+                ","..tostr(side["left"])..
+                ","..tostr(side["right"]))
+
             -- log("b: ("..b_x..","..b_y..") ("..b_x2..","..b_y2.. ")")
             -- log("br["..r.."]["..c.."]:("..br_x..","..br_y..") ("..br_x2..","..br_y2.. ")")
 
 
             -- TEMPORARY
-            if (side == "up" or side == "down") then
-              self.dy_next = side
-            end
+            if(side["top"]) then self.dy_next="up" end
+            if(side["bottom"]) then self.dy_next = "down" end
+            if(side["left"]) then self.dx_next = "left" end 
+            if(side["right"]) then self.dx_next = "right" end
 
-            if (side == "left" or side == "right") then
-              self.dx_next = side
-            end
+          
             -- EOTemp
 
             -- --horizontal
@@ -75,7 +68,7 @@ brick_ball_event = event:new({
             --   self.y_pos = abs(br_y - b_y + b.r)
             -- end
             
-            if (self.dx_next != "") or (self.dy_next != "") then
+            if (self.dx_next ~= "") or (self.dy_next ~= "") then
               log("brick_ball eval dx_next: "..self.dx_next)
               log("brick_ball eval dy_next: "..self.dy_next)
               -- log("brick_ball eval pos(x,y) ("..self.x_pos..","..self.y_pos..")")

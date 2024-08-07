@@ -1,7 +1,7 @@
 -- collision engine
 col_eng = class:new({
   -- default tolerance
-  tol = 0,
+  tol = 2,
 
   --collition events type
   event_types = {
@@ -56,11 +56,11 @@ col_eng = class:new({
     return distance < circle1.r + circle2.r + tolerance
   end,
 
-  is_circle_rect_colliding = function(self, circle, rect, tolerance)
+  is_circle_rect_colliding = function(self, circle, rec, tolerance)
     tolerance = tolerance or self.tol
     -- Default to 0 if not provided
-    local closest_x = mid(rect.x, circle.x, rect.x + rect.w)
-    local closest_y = mid(rect.y, circle.y, rect.y + rect.h)
+    local closest_x = mid(rec.x, circle.x, rec.x + rec.w)
+    local closest_y = mid(rec.y, circle.y, rec.y + rec.h)
 
     local dx = circle.x - closest_x
     local dy = circle.y - closest_y
@@ -68,33 +68,49 @@ col_eng = class:new({
     return dx * dx + dy * dy < (circle.r + tolerance) * (circle.r + tolerance)
   end,
 
-  is_circle_rect_collision_side = function(self, circle, rect, tolerance)
+  is_circle_rect_collision_side = function(self, circle, rec, tolerance)
     tolerance = tolerance or self.tol
 
-    local collision = self:is_circle_rect_colliding(circle, rect, tolerance)
+    local collision = self:is_circle_rect_colliding(circle, rec, tolerance)
+    local side = {
+      left = false,
+      right = false,
+      top = false,
+      bottom = false
+    }
 
     if collision then
-      -- Determine the side of collision
-      local left_dist = abs(circle.x - rect.x)
-      local right_dist = abs(circle.x - rect.x + rect.w)
-      local top_dist = abs(circle.y - rect.y)
-      local bottom_dist = abs(circle.y - rect.y + rect.h)
 
-      -- Find the smallest distance to determine the closest side
-      local min_dist = min(left_dist, right_dist, top_dist, bottom_dist)
+      -- determine the side of collision
+      local left_d = abs((circle.x + circle.r) - rec.x)
+      local right_d = abs((circle.x - circle.r) - (rec.x + rec.w))
+      local top_d = abs((circle.y + circle.r) - rec.y)
+      local bottom_d = abs((circle.y - circle.r )- (rec.y + rec.h))
 
-      if min_dist == left_dist then
-        return true, "left"
-      elseif min_dist == right_dist then
-        return true, "right"
-      elseif min_dist == top_dist then
-        return true, "up"
-      else
-        return true, "down" -- "bottom"
+      if left_d <= tolerance then
+        side["left"] = true
       end
+
+      if right_d <= tolerance then
+        side["right"] = true
+      end
+
+      if top_d <= tolerance then
+        side["top"] = true
+      end
+
+      if bottom_d <= tolerance then
+        side["bottom"] = true
+      end
+      log("is_circle_rect_colliding: "..tostr(collision)..
+      " side(u,d,l,r):"..tostr(side["top"])..
+        ","..tostr(side["bottom"])..
+        ","..tostr(side["left"])..
+        ","..tostr(side["right"]))
+
     end
 
-    return false, nil
+    return collision, side
   end,
 
   is_rect_colliding = function(self, rect1, rect2, tolerance)

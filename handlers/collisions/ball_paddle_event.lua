@@ -1,83 +1,65 @@
 -- ball hitting paddle
-ball_paddle_event=event:new({
- 
-  dx_next="",
-  dy_next="",
+ball_paddle_event = event:new({
+  dx_next = "",
+  dy_next = "",
 
-  side="",
-  
-  eval=function(self)
-    local ball= _players["p1"]["ball"]
-    local paddle= _players["p1"]["paddle"]
- 
+  side = "",
+
+  eval = function(self)
+    log("ball_paddle_event eval")
+    local ball = _players["p1"]["ball"]
+    local paddle = _players["p1"]["paddle"]
+
     -- sticky ball
-    if ball.state==ball.states.sticky then
+    if ball.state == ball.states.sticky then
       return false
     end
-    
-    self.dx_next=""
-    self.dy_next=""
-    self.side=""
- 
-  --  local ball_x=ball.x
-  --  local ball_y=ball.y
-  --  local ball_x2=ball_x+(ball.r*2)
-  --  local ball_y2=ball_y+(ball.r*2)
- 
-  --  local paddle_x=paddle.x
-  --  local paddle_y=paddle.y
-  --  local paddle_x2=paddle_x+paddle.w
-  --  local paddle_y2=paddle_y+paddle.h
-   
-    local tol = 0.5
-    local is_colliding, s = _col_eng:is_circle_rect_collision_side(ball, paddle, tol)
-   
-    if is_colliding then
-        --  tol, 
-        --  ball_x,
-        --  ball_x2,
-        --  ball_y,
-        --  ball_y2,
-        --  paddle_x,
-        --  paddle_x2,
-        --  paddle_y,
-        --  paddle_y2) then
-      --to deprecate
-      _col_eng.ball_paddle=true
-      self.side = s
-     
-    -- --horizontal
-    -- if near(tol,ball_y2,paddle_y) 
-    -- then
-    --  self.dy_next="up"
-    --  self.x_pos=ball_x2-paddle_x
-    --  self.y_pos=paddle_y-ball_y2
- 
-    -- elseif near(tol,ball_y,paddle_y2) 
-    -- then
-    --  self.dy_next="down"
-    --  self.x_pos=ball_x2-paddle_x
-    --  self.y_pos=ball_y-paddle_y2
-    -- end
-     
-    -- --vertical
-    -- if near(tol,ball_x,paddle_x2) 
-    -- then
-    --  self.dx_next="right"
-    --  self.x_pos=ball_x-paddle_x
-    --  self.y_pos=ball_y2-paddle_y
-    -- elseif near(tol, ball_x2,paddle_x) 
-    -- then
-    --  self.dx_next="left"
-    --  self.x_pos=paddle_x-ball_x2
-    --  self.y_pos=(ball_y+ball.r)-paddle_y
-    -- end
 
-    -- if (self.dx_next != "" or self.dy_next != "") then
-      if (self.side != "") then
+    self.dx_next = ""
+    self.dy_next = ""
+    self.side = ""
+
+    local tol = _col_eng.tol
+    local is_colliding, s = _col_eng:is_circle_rect_collision_side(ball, paddle)
+
+    if is_colliding then
+      log("ball_paddle_event collision detected")
+
+      --to deprecate
+      _col_eng.ball_paddle = true
+
+      --calculate position with respect to paddle (x,y) where the collision took place.
+
+      --horizontal
+      if s["top"] then
+        self.dy_next = "up"
+        self.side = "up"
+        self.x_pos = ball.x - paddle.x
+        self.y_pos = paddle.y - (ball.y + ball.r)
+      elseif s["bottom"] then
+        self.dy_next = "down"
+        self.side = "down"
+        self.x_pos = ball.x - paddle.x
+        self.y_pos = (ball.y-ball.r) - (paddle.y+paddle.h)
+      end
+
+      --vertical
+      if s["right"] then
+        self.dx_next = "right"
+        self.side = "right"
+        self.x_pos =  (ball.x - ball.r) - (paddle.x+paddle.w)
+        self.y_pos = ball.y - paddle.y
+      elseif s["left"] then
+        self.dx_next = "left"
+        self.side = "left"
+        self.x_pos = (ball.x + ball.r) - paddle.x
+        self.y_pos = ball.y - paddle.y
+      end
+
+        if (self.side != "") then
         paddle:on_collision()
       end
- 
+
       -- _debug_p_pos=
       --   "("..paddle.x..","..paddle.y..") "..
       --   "("..paddle_x2..","..paddle_y2..")"
@@ -90,80 +72,82 @@ ball_paddle_event=event:new({
       --   "next:("..
       --   self.dx_next..","..
       --   self.dy_next..")"
-  
+
       return true
-    else --no overlap
+    else
+      --no overlap
       --to deprecate
-      _col_eng.ball_paddle=false
+      _col_eng.ball_paddle = false
       return false
     end
   end,
-  
-  update=function(self)
-    local ball= 
-      _players["p1"]["ball"]
-    local paddle= 
-      _players["p1"]["paddle"]
- 
-    --upd ball's dx and dy  
-    ball.dx, ball.dy = 
-      self:upd_dx_dy(ball,paddle)
- 
-    _players["p1"]["combo"]=1
+
+  update = function(self)
+    local ball = _players["p1"]["ball"]
+    local paddle = _players["p1"]["paddle"]
+
+    --upd ball's dx and dy
+    ball.dx, ball.dy = self:upd_dx_dy(ball, paddle)
+
+    _players["p1"]["combo"] = 1
   end,
-  
-  upd_dx_dy=function(self,ball,paddle)
+
+  upd_dx_dy = function(self, ball, paddle)
     local new_dx = ball.dx
     local new_dy = ball.dy
- 
-    local paddle_x=paddle.x
-     
-    -- if self.dy_next=="up" then
-    if self.side=="up" then
 
-      local seg=paddle.w/6
-      new_dy=-(abs(new_dy))
-    
-      if self.x_pos<=seg then
-      new_dx=-2
-      elseif self.x_pos<=(seg*2) then
-      new_dx=-1.5
-      elseif self.x_pos<=(seg*3) then
-      new_dx=-1
-      elseif self.x_pos<=(seg*4) then
-      new_dx=1
-      elseif self.x_pos<=(seg*5) then
-      new_dx=1.5
-      else  -- self.x_pos<=(seg*6)
-      new_dx=2
+    log("upd-dx-dy pos("..self.x_pos..","..self.y_pos..")")
+
+    -- if self.dy_next=="up" then
+    if self.side == "up" then
+      log("upd-dx-dy - up")
+      local seg = paddle.w / 6
+      new_dy = -abs(new_dy)
+      
+      if self.x_pos <= seg then
+        new_dx = -2
+      elseif self.x_pos <= seg * 2 then
+        new_dx = -1.5
+      elseif self.x_pos <= seg * 3 then
+        new_dx = -1
+      elseif self.x_pos <= seg * 4 then
+        new_dx = 1
+      elseif self.x_pos <= seg * 5 then
+        new_dx = 1.5
+      else
+        -- self.x_pos<=(seg*6)
+        new_dx = 2
       end
-    
-    -- elseif self.dy_next=="down" then
-    elseif self.side=="down" then
-      new_dx = -1*(abs(new_dx))
-      new_dy= (abs(new_dy))
-    -- side hit gives extra speed 
-    -- elseif self.dx_next=="left" then
-    elseif self.side=="left" then
-      new_dx=-2.5
-      new_dy=-1*(abs(new_dy))
-    -- elseif self.dx_next=="right" then
-    elseif self.side=="right" then
-      new_dx=2.5
-      new_dy=-1*(abs(new_dy))
-    end 
- 
-   self.dx_next=""
-   self.dy_next=""
-   return new_dx, next_dy
+
+      -- elseif self.dy_next=="down" then
+    elseif self.side == "down" then
+      log("upd-dx-dy - down")
+      new_dx = -1 * abs(new_dx)
+      new_dy = abs(new_dy)
+      -- side hit gives extra speed
+      -- elseif self.dx_next=="left" then
+    elseif self.side == "left" then
+      log("upd-dx-dy - left")
+      new_dx = -2.5
+      new_dy = -1 * abs(new_dy)
+      -- elseif self.dx_next=="right" then
+    elseif self.side == "right" then
+      log("upd-dx-dy - right")
+      new_dx = 2.5
+      new_dy = -1 * abs(new_dy)
+    end
+
+    self.dx_next = ""
+    self.dy_next = ""
+    log("upd-dx-dy new(x,y)=("..new_dx..","..new_dy..")")
+    return new_dx, new_dy
   end,
-   
-  to_string=function(self)
+
+  to_string = function(self)
     return "ball_paddle_event\n"
-     --event:string(self)..
-     .." n(x,y):("
-     ..tostr(self.dx_next)..","
-     ..tostr(self.dy_next)..")"
+        --event:string(self)..
+        .. " n(x,y):("
+        .. tostr(self.dx_next) .. ","
+        .. tostr(self.dy_next) .. ")"
   end
- })
- 
+})
