@@ -1,5 +1,9 @@
 -- utils
 
+
+function is_empty(str) 
+    return str == nil or str == ""
+end
 -- save copied tables in `copies`, indexed by original table.
 function deepcopy(orig, copies)
     copies = copies or {}

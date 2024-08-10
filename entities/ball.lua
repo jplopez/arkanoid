@@ -1,9 +1,4 @@
 -- ball
-_ball_states = {
-  idle = "idle",
-  move = "move",
-  sticky = "sticky"
-}
 
 ball = class:new({
   x = _screen_left, 
@@ -13,19 +8,19 @@ ball = class:new({
   r = 2,
   clr = 8,
 
-  state = _ball_states.idle,
-
   update = function(self)
 
-    if self.state == _ball_states.sticky then
+    -- if self.state == _ball_states.sticky then
+      if self:is_state("sticky") then
       if btn(5) then
-        self.state = _ball_states.move
+        self:state("move") -- = _ball_states.move
       else 
         self:serve()
       end
     end
 
-    if self.state == _ball_states.move then
+    -- if self.state == _ball_states.move then
+    if self:is_state("move") then
       self.x += self.dx
       self.y += self.dy
     end
@@ -44,6 +39,8 @@ ball = class:new({
     self.y = p.y - (self.r*2)
     self.dx = 0.5
     self.dy = -1
-    self.state = _ball_states.sticky
+    --self.state = _ball_states.sticky
+    self:state("sticky")
   end
 })
+

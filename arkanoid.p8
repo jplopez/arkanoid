@@ -4,17 +4,24 @@ __lua__
 
 #include globals.lua
 
-#include entities/class.lua
+-- Core functions and utilities
+#include core/class.lua
+#include core/log.lua
+#include core/collision_engine.lua
+#include core/state_machine.lua
+#include core/utils/timers.lua
+#include core/utils/utils.lua
+
+-- TODO deprecate
+#include core/col_eng.lua
+
+-- Entities
 #include entities/paddle.lua
 #include entities/ball.lua
 #include entities/brick.lua
 #include entities/level.lua
---#include entities/powerup.lua
 
-#include utilities/timers.lua
-#include utilities/utils.lua
-#include utilities/log.lua
-
+-- Game States
 #include states/init.lua
 #include states/start.lua
 #include states/game.lua
@@ -22,16 +29,14 @@ __lua__
 #include states/levelup.lua
 #include states/bonus.lua
 
-#include utilities/timers.lua
-#include utilities/utils.lua
-#include utilities/log.lua
-
+-- TODO deprecate
 #include handlers/event.lua
-#include handlers/ball_loose_event.lua
-#include handlers/powerup_event.lua
-#include handlers/collisions/ball_paddle_event.lua
-#include handlers/collisions/ball_screen_event.lua
 #include handlers/collisions/brick_ball_event.lua
+
+-- collision handlers
+#include collisions/paddle_collision_handler.lua
+#include collisions/ball_collision_handler.lua
+
 
 -------------
 --game loop
@@ -69,7 +74,8 @@ end
 -- for reasons beyond my understanding
 -- this include only works when placed
 -- after the game loop functions
-#include entities/col_eng.lua
+-- TODO deprecate
+#include core/col_eng.lua
 
 __gfx__
 00000000077007700000000000000000000000000700070007000500050005000ddddd000ddddd000ddddd000ddddd000ddddd000ddddd000ddddd000ddddd00

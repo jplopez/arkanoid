@@ -5,9 +5,9 @@ col_eng = class:new({
 
   --collition events type
   event_types = {
-    ball_paddle_event,
-    ball_screen_event,
-    ball_loose_event,
+    --ball_paddle_event,
+    --ball_screen_event,
+    --ball_loose_event,
     brick_ball_event
   },
 

@@ -7,9 +7,14 @@ function init_players()
         dy = 0.51, --+rnd(2),
         clr = rnd(_pals.ball)
     })
+    add_states(_players["p1"]["ball"], 
+        {"idle", "move", "sticky"})
+
     _players["p1"]["paddle"] = paddle:new({
         clr = rnd(_pals.paddle)
     })
+    add_states(_players["p1"]["paddle"], 
+        {"idle", "move", "hit"})
 
     _players["p1"]["score"] = 0
     _players["p1"]["level"] = 1
@@ -25,6 +30,16 @@ function init_objects()
 
     --collision engine
     _col_eng = col_eng:new()
+
+    --collision enginve v2
+    _col_eng_v2 = collision_engine:new(2)
+    _col_eng_v2:add_circle_rect("paddle", 
+            _players["p1"]["ball"],
+            _players["p1"]["paddle"],
+            paddle_ball_collision_handler)
+    _col_eng_v2:add_circle_screen("ball", 
+            _players["p1"]["ball"],
+            ball_screen_collision_handler)
 
     --initial state
     _state = _init_state

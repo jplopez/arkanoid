@@ -9,6 +9,10 @@ function update_game()
 
   --apply changes to objects
   _col_eng:update(_col_eng)
+
+  --collision engine v2
+  _col_eng_v2:update()
+
   _players["p1"]["ball"]:update()
   _players["p1"]["paddle"]:update()
 
