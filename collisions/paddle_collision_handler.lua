@@ -39,29 +39,44 @@ paddle_ball_collision_handler = collision_handler:new({
   end,
 
   handle_top_bounce=function(self, ball, paddle)
-    local x_pos = ball.x-paddle.x
-    local seg = paddle.w / 6
+
+    log("\n\npaddle bounce: ball(dx,dy)=("..ball.dx..","..ball.dy..")")
+    local x_pos = flr(ball.x-paddle.x)
+    local seg = flr(paddle.w / 6)
     --log("x_pos "..x_pos.." seg "..seg)
-    local dy_f = 0.5
+    local dy_f = 0.7
+    log("x_pos "..x_pos)
+    log("total seg "..seg)
 
-    ball.dy = -abs(ball.dy) 
-
-    if x_pos <= seg then
-      ball.dx = -1 * mid(1.5, 1.5+rnd(2), 2)
-    elseif x_pos <= seg * 2 then
-      ball.dx = -1 * mid(1, 1 + rnd(2), 1.5)
-    elseif x_pos <= seg * 3 then
-      ball.dx = -1 * mid(0.5, 0.5 + rnd(1) + 1)
-      ball.dy -= self.ball_dy_acc 
-    elseif x_pos <= seg * 4 then
-      ball.dx = mid(0.5, 0.5 + rnd(1) + 1)
-      ball.dy -= self.ball_dy_acc 
-    elseif x_pos <= seg * 5 then
-      ball.dx = mid(1, 1 + rnd(2), 1.5)
-    else
-      -- self.x_pos<=(seg*6)
-      ball.dx = mid(1.5, 1.5+rnd(2), 2)
+    ball.dy = -(abs(ball.dy) + rnd(dy_f/10))
+    log("new dy "..ball.dy)
+    for i=1,6 do
+      if (x_pos <= i*seg and x_pos > (i-1)*seg) then
+        if i <= 3 then
+          ball.dx = -((4-i)*dy_f)
+        else
+          ball.dx = (i-3)*dy_f
+        end
+        log("seg "..i.." new dx:"..ball.dx)
+      end
     end
+
+    -- if x_pos <= seg then
+    --   ball.dx = -1 * mid(1.7, 1.7+rnd(2.1), 2.1)
+    -- elseif x_pos <= seg * 2 then
+    --   ball.dx = -1 * mid(1, 1.1 + rnd(2), 1.1)
+    -- elseif x_pos <= seg * 3 then
+    --   ball.dx = -1 * mid(0.7, 0.7 + rnd(1.1) + 1.1)
+    --   ball.dy -= self.ball_dy_acc 
+    -- elseif x_pos <= seg * 4 then
+    --   ball.dx = mid(0.7, 0.7 + rnd(1.1) + 1.1)
+    --   ball.dy -= self.ball_dy_acc 
+    -- elseif x_pos <= seg * 5 then
+    --   ball.dx = mid(1.1, 1.1 + rnd(1.7), 1.7)
+    -- else
+    --   -- self.x_pos<=(seg*6)
+    --   ball.dx = mid(1.7, 1.7+rnd(2.1), 2.1)
+    -- end
 
   end
 })
