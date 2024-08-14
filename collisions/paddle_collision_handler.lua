@@ -7,6 +7,9 @@ paddle_ball_collision_handler = collision_handler:new({
 
   handle=function(self, ball, paddle)
 
+    --paddle resets current combo
+    _players["p1"]["combo"]=1
+
     local top_dist = abs(paddle.y - (ball.y+ball.r))
     local bot_dist = abs((ball.y-ball.r) - (paddle.y+paddle.h))
     local left_dist = abs(paddle.x - (ball.x+ball.r))
@@ -32,13 +35,14 @@ paddle_ball_collision_handler = collision_handler:new({
       ball.dx = -2.5
       ball.dy = -abs(ball.dy) 
     end
+
   end,
 
   handle_top_bounce=function(self, ball, paddle)
     local x_pos = ball.x-paddle.x
     local seg = paddle.w / 6
     --log("x_pos "..x_pos.." seg "..seg)
-    local dy_f = 0.05
+    local dy_f = 0.5
 
     ball.dy = -abs(ball.dy) 
 

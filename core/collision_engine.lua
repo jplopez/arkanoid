@@ -121,16 +121,16 @@ collision_engine = class:new({
     if collision then
       local tol = circle.r + self.tolerance
       --left
-      if rec.x - circle.x <= tol then
+      if abs(rec.x - circle.x) <= tol then
         side = _left
       --end
       --right
-      elseif circle.x  - (rec.x+rec.w) <= tol then
+      elseif abs(circle.x  - (rec.x+rec.w)) <= tol then
         side = _right
       end
 
       -- top and top corners
-      if rec.y - circle.y <= tol then
+      if abs(rec.y - circle.y) <= tol then
         if side == _left then
           side = _top_left
         elseif side == _right then
@@ -140,7 +140,7 @@ collision_engine = class:new({
         end
       --end
       -- bottom and bottom corners
-      elseif circle.y - (rec.y+rec.h) <= tol then
+      elseif abs(circle.y - (rec.y+rec.h)) <= tol then
         if side == _left then
           side = _bottom_left
         elseif side == _right then

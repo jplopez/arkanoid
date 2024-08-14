@@ -169,7 +169,7 @@ _lvl_def = {}
 -- }
 
 --level1
-_lvl_def[4] = {
+_lvl_def[1] = {
   nil_line(),
   { nil, nil, nil, nil, nil, brick, brick, brick, brick, brick, nil, nil, nil, nil, nil },
   { nil, nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil, nil },
@@ -211,7 +211,7 @@ _lvl_def[3] = {
 }
 
 --level4
-_lvl_def[1] = {
+_lvl_def[4] = {
   nil_line(),
   nil_line(),
   { nil, nil, nil, god_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, god_brick, nil, nil, nil },

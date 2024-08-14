@@ -58,6 +58,7 @@ brick = class:new({
 
     local combo = mid(1,_players["p1"]["combo"]+1,7)
     sfx(10 + combo)
+    log("brick hit! combo:"..combo)
     _players["p1"]["combo"]=combo
   
     --score
