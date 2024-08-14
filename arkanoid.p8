@@ -12,9 +12,6 @@ __lua__
 #include core/utils/timers.lua
 #include core/utils/utils.lua
 
--- TODO deprecate
-#include core/col_eng.lua
-
 -- Entities
 #include entities/paddle.lua
 #include entities/ball.lua
@@ -29,13 +26,11 @@ __lua__
 #include states/levelup.lua
 #include states/bonus.lua
 
--- TODO deprecate
-#include handlers/event.lua
-#include handlers/collisions/brick_ball_event.lua
 
 -- collision handlers
 #include collisions/paddle_collision_handler.lua
 #include collisions/ball_collision_handler.lua
+#include collisions/brick_collision_handler.lua
 
 
 -------------
@@ -46,21 +41,19 @@ function _init()
   cls()
   init_players()
   init_objects()
-  log("init level " .. _players["p1"]["level"])
+  log("Game State:'".. _state.. 
+      "'\n  level " .. _players["p1"]["level"])
 end
 
 -- called every frame
 function _update60()
-  -- log("begin update60 level " .. _players["p1"]["level"])
-  -- log("begin update60 state " .. _state)
+  log("Update - state '".. _state.. 
+      "' - level " .. _players["p1"]["level"])
 
   if (_state == "start") update_start()
   if (_state == "game") update_game()
   if (_state == "gameover") update_gameover()
   if (_state == "levelup") update_levelup()
-
-  log("end update60 level " .. _players["p1"]["level"])
-  log("end update60 state " .. _state)
 end
 
 -- called every frame
@@ -71,11 +64,6 @@ function _draw()
   if (_state == "levelup") draw_levelup()
 end
 
--- for reasons beyond my understanding
--- this include only works when placed
--- after the game loop functions
--- TODO deprecate
-#include core/col_eng.lua
 
 __gfx__
 00000000077007700000000000000000000000000700070007000500050005000ddddd000ddddd000ddddd000ddddd000ddddd000ddddd000ddddd000ddddd00

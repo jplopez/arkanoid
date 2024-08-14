@@ -4,11 +4,8 @@ serve_countdown = 10
 cur_countdown = 0
 
 function update_game()
-  log("update_game begin ")
+  --log("update_game begin ")
   _cur_lvl:update()
-
-  --apply changes to objects
-  _col_eng:update(_col_eng)
 
   --collision engine v2
   _col_eng_v2:update()
@@ -17,13 +14,11 @@ function update_game()
   _players["p1"]["paddle"]:update()
 
   if _cur_lvl.br_left <= 0 then
-    log("update_game levelup")
+    log("Game state: game -> levelup")
     _state = "levelup"
   end
 
   update_bonus()
-
-  log("update_game end ")
 
   -- serve ball, loose a serve count.
   if cur_countdown == 0 then
@@ -71,7 +66,6 @@ function draw_game_level()
   --level bricks
   _cur_lvl:draw()
 
-  --powerup_event:draw()
 end
 
 function draw_game_ui()

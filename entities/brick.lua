@@ -83,11 +83,112 @@ brick = class:new({
     return self.state == _brick_states.hidden
   end,
 
-  __eq=function(self, b)
-    if b==nil then return false end
-    return self.x == b.x and self.y == b.y 
-        and self.clr == b.clr
-        and self.w == b.w and self.h == b.h
+  -- __eq=function(self, b)
+  --   if b==nil then return false end
+  --   return self.x == b.x and self.y == b.y 
+  --       and self.clr == b.clr
+  --       and self.w == b.w and self.h == b.h
+  -- end,
+
+  left_of=function(self, other)
+    return (self != other) 
+        and (self.x+self.w)==other.x 
+        and (self.y == other.y)
+  end,
+
+  right_of=function(self, other)
+    return other:left_of(self)
+  end,
+
+  top_of=function(self,other)
+    return (self != other) 
+        and (self.y+self.h) == other.y
+        and (self.x == other.x)
+  end,
+
+  bottom_of=function(self,other)
+    return other:top_of(self)
+  end,
+
+  next_of=function(self, other)
+    return self:left_of(other) or
+      self:right_of(other) or
+      self:top_of(other) or
+      self:bottom_of(other)
+  end,
+
+  union=function(self, other)
+    if(other==nil) return self
+  
+    local new_x = min(self.x, other.x)
+    local new_y = min(self.y, other.y)
+    local new_w = max(self.x+self.w, other.x+other.w) - new_x
+    local new_h = max(self.y+self.h, other.y+other.h) - new_y
+    -- log("brick.union self=("..self.x..","..self.y..","..self.w..","..self.h..")\n"
+    --   .."            other=("..other.x..","..other.y..","..other.w..","..other.h..")\n"
+    --   .."            self+other=("..new_x..","..new_y..","..new_w..","..new_h..")")
+
+    self.x = new_x
+    self.y = new_y
+    self.w = new_w
+    self.h = new_h
+    return self
+  end,
+
+  equals=function(this, other, skip_color)
+    if(other==nil) return false
+    local color = this.clr == other.clr
+    if(skip_color) color=true
+
+    return this.x == other.x and this.y == other.y 
+        and this.w == other.w and this.h == other.h
+        and color
+  end
+
+})
+
+composite_brick = brick:new({
+  bricks = {},
+
+  new=function(self,other)
+    tbl = brick.new(self,other)
+    tbl.bricks = {}
+    return tbl
+  end,
+
+  union=function(self, other)
+    if(other!=nil) then
+      if #self.bricks==0 then
+        self.x = other.x
+        self.y = other.y
+        self.w = other.w
+        self.h = other.h
+        self.clr = other.clr
+        self.state = other.state
+      else
+        self = brick.union(self,other)
+      end
+      add(self.bricks, other)
+    end
+    log("brick.union self=("..self.x..","..self.y..","..self.w..","..self.h..")")
+    log("brick union bricks: "..#self.bricks)
+    return self
+  end,
+
+  on_collision=function(self)
+    for br in all(self.bricks) do
+      br:on_collision()
+    end
+  end,
+
+  hidden_count=function(self)
+    local count = 0
+    for br in all(self.bricks) do
+      if not br:visible() then
+        count+=1
+      end
+    end
+    return count
   end
 
 })

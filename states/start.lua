@@ -9,7 +9,7 @@ end
 function update_start()
   local t = _timers["start_timer"]
   if t.active then
-    log("start_timer " .. tostr(t.length))
+    --log("start_timer " .. tostr(t.length))
     t:update()
   else
     if btn(5) then
@@ -21,17 +21,12 @@ end
 
 function startgame(l)
   l = l or 1
-
-  log("startgame " .. tostr(l))
  
   -- reset paddle and ball
   local p = _players["p1"]["paddle"]
   local b = _players["p1"]["ball"]
 
   p:init()
-  -- p.x = 64 - p.w / 2
-  -- p.dx = 4
-  -- p.state = "idle"
   b:serve()
 
   -- reset player data
@@ -42,7 +37,7 @@ function startgame(l)
   init_bonus()
 
   _cur_lvl:init(l)
-
+  log("Game state: start -> game - level: "..tostr(l))
   _state = "game"
 
 end

@@ -4,7 +4,7 @@ collision_handler = class:new({
 
 collision_engine = class:new({
   
-  tolerance = 2,
+  tolerance = 1,
   collisions = {},
 
   new = function(self, tolerance)
@@ -63,7 +63,7 @@ collision_engine = class:new({
   end,
 
   add_circle_screen = function(self, key, circle, handler)
-    log("collision engine add circle_screen")
+    --log("collision engine add circle_screen")
     self:add_collision(key, "circle_screen", circle, nil, handler)
   end,
 
@@ -95,37 +95,60 @@ collision_engine = class:new({
     local right_dist = (_screen_right - (circle.x+circle.r)) <= self.tolerance
 
     local side = nil
-    if(top_dist) side="top"
-    if(bot_dist) side="bottom"
-    if(left_dist) side="left"
-    if(right_dist) side="right"
+    if(top_dist) side=_top
+    if(bot_dist) side=_bottom
+    if(left_dist) side=_left
+    if(right_dist) side=_right
     return side!=nil, side
   end,
 
   is_circle_rect_colliding = function(self, circle, rec)
+    local col, side = self:is_circle_rect_collision_side(circle, rec)
+    return col
+  end,
+
+  is_circle_rect_collision_side = function(self, circle, rec)
     local closest_x = mid(rec.x, circle.x, rec.x + rec.w)
     local closest_y = mid(rec.y, circle.y, rec.y + rec.h)
 
     local dx = circle.x - closest_x
     local dy = circle.y - closest_y
 
-    return dx * dx + dy * dy < (circle.r + self.tolerance) * (circle.r + self.tolerance)
-  end,
-
-  is_circle_rect_collision_side = function(self, circle, rec)
-    local collision = self:is_circle_rect_colliding(circle, rec)
-    local side = {
-      left = false,
-      right = false,
-      top = false,
-      bottom = false
-    }
+    local collision = dx * dx + dy * dy < (circle.r + self.tolerance) * (circle.r + self.tolerance)
+    
+    --determine side of collision in rect
+    local side = nil
     if collision then
-      -- determine the side of collision
-      side["left"] = (abs((circle.x + circle.r) - rec.x)) <= self.tolerance
-      side["right"] = (abs((circle.x - circle.r) - (rec.x + rec.w))) <= self.tolerance
-      side["top"] = (abs((circle.y + circle.r) - rec.y)) <= self.tolerance
-      side["bottom"] = (abs((circle.y - circle.r )- (rec.y + rec.h))) <= self.tolerance
+      local tol = circle.r + self.tolerance
+      --left
+      if rec.x - circle.x <= tol then
+        side = _left
+      --end
+      --right
+      elseif circle.x  - (rec.x+rec.w) <= tol then
+        side = _right
+      end
+
+      -- top and top corners
+      if rec.y - circle.y <= tol then
+        if side == _left then
+          side = _top_left
+        elseif side == _right then
+          side = _top_right
+        else
+          side = _top 
+        end
+      --end
+      -- bottom and bottom corners
+      elseif circle.y - (rec.y+rec.h) <= tol then
+        if side == _left then
+          side = _bottom_left
+        elseif side == _right then
+          side = _bottom_right
+        else
+          side = _bottom
+        end
+      end
     end
     return collision, side
   end,

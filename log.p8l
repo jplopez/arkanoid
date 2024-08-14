@@ -1,4021 +1,2562 @@
- Init Game 0.0333
- collision engine add circle_screen
- init level 1
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- end update60 level 1
- end update60 state start
- start_timer 30
- startgame 1
- begin level init 1
- end level init 1
-  br_count 63 br_left 50
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- paddle ball dists min:1
- top, bot, left, right 1,8,17.5,76.5
- x_pos 15.5 seg 4
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- paddle ball dists min:1
- top, bot, left, right 1,8,23.5,27.5
- x_pos 21.5 seg 4
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side right
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side right
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- paddle ball dists min:1
- top, bot, left, right 1,8,23.5,27.5
- x_pos 21.5 seg 4
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side right
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side top
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side left
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side right
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- paddle ball dists min:1
- top, bot, left, right 1,8,23.5,27.5
- x_pos 21.5 seg 4
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- ball screen side right
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
- update_game begin 
- brick_ball eval 
- update_game end 
- end update60 level 1
- end update60 state game
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ [10,11] NIL
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,11] NIL
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [10,12] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [9,12] OOR
+ [9,13] NIL
+ [9,14] NIL
+ [10,12] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [9,12] OOR
+ [9,13] NIL
+ [9,14] NIL
+ [10,12] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [9,12] OOR
+ [9,13] NIL
+ [9,14] NIL
+ [10,12] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [9,12] OOR
+ [9,13] NIL
+ [9,14] NIL
+ [10,12] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [9,13] NIL
+ [9,14] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ [10,13] NIL
+ [10,14] NIL
+ Update - state 'game' - level 1
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ Update - state 'game' - level 1
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ Update - state 'game' - level 1
+ [7,13] NIL
+ [7,14] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ Update - state 'game' - level 1
+ [7,13] NIL
+ [7,14] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ Update - state 'game' - level 1
+ [7,13] NIL
+ [7,14] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [9,13] NIL
+ [9,14] NIL
+ Update - state 'game' - level 1
+ [7,13] NIL
+ [7,14] NIL
+ [7,15] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [8,15] NIL
+ Update - state 'game' - level 1
+ [7,13] NIL
+ [7,14] NIL
+ [7,15] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [8,15] NIL
+ Update - state 'game' - level 1
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,13] NIL
+ [7,14] NIL
+ [7,15] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [8,15] NIL
+ Update - state 'game' - level 1
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,13] NIL
+ [7,14] NIL
+ [7,15] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [8,15] NIL
+ Update - state 'game' - level 1
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,13] NIL
+ [7,14] NIL
+ [7,15] NIL
+ [8,13] NIL
+ [8,14] NIL
+ [8,15] NIL
+ Update - state 'game' - level 1
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,13] NIL
+ [7,14] NIL
+ [7,15] NIL
+ Update - state 'game' - level 1
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,13] NIL
+ [7,14] NIL
+ [7,15] NIL
+ Update - state 'game' - level 1
+ [5,14] NIL
+ [5,15] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,14] NIL
+ [7,15] NIL
+ Update - state 'game' - level 1
+ [5,14] NIL
+ [5,15] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,14] NIL
+ [7,15] NIL
+ Update - state 'game' - level 1
+ [5,14] NIL
+ [5,15] NIL
+ [6,14] NIL
+ [6,15] NIL
+ [7,14] NIL
+ [7,15] NIL
+ Update - state 'game' - level 1
+ [5,14] NIL
+ [5,15] NIL
+ [6,14] NIL
+ [6,15] NIL
+ Update - state 'game' - level 1
+ [5,14] NIL
+ [5,15] NIL
+ [6,14] NIL
+ [6,15] NIL
+ Update - state 'game' - level 1
+ [4,13] NIL
+ [4,14] NIL
+ [4,15] NIL
+ [5,13] NIL
+ [5,14] NIL
+ [5,15] NIL
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ Update - state 'game' - level 1
+ [4,13] NIL
+ [4,14] NIL
+ [4,15] NIL
+ [5,13] NIL
+ [5,14] NIL
+ [5,15] NIL
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ Update - state 'game' - level 1
+ [4,13] NIL
+ [4,14] NIL
+ [4,15] NIL
+ [5,13] NIL
+ [5,14] NIL
+ [5,15] NIL
+ [6,13] NIL
+ [6,14] NIL
+ [6,15] NIL
+ Update - state 'game' - level 1
+ [4,13] NIL
+ [4,14] NIL
+ [4,15] NIL
+ [5,13] NIL
+ [5,14] NIL
+ [5,15] NIL
+ Update - state 'game' - level 1
+ [4,13] NIL
+ [4,14] NIL
+ [4,15] NIL
+ [5,13] NIL
+ [5,14] NIL
+ [5,15] NIL
+ Update - state 'game' - level 1
+ [3,13] NIL
+ [3,14] NIL
+ [3,15] NIL
+ [4,13] NIL
+ [4,14] NIL
+ [4,15] NIL
+ [5,13] NIL
+ [5,14] NIL
+ [5,15] NIL
+ Update - state 'game' - level 1
+ [3,13] NIL
+ [3,14] NIL
+ [3,15] NIL
+ [4,13] NIL
+ [4,14] NIL
+ [4,15] NIL
+ [5,13] NIL
+ [5,14] NIL
+ [5,15] NIL
+ Update - state 'game' - level 1
+ [3,13] NIL
+ [3,14] NIL
+ [4,13] NIL
+ [4,14] NIL
+ [5,13] NIL
+ [5,14] NIL
+ Update - state 'game' - level 1
+ [3,13] NIL
+ [3,14] NIL
+ [4,13] NIL
+ [4,14] NIL
+ Update - state 'game' - level 1
+ [3,13] NIL
+ [3,14] NIL
+ [4,13] NIL
+ [4,14] NIL
+ Update - state 'game' - level 1
+ [2,13] NIL
+ [2,14] NIL
+ [3,13] NIL
+ [3,14] NIL
+ [4,13] NIL
+ [4,14] NIL
+ Update - state 'game' - level 1
+ [2,13] NIL
+ [2,14] NIL
+ [3,13] NIL
+ [3,14] NIL
+ [4,13] NIL
+ [4,14] NIL
+ Update - state 'game' - level 1
+ [2,13] NIL
+ [2,14] NIL
+ [3,13] NIL
+ [3,14] NIL
+ [4,13] NIL
+ [4,14] NIL
+ Update - state 'game' - level 1
+ [2,13] NIL
+ [2,14] NIL
+ [3,13] NIL
+ [3,14] NIL
+ Update - state 'game' - level 1
+ [2,13] NIL
+ [2,14] NIL
+ [3,13] NIL
+ [3,14] NIL
+ Update - state 'game' - level 1
+ [1,13] NIL
+ [1,14] NIL
+ [2,13] NIL
+ [2,14] NIL
+ [3,13] NIL
+ [3,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [1,14] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [2,14] NIL
+ [3,12] OOR
+ [3,13] NIL
+ [3,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [1,14] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [2,14] NIL
+ [3,12] OOR
+ [3,13] NIL
+ [3,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [1,14] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [2,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [1,14] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [2,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [1,14] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [2,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [1,14] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [2,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [1,14] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [2,14] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [3,12] OOR
+ [3,13] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [3,12] OOR
+ [3,13] NIL
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [3,12] OOR
+ [3,13] NIL
+ Update - state 'game' - level 1
+ [2,12] NIL
+ [2,13] NIL
+ [3,12] COL
+ brick.union self=(92,27,8,5)
+ brick union bricks: 1
+ [3,13] NIL
+ is_circle_rect_collision_side
+ ball(x,y) (102.5,24)
+ bb  (x,y,w,h) (92,27,8,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,12] NIL
+ [1,13] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [3,12] OOR
+ [3,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [1,13] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [3,11] OOR
+ [3,12] OOR
+ [3,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [1,13] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [2,13] NIL
+ [3,11] OOR
+ [3,12] OOR
+ [3,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [1,13] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [1,13] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [1,13] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [1,13] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [1,13] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [2,13] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [3,11] OOR
+ [3,12] OOR
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [3,11] OOR
+ [3,12] OOR
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [3,11] OOR
+ [3,12] OOR
+ Update - state 'game' - level 1
+ [2,11] NIL
+ [2,12] NIL
+ [3,11] COL
+ brick.union self=(84,27,8,5)
+ brick union bricks: 1
+ [3,12] COL
+ brick.union self=(84,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (94.5,24)
+ bb  (x,y,w,h) (84,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,11] NIL
+ [1,12] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [3,11] OOR
+ [3,12] OOR
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [1,12] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [3,10] OOR
+ [3,11] OOR
+ [3,12] OOR
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [1,12] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [2,12] NIL
+ [3,10] OOR
+ [3,11] OOR
+ [3,12] OOR
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [1,12] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [1,12] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [1,12] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [1,12] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [1,12] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [2,12] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [3,10] OOR
+ [3,11] OOR
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [3,10] OOR
+ [3,11] OOR
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [3,10] OOR
+ [3,11] OOR
+ Update - state 'game' - level 1
+ [2,10] NIL
+ [2,11] NIL
+ [3,10] COL
+ brick.union self=(76,27,8,5)
+ brick union bricks: 1
+ [3,11] COL
+ brick.union self=(76,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (86.5,24)
+ bb  (x,y,w,h) (76,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,10] NIL
+ [1,11] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [3,10] OOR
+ [3,11] OOR
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [1,11] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [3,9] OOR
+ [3,10] OOR
+ [3,11] OOR
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [1,11] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [2,11] NIL
+ [3,9] OOR
+ [3,10] OOR
+ [3,11] OOR
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [1,11] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [1,11] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [1,11] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [1,11] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [1,11] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [2,11] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [3,9] OOR
+ [3,10] OOR
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [3,9] OOR
+ [3,10] OOR
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [3,9] OOR
+ [3,10] OOR
+ Update - state 'game' - level 1
+ [2,9] NIL
+ [2,10] NIL
+ [3,9] COL
+ brick.union self=(68,27,8,5)
+ brick union bricks: 1
+ [3,10] COL
+ brick.union self=(68,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (78.5,24)
+ bb  (x,y,w,h) (68,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,9] NIL
+ [1,10] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [3,9] OOR
+ [3,10] OOR
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [1,10] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [3,8] OOR
+ [3,9] OOR
+ [3,10] OOR
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [1,10] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [2,10] NIL
+ [3,8] OOR
+ [3,9] OOR
+ [3,10] OOR
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [1,10] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [1,10] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [1,10] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [1,10] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [1,10] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [2,10] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [3,8] OOR
+ [3,9] OOR
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [3,8] OOR
+ [3,9] OOR
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [3,8] OOR
+ [3,9] OOR
+ Update - state 'game' - level 1
+ [2,8] NIL
+ [2,9] NIL
+ [3,8] COL
+ brick.union self=(60,27,8,5)
+ brick union bricks: 1
+ [3,9] COL
+ brick.union self=(60,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (70.5,24)
+ bb  (x,y,w,h) (60,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,8] NIL
+ [1,9] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [3,8] OOR
+ [3,9] OOR
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [1,9] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [3,7] OOR
+ [3,8] OOR
+ [3,9] OOR
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [1,9] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [2,9] NIL
+ [3,7] OOR
+ [3,8] OOR
+ [3,9] OOR
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [1,9] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [1,9] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [1,9] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [1,9] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [1,9] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [2,9] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [3,7] OOR
+ [3,8] OOR
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [3,7] OOR
+ [3,8] OOR
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [3,7] OOR
+ [3,8] OOR
+ Update - state 'game' - level 1
+ [2,7] NIL
+ [2,8] NIL
+ [3,7] COL
+ brick.union self=(52,27,8,5)
+ brick union bricks: 1
+ [3,8] COL
+ brick.union self=(52,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (62.5,24)
+ bb  (x,y,w,h) (52,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,7] NIL
+ [1,8] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [3,7] OOR
+ [3,8] OOR
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [1,8] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [3,6] OOR
+ [3,7] OOR
+ [3,8] OOR
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [1,8] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [2,8] NIL
+ [3,6] OOR
+ [3,7] OOR
+ [3,8] OOR
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [1,8] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [1,8] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [1,8] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [1,8] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [1,8] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [2,8] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [3,6] OOR
+ [3,7] OOR
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [3,6] OOR
+ [3,7] OOR
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [3,6] OOR
+ [3,7] OOR
+ Update - state 'game' - level 1
+ [2,6] NIL
+ [2,7] NIL
+ [3,6] COL
+ brick.union self=(44,27,8,5)
+ brick union bricks: 1
+ [3,7] COL
+ brick.union self=(44,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (54.5,24)
+ bb  (x,y,w,h) (44,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,6] NIL
+ [1,7] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [3,6] OOR
+ [3,7] OOR
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [1,7] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [3,5] OOR
+ [3,6] OOR
+ [3,7] OOR
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [1,7] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [2,7] NIL
+ [3,5] OOR
+ [3,6] OOR
+ [3,7] OOR
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [1,7] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [1,7] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [1,7] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [1,7] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [1,7] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [2,7] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [3,5] OOR
+ [3,6] OOR
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [3,5] OOR
+ [3,6] OOR
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [3,5] OOR
+ [3,6] OOR
+ Update - state 'game' - level 1
+ [2,5] NIL
+ [2,6] NIL
+ [3,5] COL
+ brick.union self=(36,27,8,5)
+ brick union bricks: 1
+ [3,6] COL
+ brick.union self=(36,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (46.5,24)
+ bb  (x,y,w,h) (36,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,5] NIL
+ [1,6] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [3,5] OOR
+ [3,6] OOR
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [1,6] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [3,4] OOR
+ [3,5] OOR
+ [3,6] OOR
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [1,6] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [2,6] NIL
+ [3,4] OOR
+ [3,5] OOR
+ [3,6] OOR
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [1,6] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [1,6] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [1,6] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [1,6] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [1,6] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [2,6] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [3,4] OOR
+ [3,5] OOR
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [3,4] OOR
+ [3,5] OOR
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [3,4] OOR
+ [3,5] OOR
+ Update - state 'game' - level 1
+ [2,4] NIL
+ [2,5] NIL
+ [3,4] COL
+ brick.union self=(28,27,8,5)
+ brick union bricks: 1
+ [3,5] COL
+ brick.union self=(28,27,16,5)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (38.5,24)
+ bb  (x,y,w,h) (28,27,16,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,4] NIL
+ [1,5] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [3,4] OOR
+ [3,5] OOR
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [1,5] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [3,3] NIL
+ [3,4] OOR
+ [3,5] OOR
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [1,5] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [2,5] NIL
+ [3,3] NIL
+ [3,4] OOR
+ [3,5] OOR
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [1,5] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [1,5] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [1,5] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [1,5] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [1,5] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [2,5] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [3,3] NIL
+ [3,4] OOR
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [3,3] NIL
+ [3,4] OOR
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [3,3] NIL
+ [3,4] OOR
+ Update - state 'game' - level 1
+ [2,3] NIL
+ [2,4] NIL
+ [3,3] NIL
+ [3,4] COL
+ brick.union self=(28,27,8,5)
+ brick union bricks: 1
+ is_circle_rect_collision_side
+ ball(x,y) (30.5,24)
+ bb  (x,y,w,h) (28,27,8,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-0.5,1)
+ Update - state 'game' - level 1
+ [1,3] NIL
+ [1,4] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [3,3] NIL
+ [3,4] OOR
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [1,4] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [3,4] OOR
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [1,4] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [2,4] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [3,4] OOR
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [1,4] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [1,4] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [1,4] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [1,4] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [1,4] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [2,4] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [2,2] NIL
+ [2,3] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [2,2] NIL
+ [2,3] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [4,3] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [4,3] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [4,3] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [4,3] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [4,3] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [4,3] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [5,3] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [4,3] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [5,3] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [3,2] NIL
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ Update - state 'game' - level 1
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ Update - state 'game' - level 1
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ Update - state 'game' - level 1
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ Update - state 'game' - level 1
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ Update - state 'game' - level 1
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ [8,1] NIL
+ [8,2] NIL
+ Update - state 'game' - level 1
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ [8,1] NIL
+ [8,2] NIL
+ Update - state 'game' - level 1
+ [6,1] NIL
+ [6,2] NIL
+ [7,1] NIL
+ [7,2] NIL
+ [8,1] NIL
+ [8,2] NIL
+ Update - state 'game' - level 1
+ [7,1] NIL
+ [8,1] NIL
+ Update - state 'game' - level 1
+ [7,1] NIL
+ [8,1] NIL
+ Update - state 'game' - level 1
+ [7,1] NIL
+ [8,1] NIL
+ [9,1] NIL
+ Update - state 'game' - level 1
+ [7,1] NIL
+ [8,1] NIL
+ [9,1] NIL
+ Update - state 'game' - level 1
+ [7,1] NIL
+ [8,1] NIL
+ [9,1] NIL
+ Update - state 'game' - level 1
+ [8,1] NIL
+ [9,1] NIL
+ Update - state 'game' - level 1
+ [8,1] NIL
+ [9,1] NIL
+ Update - state 'game' - level 1
+ [8,1] NIL
+ [9,1] NIL
+ [10,1] NIL
+ Update - state 'game' - level 1
+ [8,1] NIL
+ [9,1] NIL
+ [10,1] NIL
+ Update - state 'game' - level 1
+ [8,1] NIL
+ [8,2] NIL
+ [9,1] NIL
+ [9,2] NIL
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [9,1] NIL
+ [9,2] NIL
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [9,1] NIL
+ [9,2] NIL
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [9,1] NIL
+ [9,2] NIL
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [9,1] NIL
+ [9,2] NIL
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [9,1] NIL
+ [9,2] NIL
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ [10,3] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ [10,3] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ [10,3] NIL
+ Update - state 'game' - level 1
+ [10,1] NIL
+ [10,2] NIL
+ [10,3] NIL
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ Update - state 'game' - level 1
+ [10,3] NIL
+ [10,4] NIL
+ Update - state 'game' - level 1
+ [10,3] NIL
+ [10,4] NIL
+ [10,5] NIL
+ Update - state 'game' - level 1
+ [10,3] NIL
+ [10,4] NIL
+ [10,5] NIL
+ Update - state 'game' - level 1
+ [10,4] NIL
+ [10,5] NIL
+ Update - state 'game' - level 1
+ [10,4] NIL
+ [10,5] NIL
+ Update - state 'game' - level 1
+ [10,4] NIL
+ [10,5] NIL
+ Update - state 'game' - level 1
+ [10,4] NIL
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [10,4] NIL
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [10,5] NIL
+ [10,6] NIL
+ [10,7] NIL
+ Update - state 'game' - level 1
+ [10,5] NIL
+ [10,6] NIL
+ [10,7] NIL
+ Update - state 'game' - level 1
+ [10,5] NIL
+ [10,6] NIL
+ [10,7] NIL
+ Update - state 'game' - level 1
+ [9,6] COL
+ brick.union self=(44,57,8,5)
+ brick union bricks: 1
+ [9,7] COL
+ brick.union self=(44,57,16,5)
+ brick union bricks: 2
+ [10,6] NIL
+ [10,7] NIL
+ is_circle_rect_collision_side
+ ball(x,y) (55,63)
+ bb  (x,y,w,h) (44,57,16,5)
+ bb col side :top-left
+ bb hidden 1
+ ball direction side: top-left
+ ball pre (dx,dy)=(1.5,-1)
+ Update - state 'game' - level 1
+ [9,5] OOR
+ [9,6] HID
+ [9,7] COL
+ brick.union self=(52,57,8,5)
+ brick union bricks: 1
+ [10,5] NIL
+ [10,6] NIL
+ [10,7] NIL
+ is_circle_rect_collision_side
+ ball(x,y) (53.5,62)
+ bb  (x,y,w,h) (52,57,8,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [9,5] OOR
+ [9,6] HID
+ [9,7] COL
+ brick.union self=(52,57,8,5)
+ brick union bricks: 1
+ [10,5] NIL
+ [10,6] NIL
+ [10,7] NIL
+ is_circle_rect_collision_side
+ ball(x,y) (52,61)
+ bb  (x,y,w,h) (52,57,8,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [9,5] OOR
+ [9,6] HID
+ [9,7] COL
+ brick.union self=(52,57,8,5)
+ brick union bricks: 1
+ [10,5] NIL
+ [10,6] NIL
+ [10,7] NIL
+ is_circle_rect_collision_side
+ ball(x,y) (50.5,60)
+ bb  (x,y,w,h) (52,57,8,5)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [9,5] OOR
+ [9,6] HID
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [8,5] COL
+ brick.union self=(36,52,8,5)
+ brick union bricks: 1
+ [8,6] COL
+ brick.union self=(36,52,16,5)
+ brick union bricks: 2
+ [9,5] COL
+ brick.union self=(36,52,16,10)
+ brick union bricks: 3
+ [9,6] HID
+ [10,5] NIL
+ [10,6] NIL
+ is_circle_rect_collision_side
+ ball(x,y) (47.5,58)
+ bb  (x,y,w,h) (36,52,16,10)
+ bb col side :top-left
+ bb hidden 3
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [8,5] HID
+ [8,6] HID
+ [9,5] HID
+ [9,6] HID
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [8,4] OOR
+ [8,5] HID
+ [8,6] HID
+ [9,4] OOR
+ [9,5] HID
+ [9,6] HID
+ [10,4] NIL
+ [10,5] NIL
+ [10,6] NIL
+ Update - state 'game' - level 1
+ [8,4] OOR
+ [8,5] HID
+ [8,6] HID
+ [9,4] OOR
+ [9,5] HID
+ [9,6] HID
+ Update - state 'game' - level 1
+ [8,4] OOR
+ [8,5] HID
+ [9,4] OOR
+ [9,5] HID
+ Update - state 'game' - level 1
+ [7,4] OOR
+ [7,5] COL
+ brick.union self=(36,47,8,5)
+ brick union bricks: 1
+ [8,4] OOR
+ [8,5] HID
+ [9,4] OOR
+ [9,5] HID
+ is_circle_rect_collision_side
+ ball(x,y) (40,53)
+ bb  (x,y,w,h) (36,47,8,5)
+ bb col side :top-left
+ bb hidden 1
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [7,4] COL
+ brick.union self=(28,47,8,5)
+ brick union bricks: 1
+ [7,5] HID
+ [8,4] COL
+ brick.union self=(28,47,8,10)
+ brick union bricks: 2
+ [8,5] HID
+ [9,4] OOR
+ [9,5] HID
+ is_circle_rect_collision_side
+ ball(x,y) (38.5,52)
+ bb  (x,y,w,h) (28,47,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,47,8,5)
+ brick union bricks: 1
+ [7,5] HID
+ [8,3] NIL
+ [8,4] COL
+ brick.union self=(28,47,8,10)
+ brick union bricks: 2
+ [8,5] HID
+ [9,3] NIL
+ [9,4] OOR
+ [9,5] HID
+ is_circle_rect_collision_side
+ ball(x,y) (37,51)
+ bb  (x,y,w,h) (28,47,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,47,8,5)
+ brick union bricks: 1
+ [7,5] HID
+ [8,3] NIL
+ [8,4] COL
+ brick.union self=(28,47,8,10)
+ brick union bricks: 2
+ [8,5] HID
+ is_circle_rect_collision_side
+ ball(x,y) (35.5,50)
+ bb  (x,y,w,h) (28,47,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,47,8,5)
+ brick union bricks: 1
+ [8,3] NIL
+ [8,4] COL
+ brick.union self=(28,47,8,10)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (34,49)
+ bb  (x,y,w,h) (28,47,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [6,3] NIL
+ [6,4] COL
+ brick.union self=(28,42,8,5)
+ brick union bricks: 1
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,42,8,10)
+ brick union bricks: 2
+ [8,3] NIL
+ [8,4] OOR
+ is_circle_rect_collision_side
+ ball(x,y) (32.5,48)
+ bb  (x,y,w,h) (28,42,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [6,3] NIL
+ [6,4] COL
+ brick.union self=(28,42,8,5)
+ brick union bricks: 1
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,42,8,10)
+ brick union bricks: 2
+ [8,3] NIL
+ [8,4] OOR
+ is_circle_rect_collision_side
+ ball(x,y) (31,47)
+ bb  (x,y,w,h) (28,42,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [6,2] NIL
+ [6,3] NIL
+ [6,4] COL
+ brick.union self=(28,42,8,5)
+ brick union bricks: 1
+ [7,2] NIL
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,42,8,10)
+ brick union bricks: 2
+ [8,2] NIL
+ [8,3] NIL
+ [8,4] OOR
+ is_circle_rect_collision_side
+ ball(x,y) (29.5,46)
+ bb  (x,y,w,h) (28,42,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [6,2] NIL
+ [6,3] NIL
+ [6,4] COL
+ brick.union self=(28,42,8,5)
+ brick union bricks: 1
+ [7,2] NIL
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,42,8,10)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (28,45)
+ bb  (x,y,w,h) (28,42,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [6,2] NIL
+ [6,3] NIL
+ [6,4] COL
+ brick.union self=(28,42,8,5)
+ brick union bricks: 1
+ [7,2] NIL
+ [7,3] NIL
+ [7,4] COL
+ brick.union self=(28,42,8,10)
+ brick union bricks: 2
+ is_circle_rect_collision_side
+ ball(x,y) (26.5,44)
+ bb  (x,y,w,h) (28,42,8,10)
+ bb col side :top-left
+ bb hidden 0
+ ball direction side: top-left
+ ball pre (dx,dy)=(-1.5,-1)
+ Update - state 'game' - level 1
+ [5,2] NIL
+ [5,3] NIL
+ [6,2] NIL
+ [6,3] NIL
+ [7,2] NIL
+ [7,3] NIL
+ Update - state 'game' - level 1
+ [5,2] NIL
+ [5,3] NIL
+ [6,2] NIL
+ [6,3] NIL
+ [7,2] NIL
+ [7,3] NIL
+ Update - state 'game' - level 1
+ [5,2] NIL
+ [5,3] NIL
+ [6,2] NIL
+ [6,3] NIL
+ [7,2] NIL
+ [7,3] NIL
+ Update - state 'game' - level 1
+ [5,1] NIL
+ [5,2] NIL
+ [5,3] NIL
+ [6,1] NIL
+ [6,2] NIL
+ [6,3] NIL
+ Update - state 'game' - level 1
+ [5,1] NIL
+ [5,2] NIL
+ [5,3] NIL
+ [6,1] NIL
+ [6,2] NIL
+ [6,3] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ [6,1] NIL
+ [6,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ Update - state 'game' - level 1
+ [4,1] NIL
+ [4,2] NIL
+ [5,1] NIL
+ [5,2] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [4,1] NIL
+ [5,1] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [4,1] NIL
+ [5,1] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [4,1] NIL
+ [5,1] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [4,1] NIL
+ Update - state 'game' - level 1
+ [3,1] NIL
+ [4,1] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [4,1] NIL
+ [4,2] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [4,1] NIL
+ [4,2] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [4,1] NIL
+ [4,2] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [3,1] NIL
+ [3,2] NIL
+ Update - state 'game' - level 1
+ [2,1] NIL
+ [2,2] NIL
+ [3,1] NIL
+ [3,2] NIL
+ Update - state 'game' - level 1
+ [1,1] NIL
+ [1,2] NIL
+ [1,3] NIL
+ [2,1] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [1,1] NIL
+ [1,2] NIL
+ [1,3] NIL
+ [2,1] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,1] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL
+ [3,2] NIL
+ [3,3] NIL
+ Update - state 'game' - level 1
+ [1,2] NIL
+ [1,3] NIL
+ [2,2] NIL
+ [2,3] NIL

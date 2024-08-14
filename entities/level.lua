@@ -13,11 +13,15 @@ level = class:new({
 
   br_count = 0,
   br_left = 0,
+  
+  grid_min_x = _screen_bot,
+  grid_min_y = _screen_right,
+  grid_max_x = _screen_top,
+  grid_max_y = _screen_left,
 
   init = function(self, lvl)
     log("begin level init " .. lvl)
-    lvl = mid(1, lvl, #_lvl_def)
-    local brick_types = _lvl_def[lvl]
+    local brick_types = self:get_brick_types(lvl)
 
     self.br_count = 0
     self.br_left = 0
@@ -25,6 +29,10 @@ level = class:new({
     local br_x = _screen_left
     local br_y = _screen_top
     
+    self.grid_min_x = _screen_bot
+    self.grid_min_y = _screen_right
+    self.grid_max_x = _screen_top
+    self.grid_max_y = _screen_left
 
     for r = 1, self.max_row do
       self.grid[r] = {}
@@ -46,13 +54,25 @@ level = class:new({
           if br_type ~= god_brick then
             self.br_left += 1
           end
+
+          self.grid_min_x = min(self.grid_min_x, br.x)
+          self.grid_min_y = min(self.grid_min_y, br.y)
+          self.grid_max_x = max(self.grid_max_x, br.x+br.w)
+          self.grid_max_y = max(self.grid_max_y, br.y+br.h)
+
         end
         br_x += brick.w + self.pad_col
       end
     end
     log("end level init " .. lvl)
     log(" br_count "..self.br_count.." br_left "..self.br_left)
+    -- log(" grid min:["..self.grid_min_x..","..self.grid_min_y.."] "..
+    --           "max:["..self.grid_max_x..","..self.grid_max_y.."]")
+  end,
 
+  get_brick_types=function(self, lvl)
+    lvl = mid(1, lvl, #_lvl_def)
+    return _lvl_def[lvl]
   end,
 
   __len = function(self)
@@ -117,12 +137,36 @@ function nil_line()
   return line
 end
 
+-- lvl_map = {
+--  nil_line = nil_line(),
+--  b = brick
+--  sb = shield_brick,
+--  god = god_brick,
+--  slow_x = slow_x_brick,
+--  mid_x = mid_x_brick
+-- }
+
+-- lvl_1 = "  | | | ,,,,,,b,b,b,,,,,,| ,,,,,,b,b,b,,,,,,| ,,,,,,b,b,b,,,,,,| | |"
 
 -- level definitions
 -- items in _lvl_def are
 -- a 2d [10][10] array with
 -- the brick_type in each cell
 _lvl_def = {}
+
+-- Test Level 3x3 in center
+-- _lvl_def[1] = {
+--   nil_line(),
+--   nil_line(),
+--   nil_line(),
+--   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
+--   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
+--   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
+--   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
+--   nil_line(),
+--   nil_line(),
+--   nil_line()
+-- }
 
 --level1
 _lvl_def[4] = {

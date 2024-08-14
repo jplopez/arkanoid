@@ -28,9 +28,6 @@ function init_objects()
     --level
     _cur_lvl = level:new()
 
-    --collision engine
-    _col_eng = col_eng:new()
-
     --collision enginve v2
     _col_eng_v2 = collision_engine:new(2)
     _col_eng_v2:add_circle_rect("paddle", 
@@ -41,6 +38,18 @@ function init_objects()
             _players["p1"]["ball"],
             ball_screen_collision_handler)
 
+    -- this handler gets initiatives with a full screen
+    -- rectangle. The rect will be updated on every
+    -- levelup event
+    _col_eng_v2:add_circle_rect("brick", 
+            _players["p1"]["ball"],
+            {
+                x = _screen_left,
+                y = _screen_top,
+                w = _screen_left + (brick.w+level.pad_col)*level.max_col,
+                h = _screen_top + (brick.h+level.pad_row)*level.max_row
+            },
+            brick_collision_handler)
     --initial state
     _state = _init_state
 

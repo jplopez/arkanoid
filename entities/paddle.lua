@@ -21,12 +21,13 @@ paddle = class:new({
   update = function(self)
 
     local dir = 0 -- no movement
+    local tol = collision_engine.tolerance
     if(btn(0)) dir=-1 -- move left
     if(btn(1)) dir=1  -- move right
 
-    self.x = mid(_screen_left + _col_eng.tol, 
+    self.x = mid(_screen_left + tol, 
         self.x + (dir*self.dx),
-        _screen_right - self.w - _col_eng.tol)
+        _screen_right - self.w - tol)
     self:state("move")
   end,
 

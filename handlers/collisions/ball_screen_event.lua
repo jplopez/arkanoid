@@ -17,10 +17,11 @@ ball_screen_event = event:new({
       return false
     end
 
-    local top_dist = ((ball.y-ball.r) - _screen_top) <= _col_eng.tol
-    local bot_dist = (_screen_bot - (ball.y+ball.r)) <= _col_eng.tol
-    local left_dist = ((ball.x-ball.r) - _screen_left) <= _col_eng.tol
-    local right_dist = (_screen_right - (ball.x+ball.r)) <= _col_eng.tol
+    local tol = collision_engine.tolerance
+    local top_dist = ((ball.y-ball.r) - _screen_top) <= tol
+    local bot_dist = (_screen_bot - (ball.y+ball.r)) <= tol
+    local left_dist = ((ball.x-ball.r) - _screen_left) <= tol
+    local right_dist = (_screen_right - (ball.x+ball.r)) <= tol
 
     self.col_side = {
       top = top_dist,

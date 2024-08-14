@@ -8,7 +8,7 @@ col_eng = class:new({
     --ball_paddle_event,
     --ball_screen_event,
     --ball_loose_event,
-    brick_ball_event
+    --brick_ball_event
   },
 
   events = {},

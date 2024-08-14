@@ -13,9 +13,9 @@ paddle_ball_collision_handler = collision_handler:new({
     local right_dist = abs((ball.x-ball.r) - (paddle.y+paddle.w))
     min_dist = min(top_dist, bot_dist, left_dist, right_dist)
 
-    log("paddle ball dists min:"..min_dist)
-    log("top, bot, left, right "..
-      top_dist..","..bot_dist..","..left_dist..","..right_dist)
+    --log("paddle ball dists min:"..min_dist)
+    --log("top, bot, left, right "..
+    --  top_dist..","..bot_dist..","..left_dist..","..right_dist)
     
       if top_dist == min_dist then 
       --flip DY to up, calc new DX
@@ -37,7 +37,7 @@ paddle_ball_collision_handler = collision_handler:new({
   handle_top_bounce=function(self, ball, paddle)
     local x_pos = ball.x-paddle.x
     local seg = paddle.w / 6
-    log("x_pos "..x_pos.." seg "..seg)
+    --log("x_pos "..x_pos.." seg "..seg)
     local dy_f = 0.05
 
     ball.dy = -abs(ball.dy) 

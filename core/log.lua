@@ -73,12 +73,12 @@ function debug()
 	     ,p.clr)
  end
  
- if _debug_flags["events"] then
-	 print("#e".. count(_col_eng.events),7)
-	 for e in all(_col_eng.events) do
-	  print(" "..e:to_string())
-	 end
- end
+--  if _debug_flags["events"] then
+-- 	 print("#e".. count(_col_eng.events),7)
+-- 	 for e in all(_col_eng.events) do
+-- 	  print(" "..e:to_string())
+-- 	 end
+--  end
  
  if _debug_flags["timers"] then
 	 print("t:".. count(_timers),7)

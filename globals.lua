@@ -35,3 +35,25 @@ _pals = {
 
 --players
 _players = { p1={}, p2={} }
+
+--sides
+_top_left = 1
+_top      = 2
+_top_right= 3
+_left     = 4
+_right    = 6
+_bottom_left = 7
+_bottom      = 8
+_bottom_right= 9
+
+function print_side(side)
+  if(side == nil) return ""
+  if(side == _top_left) return "top-left"
+  if(side == _top) return "top"
+  if(side == _top_right) return "top-right"
+  if(side == _left) return "left"
+  if(side == _right) return "right"
+  if(side == _bottom_left) return "bottom-left"
+  if(side == _bottom) return "bottom"
+  if(side == _bottom_right) return "bottom-right"
+end

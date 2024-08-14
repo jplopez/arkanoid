@@ -1,7 +1,6 @@
 -- levelup
 function update_levelup()
-  log("update_levelup begin ")
-  log("  level " .. _players["p1"]["level"])
+  log("update_levelup lvl:".. _players["p1"]["level"])
 
   local t = _timers["levelup_timer"]
   if t.active then
@@ -29,23 +28,23 @@ function draw_levelup()
 end
 
 function levelup()
-  log("levelup begin level:" .. _players["p1"]["level"])
+  local cur_lvl = _players["p1"]["level"]
+  log("Levelup - current level:" .. cur_lvl)
 
   -- reset paddle and ball
   local p = _players["p1"]["paddle"]
   local b = _players["p1"]["ball"]
 
---  p.x = 64 - p.w / 2
---  p.dx = 4
---  p.state = "idle"
   p:init()
   b:serve()
 
-  --load new level
-  _players["p1"]["level"] += 1
-  _cur_lvl:init(_players["p1"]["level"])
 
+  --load new level
+  local new_lvl = cur_lvl + 1
+  _players["p1"]["level"] = new_lvl
+  _cur_lvl:init(new_lvl)
+
+  log("Game state: ".._state.." -> game - level:"..new_lvl)
   _state = "game"
 
-  log("levelup end level:" .. _players["p1"]["level"])
 end
