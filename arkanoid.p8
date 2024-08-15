@@ -43,9 +43,7 @@ function _init()
   init_gamestates()
   init_players()
   init_objects()
-  -- log("INIT State:'".. _state)
   log("INI gamestate=".._gamestates["current"])
-
 end
 
 -- called every frame
@@ -53,14 +51,6 @@ function _update60()
   log("UPD gamestate=".._gamestates["current"])
   local gamestate = current_gamestate()
   if(gamestate != nil) gamestate:update()
-
-  -- log("Update - state '".. _state.. 
-  --     "' - level " .. _players["p1"]["level"])
-
-  -- if (_state == "start") update_start()
-  if (_state == "game") update_game()
-  if (_state == "gameover") update_gameover()
-  if (_state == "levelup") update_levelup()
 end
 
 -- called every frame
@@ -68,11 +58,6 @@ function _draw()
   log("DRW gamestate=".._gamestates["current"])
   local gamestate = current_gamestate()
   if(gamestate != nil) gamestate:draw()
-
-  -- if (_state == "start") draw_start()
-  if (_state == "game") draw_game()
-  if (_state == "gameover") draw_gameover()
-  if (_state == "levelup") draw_levelup()
 end
 
 

@@ -14,15 +14,15 @@ _screen_bot=127
 --level
 _cur_lvl= nil
 
---states
-_states={
- start={"game"},
- levelup={"game"},
- game={"levelup","gameover"},
- gameover = {"start"} 
-}
-_init_state="start"
-_state=""
+-- --states
+-- _states={
+--  start={"game"},
+--  levelup={"game"},
+--  game={"levelup","gameover"},
+--  gameover = {"start"} 
+-- }
+-- _init_state="start"
+-- _state=""
 
 _timers={ }
 

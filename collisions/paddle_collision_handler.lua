@@ -3,7 +3,7 @@ paddle_ball_collision_handler = collision_handler:new({
 
   -- ball acceleration every time the ball 
   -- hits the paddle.
-  ball_dy_acc = 0.05,
+  ball_acc = 0.7,
 
   handle=function(self, ball, paddle)
 
@@ -44,11 +44,11 @@ paddle_ball_collision_handler = collision_handler:new({
     local x_pos = flr(ball.x-paddle.x)
     local seg = flr(paddle.w / 6)
     --log("x_pos "..x_pos.." seg "..seg)
-    local dy_f = 0.7
+    local dy_f = self.ball_acc
     log("x_pos "..x_pos)
     log("total seg "..seg)
 
-    ball.dy = -(abs(ball.dy) + rnd(dy_f/10))
+    ball.dy = -(abs(ball.dy) + rnd(dy_f*0.05))
     log("new dy "..ball.dy)
     for i=1,6 do
       if (x_pos <= i*seg and x_pos > (i-1)*seg) then
