@@ -1,25 +1,49 @@
 -- init
+function init_gamestates()
+    add_gamestate(
+        "start", 
+        start_gamestate,
+        { "start", "game" })
+
+    add_gamestate(
+        "game", 
+        game_gamestate,
+        { "start", "game", "gameover", "levelup" })
+
+    add_gamestate(
+        "gameover", 
+        gameover_gamestate,
+        { "game", "gameover" })
+
+    add_gamestate(
+        "levelup", 
+        levelup_gamestate,
+        { "game", "levelup" })
+
+    set_default("start")
+end
+
 function init_players()
     _players["p1"]["ball"] = ball:new({
         x = rnd(127),
         dx = 0.51,
         y = rnd(127),
         dy = 0.51, --+rnd(2),
-        clr = rnd(_pals.ball)
-    })
-    add_states(_players["p1"]["ball"], 
-        {"idle", "move", "sticky"})
+        clr = rnd(_pals.ball) })
+    add_states(
+        _players["p1"]["ball"],
+        { "idle", "move", "sticky" })
 
     _players["p1"]["paddle"] = paddle:new({
-        clr = rnd(_pals.paddle)
-    })
-    add_states(_players["p1"]["paddle"], 
-        {"idle", "move", "hit"})
+        clr = rnd(_pals.paddle) })
+    add_states(
+        _players["p1"]["paddle"],
+        { "idle", "move", "hit" })
 
     _players["p1"]["score"] = 0
     _players["p1"]["level"] = 1
     _players["p1"]["lives"] = 3
-    _players["p1"]["serves"]= 2
+    _players["p1"]["serves"] = 2
 end
 
 function init_objects()
@@ -30,26 +54,30 @@ function init_objects()
 
     --collision enginve v2
     _col_eng_v2 = collision_engine:new(2)
-    _col_eng_v2:add_circle_rect("paddle", 
-            _players["p1"]["ball"],
-            _players["p1"]["paddle"],
-            paddle_ball_collision_handler)
-    _col_eng_v2:add_circle_screen("ball", 
-            _players["p1"]["ball"],
-            ball_screen_collision_handler)
+    _col_eng_v2:add_circle_rect(
+        "paddle",
+        _players["p1"]["ball"],
+        _players["p1"]["paddle"],
+        paddle_ball_collision_handler)
+
+        _col_eng_v2:add_circle_screen(
+        "ball",
+        _players["p1"]["ball"],
+        ball_screen_collision_handler)
 
     -- this handler gets initiatives with a full screen
     -- rectangle. The rect will be updated on every
     -- levelup event
-    _col_eng_v2:add_circle_rect("brick", 
-            _players["p1"]["ball"],
-            {
-                x = _screen_left,
-                y = _screen_top,
-                w = _screen_left + (brick.w+level.pad_col)*level.max_col,
-                h = _screen_top + (brick.h+level.pad_row)*level.max_row
-            },
-            brick_collision_handler)
+    _col_eng_v2:add_circle_rect(
+        "brick",
+        _players["p1"]["ball"],
+        {
+            x = _screen_left,
+            y = _screen_top,
+            w = _screen_left + (brick.w + level.pad_col) * level.max_col,
+            h = _screen_top + (brick.h + level.pad_row) * level.max_row
+        },
+        brick_collision_handler)
     --initial state
     _state = _init_state
 

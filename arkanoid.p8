@@ -9,6 +9,7 @@ __lua__
 #include core/log.lua
 #include core/collision_engine.lua
 #include core/state_machine.lua
+#include core/game_states.lua
 #include core/utils/timers.lua
 #include core/utils/utils.lua
 
@@ -18,6 +19,7 @@ __lua__
 #include entities/brick.lua
 #include entities/level.lua
 
+
 -- Game States
 #include states/init.lua
 #include states/start.lua
@@ -25,7 +27,6 @@ __lua__
 #include states/gameover.lua
 #include states/levelup.lua
 #include states/bonus.lua
-
 
 -- collision handlers
 #include collisions/paddle_collision_handler.lua
@@ -39,18 +40,24 @@ __lua__
 
 function _init()
   cls()
+  init_gamestates()
   init_players()
   init_objects()
-  log("Game State:'".. _state.. 
-      "'\n  level " .. _players["p1"]["level"])
+  -- log("INIT State:'".. _state)
+  log("INI gamestate=".._gamestates["current"])
+
 end
 
 -- called every frame
 function _update60()
-  log("Update - state '".. _state.. 
-      "' - level " .. _players["p1"]["level"])
+  log("UPD gamestate=".._gamestates["current"])
+  local gamestate = current_gamestate()
+  if(gamestate != nil) gamestate:update()
 
-  if (_state == "start") update_start()
+  -- log("Update - state '".. _state.. 
+  --     "' - level " .. _players["p1"]["level"])
+
+  -- if (_state == "start") update_start()
   if (_state == "game") update_game()
   if (_state == "gameover") update_gameover()
   if (_state == "levelup") update_levelup()
@@ -58,7 +65,11 @@ end
 
 -- called every frame
 function _draw()
-  if (_state == "start") draw_start()
+  log("DRW gamestate=".._gamestates["current"])
+  local gamestate = current_gamestate()
+  if(gamestate != nil) gamestate:draw()
+
+  -- if (_state == "start") draw_start()
   if (_state == "game") draw_game()
   if (_state == "gameover") draw_gameover()
   if (_state == "levelup") draw_levelup()

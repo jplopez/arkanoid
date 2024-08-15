@@ -1,10 +1,12 @@
 -- gameover
-function update_gameover()
-    -- reset player data 
-    update_start()
-end
+gameover_gamestate = start_gamestate:new({
+
+-- update=function(self)
+--     -- reset player data 
+--     update_start()
+-- end,
    
-function draw_gameover()
+  draw=function(self)
     cls(_pals.bg[1])
     local str = "gameover"
     local x=64-(#str*4)/2
@@ -12,4 +14,5 @@ function draw_gameover()
     printc("score:"..
       _players["p1"]["score"],55,10)
     printc("press ❎ to start",70,11)
-end
+  end
+})

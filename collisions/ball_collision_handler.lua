@@ -37,8 +37,9 @@ ball_screen_collision_handler = collision_handler:new({
       local lives = _players["p1"]["lives"]
   
       if lives<=0 then
-        log("Game state: ".._state.." -> gameover")
-        _state="gameover"
+        -- log("Game state: ".._state.." -> gameover")
+        -- _state="gameover"
+        set_gamestate("gameover")
       else
         _players["p1"]["lives"]=lives-1
         ball:serve()
