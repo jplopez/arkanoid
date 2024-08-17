@@ -10,5 +10,5 @@ class=setmetatable({
 		return tbl
 	end,
 	
-	init=noop
+	init=_noop
 },{__index=self})

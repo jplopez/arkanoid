@@ -40,6 +40,7 @@ function init_players()
         _players["p1"]["paddle"],
         { "idle", "move", "hit" })
 
+
     _players["p1"]["score"] = 0
     _players["p1"]["level"] = 1
     _players["p1"]["lives"] = 3
@@ -47,8 +48,8 @@ function init_players()
 end
 
 function init_objects()
-    logger:log("Init Game " .. time(), true)
-
+    log("Init Game " .. time(), true)
+   
     --level
     _cur_lvl = level:new()
 
@@ -78,15 +79,13 @@ function init_objects()
             h = _screen_top + (brick.h + level.pad_row) * level.max_row
         },
         brick_collision_handler)
-    --initial state
-    _state = _init_state
-
+  
     --bonus - extra 1up
     init_bonus()
 
     --timers
     local start_timer = timer:new60(
-        30, noop,
+        30, _noop,
         function()
             startgame(_players["p1"]["level"])
         end
@@ -95,11 +94,13 @@ function init_objects()
     _timers["start_timer"] = start_timer
 
     local levelup_timer = timer:new60(
-        30, noop,
+        30, _noop,
         function()
             levelup()
         end
     )
     levelup_timer:init()
     _timers["levelup_timer"] = levelup_timer
+
+
 end

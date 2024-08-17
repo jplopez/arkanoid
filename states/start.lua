@@ -23,26 +23,6 @@ start_gamestate = gamestate:new({
 
 })
 
--- function draw_start()
---   cls(_pals.bg[1])
---   printc("pico-8 arkanoid", 40, 10)
---   printc("press ❎ to start", 60, 11)
---   printc("made with ♥ by jp", 110, 9)
--- end
-
--- function update_start()
---   local t = _timers["start_timer"]
---   if t.active then
---     --log("start_timer " .. tostr(t.length))
---     t:update()
---   else
---     if btn(5) then
---       sfx(3)
---       t:restart()
---     end
---   end
--- end
-
 function startgame(l)
   l = l or 1
  

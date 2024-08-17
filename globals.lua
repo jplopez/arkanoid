@@ -2,7 +2,7 @@
 --globals
 -----------
 
-noop=function()end
+_noop=function()end
 
 --screen
 _screen_margin=4
@@ -11,19 +11,23 @@ _screen_right=127-_screen_margin
 _screen_top=_screen_margin*3
 _screen_bot=127
 
---level
+-- Levels
+
+-- level definitions
+-- items in _lvl_def are
+-- a 2d [10][10] array with
+-- the brick_type in each cell
+_lvl_def = {}
+
+-- current level
 _cur_lvl= nil
 
--- --states
--- _states={
---  start={"game"},
---  levelup={"game"},
---  game={"levelup","gameover"},
---  gameover = {"start"} 
--- }
--- _init_state="start"
--- _state=""
+-- level brick grid
+_max_row = 10
+_max_col = 16
 
+
+-- timers
 _timers={ }
 
 --palletes
@@ -57,3 +61,4 @@ function print_side(side)
   if(side == _bottom) return "bottom"
   if(side == _bottom_right) return "bottom-right"
 end
+

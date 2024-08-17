@@ -1,7 +1,3 @@
-
-
-empty_fn = function() end
-
 --[[
   Adds the state 'state' and  
   the following functions:
@@ -24,8 +20,8 @@ function add_state(base, state, on_fn, off_fn)
 
   base.states[state] = {
       val = state,
-      on_fn = on_fn or empty_fn,
-      off_fn = off_fn or empty_fn
+      on_fn = on_fn or _noop,
+      off_fn = off_fn or _noop
   }
 end
 
@@ -80,24 +76,34 @@ function init_states(base)
         return self.states["current"] == st
       end
 
-  base.state = function(self, new_state, skip_triggers)
+  base.state = function(base, new_state, skip_triggers)
         --validate new_state exists in object
-        if (self.states[new_state] == nil) then 
+        if (base.states[new_state] == nil) then 
           return false 
         end
-
+        -- log("self pre")
+        -- log2(self)
         --change to new_state
-        local old_state = self.states["current"]
-        self.states["current"] = new_state
+        local old_state = base.states["current"]
+        base.states["current"] = new_state
 
         if skip_triggers then 
           return true 
         end
 
           -- execute triggers
-        local old = self.states[old_state]
-        local new = self.states[new_state]
-        if(old != nil and old.off_fn) old.off_fn(self)
-        if(new.on_fn)  new.on_fn(self)
+        local old = base.states[old_state]
+        local new = base.states[new_state]
+
+        -- log("old")
+        -- log2(old)
+        -- log("new")
+        -- log2(new)
+        if(old != nil and old.off_fn) old.off_fn(base)
+        if(new.on_fn)  new.on_fn(base)
+
+        -- log("self post")
+        -- log2(self)
+
     end   
 end

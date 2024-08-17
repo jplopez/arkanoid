@@ -1,7 +1,7 @@
 -- level
 level = class:new({
-  max_row = 10,
-  max_col = 16,
+  max_row = _max_row,
+  max_col = _max_col,
 
   pad_row = 0,
   pad_col = 0,
@@ -20,8 +20,9 @@ level = class:new({
   grid_max_y = _screen_left,
 
   init = function(self, lvl)
-    log("begin level init " .. lvl)
+    log("begin level init " .. lvl, true)
     local brick_types = self:get_brick_types(lvl)
+    --log2(brick_types)
 
     self.br_count = 0
     self.br_left = 0
@@ -40,16 +41,16 @@ level = class:new({
       br_x = _screen_left
       for c = 1, self.max_col do
         local br_type = brick_types[r][c]
-
         if br_type ~= nil then
           local br = br_type:new({
             x = br_x, y = br_y
           })
+          br:state("visible")
           if br_type == brick then
             br.clr=self.br_clrs[lvl]
           end
           self.grid[r][c] = br
-
+          --log2(self.grid[r][c])
           self.br_count += 1
           if br_type ~= god_brick then
             self.br_left += 1
@@ -66,13 +67,11 @@ level = class:new({
     end
     log("end level init " .. lvl)
     log(" br_count "..self.br_count.." br_left "..self.br_left)
-    -- log(" grid min:["..self.grid_min_x..","..self.grid_min_y.."] "..
-    --           "max:["..self.grid_max_x..","..self.grid_max_y.."]")
+    log2(self.grid)
   end,
 
   get_brick_types=function(self, lvl)
-    lvl = mid(1, lvl, #_lvl_def)
-    return _lvl_def[lvl]
+    return parse_level_def(lvl)
   end,
 
   __len = function(self)
@@ -128,127 +127,4 @@ level = class:new({
     end
   end
 })
-
-function nil_line()
-  local line = {}
-  for i=1,level.max_col do
-    add(line, nil)
-  end
-  return line
-end
-
--- lvl_map = {
---  nil_line = nil_line(),
---  b = brick
---  sb = shield_brick,
---  god = god_brick,
---  slow_x = slow_x_brick,
---  mid_x = mid_x_brick
--- }
-
--- lvl_1 = "  | | | ,,,,,,b,b,b,,,,,,| ,,,,,,b,b,b,,,,,,| ,,,,,,b,b,b,,,,,,| | |"
-
--- level definitions
--- items in _lvl_def are
--- a 2d [10][10] array with
--- the brick_type in each cell
-_lvl_def = {}
-
--- Test Level 3x3 in center
--- _lvl_def[1] = {
---   nil_line(),
---   nil_line(),
---   nil_line(),
---   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
---   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
---   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
---   { nil, nil, nil, nil, nil, nil, brick, brick, brick, nil, nil, nil, nil, nil, nil },
---   nil_line(),
---   nil_line(),
---   nil_line()
--- }
-
---level1
-_lvl_def[1] = {
-  nil_line(),
-  { nil, nil, nil, nil, nil, brick, brick, brick, brick, brick, nil, nil, nil, nil, nil },
-  { nil, nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil, nil },
-  { nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil },
-  { nil, nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil, nil },
-  { nil, nil, nil, nil, nil, brick, brick, brick, brick, brick, nil, nil, nil, nil, nil }
-}
-
---level2
-_lvl_def[2] = {
-  nil_line(),
-  { nil, nil, nil, nil, nil, brick, brick, brick, brick, brick, nil, nil, nil, nil, nil },
-  { nil, nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil, nil },
-  { nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil },
-  { nil, nil, nil, nil, brick, brick, brick, brick, brick, brick, brick, nil, nil, nil, nil },
-  { nil, nil, nil, nil, nil, brick, brick, brick, brick, brick, nil, nil, nil, nil, nil }
-}
-
---level3
-_lvl_def[3] = {
-  nil_line(),
-  nil_line(),
-  { nil, nil, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  { nil, nil, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, brick, nil, nil },
-  nil_line()
-}
-
---level4
-_lvl_def[4] = {
-  nil_line(),
-  nil_line(),
-  { nil, nil, nil, god_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, shield_brick, god_brick, nil, nil, nil },
-  { nil, nil, nil, shield_brick, brick, brick, brick, brick, brick, brick, brick, shield_brick, nil, nil, nil },
-  { nil, nil, nil, shield_brick, brick, brick, brick, brick, brick, brick, brick, shield_brick, nil, nil, nil },
-  { nil, nil, nil, god_brick, brick, brick, brick, brick, brick, brick, brick, god_brick, nil, nil, nil },
-  { nil, nil, nil, god_brick, brick, brick, brick, brick, brick, brick, brick, god_brick, nil, nil, nil },
-  { nil, nil, nil, god_brick, brick, brick, brick, brick, brick, brick, brick, god_brick, nil, nil, nil },
-  { nil, nil, nil, god_brick, brick, brick, god_brick, god_brick, god_brick, brick, brick, god_brick, nil, nil, nil },
-  nil_line(),
-  nil_line()
-}
-
---level5
-_lvl_def[5] = {
-  { nil, nil, nil, slow_x_brick, nil, nil, shield_brick, shield_brick,shield_brick, nil, nil, slow_x_brick, nil, nil, nil },
-  { nil, nil, nil, slow_x_brick, nil, nil, brick, brick, brick, nil, nil, slow_x_brick, nil, nil, nil },
-  { nil, nil, nil, slow_x_brick, nil, nil, brick, brick, brick, nil, nil, slow_x_brick, nil, nil, nil },
-  { nil, nil, nil, slow_x_brick, nil, nil, brick, brick, brick, nil, nil, slow_x_brick, nil, nil, nil },
-  { nil, nil, nil, slow_x_brick, nil, nil, brick, brick, brick, nil, nil, slow_x_brick, nil, nil, nil },
-  { nil, nil, nil, slow_x_brick, nil, nil, brick, brick, brick, nil, nil, slow_x_brick, nil, nil, nil },
-  { nil, nil, nil, slow_x_brick, nil, nil, brick, brick, brick, nil, nil, slow_x_brick, nil, nil, nil },
-  { nil, nil, nil, god_brick, nil, nil, god_brick, brick, god_brick, nil, nil, god_brick, nil, nil, nil },
-  nil_line(),
-  nil_line()
-}
-
-_lvl_def[6] = {
-  nil_line(),
-  nil_line(),
-  { nil, nil, nil, god_brick, god_brick, shield_brick, brick, brick, brick, shield_brick, god_brick, god_brick, nil, nil, nil },
-  { nil, nil, nil, nil, mid_x_brick, nil, brick, brick, brick, nil, mid_x_brick, nil, nil, nil, nil },
-  { nil, nil, nil, nil, mid_x_brick, nil, brick, brick, brick, nil, mid_x_brick, nil, nil, nil, nil },
-  { nil, nil, nil, nil, mid_x_brick, nil, brick, brick, brick, nil, mid_x_brick, nil, nil, nil, nil },
-  { nil, nil, nil, nil, mid_x_brick, nil, brick, brick, brick, nil, mid_x_brick, nil, nil, nil, nil },
-  { nil, nil, nil, god_brick, nil, god_brick, shield_brick, shield_brick, shield_brick, god_brick, nil, god_brick, nil, nil, nil },
-  nil_line(),
-  nil_line()
-}
 

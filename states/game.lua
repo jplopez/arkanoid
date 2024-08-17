@@ -37,7 +37,6 @@ game_gamestate = gamestate:new({
     draw_game_ui()
     draw_players()
     draw_bonus()
-    debug()
   end,
 
   --serves ball
@@ -57,53 +56,6 @@ game_gamestate = gamestate:new({
     end
   end
 })
-
-
--- serve_countdown = 10
--- cur_countdown = 0
-
--- function update_game()
---   --log("update_game begin ")
---   _cur_lvl:update()
-
---   --collision engine v2
---   _col_eng_v2:update()
-
---   _players["p1"]["ball"]:update()
---   _players["p1"]["paddle"]:update()
-
---   if _cur_lvl.br_left <= 0 then
---     log("Game state: game -> levelup")
---     _state = "levelup"
---   end
-
---   update_bonus()
-
---   -- serve ball, loose a serve count.
---   if cur_countdown == 0 then
---     if btn(4) then
---       local serves = _players["p1"]["serves"]
---       if serves > 0 then
---         local b = _players["p1"]["ball"]
---         _players["p1"]["serves"]=serves-1
---         draw_serves(serves-1)
---         b:serve()
---         cur_countdown = serve_countdown
---       end
---     end
---   else 
---     cur_countdown-=1
---   end
--- end
-
--- function draw_game()
---   cls(0)
---   draw_game_level()
---   draw_game_ui()
---   draw_players()
---   draw_bonus()
---   debug()
--- end
 
 function draw_game_level()
   --playable screen
