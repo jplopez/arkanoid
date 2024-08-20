@@ -23,8 +23,8 @@ _lvl_def = {}
 _cur_lvl= nil
 
 -- level brick grid
-_max_row = 10
-_max_col = 16
+_max_rows = 10
+_max_cols = 16
 
 
 -- timers

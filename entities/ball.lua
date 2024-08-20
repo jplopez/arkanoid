@@ -8,6 +8,8 @@ ball = class:new({
   r = 2,
   clr = 8,
 
+  pwr=0,
+
   update = function(self)
 
     -- if self.state == _ball_states.sticky then
@@ -34,7 +36,7 @@ ball = class:new({
   serve = function(self)
     --resets paddle and ball
     local p = _players["p1"]["paddle"]
-
+    self.pwr=0
     self.x = p.x + p.w / 2
     self.y = p.y - (self.r*2)
     self.dx = 0.5

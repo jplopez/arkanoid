@@ -14,11 +14,6 @@ __lua__
 #include core/utils/utils.lua
 
 
---Brick
-#include entities/brick/visible_state_handler.lua
-#include entities/brick/hit_state_handler.lua
-#include entities/brick/hidden_state_handler.lua
-
 -- Entities
 #include entities/paddle.lua
 #include entities/ball.lua

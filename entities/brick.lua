@@ -1,8 +1,8 @@
 -- brick
 
 _brick_spr = { 20, 21, 22, 23, 36 }
-
 _brick_hit_spr = { 40, 41, 42, 43, 44 }
+_brick_hit_frs = 5
 
 --TODO add different sprites depending on where the collision took place
 _hit_spr = {
@@ -12,13 +12,6 @@ _hit_spr = {
   right = {}
 }
 
-_brick_hit_frs = 5
-
-_brick_states = {
-  visible = "visible",
-  hit = "hit",
-  hidden = "hidden"
-}
 
 brick = class:new({
   x = _screen_left + 12,
@@ -30,38 +23,45 @@ brick = class:new({
   hit_spr = 1,
   hit_frs = 0,
 
-  new = function(self, tbl)
-    tbl = class.new(self, tbl)
-
-    add_state(tbl, "visible",
-      __visible_on_fn,
-      __visible_off_fn
-    )
-    add_state(tbl, "hit",
-      __hit_on_fn,
-      __hit_off_fn
-    )
-    add_state(tbl, "hidden")
-    tbl:state("visible")
-    return tbl
-  end,
+  score_mul = 5,
 
   update = _noop,
 
   --TODO delegate draw/update functions to state handlers
   draw = function(self)
     if(self:is_state("hidden")) return true
+    if(self:is_state("visible")) spr(self.clr,self.x,self.y)
+    if(self:is_state("hit")) self:draw_hit()
+  end,
+
+  draw_hit = function(self)
+    if self.hit_spr == #_brick_hit_spr then
+      self:state("hidden")
+    else
+      if self.hit_frs >= _brick_hit_frs then
+        spr(_brick_hit_spr[self.hit_spr], self.x, self.y)
+        self.hit_spr += 1
+        self.hit_frs = 0
+      else
+        self.hit_frs += 1
+      end
+    end
   end,
 
   on_collision = function(self)
+    self:score_hit()
+  end,
+
+  score_hit = function(self)
     self:state("hit")
 
-    local combo = mid(1, _players["p1"]["combo"] + 1, 7)
-    sfx(10 + combo)
-    _players["p1"]["combo"] = combo
-
-    --score
-    _players["p1"]["score"] += 5 * combo
+    local new_combo = _players["p1"]["combo"] + 1
+    -- brick hit sound: combo sfx goes up to 7
+    sfx(10 + mid(1, new_combo, 7))
+    
+    -- Update player's score and combo 
+    _players["p1"]["score"] += self.score_mul * new_combo
+    _players["p1"]["combo"] = new_combo
   end,
 
   visible = function(self)
@@ -167,7 +167,7 @@ composite_brick = brick:new({
   hidden_count = function(self)
     local count = 0
     for br in all(self.bricks) do
-      if not br:visible() then
+      if not br:is_state("visible") then
         count += 1
       end
     end
@@ -202,6 +202,7 @@ god_brick = brick:new({
 --can sustain 'shield' number
 --of hits
 shield_brick = brick:new({
+
   shield = 2,
   hits = 0,
   clr = 37,
@@ -221,18 +222,21 @@ shield_brick = brick:new({
 
   on_collision = function(self)
     if self.hits == self.shield then
-      brick.on_collision(self)
+      self:score_hit()
     else
+      --update shield hits count
       self.hits += 1
       self.hit_count = self.hit_fr
-      local combo = mid(1, _players["p1"]["combo"] + 1, 7)
-      _players["p1"]["combo"] = combo
       sfx(5)
-      --score
-      _players["p1"]["score"] += 5 * combo
+
+      --update player's combo and score
+      local combo = _players["p1"]["combo"] + 1
+      _players["p1"]["combo"] = combo
+      _players["p1"]["score"] += self.score_mul * combo
     end
   end
 })
+--shield_brick:init_states()
 
 move_brick = brick:new({
   frame = 0,
@@ -245,6 +249,12 @@ move_brick = brick:new({
 
   length_x = 10 + 3,
   length_y = 4 + 3,
+
+  -- new = function(self, tbl)
+  --   tbl = brick.new(self, tbl)
+  --   -- tbl:init_states()
+  --   return tbl
+  -- end,
 
   update = function(self)
     self.frame += self.speed

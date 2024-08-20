@@ -58,6 +58,7 @@ brick_collision_handler = collision_handler:new({
         brick_block:on_collision()
         log("bb hidden ".. brick_block:hidden_count())
         _cur_lvl.br_left -= brick_block:hidden_count()
+        ball.pwr+=#brick_block.bricks
         self:ball_direction(ball, side) 
       end  
   
@@ -107,9 +108,9 @@ brick_collision_handler = collision_handler:new({
     local last_col = ceil((ball.x+ball.r-grid.x)/col_w) 
     local first_row = flr((ball.y-ball.r-grid.y)/row_h) 
     local last_row = ceil((ball.y+ball.r-grid.y)/row_h) 
-    return mid(1, first_col, level.max_col), 
-            mid(1, first_row, level.max_row),
-            mid(1, last_col, level.max_col),
-            mid(1, last_row, level.max_row)
+    return mid(1, first_col, _max_cols), 
+            mid(1, first_row, _max_rows),
+            mid(1, last_col, _max_cols),
+            mid(1, last_row, _max_rows)
   end
 })

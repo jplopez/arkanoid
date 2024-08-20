@@ -29,7 +29,8 @@ function init_players()
         dx = 0.51,
         y = rnd(127),
         dy = 0.51, --+rnd(2),
-        clr = rnd(_pals.ball) })
+        clr = 7}) --rnd(_pals.ball) })
+
     add_states(
         _players["p1"]["ball"],
         { "idle", "move", "sticky" })
@@ -44,7 +45,7 @@ function init_players()
     _players["p1"]["score"] = 0
     _players["p1"]["level"] = 1
     _players["p1"]["lives"] = 3
-    _players["p1"]["serves"] = 2
+    _players["p1"]["serves"] = 99
 end
 
 function init_objects()
@@ -66,17 +67,17 @@ function init_objects()
         _players["p1"]["ball"],
         ball_screen_collision_handler)
 
-    -- this handler gets initiatives with a full screen
-    -- rectangle. The rect will be updated on every
-    -- levelup event
+    -- this circle-rectangle collision handler 
+    -- uses the area where bricks can appear within 
+    -- a level
     _col_eng_v2:add_circle_rect(
         "brick",
         _players["p1"]["ball"],
         {
             x = _screen_left,
             y = _screen_top,
-            w = _screen_left + (brick.w + level.pad_col) * level.max_col,
-            h = _screen_top + (brick.h + level.pad_row) * level.max_row
+            w = _screen_left + (brick.w + level.pad_col) * _max_cols,
+            h = _screen_top + (brick.h + level.pad_row) * _max_rows
         },
         brick_collision_handler)
   

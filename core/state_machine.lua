@@ -72,35 +72,36 @@ function init_states(base)
   base.states = {}
   base.states["current"] = nil
 
-  base.is_state = function(self, st)
-        return self.states["current"] == st
+  base.is_state = function(this, st)
+        return this.states["current"] == st
       end
 
-  base.state = function(base, new_state, skip_triggers)
+  base.state = function(this, new_state, skip_triggers)
         --validate new_state exists in object
-        if (base.states[new_state] == nil) then 
+        if (this.states[new_state] == nil) then 
           return false 
         end
         -- log("self pre")
         -- log2(self)
         --change to new_state
-        local old_state = base.states["current"]
-        base.states["current"] = new_state
+        local old_state = this.states["current"]
+        this.states["current"] = new_state
 
+        skip_triggers=true
         if skip_triggers then 
           return true 
         end
 
           -- execute triggers
-        local old = base.states[old_state]
-        local new = base.states[new_state]
+        local old = this.states[old_state]
+        local new = this.states[new_state]
 
         -- log("old")
         -- log2(old)
         -- log("new")
         -- log2(new)
-        if(old != nil and old.off_fn) old.off_fn(base)
-        if(new.on_fn)  new.on_fn(base)
+        if(old != nil and old.off_fn) old.off_fn(this)
+        if(new.on_fn)  new.on_fn(this)
 
         -- log("self post")
         -- log2(self)

@@ -20,7 +20,7 @@ paddle_ball_collision_handler = collision_handler:new({
     --log("top, bot, left, right "..
     --  top_dist..","..bot_dist..","..left_dist..","..right_dist)
     
-      if top_dist == min_dist then 
+    if top_dist == min_dist then 
       --flip DY to up, calc new DX
       self:handle_top_bounce(ball, paddle)
     elseif bot_dist == min_dist then
@@ -36,6 +36,7 @@ paddle_ball_collision_handler = collision_handler:new({
       ball.dy = -abs(ball.dy) 
     end
 
+    ball.pwr-=1
   end,
 
   handle_top_bounce=function(self, ball, paddle)

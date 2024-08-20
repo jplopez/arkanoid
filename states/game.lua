@@ -83,17 +83,30 @@ function draw_game_ui()
   --player lives
   local liv = pad(_players["p1"]["lives"], 2)
   spr(0, _screen_left, 0)
-  local next_x = print(" "..liv, _screen_left+8, 1, 9)
-  draw_serves(_players["p1"]["serves"])
+  print(" "..liv, _screen_left+8, 1, 9)
+  --draw_serves(_players["p1"]["serves"])
 
   --level
   local lev = "level:"..pad(_players["p1"]["level"], 2)
-  next_x = printc(lev, 1, 9)
+  print(lev, _screen_left+1, 7, 9)
 
   --score
-  local score = pad(_players["p1"]["score"], 6)
   local str = pad(_players["p1"]["score"], 6)
   next_x = print(str, _screen_right - (#str*4), 1, 9)
+
+  -- combo 
+  str = pad(_players["p1"]["combo"], 3)
+  str = "combo: " .. str
+  print(str, _screen_right - (#str*4), 7, 9)
+
+  -- ball power
+  local pwr = _players["p1"]["ball"].pwr
+  local pwr_clr
+  pwr_clr=7
+  if(pwr>=10 and pwr<30) pwr_clr=9
+  if(pwr>30) pwr_clr=8
+  str = "pow:" .. pad(_players["p1"]["ball"].pwr,3)
+  printo(str, _screen_left+1, _screen_bot-4, pwr_clr)
 end
 
 function draw_players()
