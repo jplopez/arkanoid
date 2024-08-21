@@ -36,7 +36,7 @@ paddle_ball_collision_handler = collision_handler:new({
       ball.dy = -abs(ball.dy) 
     end
 
-    ball.pwr-=1
+    ball.pwr-=2
   end,
 
   handle_top_bounce=function(self, ball, paddle)
@@ -61,23 +61,6 @@ paddle_ball_collision_handler = collision_handler:new({
         log("seg "..i.." new dx:"..ball.dx)
       end
     end
-
-    -- if x_pos <= seg then
-    --   ball.dx = -1 * mid(1.7, 1.7+rnd(2.1), 2.1)
-    -- elseif x_pos <= seg * 2 then
-    --   ball.dx = -1 * mid(1, 1.1 + rnd(2), 1.1)
-    -- elseif x_pos <= seg * 3 then
-    --   ball.dx = -1 * mid(0.7, 0.7 + rnd(1.1) + 1.1)
-    --   ball.dy -= self.ball_dy_acc 
-    -- elseif x_pos <= seg * 4 then
-    --   ball.dx = mid(0.7, 0.7 + rnd(1.1) + 1.1)
-    --   ball.dy -= self.ball_dy_acc 
-    -- elseif x_pos <= seg * 5 then
-    --   ball.dx = mid(1.1, 1.1 + rnd(1.7), 1.7)
-    -- else
-    --   -- self.x_pos<=(seg*6)
-    --   ball.dx = mid(1.7, 1.7+rnd(2.1), 2.1)
-    -- end
 
   end
 })

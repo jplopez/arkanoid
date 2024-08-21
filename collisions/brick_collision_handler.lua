@@ -18,17 +18,17 @@ brick_collision_handler = collision_handler:new({
       for c = first_col, last_col do
         local br = _cur_lvl.grid[r][c]
         if(br==nil) then
-          log("["..r..","..c.."] NIL")
+          -- log("["..r..","..c.."] NIL")
         elseif br:visible() then
 --        if(br!=nil and br:visible()) then
           if(collision_engine:is_circle_rect_colliding(ball, br)) then
-            log("["..r..","..c.."] COL")
+            -- log("["..r..","..c.."] COL")
             brick_block = brick_block:union(br)
           else
-            log("["..r..","..c.."] OOR")
+            -- log("["..r..","..c.."] OOR")
           end
         else 
-          log("["..r..","..c.."] HID")
+          -- log("["..r..","..c.."] HID")
         end
       end
     end

@@ -12,7 +12,6 @@ _hit_spr = {
   right = {}
 }
 
-
 brick = class:new({
   x = _screen_left + 12,
   y = _screen_top + 10,
@@ -153,8 +152,8 @@ composite_brick = brick:new({
       end
       add(self.bricks, other)
     end
-    log("brick.union self=(" .. self.x .. "," .. self.y .. "," .. self.w .. "," .. self.h .. ")")
-    log("brick union bricks: " .. #self.bricks)
+    -- log("brick.union self=(" .. self.x .. "," .. self.y .. "," .. self.w .. "," .. self.h .. ")")
+    -- log("brick union bricks: " .. #self.bricks)
     return self
   end,
 
@@ -249,12 +248,6 @@ move_brick = brick:new({
 
   length_x = 10 + 3,
   length_y = 4 + 3,
-
-  -- new = function(self, tbl)
-  --   tbl = brick.new(self, tbl)
-  --   -- tbl:init_states()
-  --   return tbl
-  -- end,
 
   update = function(self)
     self.frame += self.speed
