@@ -103,5 +103,11 @@ function init_objects()
     levelup_timer:init()
     _timers["levelup_timer"] = levelup_timer
 
+    local tt = timer:new60(30, function() end,
+    function() 
+        _begin_anim_title=true 
+    end)
+    tt:init()
+    _timers["anim_title"] = tt
 
 end

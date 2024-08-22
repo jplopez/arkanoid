@@ -2,6 +2,8 @@
 --globals
 -----------
 
+_version="0.2.0"
+
 _noop=function()end
 
 --screen
@@ -29,12 +31,21 @@ _max_cols = 16
 
 -- timers
 _timers={ }
+_begin_anim_title = false
+
 
 --palletes
 _pals = {
   bg = {1,2,3},
   paddle = {12,13,14,15},
-  ball ={8,9,10,11}
+  ball ={8,9,10,11},
+  h1 = 0,
+  h1o = 8,
+  h2 = 13,
+  h2o = 2,
+  h3 = 15,
+  h3o = 7,
+
 }
 
 --players

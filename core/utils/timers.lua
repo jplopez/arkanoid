@@ -41,12 +41,12 @@ timer=class:new({
    
       if elapsed < length then
        if self.step_fn then
-        self:step_fn(dt,elapsed,length)
+        self:step_fn(elapsed,length)
        end
       else
        self.active=false
        if self.end_fn then
-        self:end_fn(dt,elapsed,length) 
+        self:end_fn(elapsed,length) 
        end
       end
    
