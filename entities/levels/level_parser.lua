@@ -30,7 +30,9 @@ function add_lvl_map(key, value, c)
 end
 
 function parse_level(lvl)
-  if(_lvl_def2[lvl]==nil) return false
+  -- to cover for edge and if player finishes all available levels
+
+  if(_lvl_def2[lvl]==nil ) lvl = 1
   local lvl_def = _lvl_def2[lvl]
   -- log("parse level", true)
   -- log(lvl_def)
