@@ -20,6 +20,7 @@ collision_engine = class:new({
   end,
 
   update = function(self) 
+    --log("col-eng update")
     self:update_collisions(self.collisions["rect_rect"], 
     collision_engine.is_rect_colliding)
 
@@ -114,7 +115,10 @@ collision_engine = class:new({
     local dx = circle.x - closest_x
     local dy = circle.y - closest_y
 
+    -- log("dx * dx + dy * dy : " .. dx .. " * " .. dx .. " + " .. dy .. " * " .. dy .. " = " .. tostr(dx * dx + dy * dy ))
+    -- log("(circle.r + self.tolerance)^2 : " .. "("..circle.r.." + "..self.tolerance..")^2 = " .. tostr((circle.r + self.tolerance) * (circle.r + self.tolerance)))
     local collision = dx * dx + dy * dy < (circle.r + self.tolerance) * (circle.r + self.tolerance)
+    -- log(" collision? " .. tostr(collision))
     
     --determine side of collision in rect
     local side = nil
@@ -150,7 +154,11 @@ collision_engine = class:new({
         end
       end
     end
-    return collision, side
+    --if(side != nil) then 
+      return collision, side
+    --else 
+    --  return false, side
+    --end
   end,
 
   is_rect_colliding = function(self, rect1, rect2)

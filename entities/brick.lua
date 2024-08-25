@@ -19,8 +19,8 @@ brick = class:new({
   h = 5,
   clr = rnd(_brick_spr),
 
-  hit_spr = 1,
-  hit_frs = 0,
+  _count = 0,
+  unbreakable=false,
 
   score_mul = 5,
 
@@ -34,72 +34,43 @@ brick = class:new({
   end,
 
   draw_hit = function(self)
-    if self.hit_spr == #_brick_hit_spr then
+    local c, m, s = self._count, #_brick_hit_spr, _brick_hit_spr
+    c = (c+1)%m 
+    if(c==0) then
       self:state("hidden")
     else
-      if self.hit_frs >= _brick_hit_frs then
-        spr(_brick_hit_spr[self.hit_spr], self.x, self.y)
-        self.hit_spr += 1
-        self.hit_frs = 0
-      else
-        self.hit_frs += 1
-      end
+      spr(s[c+1], self.x, self.y)
+      self._count=c
     end
+
   end,
 
   on_collision = function(self)
-    self:score_hit()
+    if(not self.unbreakable or
+      _players["p1"]["ball"]:power() == _pwr_fury) then
+        self:score_hit()
+    else
+      _players["p1"]["ball"].pwr+= 1
+      sfx(6)
+    end
+    
   end,
 
-  score_hit = function(self)
+  score_hit = function(self, n_hits)
+    log("brick score hit")
+    n_hits = n_hits or 1
     self:state("hit")
 
-    local new_combo = _players["p1"]["combo"] + 1
+    local new_combo = _players["p1"]["combo"] + n_hits
     -- brick hit sound: combo sfx goes up to 7
     sfx(10 + mid(1, new_combo, 7))
     
     -- Update player's score and combo 
     _players["p1"]["score"] += self.score_mul * new_combo
     _players["p1"]["combo"] = new_combo
-  end,
 
-  visible = function(self)
-    return self:is_state("visible")
-  end,
-
-  is_hit = function(self)
-    return self:is_state("hit")
-  end,
-
-  is_hidden = function(self)
-    return self:is_state("hidden")
-  end,
-
-  left_of = function(self, other)
-    return self != other
-        and self.x + self.w == other.x
-        and self.y == other.y
-  end,
-
-  right_of = function(self, other)
-    return other:left_of(self)
-  end,
-
-  top_of = function(self, other)
-    return self != other
-        and self.y + self.h == other.y
-        and self.x == other.x
-  end,
-
-  bottom_of = function(self, other)
-    return other:top_of(self)
-  end,
-
-  next_of = function(self, other)
-    return self:left_of(other)
-        or self:right_of(other)
-        or self:top_of(other)
-        or self:bottom_of(other)
+    -- update ball's pwr count
+    _players["p1"]["ball"].pwr+= ceil(new_combo/2)
   end,
 
   union = function(self, other)
@@ -129,113 +100,6 @@ brick = class:new({
   end
 })
 
-composite_brick = brick:new({
-  bricks = {},
-
-  new = function(self, other)
-    tbl = brick.new(self, other)
-    tbl.bricks = {}
-    return tbl
-  end,
-
-  union = function(self, other)
-    if other != nil then
-      if #self.bricks == 0 then
-        self.x = other.x
-        self.y = other.y
-        self.w = other.w
-        self.h = other.h
-        self.clr = other.clr
-        self.state = other.state
-      else
-        self = brick.union(self, other)
-      end
-      add(self.bricks, other)
-    end
-    -- log("brick.union self=(" .. self.x .. "," .. self.y .. "," .. self.w .. "," .. self.h .. ")")
-    -- log("brick union bricks: " .. #self.bricks)
-    return self
-  end,
-
-  on_collision = function(self)
-    for br in all(self.bricks) do
-      br:on_collision()
-    end
-  end,
-
-  hidden_count = function(self)
-    local count = 0
-    for br in all(self.bricks) do
-      if not br:is_state("visible") then
-        count += 1
-      end
-    end
-    return count
-  end
-})
-
---unbreakable
-god_brick = brick:new({
-  clr = 38,
-
-  hit_fr = 3,
-  hit_count = 0,
-  hit_clr = 4,
-
-  update = function(self)
-    if self.hit_count > 0 then
-      self.clr = self.hit_clr
-      self.hit_count -= 1
-    else
-      self.clr = 38
-    end
-  end,
-
-  on_collision = function(self)
-    self.hit_count = self.hit_fr
-    sfx(6)
-  end
-})
-
---shielded brick
---can sustain 'shield' number
---of hits
-shield_brick = brick:new({
-
-  shield = 2,
-  hits = 0,
-  clr = 37,
-
-  hit_fr = 3,
-  hit_count = 0,
-  hit_clr = 4,
-
-  update = function(self)
-    if self.hit_count > 0 then
-      self.clr = self.hit_clr
-      self.hit_count -= 1
-    else
-      self.clr = 37
-    end
-  end,
-
-  on_collision = function(self)
-    if self.hits == self.shield then
-      self:score_hit()
-    else
-      --update shield hits count
-      self.hits += 1
-      self.hit_count = self.hit_fr
-      sfx(5)
-
-      --update player's combo and score
-      local combo = _players["p1"]["combo"] + 1
-      _players["p1"]["combo"] = combo
-      _players["p1"]["score"] += self.score_mul * combo
-    end
-  end
-})
---shield_brick:init_states()
 
 move_brick = brick:new({
   frame = 0,

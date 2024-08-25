@@ -33,7 +33,7 @@ level = class:new({
 
   upd_br = function(self, r, c, upd_func)
     local br = self.grid[r][c]
-    if br != nil and br.visible then
+    if br != nil and br:is_state("visible") then
       if upd_func != nil then
         upd_func(self, br)
       else

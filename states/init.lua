@@ -41,7 +41,10 @@ function init_players()
         _players["p1"]["paddle"],
         { "idle", "move", "hit" })
 
-
+    --power bar
+    _players["p1"]["powerbar"] = powerbar:new()
+    _players["p1"]["powerbar"].bars=0
+ 
     _players["p1"]["score"] = 0
     _players["p1"]["level"] = 1
     _players["p1"]["lives"] = 3

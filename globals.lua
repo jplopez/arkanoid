@@ -38,12 +38,12 @@ _begin_anim_title = false
 _pals = {
   bg = {1,2,3},
   paddle = {12,13,14,15},
-  ball ={8,9,10,11},
-  h1 = 0,
+  ball = {8,9,10,11},
+  h1  = 0,
   h1o = 8,
-  h2 = 13,
+  h2  = 13,
   h2o = 2,
-  h3 = 15,
+  h3  = 15,
   h3o = 7,
 
 }
@@ -73,3 +73,51 @@ function print_side(side)
   if(side == _bottom_right) return "bottom-right"
 end
 
+-- power ball
+_pwr_off=0
+_pwr_ball=35
+_pwr_fury=47
+_pwr_max =50
+
+_paddle_pen=2
+_pwr_off_hit=1
+_pwr_ball_hit=2
+_pwr_fury_hit=10
+
+
+
+_pwr_spr = {
+  ["empty"] = {
+    sxb=32, 
+    syb=48, 
+    paltb=11,
+    sx=36, 
+    sy=40,  
+    palt=11
+  },
+
+  [_pwr_off] = {
+    sxb=24, 
+    syb=32, 
+    paltb=0,
+    sx=32, 
+    sy=32,  
+    palt=0
+  },
+  [_pwr_ball] = {
+    sxb=24, 
+    syb=40, 
+    paltb=0,
+    sx=36, 
+    sy=32,  
+    palt=0
+  },
+  [_pwr_fury] = {
+    sxb=24, 
+    syb=48, 
+    paltb=0,
+    sx=32, 
+    sy=40,  
+    palt=11
+  }
+}

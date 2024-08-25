@@ -104,6 +104,9 @@ end
 --   nil_line(),
 --   nil_line()
 -- }
+
+mesiah = brick:new({ unbreakable = true, clr=38 })
+
 _lvl_map = {
   col_sep = ",",
   row_sep = "|",
@@ -121,8 +124,8 @@ _lvl_map = {
     count = true
   },
   g = {
-    type = god_brick,
-    count = true
+    type = mesiah,
+    count = false
   },
 }
 
@@ -154,6 +157,15 @@ _lvl_def2 = {
       " n,n,b,b,b,b,b,b,b,b,b,b,n,n|"..
       " n,n,b,b,b,b,b,b,b,b,b,b,n,n|"..
       " n,n,b,b,b,b,b,b,b,b,b,b,n,n|"..
-      " n,n,b,b,b,b,b,b,b,b,b,b,n,n| |"
+      " n,n,b,b,b,b,b,b,b,b,b,b,n,n| |",
+
+[4] = "| |"..
+      " n,n,n,g,g,g,g,g,g,g,g,n,n,n|"..
+      " n,n,n,s,s,s,s,s,s,s,s,n,n,n|"..
+      " n,n,n,s,s,s,b,b,s,s,s,n,n,n|"..
+      " n,n,n,g,b,b,b,b,b,b,g,n,n,n|"..
+      " n,n,n,g,b,b,b,b,b,b,g,n,n,n|"..
+      " n,n,n,g,b,b,b,b,b,b,g,n,n,n|"..
+      " n,n,n,g,s,s,s,s,s,s,g,n,n,n| |"
 
 }

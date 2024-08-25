@@ -65,7 +65,7 @@ start_gamestate = gamestate:new({
   draw_title=function(self) 
     palt(_pals.bg[1])
     stamp_title(0, self.ty, 128, 32)
-    stamp_pico(0, 12, 16, self.ph)
+    stamp_pico(0, 15, 16, self.ph)
     pal()
   end
 

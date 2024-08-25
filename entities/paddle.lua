@@ -1,9 +1,9 @@
 -- paddle
 paddle = class:new({
   x = 52,
-  y = 120,
+  y = 115,
   w = 24,
-  h = 3,
+  h = 8,
   clr = rnd(_pals["paddle"]),
   dx = 2,
 
@@ -32,11 +32,13 @@ paddle = class:new({
   end,
 
   draw = function(self)
-    rectfill(
-      self.x, self.y,
-      self.x + self.w, self.y + self.h,
-      self:paddle_clr()
-    )
+    -- rectfill(
+    --   self.x, self.y,
+    --   self.x + self.w, self.y + self.h,
+    --   self:paddle_clr())
+    sspr(40,40,16,8,self.x,self.y,self.w-8,self.h, false, false)
+    sspr(40,40,8,8,self.x+16,self.y,8,self.h, true, false)
+
   end,
 
   on_collision = function(self)
