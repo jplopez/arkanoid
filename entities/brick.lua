@@ -46,31 +46,36 @@ brick = class:new({
   end,
 
   on_collision = function(self)
-    if(not self.unbreakable or
-      _players["p1"]["ball"]:power() == _pwr_fury) then
-        self:score_hit()
-    else
+    local b = _players["p1"]["ball"] 
+    if(self.unbreakable) then
       _players["p1"]["ball"].pwr+= 1
-      sfx(6)
+      sfx(6) -- metal cling sound
+    else
+      self:score_hit(b:hits(), b:power()) 
     end
-    
   end,
 
-  score_hit = function(self, n_hits)
+  score_hit = function(self, n_hits, b_pwr)
     log("brick score hit")
     n_hits = n_hits or 1
+    b_pwr = b_pwr or _pwr_off
+
     self:state("hit")
 
     local new_combo = _players["p1"]["combo"] + n_hits
-    -- brick hit sound: combo sfx goes up to 7
-    sfx(10 + mid(1, new_combo, 7))
+    local pwr_pts =  ceil(new_combo/3)
+    local score_pts = self.score_mul * new_combo
     
-    -- Update player's score and combo 
-    _players["p1"]["score"] += self.score_mul * new_combo
+    -- Update player's score and combo and ball pwr 
+    _players["p1"]["score"] += score_pts
     _players["p1"]["combo"] = new_combo
+    _players["p1"]["ball"].pwr+= pwr_pts
 
-    -- update ball's pwr count
-    _players["p1"]["ball"].pwr+= ceil(new_combo/2)
+    -- brick hit sound: combo sfx goes up to 7
+    if(b_pwr == _pwr_off) sfx(10 + mid(1, new_combo, 7))
+    if(b_pwr == _pwr_ball or b_pwr == _pwr_fury) sfx(20)
+
+    return new_combo, pwr_pts, score_pts
   end,
 
   union = function(self, other)

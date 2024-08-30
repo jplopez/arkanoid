@@ -81,8 +81,11 @@ brick_collision_handler = collision_handler:new({
   end,
 
   ball_direction=function(self, ball, side)
-   log("ball direction side: "..print_side(side))
-   log("   ball pre (dx,dy)=("..ball.dx..","..ball.dy..")")
+    log("ball direction side: "..print_side(side))
+    log("   ball pre (dx,dy)=("..ball.dx..","..ball.dy..")")
+
+    if(ball:power() == _pwr_fury) return false
+
     if(side == nil) then
       ball.dy*=-1
       ball.dx*=-1

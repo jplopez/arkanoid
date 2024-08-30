@@ -4,6 +4,10 @@
 
 _version="0.2.0"
 
+-- Cart Data
+_cdata_id="parkanoid"
+_high_score_index=0
+
 _noop=function()end
 
 --screen
@@ -33,6 +37,13 @@ _max_cols = 16
 _timers={ }
 _begin_anim_title = false
 
+--[[
+  shake tells the draw function if the screen needs to shake. 
+  The larger the value of shake, the longer the shake.
+]]
+_shake = 0
+
+_high_score=0
 
 --palletes
 _pals = {
@@ -83,8 +94,6 @@ _paddle_pen=2
 _pwr_off_hit=1
 _pwr_ball_hit=2
 _pwr_fury_hit=10
-
-
 
 _pwr_spr = {
   ["empty"] = {

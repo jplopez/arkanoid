@@ -114,3 +114,9 @@ function init_objects()
     _timers["anim_title"] = tt
 
 end
+
+function init_cdata()
+    cartdata(_cdata_id)
+    _high_score = dget(_high_score_index)
+    
+end

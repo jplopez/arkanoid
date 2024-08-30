@@ -72,7 +72,7 @@ ball = class:new({
   serve = function(self)
     --resets paddle and ball
     local p = _players["p1"]["paddle"]
-    self.pwr=0
+    self.pwr = 0
     self.x = p.x + p.w / 2
     self.y = p.y - (self.r)
     self.dx = 0.5

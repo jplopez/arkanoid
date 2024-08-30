@@ -1,7 +1,7 @@
 -- paddle
 paddle = class:new({
   x = 52,
-  y = 115,
+  y = 112,
   w = 24,
   h = 8,
   clr = rnd(_pals["paddle"]),

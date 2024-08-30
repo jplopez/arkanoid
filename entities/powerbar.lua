@@ -1,7 +1,7 @@
 powerbar = class:new({
 
-  x = _screen_right - 38,
-  y = _screen_top - 5,
+  x = _screen_left + 8,  --_screen_right - 38,
+  y = _screen_bot - 5,
   bars=0,
   max=8,
   pwr = "empty",
@@ -33,13 +33,11 @@ powerbar = class:new({
   end,
 
   draw_bar_item=function(self, i, s)
-    local sx, sy, sw, sh, fl_x =
-          s["sxb"], s["syb"], 5, 6, (self.max==i)
-    local dx = self.x+ sw + ((i-1)*4)
-    
+    local sx, sy, sw, sh, dx, fl_x =
+          s["sxb"], s["syb"], 5, 6, self.x + ((i-1)*4), (self.max==i) 
     palt(s["paltb"])
     if(i>1 and i<self.max) then
-      sx, sy, sw = s["sx"], s["sy"], 4 
+      sx, sy= s["sx"], s["sy"]
       palt(s["palt"])
     end
     sspr(sx, sy, sw, sh, dx, self.y, sw, sh, fl_x, false)

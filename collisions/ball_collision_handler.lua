@@ -3,14 +3,9 @@ ball_screen_collision_handler = collision_handler:new({
   
   handle = function(self, ball, side)
 
---    if ball.state == _ball_states.sticky then
     if ball:is_state("sticky") then
       return false
     end
-
-    --log("ball screen side "..side)
-    -- log("top, bot, left, right "
-    --     .. top_dist .. "," .. bot_dist .. "," .. left_dist .. "," .. right_dist)
     
     if side == _top then
       ball.dy = abs(ball.dy)
@@ -27,8 +22,16 @@ ball_screen_collision_handler = collision_handler:new({
       ball.dx = -abs(ball.dx)
     end
 
-    sfx(0)
-    -- sound ball bouncing wall
+    -- ball bouncing wall sfx and screen shake
+    if(ball:power()==_pwr_off)  sfx(0)
+    if(ball:power()==_pwr_ball) sfx(0)
+    if(ball:power()==_pwr_fury) then 
+      _shake+=1
+      sfx(0,0)
+      sfx(7,1)  
+    end
+
+
   end,
 
   handle_loose_ball=function(self, ball)

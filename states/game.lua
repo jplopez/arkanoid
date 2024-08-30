@@ -13,6 +13,8 @@ game_gamestate = gamestate:new({
     -- collision engine
     _col_eng_v2:update()
   
+    upd_high_score()
+  
     --player's ball and paddle
     _players["p1"]["ball"]:update()
     _players["p1"]["paddle"]:update()
@@ -34,6 +36,7 @@ game_gamestate = gamestate:new({
   draw=function(self)
     -- log("draw state: game")
     cls(0)
+    shake_screen()
     draw_game_level()
     draw_game_ui()
     draw_players()
@@ -91,9 +94,15 @@ function draw_game_ui()
   local lev = "level:"..pad(_players["p1"]["level"], 2)
   print(lev, _screen_left+1, 7, 7)
 
+  --high score
+  local str = pad(_high_score, 6)
+  printc("high score", 1, 7)
+  local next_x = printc(str, 7, 7)
+
   --score
-  local str = pad(_players["p1"]["score"], 6)
-  next_x = print(str, _screen_right - (#str*4), 1, 7)
+  str = pad(_players["p1"]["score"], 6)
+  print("score", _screen_right - 20, 1, 7)
+  next_x = print(str, _screen_right - (#str*4), 7, 7)
 
 end
 
@@ -123,4 +132,21 @@ function draw_serves(n)
     spr(5,_screen_left, 7)
     spr(5,_screen_left + 8, 7)
   end
+end
+
+function shake_screen() 
+  if(_shake > 0) then
+    log("1 shake " .. _shake)
+    local sh_x=(4-rnd(8)) * _shake
+    local sh_y=(4-rnd(8)) * _shake
+    camera(sh_x,sh_y)
+    _shake = (_shake<0.05) and 0 or (_shake*0.95)
+    log("2 shake " .. _shake)
+  end
+
+end
+
+function upd_high_score()
+  if(_players["p1"]["score"] > _high_score) dset(_high_score_index, _players["p1"]["score"])
+  _high_score = dget(_high_score_index)
 end

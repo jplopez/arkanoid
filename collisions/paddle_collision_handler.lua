@@ -38,7 +38,6 @@ paddle_ball_collision_handler = collision_handler:new({
       ball.dy = -abs(ball.dy) 
     end
 
-    ball.pwr = max(0, ball.pwr - _paddle_pen)
   end,
 
   handle_top_bounce=function(self, ball, paddle)
@@ -64,6 +63,14 @@ paddle_ball_collision_handler = collision_handler:new({
       end
     end
     --paddle hit sound efect
-    sfx(1)
+    if(ball:power() == _pwr_fury) then
+      ball:state("sticky")
+      ball.pwr=0 
+      sfx(8)
+    else
+      ball.pwr = max(0, ball.pwr - _paddle_pen)
+      sfx(1)
+    end
+
   end
 })
