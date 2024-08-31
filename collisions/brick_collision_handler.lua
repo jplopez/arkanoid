@@ -1,82 +1,56 @@
-brick_collision_handler = collision_handler:new({
+br_handler = collision_handler:new({
 
-  handle = function(self, ball, grid)
-    -- log("brick collision handle")
-    if ball:is_state("sticky") then
-      return false
-    end
+  handle = function(self, b, grid)
+    if(b:is_state("sticky")) return false
 
     --obtain vecinity of bricks potentially hit
     local first_col, first_row, last_col, last_row =
-        self:get_near_bricks(ball, grid)
-    -- log("near " .. tostr((last_row-first_row+1)*(last_col-first_col+1)) .. " bricks at [" .. first_row .. "," .. first_col .. "]:[" .. last_row .. "," .. last_col .. "]")
-    -- composite block tracking all hit bricks    
+        self:near_bricks(b, grid)
     local brick_block = composite_brick:new()
 
-    local log_sep = " | "
-    local log_head = "    | "
-    local logstr   =  ""
-
+    -- local log_sep = " | "
+    -- local log_head = "    | "
+    -- local logstr   =  ""
     for r = first_row, last_row do
-      logstr = logstr .. pad(r,3) .. log_sep 
+      -- logstr = logstr .. pad(r,3) .. log_sep 
       for c = first_col, last_col do
-
-        local log_c = ""
-        if(r==first_row) log_head = log_head .. pad(c, 3) .. log_sep
-
-        local br = _cur_lvl.grid[r][c]
+        -- local log_c = ""
+        -- if(r==first_row) log_head = log_head .. pad(c, 3) .. log_sep
+        local br = _lvl.grid[r][c]
         if(br==nil) then
-
-          log_c = "NIL"
-
+          -- log_c = "NIL"
         elseif br:is_state("visible") then
           --if(br!=nil and br:visible()) then
-          local col, side = collision_engine:is_circle_rect_colliding(ball, br)
+          local col, s = collision_engine:is_circle_rect_colliding(b, br)
           if(col) then
-
-            log_c = "COL"
+            -- log_c = "COL"
             brick_block = brick_block:union(br)
-
           else
-            log_c = "OOB"
+            -- log_c = "OOB"
             brick_block = brick_block:union(br, true)
-
           end
         else 
-          log_c = "HID"
+          -- log_c = "HID"
         end
-
-        logstr = logstr .. log_c .. log_sep
-        if(c==last_col) logstr = logstr .. "\n"
-
+        -- logstr = logstr .. log_c .. log_sep
+        -- if(c==last_col) logstr = logstr .. "\n"
       end -- end for cols
     end -- end for rows
-
     -- log(log_head)
     -- log(logstr)
     -- log("hit? " .. tostr(#brick_block.bricks > 0) .. " bricks: " .. tostr(#brick_block.bricks))
-
-    if(#brick_block.bricks > 0) then
-      self:handle_brick_block(ball, brick_block)
-    end
+    if(#brick_block.bricks > 0) self:handle_brick_block(b, brick_block)
   end,
 
-  handle_brick_block=function(self,ball,brick_block)
+  handle_brick_block=function(self,b,brick_block)
       log("handle_brick_block")
-      -- log("   ball(x,y) ("..ball.x..","..ball.y..")")
-      -- log("   bb  (x,y,w,h) ("..brick_block.x..","..
-      --     brick_block.y..","..
-      --     brick_block.w..","..
-      --     brick_block.h..")")
-  
-      local col, side = collision_engine:is_circle_rect_collision_side(ball, brick_block)
+      local col, s = collision_engine:is_circle_rect_collision_side(b, brick_block)
       if col then
-        log("   bb col side :".. print_side(side))
+--        log("   bb col s :".. print_side(s))
         brick_block:on_collision()
-        log("   bb hit count ".. brick_block:hidden_count())
-        _cur_lvl.br_left -= brick_block:hidden_count()
-        self:ball_direction(ball, side) 
-
+--      log("   bb hit count ".. brick_block:hidden_count())
+        _lvl.br_left -= brick_block:hidden_count()
+        self:ball_dir(b, s) 
         --powerup
         if(brick_block:hidden_count()>0 and _pup_cooldown==0) then
           local pup_id = pup_gatcha_pull()
@@ -93,56 +67,31 @@ brick_collision_handler = collision_handler:new({
           end
         end
       end  
-  
   end,
 
-  ball_direction=function(self, ball, side)
-    log("ball direction side: "..print_side(side))
-    log("   ball pre (dx,dy)=("..ball.dx..","..ball.dy..")")
-
-    if(ball:power() == _pwr_fury) return false
-
-    if(side == nil) then
-      ball.dy*=-1
-      ball.dx*=-1
+  ball_dir=function(self, b, s)
+    -- log("b direction s: "..print_side(s))
+    -- log("   b pre (dx,dy)=("..b.dx..","..b.dy..")")
+    if(b:power()==_pwr_fury) return false
+    if(s==nil) then
+      b.dy*=-1
+      b.dx*=-1
     end 
-
-    if(side == _top_left or side == _top_right or side==_top) then
-      if ball.dy > 0 then
-        ball.dy*=-1
-      end
-    end
-
-    if(side == _bottom_left or side == _bottom_right or side==_bottom) then
-      if ball.dy < 0 then
-        ball.dy*=-1
-      end
-    end
-
-    if(side == _top_left or side == _bottom_left or side==_left) then
-      if ball.dx > 0 then
-        ball.dx*=-1
-      end
-    end
-
-    if(side == _top_right or side == _bottom_right or side==_right) then
-      if ball.dx < 0 then
-        ball.dx*=-1
-      end
-    end
-
---    log("ball post (dx,dy)=("..ball.dx..","..ball.dy..")")
-
+    if((s==_top_left or s==_top_right or s==_top)and(b.dy>0)) b.dy*=-1
+    if((s==_bottom_left or s==_bottom_right or s==_bottom)and(b.dy<0)) b.dy*=-1
+    if((s==_top_left or s==_bottom_left or s==_left)and(b.dx>0)) b.dx*=-1
+    if((s==_top_right or s==_bottom_right or s==_right)and(b.dx<0)) b.dx*=-1
+--    log("b post (dx,dy)=("..b.dx..","..b.dy..")")
   end,
 
-  get_near_bricks=function(self, ball, grid)
-    local col_w = level.pad_col + brick.w
-    local row_h = level.pad_row + brick.h
+  near_bricks=function(self, b, grid)
+    local col_w = brick.w
+    local row_h = brick.h
     
-    local first_col = flr((ball.x-ball.r-grid.x)/col_w) 
-    local last_col = ceil((ball.x+ball.r-grid.x)/col_w) 
-    local first_row = flr((ball.y-ball.r-grid.y)/row_h) 
-    local last_row = ceil((ball.y+ball.r-grid.y)/row_h) 
+    local first_col = flr((b.x-b.r-grid.x)/col_w) 
+    local last_col = ceil((b.x+b.r-grid.x)/col_w) 
+    local first_row = flr((b.y-b.r-grid.y)/row_h) 
+    local last_row = ceil((b.y+b.r-grid.y)/row_h) 
     return mid(1, first_col, _max_cols), 
             mid(1, first_row, _max_rows),
             mid(1, last_col, _max_cols),

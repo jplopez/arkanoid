@@ -5,12 +5,12 @@ collision_handler = class:new({
 collision_engine = class:new({
   
   tolerance = 1,
-  collisions = {},
+  colls = {},
 
   new = function(self, tolerance)
     local tbl = class:new(self)
     tbl.tolerance = tolerance
-    tbl.collisions = {
+    tbl.colls = {
       rect_rect = {},
       circle_rect = {},
       circle_circle = {},
@@ -21,29 +21,29 @@ collision_engine = class:new({
 
   update = function(self) 
     --log("col-eng update")
-    self:update_collisions(self.collisions["rect_rect"], 
+    self:upd_colls(self.colls["rect_rect"], 
     collision_engine.is_rect_colliding)
 
-    self:update_collisions(self.collisions["circle_rect"], 
+    self:upd_colls(self.colls["circle_rect"], 
     collision_engine.is_circle_rect_colliding)
 
-    self:update_collisions(self.collisions["circle_circle"], 
+    self:upd_colls(self.colls["circle_circle"], 
     collision_engine.is_circle_colliding)
 
-    self:update_collisions(self.collisions["circle_screen"], 
+    self:upd_colls(self.colls["circle_screen"], 
     collision_engine.is_circle_screen_colliding)
 
   end,
 
-  update_collisions=function(self, collisions, collision_fn) 
-    for k,v in pairs(collisions) do
+  upd_colls=function(self, colls, coll_fn) 
+    for k,v in pairs(colls) do
       if v["obj2"] == nil then
-        local col, side = collision_fn(self, v["obj1"])
+        local col, side = coll_fn(self, v["obj1"])
         if col then
           v["handler"]:handle(v["obj1"], side)
         end
       else
-        local col,side = collision_fn(self, v["obj1"], v["obj2"])
+        local col,side = coll_fn(self, v["obj1"], v["obj2"])
         if col then
           v["handler"]:handle(v["obj1"], v["obj2"], side)
         end
@@ -52,48 +52,46 @@ collision_engine = class:new({
   end,
 
   add_rect_rect = function(self, key, rect1, rect2, handler)
-    self:add_collision(key, "rect_rect", rect1, rect2, handler)
+    self:add_coll(key, "rect_rect", rect1, rect2, handler)
   end,
 
   add_circle_rect = function(self, key, circle, rect, handler)
-    self:add_collision(key, "circle_rect", circle, rect, handler)
+    self:add_coll(key, "circle_rect", circle, rect, handler)
   end,
 
-  add_circle_circle = function(self, key, circle1, circle2, handler)
-    self:add_collision(key, "circle_circle", circle1, circle2, handler)
+  add_circle_circle = function(self, key, c1, c2, handler)
+    self:add_coll(key, "circle_circle", c1, c2, handler)
   end,
 
   add_circle_screen = function(self, key, circle, handler)
     --log("collision engine add circle_screen")
-    self:add_collision(key, "circle_screen", circle, nil, handler)
+    self:add_coll(key, "circle_screen", circle, nil, handler)
   end,
 
   --TODO : validate key already exist
-  add_collision = function(self, handler_key, collision_key, obj1, obj2, handler )
+  add_coll = function(self, handler_key, coll_key, obj1, obj2, handler )
     if (obj1 == nil and obj2 == nil) then return false end
-    if is_empty(handler_key) or is_empty(collision_key) then return false end
-    self.collisions[collision_key] = self.collisions[collision_key] or {}
-    self.collisions[collision_key][handler_key] = { 
+    if is_empty(handler_key) or is_empty(coll_key) then return false end
+    self.colls[coll_key] = self.colls[coll_key] or {}
+    self.colls[coll_key][handler_key] = { 
       obj1 = obj1, 
       obj2 = obj2, 
       handler = handler }
   end,
 
-
-  is_circle_colliding = function(self, circle1, circle2)
-    
-    local dx = circle1.x - circle2.x
-    local dy = circle1.y - circle2.y
+  is_circle_colliding = function(self, c1, c2)
+    local dx = c1.x - c2.x
+    local dy = c1.y - c2.y
     local distance = sqrt(dx * dx + dy * dy)
 
-    return distance < circle1.r + circle2.r + self.tolerance
+    return distance < c1.r + c2.r + self.tolerance
   end,
 
-  is_circle_screen_colliding = function(self, circle)
-    local top_dist = ((circle.y-circle.r) - _screen_top) <= self.tolerance
-    local bot_dist = (_screen_bot - (circle.y+circle.r)) <= self.tolerance
-    local left_dist = ((circle.x-circle.r) - _screen_left) <= self.tolerance
-    local right_dist = (_screen_right - (circle.x+circle.r)) <= self.tolerance
+  is_circle_screen_colliding = function(self, c)
+    local top_dist = ((c.y-c.r) - _screen_top) <= self.tolerance
+    local bot_dist = (_screen_bot - (c.y+c.r)) <= self.tolerance
+    local left_dist = ((c.x-c.r) - _screen_left) <= self.tolerance
+    local right_dist = (_screen_right - (c.x+c.r)) <= self.tolerance
 
     local side = nil
     if(top_dist) side=_top
@@ -103,38 +101,38 @@ collision_engine = class:new({
     return side!=nil, side
   end,
 
-  is_circle_rect_colliding = function(self, circle, rec)
-    local col, side = self:is_circle_rect_collision_side(circle, rec)
+  is_circle_rect_colliding = function(self, c, rec)
+    local col, side = self:is_circle_rect_collision_side(c, rec)
     return col
   end,
 
-  is_circle_rect_collision_side = function(self, circle, rec)
-    local closest_x = mid(rec.x, circle.x, rec.x + rec.w)
-    local closest_y = mid(rec.y, circle.y, rec.y + rec.h)
+  is_circle_rect_collision_side = function(self, c, rec)
+    local closest_x = mid(rec.x, c.x, rec.x + rec.w)
+    local closest_y = mid(rec.y, c.y, rec.y + rec.h)
 
-    local dx = circle.x - closest_x
-    local dy = circle.y - closest_y
+    local dx = c.x - closest_x
+    local dy = c.y - closest_y
 
     -- log("dx * dx + dy * dy : " .. dx .. " * " .. dx .. " + " .. dy .. " * " .. dy .. " = " .. tostr(dx * dx + dy * dy ))
     -- log("(circle.r + self.tolerance)^2 : " .. "("..circle.r.." + "..self.tolerance..")^2 = " .. tostr((circle.r + self.tolerance) * (circle.r + self.tolerance)))
-    local collision = dx * dx + dy * dy < (circle.r + self.tolerance) * (circle.r + self.tolerance)
-    -- log(" collision? " .. tostr(collision))
+    local coll = dx * dx + dy * dy < (c.r + self.tolerance) * (c.r + self.tolerance)
+    -- log(" collision? " .. tostr(coll))
     
     --determine side of collision in rect
     local side = nil
-    if collision then
-      local tol = circle.r + self.tolerance
+    if coll then
+      local tol = c.r + self.tolerance
       --left
-      if abs(rec.x - circle.x) <= tol then
+      if abs(rec.x - c.x) <= tol then
         side = _left
       --end
       --right
-      elseif abs(circle.x  - (rec.x+rec.w)) <= tol then
+      elseif abs(c.x  - (rec.x+rec.w)) <= tol then
         side = _right
       end
 
       -- top and top corners
-      if abs(rec.y - circle.y) <= tol then
+      if abs(rec.y - c.y) <= tol then
         if side == _left then
           side = _top_left
         elseif side == _right then
@@ -142,9 +140,8 @@ collision_engine = class:new({
         else
           side = _top 
         end
-      --end
       -- bottom and bottom corners
-      elseif abs(circle.y - (rec.y+rec.h)) <= tol then
+      elseif abs(c.y - (rec.y+rec.h)) <= tol then
         if side == _left then
           side = _bottom_left
         elseif side == _right then
@@ -154,11 +151,7 @@ collision_engine = class:new({
         end
       end
     end
-    --if(side != nil) then 
-      return collision, side
-    --else 
-    --  return false, side
-    --end
+    return coll, side
   end,
 
   is_rect_colliding = function(self, rect1, rect2)

@@ -1,16 +1,9 @@
--- level
 level = class:new({
-  pad_row = 0,
-  pad_col = 0,
-
-  -- br_clrs = { 8, 9, 11, 12, 13 },
-  br_clrs = {20, 21, 22, 23, 36},
   grid = {},
   lvl = 1,
 
   br_count = 0,
   br_left = 0,
-
 
   init = function(self, lvl)
     log("begin level init " .. lvl, true)
@@ -23,40 +16,25 @@ level = class:new({
     return self.br_count
   end,
 
-  update = function(self, upd_func)
+  update = function(self)
+    -- detect if all bricks were hit 
+    if(self.br_left <= 0) then 
+      set_gamestate("levelup")
+    else -- update bricks
+      for r = 1, _max_rows do
+        for c = 1, _max_cols do
+          local br = self.grid[r][c]
+          if(br != nil and br:is_state("visible")) br:update()
+        end
+      end
+    end
+  end,
+
+  draw = function(self)
     for r = 1, _max_rows do
       for c = 1, _max_cols do
-        self:upd_br(r, c, upd_func)
-      end
-    end
-  end,
-
-  upd_br = function(self, r, c, upd_func)
-    local br = self.grid[r][c]
-    if br != nil and br:is_state("visible") then
-      if upd_func != nil then
-        upd_func(self, br)
-      else
-        br:update()
-      end
-    end
-  end,
-
-  draw = function(self, draw_func)
-    for r = 1, _max_rows do
-      for c = 1, _max_cols do
-        self:draw_br(r, c, draw_func)
-      end
-    end
-  end,
-
-  draw_br = function(self, r, c, draw_func)
-    local br = self.grid[r][c]
-    if br != nil then
-      if draw_func != nil then
-        draw_func(self, br)
-      else
-        br:draw()
+        local br = self.grid[r][c]
+        if(br != nil) br:draw()
       end
     end
   end

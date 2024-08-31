@@ -1,10 +1,7 @@
-
-_log_filename = "log"
-
-function log(text, overwrite)
-	printh(text, _log_filename, overwrite)
+_log_fn = "log"
+function log(txt, overwrite)
+	printh(txt, _log_fn, overwrite)
 end
-
-function log2(text, formatter, overwrite)
-	log(serialize(text), overwrite)
+function log2(txt, overwrite)
+	log(serialize(txt), overwrite)
 end

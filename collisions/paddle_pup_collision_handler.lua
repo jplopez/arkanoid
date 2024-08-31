@@ -1,9 +1,4 @@
-
-paddle_pup_collision_handler = collision_handler:new({
-
-  -- pup acceleration every time the pup 
-  -- hits the paddle.
-  ball_acc = 0.7,
+pup_handler = collision_handler:new({
 
   handle=function(self, paddle, pup_area)
     -- log("paddle-pup handle")
@@ -23,11 +18,11 @@ paddle_pup_collision_handler = collision_handler:new({
   end,
 
   handle_powerup_aspect=function(self, pup)
-    if(pup.s==_pup_1up) _players["p1"]["lives"]+=1
-    if(pup.s==_pup_large) _aspects["paddle_large"].enabled=true
-    if(pup.s==_pup_small) _aspects["paddle_small"].enabled=true
+    -- if(pup.s==_pup_1up) _plives+=1
+    -- if(pup.s==_pup_large) _aspects["paddle_large"].enabled=true
+    -- if(pup.s==_pup_small) _aspects["paddle_small"].enabled=true
 
-    if(pup.s==_pup_score) _players["p1"]["score"]+=500
+    -- if(pup.s==_pup_score) _pscore+=500
 
   end
 

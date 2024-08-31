@@ -1,16 +1,10 @@
--- start
-
-
 start_gamestate = gamestate:new({
 
-  ty = 16,
-  _t = 0,
-  _h1o = _pals["h1o"],
-
-  ph=0,
+  ty = 16, -- 'arkanoid' title y coordinate
+  _t = 0,  -- timer count to animate
+  ph=0,    -- hight of 'pico' logo for animation
 
   update=function(self)
-
     local tt = _timers["anim_title"]
     if(tt.active) then 
       tt:update()
@@ -36,34 +30,32 @@ start_gamestate = gamestate:new({
     else
       if btn(5) then
         sfx(3)
-        self._h1o = 7
         timer:restart()
       end
     end
   end,
 
   draw=function(self)
-    cls(_pals.bg[1])
-    palt(_pals.bg[1])
+    cls(1)
+    palt(1)
 
     --stamp_title(0, self.ty, 128, 32)
     self:draw_title()
 
     local str = "press ❎ to start"
     local x = 64-(#str*4)/2
-    printo(str, x, 72, _pals["h1"], self._h1o)
+    printo(str, x, 72, _pal_h1, _pal_h1o)
 
     str="2024. made with ♥ by jp"
     x = 127-(#str*4)
-    printc(str, 110, _pals["h3"])
+    printc(str, 110, _pal_h3)
     
-    str="v." .. _version
-    printc(str, 118, _pals["h3"])
+    printc("v." .. _version, 118, _pal_h3)
     pal()
   end,
 
   draw_title=function(self) 
-    palt(_pals.bg[1])
+    palt(1)
     stamp_title(0, self.ty, 128, 32)
     stamp_pico(0, 15, 16, self.ph)
     pal()
@@ -72,25 +64,17 @@ start_gamestate = gamestate:new({
 })
 
 function startgame(l)
-  l = l or 1
- 
+  l = l or 1 
   -- reset paddle and ball
-  local p = _players["p1"]["paddle"]
-  local b = _players["p1"]["ball"]
-
-  p:init()
-  b:serve()
-
+  _ppaddle:init()
+  _pball:serve()
   -- reset player data
-  _players["p1"]["lives"] = 3
-  _players["p1"]["score"] = 0
-  _players["p1"]["level"] = l
-  _players["p1"]["combo"] = 0
+  _plives = 3
+  _pscore = 0
+  _plevel = l
+  _pcombo = 0
   init_bonus()
-
-  _cur_lvl:init(l)
-  -- log("Game state: start -> game - level: "..tostr(l))
-  -- _state = "game"
+  _lvl:init(l)
   set_gamestate("game")
 end
 
@@ -103,7 +87,6 @@ function stamp_pico(dx,dy,tw,th)
   sspr(16,64,8,16,dx,dy,tw/2,th/2,false, false)
   sspr(120,32,8,24,dx+8,dy,tw/2,th*0.75,false, false)
   sspr(112,48,8,16,dx,dy+16,tw/2,th/2,false, false)
-
   --Pico-8 logo
   local pth = 0.3125*th
   sspr(40,32,5,5,dx+15,dy+3,pth,pth,false,false)

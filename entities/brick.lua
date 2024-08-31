@@ -1,57 +1,40 @@
--- brick
-
-_brick_spr = { 20, 21, 22, 23, 36 }
-_brick_hit_spr = { 40, 41, 42, 43, 44 }
-_brick_hit_frs = 5
-
---TODO add different sprites depending on where the collision took place
-_hit_spr = {
-  top = {},
-  bottom = {},
-  left = {},
-  right = {}
-}
+_br_spr_hit = { 40, 41, 42, 43, 44 }
 
 brick = class:new({
   x = _screen_left + 12,
   y = _screen_top + 10,
   w = 8,
   h = 5,
-  clr = rnd(_brick_spr),
-
-  _count = 0,
+  s = 20,
+  cnt = 0,
   unbreakable=false,
-
   score_mul = 5,
 
   update = _noop,
 
-  --TODO delegate draw/update functions to state handlers
   draw = function(self)
     if(self:is_state("hidden")) return true
-    if(self:is_state("visible")) spr(self.clr,self.x,self.y)
+    if(self:is_state("visible")) spr(self.s,self.x,self.y)
     if(self:is_state("hit")) self:draw_hit()
   end,
 
   draw_hit = function(self)
-    local c, m, s = self._count, #_brick_hit_spr, _brick_hit_spr
+    local c, m, hs = self.cnt, #_br_spr_hit, _br_spr_hit
     c = (c+1)%m 
     if(c==0) then
       self:state("hidden")
     else
-      spr(s[c+1], self.x, self.y)
-      self._count=c
+      spr(hs[c+1], self.x, self.y)
+      self.cnt=c
     end
-
   end,
 
   on_collision = function(self)
-    local b = _players["p1"]["ball"] 
     if(self.unbreakable) then
-      _players["p1"]["ball"].pwr+= 1
+      _pball.pwr+= 1
       sfx(6) -- metal cling sound
     else
-      self:score_hit(b:hits(), b:power()) 
+      self:score_hit(_pball:hits(), _pball:power()) 
     end
   end,
 
@@ -59,23 +42,18 @@ brick = class:new({
     log("brick score hit")
     n_hits = n_hits or 1
     b_pwr = b_pwr or _pwr_off
-
     self:state("hit")
 
-    local new_combo = _players["p1"]["combo"] + n_hits
-    local pwr_pts =  ceil(new_combo/3)
-    local score_pts = self.score_mul * new_combo
-    
+    local new_combo = _pcombo + n_hits    
     -- Update player's score and combo and ball pwr 
-    _players["p1"]["score"] += score_pts
-    _players["p1"]["combo"] = new_combo
-    _players["p1"]["ball"].pwr+= pwr_pts
-
+    _pscore += self.score_mul * new_combo
+    _pball.pwr+= ceil(new_combo/3)
+    _pcombo = new_combo
     -- brick hit sound: combo sfx goes up to 7
     if(b_pwr == _pwr_off) sfx(10 + mid(1, new_combo, 7))
     if(b_pwr == _pwr_ball or b_pwr == _pwr_fury) sfx(20)
 
-    return new_combo, pwr_pts, score_pts
+    return _pcombo, _pball.pwr, _pscore
   end,
 
   union = function(self, other)
@@ -94,58 +72,4 @@ brick = class:new({
     self.h = new_h
     return self
   end,
-
-  equals = function(this, other, skip_color)
-    if (other == nil) return false
-    local color = this.clr == other.clr
-    if (skip_color) color = true
-    return this.x == other.x and this.y == other.y
-        and this.w == other.w and this.h == other.h
-        and color
-  end
-})
-
-
-move_brick = brick:new({
-  frame = 0,
-  speed = 0.01,
-  dx = 0,
-  dy = 0,
-
-  move_x = false,
-  move_y = false,
-
-  length_x = 10 + 3,
-  length_y = 4 + 3,
-
-  update = function(self)
-    self.frame += self.speed
-    self.dx = cos(self.frame) * self.length_x
-    self.dy = sin(self.frame) * self.length_y
-  end,
-
-  draw_visible = function(self, n, x_pos, y_pos)
-    local x_pos = self.x
-    if self.move_x then
-      x_pos = mid(_screen_left, x_pos + self.dx, _screen_right - self.w)
-    end
-
-    local y_pos = self.y
-    if self.move_y then
-      y_pos = mid(_screen_top, y_pos + self.dy, _screen_bot - self.h)
-    end
-    brick.draw_visible(self, self.clr, x_pos, y_pos)
-  end
-})
-
-slow_x_brick = move_brick:new({
-  move_x = true,
-  move_y = false,
-  speed = 0.01
-})
-
-mid_x_brick = move_brick:new({
-  move_x = true,
-  move_y = false,
-  speed = 0.013
 })

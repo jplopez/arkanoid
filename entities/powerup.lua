@@ -1,18 +1,9 @@
---power ups
-
 powerup=class:new({
-
-  s = 0,
-  -- sx = 0,
-  -- sy = 0,
-  -- sw = 0,
-  -- sh = 0,  
+  s = 0, 
   x = _screen_left + rnd(_screen_right),
   y = _screen_top + rnd(64),
-
   w = 8,
   h = 8,
-
   speed = 0.5,
 
   new=function(self, tbl)
@@ -23,26 +14,18 @@ powerup=class:new({
 
   update = function(self)
     if self:is_state("visible") then
-      self.x += cos(t()) 
-      self.y += self.speed
+      self.x = mid(_screen_left, self.x+cos(t()), _screen_right - 8 ) 
+      self.y = max(_screen_top, self.y+self.speed)
     end
-    -- powerup went off the screen
+    -- hide powerup if is off the screen
     if(self.y > _screen_bot) self:state("hidden")
   end, 
 
   draw = function(self)
-    if self:is_state("visible") then
-      local x, y = self.x, self.y
-      x_pos = mid(_screen_left, x, _screen_right - 8 )
-      y_pos = max(_screen_top, y)
-      --log("draw powerup ")
-      --log2(self)
-      spr(self.s, x, y)
-    end
+    if(self:is_state("visible")) spr(self.s, self.x, self.y)
   end,
 
   on_collision=function(self) end
-
 })
 
 
@@ -88,13 +71,12 @@ function pup_gatcha_pull()
 end
 
 function gatcha_combo()
-  local b = _players["p1"]["ball"]
-  local combo = mid(1, _players["p1"]["combo"], 7)
-  if(b:power() == _pwr_fury) return 1
-  if(b:power() == _pwr_ball) return flr(combo/2)
-  return combo
+  if(_pball:power() == _pwr_fury) return 1
+  local c = mid(1, _pcombo, 7)
+  if(_pball:power() == _pwr_ball) return flr(c/2)
+  return c
 end
 
-function chance(percentage)
-  return (1 + rnd(100)) <= percentage
+function chance(perc)
+  return (1 + rnd(100)) <= perc
 end

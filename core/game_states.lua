@@ -1,32 +1,27 @@
 --game state machine for the main pico8 cycle
 gamestate = class:new({
-
   enter=function(self) end,
-
   exit=function(self) end,
-
   update=function(self) end,
-
   draw=function(self)  end
-
 })
 
 _gamestates = { }
 
-function add_gamestate(key, new_state, allowed_transitions) 
+function add_gamestate(key, new_state, trans) 
   if(key==nil or new_state == nil) return false
   _gamestates = _gamestates or {}
-  allowed_transitions = allowed_transitions or {}
+  trans = trans or {}
 
   _gamestates[key] = {
     state = new_state,
-    allow = allowed_transitions
+    allow = trans
   }
 end
 
 function current_gamestate() 
-  local current_key = _gamestates["current"] 
-  return _gamestates[current_key]["state"]
+  local cur_key = _gamestates["current"] 
+  return _gamestates[cur_key]["state"]
 end
 
 function set_default(key) 
@@ -42,11 +37,11 @@ end
 function set_gamestate(key) 
   if(key == nil) return false
 
-  current_key = _gamestates["current"]
-  current_key = current_key or _gamestates["default"]
-  if(current_key == nil) return false
+  cur_key = _gamestates["current"]
+  cur_key = cur_key or _gamestates["default"]
+  if(cur_key == nil) return false
    
-  current_state = _gamestates[current_key]
+  current_state = _gamestates[cur_key]
   
   if(allowed_transition(current_state, key)) then
     new_state = _gamestates[key]

@@ -41,10 +41,7 @@ composite_brick = brick:new({
   hidden_count = function(self)
     local count = 0
     for br in all(self.bricks) do
-      if(not br.unbreakable and
-         not br:is_state("visible")) then
-        count += 1
-      end
+      if((not br.unbreakable)and(not br:is_state("visible"))) count += 1
     end
     return count
   end

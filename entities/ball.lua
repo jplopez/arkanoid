@@ -1,13 +1,10 @@
--- ball
-
 ball = class:new({
   x = _screen_left, 
   y = _screen_bot - 20,
   dx = 0.5, 
   dy = -1, 
   r = 1.75,
-  clr = 8,
-
+  --clr = 8,
   pwr=0,
 
   -- sprite flip and count
@@ -16,17 +13,13 @@ ball = class:new({
   fl_c = 0,
 
   update = function(self)
-
-    -- if self.state == _ball_states.sticky then
       if self:is_state("sticky") then
       if btn(5) then
-        self:state("move") -- = _ball_states.move
+        self:state("move")
       else 
         self:serve()
       end
     end
-
-    -- if self.state == _ball_states.move then
     if self:is_state("move") then
       self.x += self.dx
       self.y += self.dy
@@ -71,13 +64,11 @@ ball = class:new({
 
   serve = function(self)
     --resets paddle and ball
-    local p = _players["p1"]["paddle"]
     self.pwr = 0
-    self.x = p.x + p.w / 2
-    self.y = p.y - (self.r)
+    self.x = _ppaddle.x + _ppaddle.w / 2
+    self.y = _ppaddle.y - (self.r)
     self.dx = 0.5
     self.dy = -1
-    --self.state = _ball_states.sticky
     self:state("sticky")
   end
 })

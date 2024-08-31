@@ -84,8 +84,6 @@ function init_states(base)
         if (this.states[new_state] == nil) then 
           return false 
         end
-        -- log("self pre")
-        -- log2(self)
         --change to new_state
         local old_state = this.states["current"]
         this.states["current"] = new_state
@@ -94,20 +92,11 @@ function init_states(base)
         if skip_triggers then 
           return true 
         end
-
           -- execute triggers
         local old = this.states[old_state]
         local new = this.states[new_state]
 
-        -- log("old")
-        -- log2(old)
-        -- log("new")
-        -- log2(new)
         if(old != nil and old.off_fn) old.off_fn(this)
         if(new.on_fn)  new.on_fn(this)
-
-        -- log("self post")
-        -- log2(self)
-
     end   
 end

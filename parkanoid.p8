@@ -70,7 +70,7 @@ function _update60()
 
   -- powerup cooldown count
   pup_cd_next()
-  upd_badge_menuitem()
+  upd_bdg_menu()
 end
 
 -- called every frame
@@ -79,7 +79,7 @@ function _draw()
   local gamestate = current_gamestate()
   if(gamestate != nil) gamestate:draw()
   
-  draw_badge_menuitem()
+  draw_bdg_menu()
 end
 
 

@@ -8,20 +8,14 @@ powerbar = class:new({
   pre_pwr=_pwr_off,
 
   update=function(self)
-    local b=_players["p1"]["ball"]
     self.bars = mid(0, 
-          ceil((b.pwr/_pwr_max) * self.max), 
+          ceil((_pball.pwr/_pwr_max) * self.max), 
           self.max)
     self.pre_pwr = self.pwr
-    self.pwr = b:power()
-
-    if(self.pre_pwr != self.pwr) then
-      self:update_ball(b)
-    end
+    self.pwr = _pball:power()
   end,
 
   draw=function(self)
-
     for i=1,self.max do
       if(self.bars < i) then
         self:draw_bar_item(i, _pwr_spr["empty"])
@@ -41,18 +35,6 @@ powerbar = class:new({
       palt(s["palt"])
     end
     sspr(sx, sy, sw, sh, dx, self.y, sw, sh, fl_x, false)
-  end, 
-
-  update_ball=function(self, b) 
-    if(b:power() == _pwr_off) then
-      -- regular ball
-    elseif(b:power() == _pwr_ball) then
-      -- speed up and hits*2
-    elseif(b:power() == _pwr_fury) then
-      -- shake when hitting walls
-      -- go through bricks
-      -- stops when hits the paddle
-      -- power bar empty
-    end
   end
+
 })
