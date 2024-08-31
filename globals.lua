@@ -5,7 +5,6 @@
 _version="0.2.0"
 
 -- Cart Data
-_cdata_id="parkanoid"
 _high_score_index=0
 
 _noop=function()end
@@ -133,6 +132,19 @@ _pwr_spr = {
   }
 }
 
+-- powerup cooldown
+-- to prevent too many pups to
+-- appear at once.
+-- 3 seconds = 3 * fps
+_pup_cooldown = 0
+function pup_cd_reset()
+  _pup_cooldown = 3*60
+end
+function pup_cd_next()
+  _pup_cooldown = max(0, _pup_cooldown-1)
+  return _pup_cooldown
+end
+
 -- powerups
 -- the number corresponds to the sprite
 -- and is also an id to distinguish them
@@ -148,3 +160,19 @@ _pup_score = 24
 _pup_web = 25
 _pup_glue = 26
 _pup_fire = 27
+
+
+-- Table to store game aspects that can be enabled/disabled
+_aspects = {
+  -- {name="paddle_fire", enabled=false},
+  -- {name="paddle_fireball", enabled=false},
+  -- {name="paddle_web", enabled=false},
+  {name="paddle_large", enabled=false},
+  {name="paddle_small", enabled=false},
+  -- {name="paddle_speed3", enabled=false},
+  -- {name="paddle_speed2", enabled=false},
+  -- {name="paddle_speed1", enabled=false},
+  -- {name="paddle_3balls", enabled=false},
+  -- {name="paddle_glue", enabled=false}
+  -- Add more aspects as needed
+}

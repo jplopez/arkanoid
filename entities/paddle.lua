@@ -29,6 +29,10 @@ paddle = class:new({
         self.x + (dir*self.dx),
         _screen_right - self.w - tol)
     self:state("move")
+
+    self.w=8
+    if(_aspects["paddle_large"].enabled) self.w=12
+    if(_aspects["paddle_small"].enabled) self.w=4
   end,
 
   draw = function(self)
@@ -36,7 +40,8 @@ paddle = class:new({
     --   self.x, self.y,
     --   self.x + self.w, self.y + self.h,
     --   self:paddle_clr())
-    sspr(40,40,16,8,self.x,self.y,self.w-8,self.h, false, false)
+    sspr(40,40,8,8,self.x,self.y,8,self.h, false, false)
+    sspr(48,40,8,8,self.x,self.y,self.w-8,self.h, false, false)
     sspr(40,40,8,8,self.x+16,self.y,8,self.h, true, false)
 
   end,

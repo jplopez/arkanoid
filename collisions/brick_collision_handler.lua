@@ -78,7 +78,7 @@ brick_collision_handler = collision_handler:new({
         self:ball_direction(ball, side) 
 
         --powerup
-        if(brick_block:hidden_count()>0) then
+        if(brick_block:hidden_count()>0 and _pup_cooldown==0) then
           local pup_id = pup_gatcha_pull()
           if(pup_id) then 
             local pup = powerup:new({s=pup_id, 
@@ -86,6 +86,7 @@ brick_collision_handler = collision_handler:new({
               y=brick_block.y
             })
             pup:state("visible")
+            pup_cd_reset()
             log2(pup)
             add(_pups, pup)
             log("powerups count:" .. tostr(#_pups))
@@ -146,21 +147,5 @@ brick_collision_handler = collision_handler:new({
             mid(1, first_row, _max_rows),
             mid(1, last_col, _max_cols),
             mid(1, last_row, _max_rows)
-  end,
-
-  vecinity=function(self, br, r, c, side, grid)
-    log("vecinity (r,c):(" .. r .."," .. c ..") side: "..print_side(side))
-
-    v = {}
-    if(side == nil) return v
- 
-    if((side == _top_left or side == _bottom_left) and c>1) add(v, grid[r][c-1])
-    if((side == _top_right or side == _bottom_right) and c<_max_cols) add(v, grid[r][c+1])
-       
-    if((side == _top_left or side == _top_right) and r>1) add(v, grid[r-1][c])
-    if((side == _bottom_left or side == _bottom_right) and r<_max_rows) add(v, grid[r+1][c])
-  
-    log2(v)
-    return v
   end
 })

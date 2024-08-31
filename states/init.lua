@@ -130,8 +130,13 @@ function init_objects()
 
 end
 
-function init_cdata()
-    cartdata(_cdata_id)
+function init_sys()
+    cartdata("parkanoid")
     _high_score = dget(_high_score_index)
     
+    -- Add the menu item for "badges"
+    menuitem(1, "badges", function()
+        _is_dialog_open = true
+    end)
 end
+

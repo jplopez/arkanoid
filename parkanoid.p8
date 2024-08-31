@@ -12,8 +12,7 @@ __lua__
 #include core/game_states.lua
 #include core/utils/timers.lua
 #include core/utils/utils.lua
-
---#include sprites/tiny_numbers.lua
+#include core/badge/badge_system.lua
 
 -- Entities
 #include entities/paddle.lua
@@ -40,8 +39,6 @@ __lua__
 #include states/levelup.lua
 #include states/bonus.lua
 
-
-
 -- collision handlers
 #include collisions/paddle_collision_handler.lua
 #include collisions/paddle_pup_collision_handler.lua
@@ -56,10 +53,9 @@ __lua__
 function _init()
   cls()
   init_gamestates()
-  init_cdata()
+  init_sys()
   init_players()
-  init_objects()
-  
+  init_objects()  
   --start screen state
   set_gamestate("start")
 
@@ -71,6 +67,10 @@ function _update60()
   log("UPD gamestate=".._gamestates["current"])
   local gamestate = current_gamestate()
   if(gamestate != nil) gamestate:update()
+
+  -- powerup cooldown count
+  pup_cd_next()
+  upd_badge_menuitem()
 end
 
 -- called every frame
@@ -78,6 +78,8 @@ function _draw()
   log("DRW gamestate=".._gamestates["current"])
   local gamestate = current_gamestate()
   if(gamestate != nil) gamestate:draw()
+  
+  draw_badge_menuitem()
 end
 
 
