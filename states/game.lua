@@ -14,7 +14,8 @@ game_gamestate = gamestate:new({
     _col_eng_v2:update()
   
     upd_high_score()
-  
+    upd_pups()
+
     --player's ball and paddle
     _players["p1"]["ball"]:update()
     _players["p1"]["paddle"]:update()
@@ -80,6 +81,8 @@ function draw_game_level()
 
   --level bricks
   _cur_lvl:draw()
+
+  draw_pups()
 
 end
 
@@ -149,4 +152,16 @@ end
 function upd_high_score()
   if(_players["p1"]["score"] > _high_score) dset(_high_score_index, _players["p1"]["score"])
   _high_score = dget(_high_score_index)
+end
+
+function upd_pups()
+  for p in all(_pups) do
+    p:update()
+  end
+end
+
+function draw_pups()
+  for p in all(_pups) do
+    p:draw()
+  end
 end

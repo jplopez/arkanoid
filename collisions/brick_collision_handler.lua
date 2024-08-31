@@ -76,6 +76,21 @@ brick_collision_handler = collision_handler:new({
         log("   bb hit count ".. brick_block:hidden_count())
         _cur_lvl.br_left -= brick_block:hidden_count()
         self:ball_direction(ball, side) 
+
+        --powerup
+        if(brick_block:hidden_count()>0) then
+          local pup_id = pup_gatcha_pull()
+          if(pup_id) then 
+            local pup = powerup:new({s=pup_id, 
+              x=brick_block.x,
+              y=brick_block.y
+            })
+            pup:state("visible")
+            log2(pup)
+            add(_pups, pup)
+            log("powerups count:" .. tostr(#_pups))
+          end
+        end
       end  
   
   end,

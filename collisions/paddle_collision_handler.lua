@@ -6,7 +6,10 @@ paddle_ball_collision_handler = collision_handler:new({
   ball_acc = 0.7,
 
   handle=function(self, ball, paddle)
+    self:handle_ball(ball,paddle)
+  end,
 
+  handle_ball=function(self, ball, paddle)
     if(ball:is_state("sticky")) return false
     
     --paddle resets current combo
@@ -37,7 +40,6 @@ paddle_ball_collision_handler = collision_handler:new({
       ball.dx = -2.5
       ball.dy = -abs(ball.dy) 
     end
-
   end,
 
   handle_top_bounce=function(self, ball, paddle)

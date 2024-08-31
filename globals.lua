@@ -25,6 +25,8 @@ _screen_bot=127
 -- the brick_type in each cell
 _lvl_def = {}
 
+_pups = {}
+
 -- current level
 _cur_lvl= nil
 
@@ -130,3 +132,19 @@ _pwr_spr = {
     palt=11
   }
 }
+
+-- powerups
+-- the number corresponds to the sprite
+-- and is also an id to distinguish them
+_pup_1up = 8
+_pup_large = 9
+_pup_small = 10
+_pup_fireball = 11
+_pup_3balls = 12
+_pup_speed3 = 13
+_pup_speed2 = 14
+_pup_speed1 = 15
+_pup_score = 24
+_pup_web = 25
+_pup_glue = 26
+_pup_fire = 27

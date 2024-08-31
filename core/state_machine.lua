@@ -77,6 +77,9 @@ function init_states(base)
       end
 
   base.state = function(this, new_state, skip_triggers)
+
+        if(new_state == nil) return this.states["current"]
+
         --validate new_state exists in object
         if (this.states[new_state] == nil) then 
           return false 

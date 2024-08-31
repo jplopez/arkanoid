@@ -83,7 +83,22 @@ function init_objects()
             h = _screen_top + (brick.h + level.pad_row) * _max_rows
         },
         brick_collision_handler)
+
+    -- this rectangle-rectangle collision handler 
+    -- uses the area where the paddle moves to detect
+    -- collision with powerups  
+    _col_eng_v2:add_rect_rect(
+        "powerup",
+        _players["p1"]["paddle"],
+        {
+            x = _screen_left,
+            y = paddle.y,
+            w = _screen_right,
+            h = paddle.h
+        },
+        paddle_pup_collision_handler)
   
+
     --bonus - extra 1up
     init_bonus()
 
