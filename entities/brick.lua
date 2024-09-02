@@ -51,7 +51,7 @@ brick = class:new({
     _pcombo = new_combo
     -- brick hit sound: combo sfx goes up to 7
     if(b_pwr == _pwr_off) sfx(10 + mid(1, new_combo, 7))
-    if(b_pwr == _pwr_ball or b_pwr == _pwr_fury) sfx(20)
+    if(b_pwr == _pwr_ball or b_pwr == _pwr_fury) sfx(09)
 
     return _pcombo, _pball.pwr, _pscore
   end,
