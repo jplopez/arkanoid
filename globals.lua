@@ -25,10 +25,10 @@ _screen_bot=127
 --pallete
 _pal_h1  = 0
 _pal_h1o = 8 
-_pal_h2  = 13
+_pal_h2  = 6
 _pal_h2o = 2
-_pal_h3  = 15
-_pal_h30 = 7
+_pal_h3  = 6
+_pal_h3o = 5
 
 -- world definitions--
 _begin_anim_title = false

@@ -94,8 +94,18 @@ end
 function init_sys()
     cartdata(_cdata_id)
     _high_score = dget(_high_score_index)
-    menuitem(1, "badges", function()
-        _is_dialog_open = true
-    end)
+    
+    if(_debug) then
+        menuitem(1, "badges", function()
+            _is_dialog_open = true
+        end)
+        menuitem(2, "levelup", function()
+            set_gamestate("levelup")
+        end)
+        menuitem(3, "gameover", function()
+            set_gamestate("gameover")
+        end)
+
+    end
 end
 
