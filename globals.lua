@@ -4,6 +4,8 @@
 
 --System
 _version="0.2.0"
+_debug=true --debug mode
+
 -- Cart Data
 _cdata_id = "parkanoid"
 _high_score_index=0
@@ -43,6 +45,12 @@ _bonus = {}       -- score bonus
 _pups = {}        -- powerups
 _lvl= nil         -- current level
 _colle = nil      -- collision engine
+
+_maps = {
+  { x=0, y=2},    -- ice
+  { x=16, y=2},   -- brick
+  {x=32,y=2}      -- grass
+}
 
 -- toggleable aspects
 _aspects = {

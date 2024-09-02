@@ -33,24 +33,10 @@ game_gamestate = gamestate:new({
 })
 
 function draw_game_level()
-  --playable screen
-  rectfill(
-    _screen_left ,
-    _screen_top,
-    _screen_right,
-    _screen_bot,
-    1
-  )
-  rect(
-    _screen_left,
-    _screen_top,
-    _screen_right,
-    _screen_bot,
-    2
-  )
   _lvl:draw() -- current level
   draw_pups() -- powerups
-
+  
+  if(_debug) rect(_screen_left, _screen_top, _screen_right, _screen_bot, 2)
 end
 
 function draw_game_ui()

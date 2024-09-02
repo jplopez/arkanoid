@@ -30,11 +30,11 @@ ball = class:new({
     --aliases to save tokens
     local c, fx, fy, dx, dy = self.fl_c, self.fl_x, self.fl_y, self.x-self.r, self.y-self.r
 
-    palt(0)
+    --palt(0)
     local sx, sy = self:ball_spr()
     if(self:is_state("move")) then
       -- determine index of flip
-      c = (c+1)%4
+      c = (c+1)%10
       sspr(sx,sy,5,5,dx, dy, 5,5,fx[c+1],fy[c+1])
     else
       sspr(sx,sy,5,5,dx, dy, 5,5)
