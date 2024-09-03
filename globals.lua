@@ -30,6 +30,10 @@ _pal_h2o = 2
 _pal_h3  = 6
 _pal_h3o = 5
 
+-- sfx and music
+_sfx_channels = 3   -- channels 0 and 1
+_music_channels = 12 -- channels 2 and 3
+
 -- world definitions--
 _begin_anim_title = false
 _shake = 0 -- shake>0 shakes the screen. The larger shake's value, the longer the shake  
@@ -47,9 +51,9 @@ _lvl= nil         -- current level
 _colle = nil      -- collision engine
 
 _maps = {
-  { x=0, y=2},    -- ice
-  { x=16, y=2},   -- brick
-  {x=32,y=2}      -- grass
+  { x=0, y=2,m=1}, -- ice
+  { x=16,y=2,m=3}, -- brick
+  { x=32,y=2,m=4}  -- grass
 }
 
 -- toggleable aspects

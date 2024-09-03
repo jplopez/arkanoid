@@ -1,6 +1,7 @@
 levelup_gamestate = gamestate:new({
 
   update=function(self)
+    music(-1)
     local timer = _timers["levelup_timer"]
     if timer.active then
       timer:update()

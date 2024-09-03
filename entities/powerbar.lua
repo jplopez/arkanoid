@@ -16,6 +16,7 @@ powerbar = class:new({
   end,
 
   draw=function(self)
+    --palt(0)
     for i=1,self.max do
       if(self.bars < i) then
         self:draw_bar_item(i, _pwr_spr["empty"])

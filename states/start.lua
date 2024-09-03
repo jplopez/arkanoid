@@ -5,13 +5,16 @@ start_gamestate = gamestate:new({
   ph=0,    -- hight of 'pico' logo for animation
 
   update=function(self)
+
+    if(current_gamestate()=="gameover") music(-1)
+
     local tt = _timers["anim_title"]
     if(tt.active) then 
       tt:update()
     else 
       tt:restart()
     end
-    
+
     --slide down anim for title
     if _begin_anim_title then
       local __t,__ty,__ph = self._t, self.ty,self.ph
@@ -38,29 +41,13 @@ start_gamestate = gamestate:new({
   draw=function(self)
     cls(1)
     palt(1)
-
-    --stamp_title(0, self.ty, 128, 32)
-    self:draw_title()
-
-    local str = "press ❎ to start"
-    local x = 64-(#str*4)/2
-    printo(str, x, 72, _pal_h1, _pal_h1o)
-
-    str="2024. made with ♥ by jp"
-    x = 127-(#str*4)
-    printc(str, 110, _pal_h3)
-    
-    printc("v." .. _version, 118, _pal_h3)
-    pal()
-  end,
-
-  draw_title=function(self) 
-    palt(1)
     stamp_title(0, self.ty, 128, 32)
     stamp_pico(0, 15, 16, self.ph)
+    printoc("press ❎ to start", 72, _pal_h1, _pal_h1o)
+    printc("2024. made with ♥ by jp", 110, _pal_h3)
+    printc("v." .. _version, 118, _pal_h3)
     pal()
   end
-
 })
 
 function startgame(l)

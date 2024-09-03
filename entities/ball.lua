@@ -13,7 +13,7 @@ ball = class:new({
   fl_c = 0,
 
   update = function(self)
-      if self:is_state("sticky") then
+    if self:is_state("sticky") then
       if btn(5) then
         self:state("move")
       else 
@@ -30,7 +30,6 @@ ball = class:new({
     --aliases to save tokens
     local c, fx, fy, dx, dy = self.fl_c, self.fl_x, self.fl_y, self.x-self.r, self.y-self.r
 
-    --palt(0)
     local sx, sy = self:ball_spr()
     if(self:is_state("move")) then
       -- determine index of flip
@@ -39,7 +38,6 @@ ball = class:new({
     else
       sspr(sx,sy,5,5,dx, dy, 5,5)
     end
-    pal()
     self.fl_c= c
   end,
  
