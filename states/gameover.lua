@@ -1,5 +1,22 @@
 gameover_gamestate = start_gamestate:new({
-   
+  
+  update=function(self)
+    --play gameover music
+    music(-1)
+
+    -- start game delay
+    local timer = _timers["start_timer"]
+    if timer.active then
+      timer:update()
+    else
+      if btn(5) then
+        sfx(3)
+        timer:restart()
+      end
+    end
+
+  end,
+
   draw=function(self)
     cls(1)
     local str = "gameover"

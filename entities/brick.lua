@@ -31,8 +31,12 @@ brick = class:new({
 
   on_collision = function(self)
     if(self.unbreakable) then
-      _pball.pwr+= 1
-      sfx(6) -- metal cling sound
+      if(_pball:power()==_pwr_fury) then  -- fury ball (red) beats unbreakable bricks
+        self:score_hit(_pball:hits(), _pball:power())
+      else
+        _pball.pwr+= 1
+        sfx(6) -- metal cling sound
+      end
     else
       self:score_hit(_pball:hits(), _pball:power()) 
     end

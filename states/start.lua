@@ -51,7 +51,8 @@ start_gamestate = gamestate:new({
 })
 
 function startgame(l)
-  l = l or 1 
+?"
+"  l = l or 1 
   -- reset paddle and ball
   _ppaddle:init()
   _pball:serve()
