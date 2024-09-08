@@ -25,6 +25,10 @@ powerbar = class:new({
       end
     end
     pal()
+
+    if(_pwrbar_increment>1) then
+      print("x".._pwrbar_increment, self.x + (self.max*4) +2, self.y, _pal_h2)
+    end
   end,
 
   draw_bar_item=function(self, i, s)

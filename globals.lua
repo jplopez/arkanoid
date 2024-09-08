@@ -58,16 +58,35 @@ _maps = {
 
 -- toggleable aspects
 _aspects = {
-  -- {name="paddle_fire", enabled=false},
-  -- {name="paddle_fireball", enabled=false},
-  -- {name="paddle_web", enabled=false},
-  {name="paddle_large", enabled=false},
-  {name="paddle_small", enabled=false},
-  -- {name="paddle_speed3", enabled=false},
-  -- {name="paddle_speed2", enabled=false},
-  -- {name="paddle_speed1", enabled=false},
-  -- {name="paddle_3balls", enabled=false},
-  -- {name="paddle_glue", enabled=false}
+  paddle_expand = {
+    id=1, 
+    enabled=false, 
+    enter=_noop, 
+    exit=_noop,
+    disables={"paddle_shrink"}},
+  paddle_shrink = {
+    id=2, 
+    enabled=false, 
+    enter=_noop, 
+    exit=_noop,
+    disables={"paddle_expand"}},
+  paddle_web = {
+    id=3, 
+    enabled=false,
+    enter=_noop, 
+    exit=_noop,},
+  extra_ball = {
+    id=4,
+    enabled=false,
+    enter=_noop, 
+    exit=_noop,
+  },
+  paddle_glue = {
+    id=5, 
+    enabled=false,
+    enter=_noop, 
+    exit=_noop,
+},
 }
 
 --playable objects 
@@ -80,6 +99,10 @@ _plevel = 1
 _plives = 3
 _pserves = 99
 _ppwrbar=nil
+
+-- powerbar
+_pwrbar_increment=1
+_pwrbar_combo_factor=3
 
 -- power ball
 _pwr_off=0
@@ -155,6 +178,11 @@ _pup_score = 24
 _pup_web = 25
 _pup_glue = 26
 _pup_fire = 27
+
+_pup_score_val=500
+
+_pup_extra_balls = { }
+_max_balls = 3
 
 --collissions
 _tol = 2 -- collision tolerance

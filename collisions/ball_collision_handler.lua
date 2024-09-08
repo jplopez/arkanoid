@@ -20,8 +20,16 @@ bscr_handler = collision_handler:new({
 
   handle_loose_ball=function(self, ball)
     sfx(4)
-    _plives-=1
-    if(_plives==0) set_gamestate("gameover")
-    ball:serve()
+    ball:state("hidden")
+    del(_colle.balls, ball)
+    del(_pup_extra_balls, ball)
+    
+    if(#_colle.balls==0) then
+      _plives-=1
+      if(_plives==0) set_gamestate("gameover")
+      _colle.balls = { _pball }
+      _pball:serve()
+      disable_all_aspects()
+    end
   end
 })

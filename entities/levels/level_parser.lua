@@ -24,11 +24,11 @@ function parse_level(lvl)
       local cols = split(rows[r], _lvl_map["col_sep"])
       for c=1,_max_cols do
         local br_map = cols[c]
-        br_type, count = parse_brick(br_map)
+        local br_type, parse_count = parse_brick(br_map)
         --log("grid["..r.."]["..c.."] : ".. tostr(br_type) .. " count:"..tostr(count))
         grid[r][c] = br_type and create_brick(br_type, br_x, br_y) or nil
         --log2(grid[r][c])
-        br_count+=count
+        br_count+=parse_count
         br_total+= br_type and 1 or 0
         br_x = _screen_left + (c*brick.w)
       end 

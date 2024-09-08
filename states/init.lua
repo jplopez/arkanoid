@@ -22,7 +22,7 @@ end
 function init_players()
     _pball = ball:new() 
     add_states( _pball,
-        { "idle", "move", "sticky" })
+        { "idle", "move", "sticky", "hidden" })
     _ppaddle = paddle:new()
     add_states(_ppaddle,
         { "idle", "move", "hit" })
@@ -37,44 +37,10 @@ function init_players()
 end
 
 function init_objects()
-    log("Init Game " .. time(), true)
-    --level
-    _lvl = level:new()
-
-    --collision enginve v2
-    _colle = collision_engine:new(_tol)
-    _colle:add_circle_rect(
-        "paddle",  _pball, _ppaddle, pb_handler)
-
-    _colle:add_circle_screen(
-        "ball", _pball, bscr_handler)
-
-    -- this circle-rectangle collision handler 
-    -- uses the area where bricks can appear within 
-    -- a level
-    _colle:add_circle_rect(
-        "brick",  _pball,
-        {
-            x = _screen_left,
-            y = _screen_top,
-            w = _screen_left + (brick.w * _max_cols),
-            h = _screen_top + (brick.h * _max_rows)
-        }, br_handler)
-
-    -- this rectangle-rectangle collision handler 
-    -- uses the area where the paddle moves to detect
-    -- collision with powerups  
-    _colle:add_rect_rect(
-        "powerup", _ppaddle,
-        {
-            x = _screen_left,
-            y = paddle.y,
-            w = _screen_right,
-            h = paddle.h
-        },pup_handler)
-  
-    --bonus - extra 1up
-    init_bonus()
+    _lvl = level:new()-- current level
+    init_collisions() --collision engine
+    init_bonus()      --bonus - extra 1up
+    init_aspects()    -- aspects are used for powerups
 
     --timers
     local st = timer:new60(30, _noop,
@@ -89,6 +55,43 @@ function init_objects()
     _timers["start_timer"] = st
     _timers["levelup_timer"] = lt
     _timers["anim_title"] = tt
+end
+
+function init_collisions()
+    _colle = collision_engine:new(_tol)
+
+    -- brick area of collisions
+    local br_area = {
+        x = _screen_left,
+        y = _screen_top,
+        w = _screen_left + (brick.w * _max_cols),
+        h = _screen_top + (brick.h * _max_rows)
+    }
+    -- powerup area colliding w/paddle 
+    local pup_area={
+        x = _screen_left,
+        y = paddle.y,
+        w = _screen_right,
+        h = paddle.h
+    }
+    -- balls in play, starts w/_pball
+    _colle.balls={ _pball }
+    
+    _colle.update=function(self) 
+        for b in all(self.balls) do 
+            --ball-paddle collision
+            local col, side = self:is_circle_rect_collision_side(b, _ppaddle)
+            if(col) pb_handler:handle(b, _ppaddle, side)
+            --ball-screen edges collision
+            col, side = self:is_circle_screen_colliding(b)
+            if(col) bscr_handler:handle(b, side)
+            --ball-brick collision
+            col, side = self:is_circle_rect_collision_side(b, br_area)
+            if(col) br_handler:handle(b, br_area, side)
+        end
+        --powerups-paddle collision
+        if(self:is_rect_colliding(_ppaddle, pup_area)) pup_handler:handle(_ppaddle, pup_area)
+    end
 end
 
 function init_sys()

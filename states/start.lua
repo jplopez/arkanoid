@@ -51,8 +51,7 @@ start_gamestate = gamestate:new({
 })
 
 function startgame(l)
-?"
-"  l = l or 1 
+  l = l or 1 
   -- reset paddle and ball
   _ppaddle:init()
   _pball:serve()
@@ -64,6 +63,7 @@ function startgame(l)
   init_bonus()
   _lvl:init(l)
   set_gamestate("game")
+  disable_all_aspects()
 end
 
 function stamp_title(dx,dy,tw,th)

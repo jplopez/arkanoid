@@ -29,16 +29,17 @@ brick = class:new({
     end
   end,
 
-  on_collision = function(self)
+  on_collision = function(self,b)
+    b=b or _pball
     if(self.unbreakable) then
-      if(_pball:power()==_pwr_fury) then  -- fury ball (red) beats unbreakable bricks
-        self:score_hit(_pball:hits(), _pball:power())
+      if(b:power()==_pwr_fury) then  -- fury ball (red) beats unbreakable bricks
+        self:score_hit(b:hits(), b:power())
       else
-        _pball.pwr+= 1
+        b.pwr+= _pwrbar_increment
         sfx(6) -- metal cling sound
       end
     else
-      self:score_hit(_pball:hits(), _pball:power()) 
+      self:score_hit(b:hits(), b:power()) 
     end
   end,
 
@@ -51,7 +52,7 @@ brick = class:new({
     local new_combo = _pcombo + n_hits    
     -- Update player's score and combo and ball pwr 
     _pscore += self.score_mul * new_combo
-    _pball.pwr+= ceil(new_combo/3)
+    _pball.pwr+= ceil(new_combo/_pwrbar_combo_factor)
     _pcombo = new_combo
     -- brick hit sound: combo sfx goes up to 7
     if(b_pwr == _pwr_off) sfx(10 + mid(1, new_combo, 7))

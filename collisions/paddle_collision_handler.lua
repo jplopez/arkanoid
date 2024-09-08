@@ -1,29 +1,20 @@
 pb_handler = collision_handler:new({
 
-  handle=function(self, b, p)
+  handle=function(self, b, p, s)
     if(b:is_state("sticky")) return false
-    
     --paddle resets current combo
     _pcombo=1
-
-    local top_dist = abs(p.y - (b.y+b.r))
-    local bot_dist = abs((b.y-b.r) - (p.y+p.h))
-    local left_dist = abs(p.x - (b.x+b.r))
-    local right_dist = abs((b.x-b.r) - (p.y+p.w))
-    min_dist = min(top_dist, bot_dist, left_dist, right_dist)
     
-    if top_dist == min_dist then 
-      --flip DY to up, calc new DX
-      self:handle_top_bounce(b, p)
-    elseif bot_dist == min_dist then
-      b.dy = abs(b.dy)--flip DY to down
-    end
+    --flip DY to up, calc new DX
+    if(s==_top) self:handle_top_bounce(b, p)
+    --flip DY to down
+    if(s==_bottom) b.dy = abs(b.dy)
 
-    if left_dist == min_dist then
+    --flip both DX and Dy, wide angle and more speed
+    if(s==_top_left) then
       b.dx = -2.5
       b.dy = -abs(b.dy) 
-      --flip both DX and Dy, wide angle and more speed
-    elseif right_dist == min_dist then
+    elseif(s==_top_right) then
       b.dx = -2.5
       b.dy = -abs(b.dy) 
     end
@@ -42,11 +33,14 @@ pb_handler = collision_handler:new({
         end
       end
     end
+
     --paddle hit
     if(b:power() == _pwr_fury) then
       b:state("sticky")
       b.pwr=0 
       sfx(8)
+    elseif(_aspects["paddle_glue"].enabled) then
+      b:state("sticky")  
     else
       b.pwr = max(0, b.pwr - _paddle_pen)
       sfx(1)

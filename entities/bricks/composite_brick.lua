@@ -7,7 +7,6 @@ composite_brick = brick:new({
     tbl = brick.new(self, other)
     tbl.bricks = {}
     tbl.oob_bricks = {}
-
     return tbl
   end,
 
@@ -32,17 +31,17 @@ composite_brick = brick:new({
     return self
   end,
 
-  on_collision = function(self)
+  on_collision = function(self, b)
     for br in all(self.bricks) do
-      br:on_collision()
+      br:on_collision(b)
     end
   end,
 
   hidden_count = function(self)
-    local count = 0
+    local c = 0
     for br in all(self.bricks) do
-      if((not br.unbreakable)and(not br:is_state("visible"))) count += 1
+      if((not br.unbreakable)and(not br:is_state("visible"))) c+=1
     end
-    return count
+    return c
   end
 })

@@ -27,6 +27,7 @@ ball = class:new({
   end,
 
   draw = function(self)
+    if(self:is_state("hidden")) return false
     --aliases to save tokens
     local c, fx, fy, dx, dy = self.fl_c, self.fl_x, self.fl_y, self.x-self.r, self.y-self.r
 

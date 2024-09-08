@@ -5,79 +5,14 @@ collision_handler = class:new({
 collision_engine = class:new({
   
   tolerance = 1,
-  colls = {},
 
   new = function(self, tolerance)
     local tbl = class:new(self)
     tbl.tolerance = tolerance
-    tbl.colls = {
-      rect_rect = {},
-      circle_rect = {},
-      circle_circle = {},
-      circle_screen = {}
-    }
     return tbl
   end,
 
-  update = function(self) 
-    --log("col-eng update")
-    self:upd_colls(self.colls["rect_rect"], 
-    collision_engine.is_rect_colliding)
-
-    self:upd_colls(self.colls["circle_rect"], 
-    collision_engine.is_circle_rect_colliding)
-
-    self:upd_colls(self.colls["circle_circle"], 
-    collision_engine.is_circle_colliding)
-
-    self:upd_colls(self.colls["circle_screen"], 
-    collision_engine.is_circle_screen_colliding)
-
-  end,
-
-  upd_colls=function(self, colls, coll_fn) 
-    for k,v in pairs(colls) do
-      if v["obj2"] == nil then
-        local col, side = coll_fn(self, v["obj1"])
-        if col then
-          v["handler"]:handle(v["obj1"], side)
-        end
-      else
-        local col,side = coll_fn(self, v["obj1"], v["obj2"])
-        if col then
-          v["handler"]:handle(v["obj1"], v["obj2"], side)
-        end
-      end   
-    end
-  end,
-
-  add_rect_rect = function(self, key, rect1, rect2, handler)
-    self:add_coll(key, "rect_rect", rect1, rect2, handler)
-  end,
-
-  add_circle_rect = function(self, key, circle, rect, handler)
-    self:add_coll(key, "circle_rect", circle, rect, handler)
-  end,
-
-  add_circle_circle = function(self, key, c1, c2, handler)
-    self:add_coll(key, "circle_circle", c1, c2, handler)
-  end,
-
-  add_circle_screen = function(self, key, circle, handler)
-    --log("collision engine add circle_screen")
-    self:add_coll(key, "circle_screen", circle, nil, handler)
-  end,
-
-  --TODO : validate key already exist
-  add_coll = function(self, handler_key, coll_key, obj1, obj2, handler )
-    if (obj1 == nil and obj2 == nil) then return false end
-    if is_empty(handler_key) or is_empty(coll_key) then return false end
-    self.colls[coll_key] = self.colls[coll_key] or {}
-    self.colls[coll_key][handler_key] = { 
-      obj1 = obj1, 
-      obj2 = obj2, 
-      handler = handler }
-  end,
+  update=_noop,
 
   is_circle_colliding = function(self, c1, c2)
     local dx = c1.x - c2.x
@@ -112,11 +47,7 @@ collision_engine = class:new({
 
     local dx = c.x - closest_x
     local dy = c.y - closest_y
-
-    -- log("dx * dx + dy * dy : " .. dx .. " * " .. dx .. " + " .. dy .. " * " .. dy .. " = " .. tostr(dx * dx + dy * dy ))
-    -- log("(circle.r + self.tolerance)^2 : " .. "("..circle.r.." + "..self.tolerance..")^2 = " .. tostr((circle.r + self.tolerance) * (circle.r + self.tolerance)))
     local coll = dx * dx + dy * dy < (c.r + self.tolerance) * (c.r + self.tolerance)
-    -- log(" collision? " .. tostr(coll))
     
     --determine side of collision in rect
     local side = nil

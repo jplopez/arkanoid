@@ -9,7 +9,7 @@ game_gamestate = gamestate:new({
     _pball:update()
     _ppaddle:update()
     _ppwrbar:update()
-  
+
     --world objects
     upd_high_score()
     upd_pups()
@@ -78,10 +78,19 @@ function upd_pups()
   for p in all(_pups) do
     p:update()
   end
+
+  for b in all(_pup_extra_balls) do
+    b:update()
+  end
 end
 
 function draw_pups()
   for p in all(_pups) do
     p:draw()
   end
+
+  for b in all(_pup_extra_balls) do
+    b:draw()
+  end
+
 end

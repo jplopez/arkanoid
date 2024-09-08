@@ -14,15 +14,20 @@ function update_bonus()
   for n=1,#_bonus do
     if not _bonus[n]["claimed"] then
       if _pscore >= _bonus[n]["score"] then
-        _plives+= 1
+        extra_live()
         _bonus[n]["claimed"] = true
-        bonus_fx_i=bonus_fx_n 
-        sfx(3)
         return false
       end
     end
   end
 end
+
+function extra_live()
+  _plives+= 1
+  bonus_fx_i=bonus_fx_n 
+  sfx(3)
+end
+
 
 function draw_bonus()
   if bonus_fx_i > 0 then

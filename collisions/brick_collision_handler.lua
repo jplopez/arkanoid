@@ -1,6 +1,6 @@
 br_handler = collision_handler:new({
 
-  handle = function(self, b, grid)
+  handle = function(self, b, grid, side)
     if(b:is_state("sticky")) return false
 
     --obtain vecinity of bricks potentially hit
@@ -43,11 +43,11 @@ br_handler = collision_handler:new({
   end,
 
   handle_brick_block=function(self,b,brick_block)
-      log("handle_brick_block")
+      -- log("handle_brick_block")
       local col, s = collision_engine:is_circle_rect_collision_side(b, brick_block)
       if col then
 --        log("   bb col s :".. print_side(s))
-        brick_block:on_collision()
+        brick_block:on_collision(b)
 --      log("   bb hit count ".. brick_block:hidden_count())
         _lvl.br_left -= brick_block:hidden_count()
         self:ball_dir(b, s) 
@@ -61,9 +61,9 @@ br_handler = collision_handler:new({
             })
             pup:state("visible")
             pup_cd_reset()
-            log2(pup)
+            -- log2(pup)
             add(_pups, pup)
-            log("powerups count:" .. tostr(#_pups))
+            -- log("powerups count:" .. tostr(#_pups))
           end
         end
       end  

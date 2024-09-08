@@ -32,5 +32,6 @@ function levelup()
   --increase level and load
   _plevel+=1
   _lvl:init(_plevel)
+  for b in all(_pup_extra_balls) do b:serve() end
   set_gamestate("game")
 end

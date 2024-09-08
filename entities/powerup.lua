@@ -8,7 +8,7 @@ powerup=class:new({
 
   new=function(self, tbl)
     tbl = class.new(self, tbl)
-    add_states(tbl, {"visible", "hidden"})
+    add_states(tbl, {"visible", "hidden", "idle"})
     return tbl
   end,
 
@@ -29,9 +29,26 @@ powerup=class:new({
 })
 
 
-_pup_s_tier = {_pup_fire, _pup_fireball, _pup_web}
-_pup_a_tier = {_pup_large, _pup_small,_pup_speed3, _pup_1up}
-_pup_b_tier = {_pup_speed1, _pup_speed2, _pup_3balls, _pup_score, _pup_glue}
+_pup_s_tier = {
+--    _pup_fire, 
+--    _pup_fireball,
+    -- _pup_web,
+    _pup_3balls,
+  }
+_pup_a_tier = {
+  _pup_3balls,
+  -- _pup_large, 
+  --   _pup_small,
+  --   --_pup_speed3, 
+  --   _pup_1up
+  }
+_pup_b_tier = {
+  --_pup_speed1,
+    --_pup_speed2, 
+    _pup_3balls,
+    -- _pup_score, 
+    -- _pup_glue
+  }
 
 -- lvl_chance = 0.2
 -- s_tier_chance = 0.05
