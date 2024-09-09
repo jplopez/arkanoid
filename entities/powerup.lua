@@ -1,4 +1,4 @@
-powerup=class:new({
+powerup=object:new({
   s = 0, 
   x = _screen_left + rnd(_screen_right),
   y = _screen_top + rnd(64),
@@ -6,9 +6,11 @@ powerup=class:new({
   h = 8,
   speed = 0.5,
 
-  new=function(self, tbl)
-    tbl = class.new(self, tbl)
-    add_states(tbl, {"visible", "hidden", "idle"})
+  states={"visible", "hidden", "idle"},
+
+  new = function(self, tbl)
+    tbl=tbl or {}
+    tbl=class.new(powerup, tbl)
     return tbl
   end,
 
@@ -28,27 +30,19 @@ powerup=class:new({
   on_collision=function(self) end
 })
 
-
 _pup_s_tier = {
---    _pup_fire, 
---    _pup_fireball,
-    -- _pup_web,
-    _pup_3balls,
-  }
+    _pup_web,
+}
 _pup_a_tier = {
-  _pup_3balls,
-  -- _pup_large, 
-  --   _pup_small,
-  --   --_pup_speed3, 
-  --   _pup_1up
-  }
+  _pup_large, 
+  _pup_small,
+  _pup_1up
+}
 _pup_b_tier = {
-  --_pup_speed1,
-    --_pup_speed2, 
-    _pup_3balls,
-    -- _pup_score, 
-    -- _pup_glue
-  }
+  _pup_3balls,
+  _pup_score, 
+  _pup_glue
+}
 
 -- lvl_chance = 0.2
 -- s_tier_chance = 0.05

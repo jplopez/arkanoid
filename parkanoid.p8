@@ -5,10 +5,11 @@ __lua__
 #include globals.lua
 
 -- Core functions and utilities
-#include core/class.lua
+#include core/utils/extend_table.lua
+#include core/oop.lua
 #include core/log.lua
 #include core/collision_engine.lua
-#include core/state_machine.lua
+--#include core/state_machine.lua
 #include core/game_states.lua
 #include core/utils/timers.lua
 #include core/utils/utils.lua

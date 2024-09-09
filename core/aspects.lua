@@ -51,8 +51,8 @@ function init_aspects()
     b.ball_spr=function(self) return 16,0 end
     b.power=function(self) return _pwr_off end
     b.hits=function(self) return _pwr_off_hit end
-    add_states( b,
-      { "idle", "move", "sticky", "hidden" })
+    -- add_states( b,
+    --   { "idle", "move", "sticky", "hidden" })
  
     add(_pup_extra_balls, b)
     add(_colle.balls, b) 

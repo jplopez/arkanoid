@@ -14,6 +14,8 @@ _high_score=0
 --utils
 _noop=function()end
 
+--gamestates
+_gamestates = {"start", "game", "gameover", "levelup"}
 
 --screen
 _screen_margin=4 -- margin from edge of visible screen

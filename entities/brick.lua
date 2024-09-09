@@ -1,6 +1,6 @@
 _br_spr_hit = { 40, 41, 42, 43, 44 }
 
-brick = class:new({
+brick = object:new({
   x = _screen_left + 12,
   y = _screen_top + 10,
   w = 8,
@@ -9,6 +9,13 @@ brick = class:new({
   cnt = 0,
   unbreakable=false,
   score_mul = 5,
+  states = {"visible", "hit", "hidden"},
+
+  new=function(self, tbl)
+    tbl=tbl or {}
+    tbl=class.new(brick, tbl)
+    return tbl
+  end,
 
   update = _noop,
 
@@ -41,10 +48,10 @@ brick = class:new({
     else
       self:score_hit(b:hits(), b:power()) 
     end
+    return (self:state("hit"))
   end,
 
   score_hit = function(self, n_hits, b_pwr)
-    log("brick score hit")
     n_hits = n_hits or 1
     b_pwr = b_pwr or _pwr_off
     self:state("hit")
@@ -61,15 +68,12 @@ brick = class:new({
     return _pcombo, _pball.pwr, _pscore
   end,
 
-  union = function(self, other)
+  join = function(self, other)
     if (other == nil) return self
     local new_x = min(self.x, other.x)
     local new_y = min(self.y, other.y)
     local new_w = max(self.x + self.w, other.x + other.w) - new_x
     local new_h = max(self.y + self.h, other.y + other.h) - new_y
-    -- log("brick.union self=("..self.x..","..self.y..","..self.w..","..self.h..")\n"
-    --   .."            other=("..other.x..","..other.y..","..other.w..","..other.h..")\n"
-    --   .."            self+other=("..new_x..","..new_y..","..new_w..","..new_h..")")
 
     self.x = new_x
     self.y = new_y

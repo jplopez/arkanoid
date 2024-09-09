@@ -78,3 +78,9 @@ function table_concat(array, separator)
     end
     return result
 end
+
+function get(table, value)
+    if((table == nil) or (value == nil)) return nil
+    for i in all(table) do if(i==value) return i end
+    return nil
+end

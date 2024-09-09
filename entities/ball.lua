@@ -1,4 +1,4 @@
-ball = class:new({
+ball = object:new({
   x = _screen_left, 
   y = _screen_bot - 20,
   dx = 0.5, 
@@ -11,6 +11,14 @@ ball = class:new({
   fl_x = {false, true, true, false },
   fl_y = {false, false, true, true },
   fl_c = 0,
+
+  states = { "idle", "move", "sticky", "hidden" },
+
+  new=function(self, tbl)
+    tbl=tbl or {}
+    tbl=class.new(ball, tbl)
+    return tbl
+  end,
 
   update = function(self)
     if self:is_state("sticky") then
@@ -71,4 +79,3 @@ ball = class:new({
     self:state("sticky")
   end
 })
-

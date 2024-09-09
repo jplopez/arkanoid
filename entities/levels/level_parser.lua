@@ -48,7 +48,7 @@ function create_brick(br_type, br_x, br_y)
   local br = br_type:new({
     x = br_x, y = br_y
   })
-  add_states(br, {"visible", "hit", "hidden"})
+  --add_states(br, {"visible", "hit", "hidden"})
   br:state("visible")
   return br
 end

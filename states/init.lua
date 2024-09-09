@@ -20,12 +20,8 @@ function init_gamestates()
 end
 
 function init_players()
-    _pball = ball:new() 
-    add_states( _pball,
-        { "idle", "move", "sticky", "hidden" })
+    _pball = ball:new()
     _ppaddle = paddle:new()
-    add_states(_ppaddle,
-        { "idle", "move", "hit" })
 
     --power bar
     _ppwrbar = powerbar:new()

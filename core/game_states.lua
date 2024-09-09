@@ -5,8 +5,9 @@ gamestate = class:new({
   update=function(self) end,
   draw=function(self)  end
 })
-
-_gamestates = { }
+__gs__ = object:new({
+  states = _gamestates
+})
 
 function add_gamestate(key, new_state, trans) 
   if(key==nil or new_state == nil) return false

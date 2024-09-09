@@ -13,4 +13,5 @@ function extend_table(base, extension, include_non_functions)
           base[k] = v
       end
   end
+  return base
 end

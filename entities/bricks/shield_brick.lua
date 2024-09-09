@@ -1,4 +1,3 @@
-
 shield_brick = brick:new({
 
   shield = 2,
@@ -28,6 +27,6 @@ shield_brick = brick:new({
       sfx(5)
       self.hit_count = self.hit_fr
     end
-
+    return (self:state("hit"))
   end
 })
