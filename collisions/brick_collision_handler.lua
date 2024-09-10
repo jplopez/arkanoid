@@ -37,7 +37,7 @@ br_handler = collision_handler:new({
         -- if(c==last_col) logstr = logstr .. "\n"
       end -- end for cols
     end -- end for rows
-    log("hit? " .. tostr(#brick_block.bricks > 0) .. " bricks: " .. tostr(#brick_block.bricks))
+    --log("hit? " .. tostr(#brick_block.bricks > 0) .. " bricks: " .. tostr(#brick_block.bricks))
     if(#brick_block.bricks > 0) then 
       -- log(log_head)
       -- log(logstr)

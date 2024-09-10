@@ -9,8 +9,7 @@ __lua__
 #include core/oop.lua
 #include core/log.lua
 #include core/collision_engine.lua
---#include core/state_machine.lua
-#include core/game_states.lua
+#include core/gamestates.lua
 #include core/utils/timers.lua
 #include core/utils/utils.lua
 #include core/aspects.lua
@@ -30,7 +29,6 @@ __lua__
 --brick types
 #include entities/bricks/composite_brick.lua
 #include entities/bricks/shield_brick.lua
---#include entities/bricks/god_brick.lua
 
 -- Levels
 #include entities/levels/level_def.lua
@@ -49,7 +47,6 @@ __lua__
 #include collisions/paddle_pup_collision_handler.lua
 #include collisions/ball_collision_handler.lua
 #include collisions/brick_collision_handler.lua
-
 
 -------------
 --game loop

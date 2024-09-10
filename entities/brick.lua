@@ -38,24 +38,19 @@ brick = object:new({
 
   on_collision = function(self,b)
     b=b or _pball
-    if(self.unbreakable) then
-      if(b:power()==_pwr_fury) then  -- fury ball (red) beats unbreakable bricks
-        self:score_hit(b:hits(), b:power())
-      else
+    if(self.unbreakable and b:power()!=_pwr_fury) then  -- only fury ball (red) beats unbreakable bricks
         b.pwr+= _pwrbar_increment
         sfx(6) -- metal cling sound
-      end
-    else
-      self:score_hit(b:hits(), b:power()) 
+        return self:state("visible")
     end
-    return (self:state("hit"))
+    self:score_hit(b:hits(), b:power()) 
+    return self:state("hit")
   end,
 
   score_hit = function(self, n_hits, b_pwr)
     n_hits = n_hits or 1
     b_pwr = b_pwr or _pwr_off
-    self:state("hit")
-
+    
     local new_combo = _pcombo + n_hits    
     -- Update player's score and combo and ball pwr 
     _pscore += self.score_mul * new_combo

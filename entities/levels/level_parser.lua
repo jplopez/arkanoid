@@ -24,12 +24,12 @@ function parse_level(lvl)
       local cols = split(rows[r], _lvl_map["col_sep"])
       for c=1,_max_cols do
         local br_map = cols[c]
-        local br_type, parse_count = parse_brick(br_map)
-        --log("grid["..r.."]["..c.."] : ".. tostr(br_type) .. " count:"..tostr(count))
-        grid[r][c] = br_type and create_brick(br_type, br_x, br_y) or nil
-        --log2(grid[r][c])
+        local br, parse_count = parse_brick(br_map, br_x, br_y)
+        -- log("grid["..r.."]["..c.."] : ".. tostr(br_map) .. " count:"..tostr(parse_count))
+        grid[r][c] = br
+        -- log2(grid[r][c])
         br_count+=parse_count
-        br_total+= br_type and 1 or 0
+        br_total+= (br!=nil) and 1 or 0
         br_x = _screen_left + (c*brick.w)
       end 
     end
@@ -40,17 +40,10 @@ end
 function parse_brick(br_map, br_x, br_y)
   local br_def = _lvl_map[br_map]
   if(br_def==nil) return nil,0
-  if(br_def["count"]) return br_def["type"],1
-  return br_def["type"],0
-end
-
-function create_brick(br_type, br_x, br_y)
-  local br = br_type:new({
-    x = br_x, y = br_y
-  })
-  --add_states(br, {"visible", "hit", "hidden"})
+  local br = br_def["type"]()
+  br.x, br.y= br_x, br_y
   br:state("visible")
-  return br
+  return br, (br_def["count"]) and 1 or 0
 end
 
 function add_lvl_map(key, value, c)

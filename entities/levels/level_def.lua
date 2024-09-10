@@ -7,78 +7,90 @@ function nil_line()
   return line
 end
 
-au = brick:new({ unbreakable = true, s=38 })
-bora = brick:new({ s=20 })
-bred = brick:new({ s=21 })
-bgreen = brick:new({ s=22 })
-bblue = brick:new({ s=23 })
-bpink = brick:new({ s=36 })
+-- common_brick=function() return brick:new() end
+-- au = function() return brick:new({ unbreakable = true, s=38 }) end
+-- bora = function() return brick:new({ s=20 }) end
+-- bred = function() return brick:new({ s=21 }) end
+-- bgreen = function() return brick:new({ s=22 }) end
+-- bblue = function() return brick:new({ s=23 }) end
+-- bpink = function() return brick:new({ s=36 }) end
 
-al = shield_brick:new({ shield=2})
-ti = shield_brick:new({ shield=4})
+-- al = function() return shieldbrick(2) end
+-- ti = function() return shieldbrick(4) end
 
 
 _lvl_map = {
   col_sep = ",",
   row_sep = "|",
   default = {
-    type = brick,
+    type = function() return brick:new() end,
     count = true
   },
   n = nil,
   b = {
-    type = brick,
+    type = function() return brick:new() end,
     count = true
   },
   bo = {
-    type = bora,
+    type = function() return brick:new({ s=20 }) end,
     count = true
   },
   br = {
-    type = bred,
+    type = function() return brick:new({ s=21 }) end,
     count = true
   },
   bg = {
-    type = bgreen,
+    type = function() return brick:new({ s=22 }) end,
     count = true
   },
   bb = {
-    type = bblue,
+    type = function() return brick:new({ s=23 }) end,
     count = true
   },
   bp = {
-    type = bpink,
+    type = function() return brick:new({ s=36 }) end,
     count = true
   },
 
   s = {
-    type = al,
+    type = function() return shieldbrick(2) end,
     count = true
   },
   ti = {
-    type = ti,
+    type = function() return shieldbrick(4) end,
     count = true
   },
 
   g = {
-    type = au,
+    type = function() return brick:new({ unbreakable = true, s=38 }) end,
     count = false
   }
 }
 
 _lvl_def2 = {
-[2] = "|"..
+  [1] = "|"..
       "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
-      "n,n,n,n,bo,bo,bo,bo,bo,bo,bo,n,n,n,n|"..
-      "n,n,n,bo,bo,bo,bo,bo,bo,bo,bo,bo,n,n,n|"..
-      "n,n,br,br,br,br,br,br,br,br,br,br,br,n,n|"..
-      "n,n,br,br,br,br,br,br,br,br,br,br,br,n,n|"..
-      "n,n,br,br,br,br,br,br,br,br,br,br,br,n,n|"..
-      "n,n,n,bo,bo,bo,bo,bo,bo,bo,bo,bo,n,n,n|"..
-      "n,n,n,n,bo,bo,bo,bo,bo,bo,bo,n,n,n,n|"..
-      "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|",
+      "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
+      "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
+      "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
+      "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
+      "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
+      "n,n,n,n,n,s,s,s,s,s,n,n,n,n,n|"..
+      "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
+      "n,n,n,n,n,s,s,s,s,s,n,n,n,n,n|",
 
-[1] = "|"..
+-- [1] = "|"..
+--       "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
+--       "n,n,n,n,bo,bo,bo,bo,bo,bo,bo,n,n,n,n|"..
+--       "n,n,n,bo,bo,bo,bo,bo,bo,bo,bo,bo,n,n,n|"..
+--       "n,n,br,br,br,br,br,br,br,br,br,br,br,n,n|"..
+--       "n,n,br,br,br,br,br,br,br,br,br,br,br,n,n|"..
+--       "n,n,br,br,br,br,br,br,br,br,br,br,br,n,n|"..
+--       "n,n,n,bo,bo,bo,bo,bo,bo,bo,bo,bo,n,n,n|"..
+--       "n,n,n,n,bo,bo,bo,bo,bo,bo,bo,n,n,n,n|"..
+--       "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|",
+
+[2] = "|"..
       "n,n,n,n,n,br,br,br,br,br,n,n,n,n,n|"..
       "n,n,n,n,bo,bo,bo,bo,bo,bo,bo,n,n,n,n|"..
       "n,n,n,bo,bo,bo,bo,bo,bo,bo,bo,bo,n,n,n|"..

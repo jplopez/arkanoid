@@ -15,7 +15,7 @@ pb_handler = collision_handler:new({
       b.dx = -2.5
       b.dy = -abs(b.dy) 
     elseif(s==_top_right) then
-      b.dx = -2.5
+      b.dx = 2.5
       b.dy = -abs(b.dy) 
     end
   end,
