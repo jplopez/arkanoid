@@ -1,5 +1,5 @@
 -- game state
-game_gamestate = gamestate:new({
+game_gamestate = state_handler:new({
 
   update=function(self)
     _lvl:update() -- level
@@ -15,7 +15,7 @@ game_gamestate = gamestate:new({
     upd_pups()
     update_bonus()
     -- detect if all bricks were hit 
-    if(_lvl.br_left <= 0) set_gamestate("levelup")
+    if(_lvl.br_left <= 0) gamestate("levelup")
 
     -- serve ball
     if(btn(4)) _pball:serve()

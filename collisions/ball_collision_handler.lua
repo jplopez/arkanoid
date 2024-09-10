@@ -26,7 +26,7 @@ bscr_handler = collision_handler:new({
     
     if(#_colle.balls==0) then
       _plives-=1
-      if(_plives==0) set_gamestate("gameover")
+      if(_plives==0) gamestate("gameover")
       _colle.balls = { _pball }
       _pball:serve()
       disable_all_aspects()

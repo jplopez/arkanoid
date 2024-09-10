@@ -15,7 +15,7 @@ _high_score=0
 _noop=function()end
 
 --gamestates
-_gamestates = {"start", "game", "gameover", "levelup"}
+_states = {"start", "game", "gameover", "levelup"}
 
 --screen
 _screen_margin=4 -- margin from edge of visible screen

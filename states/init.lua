@@ -1,22 +1,10 @@
 -- init
 function init_gamestates()
-    add_gamestate("start", 
-        start_gamestate,
-        { "start", "game" })
-
-    add_gamestate("game", 
-        game_gamestate,
-        { "start", "game", "gameover", "levelup" })
-
-    add_gamestate("gameover", 
-        gameover_gamestate,
-        { "game", "gameover" })
-
-    add_gamestate("levelup", 
-        levelup_gamestate,
-        { "game", "levelup" })
-
-    set_default("start")
+    add_gamestate("start", start_gamestate)
+    add_gamestate("game", game_gamestate)
+    add_gamestate("gameover", gameover_gamestate)
+    add_gamestate("levelup", levelup_gamestate)
+    gamestate("start")
 end
 
 function init_players()
@@ -99,10 +87,10 @@ function init_sys()
             _is_dialog_open = true
         end)
         menuitem(2, "levelup", function()
-            set_gamestate("levelup")
+            gamestate("levelup")
         end)
         menuitem(3, "gameover", function()
-            set_gamestate("gameover")
+            gamestate("gameover")
         end)
 
     end

@@ -21,6 +21,7 @@ __lua__
 -- Entities
 #include entities/paddle.lua
 #include entities/ball.lua
+#include entities/score.lua
 #include entities/brick.lua
 #include entities/level.lua
 #include entities/powerbar.lua
@@ -62,19 +63,19 @@ function _init()
   init_gamestates()
   init_sys()
   init_players()
-  init_objects()  
+  init_objects()
   --start screen state
-  set_gamestate("start")
+  gamestate("start")
 
-  log("INI gamestate=".._gamestates["current"])
+  log("INI gamestate=".. gamestate()) --_gamestates["current"])
 end
 
 -- called every frame
 function _update60()
   --log("UPD gamestate=".._gamestates["current"])
-  local gamestate = current_gamestate()
-  if(gamestate != nil) gamestate:update()
-
+  -- local gamestate = current_gamestate()
+  -- if(gamestate != nil) gamestate:update()
+  upd_gamestate()
   -- powerup cooldown count
   pup_cd_next()
   upd_bdg_menu()
@@ -83,9 +84,9 @@ end
 -- called every frame
 function _draw()
   --log("DRW gamestate=".._gamestates["current"])
-  local gamestate = current_gamestate()
-  if(gamestate != nil) gamestate:draw()
-  
+  -- local gamestate = current_gamestate()
+  -- if(gamestate != nil) gamestate:draw()
+  draw_gamestate()
   draw_bdg_menu()
 end
 

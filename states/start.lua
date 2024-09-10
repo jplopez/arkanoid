@@ -1,4 +1,4 @@
-start_gamestate = gamestate:new({
+start_gamestate = state_handler:new({
 
   ty = 16, -- 'arkanoid' title y coordinate
   _t = 0,  -- timer count to animate
@@ -6,7 +6,7 @@ start_gamestate = gamestate:new({
 
   update=function(self)
 
-    if(current_gamestate()=="gameover") music(-1)
+    if(gamestate()=="gameover") music(-1)
 
     local tt = _timers["anim_title"]
     if(tt.active) then 
@@ -62,7 +62,7 @@ function startgame(l)
   _pcombo = 0
   init_bonus()
   _lvl:init(l)
-  set_gamestate("game")
+  gamestate("game")
   disable_all_aspects()
 end
 
