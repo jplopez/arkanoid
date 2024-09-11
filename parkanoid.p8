@@ -25,6 +25,7 @@ __lua__
 #include entities/level.lua
 #include entities/powerbar.lua
 #include entities/powerup.lua
+#include entities/score.lua
 
 --brick types
 #include entities/bricks/composite_brick.lua

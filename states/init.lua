@@ -14,10 +14,13 @@ function init_players()
     --power bar
     _ppwrbar = powerbar:new()
     _ppwrbar.bars=0
-    _pscore = 0
+    -- _pscore = 0
     _plevel = 1
     _plives = 3
     _pserves = 99
+
+    _score=score
+    _score:reset()
 end
 
 function init_objects()
@@ -80,6 +83,7 @@ end
 
 function init_sys()
     cartdata(_cdata_id)
+    --dset(_high_score_index,0)
     _high_score = dget(_high_score_index)
     
     if(_debug) then

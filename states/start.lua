@@ -57,7 +57,8 @@ function startgame(l)
   _pball:serve()
   -- reset player data
   _plives = 3
-  _pscore = 0
+  --_pscore = 0
+  _score:reset()
   _plevel = l
   _pcombo = 0
   init_bonus()

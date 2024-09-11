@@ -4,7 +4,7 @@
 
 --System
 _version="0.3.0"
-_debug=false --true --debug mode
+_debug=true --debug mode
 
 -- Cart Data
 _cdata_id = "parkanoid"
@@ -65,29 +65,33 @@ _aspects = {
     enabled=false, 
     enter=_noop, 
     exit=_noop,
-    disables={"paddle_shrink"}},
+    disables={"paddle_shrink","paddle_glue"}},
   paddle_shrink = {
     id=2, 
     enabled=false, 
     enter=_noop, 
     exit=_noop,
-    disables={"paddle_expand"}},
+    disables={"paddle_expand","paddle_glue"}},
   paddle_web = {
     id=3, 
     enabled=false,
     enter=_noop, 
-    exit=_noop,},
+    exit=_noop,
+    disables={"paddle_shrink","paddle_expand","paddle_glue"}
+  },
   extra_ball = {
     id=4,
     enabled=false,
     enter=_noop, 
     exit=_noop,
+    disables={"paddle_glue"}
   },
   paddle_glue = {
     id=5, 
     enabled=false,
     enter=_noop, 
     exit=_noop,
+    disables={"paddle_shrink","paddle_expand"}
 },
 }
 

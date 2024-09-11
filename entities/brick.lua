@@ -53,14 +53,15 @@ brick = object:new({
     
     local new_combo = _pcombo + n_hits    
     -- Update player's score and combo and ball pwr 
-    _pscore += self.score_mul * new_combo
+    --_pscore += self.score_mul * new_combo
+    _score:add(self.score_mul * new_combo)
     _pball.pwr+= ceil(new_combo/_pwrbar_combo_factor)
     _pcombo = new_combo
     -- brick hit sound: combo sfx goes up to 7
     if(b_pwr == _pwr_off) sfx(10 + mid(1, new_combo, 7))
     if(b_pwr == _pwr_ball or b_pwr == _pwr_fury) sfx(09)
 
-    return _pcombo, _pball.pwr, _pscore
+    return _pcombo, _pball.pwr, _score:tostr() --_pscore
   end,
 
   join = function(self, other)

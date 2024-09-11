@@ -27,7 +27,8 @@ pup_handler = collision_handler:new({
   end,
 
   pup_score = function(self, pup) 
-    _pscore+=_pup_score_val
+    --_pscore+=_pup_score_val
+    _score:add(_pup_score_val)
     pup:state("idle")
     pup.c=0
     pup.update=function(self) self.y-=1 end

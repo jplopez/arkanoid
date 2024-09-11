@@ -11,7 +11,8 @@ game_gamestate = state_handler:new({
     _ppwrbar:update()
 
     --world objects
-    upd_high_score()
+    --upd_high_score()
+    _score:update()
     upd_pups()
     update_bonus()
     -- detect if all bricks were hit 
@@ -45,12 +46,13 @@ function draw_game_ui()
   print(" x " .. pad(_plives, 2), _screen_left+8, 1, 7)
   --current level
   print("level:"..pad(_plevel, 2), _screen_left+1, 7, 7)
-  --high score
-  printc("high score", 1, 7)
-  printc(pad(_high_score, 6), 7, 7)
-  --player score
-  print("score", _screen_right - 20, 1, 7)
-  print(pad(_pscore, 6), _screen_right - 24, 7, 7)
+  _score:draw()
+  -- --high score
+  -- printc("high score", 1, 7)
+  -- printc(pad(_high_score, 6), 7, 7)
+  -- --player score
+  -- print("score", _screen_right - 20, 1, 7)
+  -- print(pad(_pscore, 6), _screen_right - 24, 7, 7)
 end
 
 function draw_players()
@@ -69,10 +71,10 @@ function shake_screen()
   camera(sh_x,sh_y)
 end
 
-function upd_high_score()
-  if(_pscore > _high_score) dset(_high_score_index, _pscore)
-  _high_score = dget(_high_score_index)
-end
+-- function upd_high_score()
+--   if(_pscore > _high_score) dset(_high_score_index, _pscore)
+--   _high_score = dget(_high_score_index)
+-- end
 
 function upd_pups()
   for p in all(_pups) do
