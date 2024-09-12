@@ -9,9 +9,8 @@ game_gamestate = state_handler:new({
     _pball:update()
     _ppaddle:update()
     _ppwrbar:update()
-
+    _pweb:update()
     --world objects
-    --upd_high_score()
     _score:update()
     upd_pups()
     update_bonus()
@@ -47,18 +46,13 @@ function draw_game_ui()
   --current level
   print("level:"..pad(_plevel, 2), _screen_left+1, 7, 7)
   _score:draw()
-  -- --high score
-  -- printc("high score", 1, 7)
-  -- printc(pad(_high_score, 6), 7, 7)
-  -- --player score
-  -- print("score", _screen_right - 20, 1, 7)
-  -- print(pad(_pscore, 6), _screen_right - 24, 7, 7)
 end
 
 function draw_players()
   _pball:draw()
   _ppaddle:draw()
   _ppwrbar:draw()
+  _pweb:draw()
 end
 
 function shake_screen()
@@ -70,11 +64,6 @@ function shake_screen()
   end
   camera(sh_x,sh_y)
 end
-
--- function upd_high_score()
---   if(_pscore > _high_score) dset(_high_score_index, _pscore)
---   _high_score = dget(_high_score_index)
--- end
 
 function upd_pups()
   for p in all(_pups) do

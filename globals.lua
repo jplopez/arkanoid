@@ -33,24 +33,24 @@ _pal_h3  = 6
 _pal_h3o = 5
 
 -- sfx and music
-_sfx_channels = 3   -- channels 0 and 1
-_music_channels = 12 -- channels 2 and 3
+_sfx_channels=3   -- channels 0 and 1
+_music_channels=12 -- channels 2 and 3
 
 -- world definitions--
 _begin_anim_title = false
 _shake = 0 -- shake>0 shakes the screen. The larger shake's value, the longer the shake  
-_timers={ } -- timers
+_timers={} -- timers
 _lvl_def = {} --level definitions
 -- level brick grid
-_max_rows = 10
-_max_cols = 16
-_bacc=0.7         -- ball acceleration 
-_bonus = {}       -- score bonus
+_max_rows=10
+_max_cols=16
+_bacc=0.7        -- ball acceleration 
+_bonus={}       -- score bonus
 
 -- world objects
-_pups = {}        -- powerups
-_lvl= nil         -- current level
-_colle = nil      -- collision engine
+_pups={}        -- powerups
+_lvl=nil         -- current level
+_colle=nil      -- collision engine
 
 _maps = {
   { x=0, y=2,m=1}, -- ice
@@ -72,7 +72,7 @@ _aspects = {
     enter=_noop, 
     exit=_noop,
     disables={"paddle_expand","paddle_glue"}},
-  paddle_web = {
+  web = {
     id=3, 
     enabled=false,
     enter=_noop, 
@@ -92,7 +92,7 @@ _aspects = {
     enter=_noop, 
     exit=_noop,
     disables={"paddle_shrink","paddle_expand"}
-},
+  },
 }
 
 --playable objects 
@@ -105,7 +105,7 @@ _plevel = 1
 _plives = 3
 _pserves = 99
 _ppwrbar=nil
-
+_pweb=nil
 -- powerbar
 _pwrbar_increment=1
 _pwrbar_combo_factor=3

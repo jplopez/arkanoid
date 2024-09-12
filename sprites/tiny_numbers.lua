@@ -1,49 +1,18 @@
-tiny_numbers = class:new({
-
-  uno=function(self,x,y,c)
-    return self.ssprt(8, 16, 1, 5, x, y, false, false, c)
-  end,
-
-  dos=function(self, x,y,c)
-    return self.ssprt(9, 16, 2, 5, x, y, false, false, c)
-  end,
-
-  tres=function(self, x,y,c)
-    return self.ssprt(11, 16, 2, 5, x, y, false, false, c)
-  end,
-
-  qua=function(self, x,y,c)
-    return self.ssprt(13, 16, 2, 5, x, y, false, false, c)
-  end,
-
-  cinco=function(self, x,y,c)
-    return self.ssprt(9, 16, 2, 5, x, y, false, true, c)
-  end,
-
-  seis=function(self, x,y,c)
-    return self.ssprt(16, 16, 2, 5, x, y, false, false, c)
-  end,
-
-  siete=function(self, x,y,c)
-    return self.ssprt(18, 16, 2, 5, x, y, false, false, c)
-  end,
-
-  ocho=function(self, x,y,c)
-    self:tres(x+1,y,c)
-    return self:cero(x,y,c)
-  end,
-
-  nueve=function(self, x,y,c)
-    return self.ssprt(16, 16, 2, 5, x, y, true, true, c)
-  end,
-
-  cero=function(self, x,y,c)
-    return self.ssprt(20, 16, 3, 5, x, y, false, false, c)
-  end,
-
-  excl=function(self, x,y,c)
-    return self.ssprt(23, 16, 1, 5, x, y, false, false, c)
-  end,
+tiny_numbers={
+  m={
+    -- {sx,sy,sw,sh,flip_x,flip_y}
+    ['0']={20,16,3,5,false,false},
+    ['1']={8,16,1,5,false,false},
+    ['2']={9,16,2,5,false,false},
+    ['3']={11,16,2,5,false,false},
+    ['4']={13,16,2,5,false,false},
+    ['5']={9,16,2,5,false,true},
+    ['6']={16,16,2,5,false,false},
+    ['7']={18,16,2,5,false,false},
+    ['8']={20,16,3,5,false,false},
+    ['9']={16,16,2,5,true,true},
+    ['!']={23,16,1,5,false,false},
+  },
 
   ssprt=function(sx, sy, sw, sh, dx, dy, fl_x, fl_y, c)
     pal(10, c)
@@ -51,24 +20,15 @@ tiny_numbers = class:new({
     pal()
     return dx+sw
   end
-})
+}
 
 function printt(text, x, y, c) 
   local dx=x
   for i=1,#text do
     local chr = sub(text,i,i)
-    if(chr=="!") dx=tiny_numbers:excl(dx,y,c)
-    local n=tonum(chr)
-    if(n==0) dx=tiny_numbers:cero(dx,y,c)
-    if(n==1) dx=tiny_numbers:uno(dx,y,c)
-    if(n==2) dx=tiny_numbers:dos(dx,y,c)
-    if(n==3) dx=tiny_numbers:tres(dx,y,c)
-    if(n==4) dx=tiny_numbers:qua(dx,y,c)
-    if(n==5) dx=tiny_numbers:cinco(dx,y,c)
-    if(n==6) dx=tiny_numbers:seis(dx,y,c)
-    if(n==7) dx=tiny_numbers:siete(dx,y,c)
-    if(n==8) dx=tiny_numbers:ocho(dx,y,c)
-    if(n==9) dx=tiny_numbers:nueve(dx,y,c)
+    local n=tiny_numbers.m[chr]
+    if(n) dx=tiny_numbers.ssprt(n[1],n[2],n[3],n[4],dx,y,n[5],n[6],c)
+    if(not n) dx=print(chr,dx,y,c)-1
     dx+=1
   end
 end
