@@ -1,7 +1,7 @@
 bscr_handler = collision_handler:new({
   
   handle = function(self, ball, side)
-    if(ball:is_state("sticky")) return false
+    if(ball:is_state("sticky") or ball:is_state("hidden")) return false
 
     if (ball.y>=_screen_bot)self:handle_loose_ball(ball)
     -- ball direction according to side
@@ -22,7 +22,7 @@ bscr_handler = collision_handler:new({
   handle_loose_ball=function(self, ball)
     sfx(4)
     ball:state("hidden")
-    del(_colle.balls,ball)
+    if(ball != _pball) del(_colle.balls,ball)
     del(_pup_extra_balls,ball)
     if(#_colle.balls==0) then
       _plives-=1

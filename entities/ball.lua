@@ -62,6 +62,7 @@ ball=object:new({
   end,
 
   serve=function(self)
+    if(self:is_state("hidden")) return false
     --resets paddle and ball
     self.pwr=0
     self.x=_ppaddle.x+(_ppaddle.w/2)

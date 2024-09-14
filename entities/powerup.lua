@@ -34,14 +34,15 @@ _pup_s_tier = {
     _pup_web,
 }
 _pup_a_tier = {
+  _pup_3balls,
   -- _pup_large, 
   -- _pup_small,
-  _pup_1up
+  -- _pup_1up
 }
 _pup_b_tier = {
-  _pup_1up,
-  -- _pup_3balls,
-  _pup_score, 
+  -- _pup_1up,
+  _pup_3balls,
+  -- _pup_score, 
   -- _pup_glue
 }
 
