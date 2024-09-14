@@ -29,6 +29,9 @@ game_gamestate = state_handler:new({
     draw_game_ui()
     draw_players()
     draw_bonus()
+
+    print("dx,dy:".._pball.dx..",".._pball.dy, _screen_left+2,_screen_top+2, 7)
+
   end
 })
 

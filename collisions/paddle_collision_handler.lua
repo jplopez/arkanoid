@@ -6,7 +6,7 @@ pb_handler = collision_handler:new({
     _pcombo=1
     
     --flip DY to up, calc new DX
-    if(s==_top) self:handle_top_bounce(b, p)
+    if(s==_top and b.dy>0) self:handle_top_bounce(b, p)
     --flip DY to down
     if(s==_bottom) b.dy = abs(b.dy)
 
@@ -31,9 +31,8 @@ pb_handler = collision_handler:new({
         else
           b.dx = (i-3)*_bacc
         end
-      end
+      end  
     end
-
     --paddle hit
     if(b:power() == _pwr_fury) then
       b:state("sticky")
