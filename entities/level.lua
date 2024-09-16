@@ -8,13 +8,13 @@ level = class:new({
   map=nil,
 
   init = function(self, lvl)
-    log("begin level init " .. lvl, true)
+    -- log("begin level init " .. lvl, true)
     self.grid, self.br_left, self.br_count = parse_level(lvl)
     self.map = rnd(_maps)
     music(-1)
     music(self.map.m, 6000, _music_channels)
-    log("end level init " .. lvl)
-    log(" br_count "..self.br_count.." br_left "..self.br_left)
+    -- log("end level init " .. lvl)
+    -- log(" br_count "..self.br_count.." br_left "..self.br_left)
   end,
 
   -- __len = function(self)

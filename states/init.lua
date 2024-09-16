@@ -9,6 +9,7 @@ end
 
 function init_players()
   _pball=ball:new()
+  _pball:state("idle")
   _ppaddle=paddle:new()
   _ppwrbar=powerbar:new()
   _ppwrbar.bars=0
@@ -56,21 +57,23 @@ function init_collisions()
  
     -- balls in play, starts w/_pball
     _colle.balls={_pball}
-    _colle.update=function(self) 
+    _colle.update=function(self)
         for b in all(self.balls) do 
             --ball-paddle collision
-            local col, side = self:is_circle_rect_collision_side(b, _ppaddle)
-            if(col) pb_handler:handle(b, _ppaddle, side)
-            --ball-screen edges collision
-            col, side = self:is_circle_screen_colliding(b)
-            if(col) bscr_handler:handle(b, side)
-            --ball-brick collision
-            col, side = self:is_circle_rect_collision_side(b, br_area)
-            if(col) br_handler:handle(b, br_area, side)
-            --web aspect collision
-            if(_aspects["web"].enabled and 
-              self:is_circle_rect_colliding(b,web_area)) then 
-                web_handler:handle(b,_pweb) end
+            if(b:is_state("move")) then
+              local col, side = self:is_circle_rect_colliding(b, _ppaddle)
+              if(col) pb_handler:handle(b, _ppaddle, side)
+              --ball-screen edges collision
+              col, side = self:is_circle_screen_colliding(b)
+              if(col) bscr_handler:handle(b, side)
+              --ball-brick collision
+              col, side = self:is_circle_rect_colliding(b, br_area)
+              if(col) br_handler:handle(b, br_area, side)
+              --web aspect collision
+              if(_aspects["web"].enabled and 
+                self:is_circle_rect_colliding(b,web_area)) then 
+                  web_handler:handle(b,_pweb) end
+            end
         end
         --powerups-paddle collision
         if(self:is_rect_colliding(_ppaddle, pup_area)) pup_handler:handle(_ppaddle, pup_area)

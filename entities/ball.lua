@@ -18,12 +18,16 @@ ball=object:new({
   end,
 
   update=function(self)
+    -- serve ball
+    if(btn(4) and (not _pball:is_state("hidden"))) _pball:serve()
+
     if self:is_state("sticky") then
       if(btn(0)) self.dx=-abs(self.dx) -- move left
       if(btn(1)) self.dx=abs(self.dx)  -- move right 
-      if btn(5) then
-        self:state("move")
-      else self:serve() end
+      if(btn(5)) self:state("move") -- launch ball
+      log(tostr(_ppaddle.x+(_ppaddle.w/2)))
+      self.x=_ppaddle.x+(_ppaddle.w/2)
+      --else self:serve() end
     end
     if self:is_state("move") then
       self.x+=self.dx
@@ -64,7 +68,7 @@ ball=object:new({
   end,
 
   serve=function(self)
-    if(self:is_state("hidden")) return false
+    self:state("sticky")
     --resets paddle and ball
     self.pwr=0
     --adjust ball x only if it is outside of paddle
@@ -72,6 +76,5 @@ ball=object:new({
     self.y=_ppaddle.y-(self.r)
     if(not _aspects["paddle_glue"].enabled) self.dx=0.5
     self.dy=-abs(self.dy)
-    self:state("sticky")
   end
 })

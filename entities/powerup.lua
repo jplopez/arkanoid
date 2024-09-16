@@ -65,21 +65,21 @@ _pup_gatcha = {
 }
 
 function pup_gatcha_pull()
-  log("pup gatcha pull")
+  -- log("pup gatcha pull")
   local combo = gatcha_combo()
-  log("pup gatcha pull combo "..combo)
+  -- log("pup gatcha pull combo "..combo)
 
   if chance(_pup_gatcha["b"][combo]) then
-    log("pup gatcha pull - b tier!")
+    -- log("pup gatcha pull - b tier!")
     return rnd(_pup_b_tier)
   elseif chance(_pup_gatcha["a"][combo]) then
-    log("pup gatcha pull - a tier!")
+    -- log("pup gatcha pull - a tier!")
     return rnd(_pup_a_tier)
   elseif chance(_pup_gatcha["s"][combo]) then
-  log("pup gatcha pull - s tier!")
+  -- log("pup gatcha pull - s tier!")
     return rnd(_pup_s_tier)
   end
-  log("pup gatcha pull - no pup")
+  -- log("pup gatcha pull - no pup")
   return nil
 end
 

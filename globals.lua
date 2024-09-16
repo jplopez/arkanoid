@@ -193,14 +193,14 @@ _max_balls = 3
 --collissions
 _tol = 2 -- collision tolerance
 --sides
-_top_left = 1
 _top      = 2
-_top_right= 3
-_left     = 4
-_right    = 6
-_bottom_left = 7
-_bottom      = 8
-_bottom_right= 9
+_bottom   = 3
+_left     = 7
+_right    = 11
+_top_left    = 9  -- top + left
+_top_right   = 13 -- top + right
+_bottom_left = 10 -- bottom + left
+_bottom_right= 14 -- bottom + right
 function print_side(side)
   if(side == nil) return ""
   if(side == _top_left) return "top-left"

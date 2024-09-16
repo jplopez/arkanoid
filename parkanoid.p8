@@ -57,7 +57,7 @@ __lua__
 
 function _init()
   log("INI " .. time(), true)
-  log(stat(1))
+  --log(stat(1))
   cls()
   music(0,6000,_music_channels)
   init_gamestates()

@@ -26,7 +26,7 @@ end
 
 function init_aspects()
   _aspects["web"].enter=function()
-    log("aspect web enter")
+    -- log("aspect web enter")
     _pweb:state("show")
   end
   _aspects["web"].exit=function()
@@ -62,12 +62,10 @@ function init_aspects()
     add(_pup_extra_balls, b)
     add(_colle.balls, b) 
     b:serve()
-    log("extra_ball enter:" .. count(_pup_extra_balls))
   end
   _aspects["extra_ball"].exit=function()
     _pup_extra_balls={ }
     _colle.balls = { _pball }
-    log("extra_ball exit:" .. count(_pup_extra_balls))
   end
 
   _aspects["paddle_glue"].enter=function()sfx(33)end 

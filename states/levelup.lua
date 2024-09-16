@@ -25,7 +25,7 @@ levelup_gamestate = state_handler:new({
 
 function levelup()
   local cur_lvl = _plevel
-  log("Levelup - current level:" .. _plevel)
+  -- log("Levelup - current level:" .. _plevel)
   -- reset paddle and ball
   _ppaddle:init()
   _pball:serve()

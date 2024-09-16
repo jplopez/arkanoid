@@ -1,10 +1,7 @@
-collision_handler = class:new({
-  handle = function(self, obj1, obj2) end
-})
+collision_handler=class:new({handle=function(self,obj1,obj2)end})
 
-collision_engine = class:new({
-  
-  tolerance = 1,
+collision_engine=class:new({
+  tolerance=1,
 
   new = function(self, tolerance)
     local tbl = class:new(self)
@@ -14,78 +11,65 @@ collision_engine = class:new({
 
   update=_noop,
 
-  is_circle_colliding = function(self, c1, c2)
-    local dx = c1.x - c2.x
-    local dy = c1.y - c2.y
-    local distance = sqrt(dx * dx + dy * dy)
-
-    return distance < c1.r + c2.r + self.tolerance
+  is_circle_colliding=function(self,c1,c2)
+    local dx=c1.x-c2.x
+    local dy =c1.y-c2.y
+    local distance=sqrt(dx*dx + dy*dy)
+    return distance<c1.r+c2.r+self.tolerance
   end,
 
+  -- Check if circle is withing the screen
+  -- Returns boolean for collision and side of collision
+  -- side values are defined in globals
   is_circle_screen_colliding = function(self, c)
-    local top_dist = ((c.y-c.r) - _screen_top) <= self.tolerance
-    local bot_dist = (_screen_bot - (c.y+c.r)) <= self.tolerance
-    local left_dist = ((c.x-c.r) - _screen_left) <= self.tolerance
-    local right_dist = (_screen_right - (c.x+c.r)) <= self.tolerance
-
-    local side = nil
-    if(top_dist) side=_top
-    if(bot_dist) side=_bottom
-    if(left_dist) side=_left
-    if(right_dist) side=_right
+    local tol,side=self.tolerance+c.r,nil
+    if(c.y-_screen_top<=tol) side=_top
+    if(_screen_bot-c.y<=tol) side=_bottom
+    if(side==nil) then
+      if(c.x-_screen_left<=tol) side=_left
+      if(_screen_right-c.x<=tol) side=_right
+    end
     return side!=nil, side
   end,
 
-  is_circle_rect_colliding = function(self, c, rec)
-    local col, side = self:is_circle_rect_collision_side(c, rec)
-    return col
-  end,
+  --[[
+    Checks if a circle and a rectangle are colliding.
+    c: circle
+    rec:rectanble
 
-  is_circle_rect_collision_side = function(self, c, rec)
+    Returns boolean for collision, and a number representing
+    the side of the collision on the rectangle.
+    side values are defined in globals
+  ]]
+  is_circle_rect_colliding = function(self, c, rec)
     local closest_x = mid(rec.x, c.x, rec.x + rec.w)
     local closest_y = mid(rec.y, c.y, rec.y + rec.h)
+    local tol=c.r + self.tolerance
 
-    local dx = c.x - closest_x
-    local dy = c.y - closest_y
-    local coll = dx * dx + dy * dy < (c.r + self.tolerance) * (c.r + self.tolerance)
-    
+    local dx=c.x-closest_x
+    local dy=c.y-closest_y
+    local coll=dx*dx + dy*dy < tol*tol
+    local side=nil --,vside,hside=nil,nil,nil
     --determine side of collision in rect
-    local side = nil
     if coll then
-      local tol = c.r + self.tolerance
-      --left
-      if abs(rec.x - c.x) <= tol then
-        side = _left
-      --end
-      --right
-      elseif abs(c.x  - (rec.x+rec.w)) <= tol then
-        side = _right
+      if(dx<0) side=_left
+      if(dx>0) side=_right
+      if(dx==0 or abs(dy)<abs(dx)) then
+        if(dy<0) side=_top
+        if(dy>0) side=_bottom
+      else  --corner
+        if(dy<0) side=_top+side
+        if(dy>0) side=_bottom+side
       end
 
-      -- top and top corners
-      if abs(rec.y - c.y) <= tol then
-        if side == _left then
-          side = _top_left
-        elseif side == _right then
-          side = _top_right
-        else
-          side = _top 
-        end
-      -- bottom and bottom corners
-      elseif abs(c.y - (rec.y+rec.h)) <= tol then
-        if side == _left then
-          side = _bottom_left
-        elseif side == _right then
-          side = _bottom_right
-        else
-          side = _bottom
-        end
-      end
+      -- log("closest x:"..closest_x.." dx:"..dx)
+      -- log("closest y:"..closest_y.." dy:"..dy)
+      -- log("side: " .. print_side(side))
     end
     return coll, side
   end,
 
-  is_rect_colliding = function(self, rect1, rect2)
+  is_rect_colliding=function(self,rect1,rect2)
     return rect1.x < rect2.x + rect2.w + self.tolerance
         and rect1.x + rect1.w > rect2.x - self.tolerance
         and rect1.y < rect2.y + rect2.h + self.tolerance

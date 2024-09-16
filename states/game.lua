@@ -17,8 +17,6 @@ game_gamestate = state_handler:new({
     -- detect if all bricks were hit 
     if(_lvl.br_left <= 0) gamestate("levelup")
 
-    -- serve ball
-    if(btn(4)) _pball:serve()
   end,
 
   draw=function(self)
@@ -30,8 +28,8 @@ game_gamestate = state_handler:new({
     draw_players()
     draw_bonus()
 
-    print("dx,dy:".._pball.dx..",".._pball.dy, _screen_left+2,_screen_top+2, 7)
-
+    local px = print("dx,dy:".._pball.dx..",".._pball.dy, _screen_left+2,_screen_top+2, 7)
+    print(_pball:state(),px+1,_screen_top+2, 7)
   end
 })
 
@@ -49,6 +47,13 @@ function draw_game_ui()
   --current level
   print("level:"..pad(_plevel, 2), _screen_left+1, 7, 7)
   _score:draw()
+end
+
+function update_player()
+  _pball:update()
+  _ppaddle:update()
+  _ppwrbar:update()
+  _pweb:update()
 end
 
 function draw_players()

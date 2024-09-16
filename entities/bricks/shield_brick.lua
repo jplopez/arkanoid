@@ -15,7 +15,7 @@ function shieldbrick(sh)
     end,
   
     on_collision = function(self, b)
-      log("shield brick on collision")
+      -- log("shield brick on collision")
       local n_hits = b:hits()
       self.hits += n_hits
       self:score_hit(n_hits, b:power())

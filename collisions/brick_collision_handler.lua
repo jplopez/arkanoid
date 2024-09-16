@@ -22,7 +22,7 @@ br_handler = collision_handler:new({
           -- log_c = "NIL"
         elseif br:is_state("visible") then
           --if(br!=nil and br:visible()) then
-          local col, s = collision_engine:is_circle_rect_colliding(b, br)
+          local col = collision_engine:is_circle_rect_colliding(b, br)
           if(col) then
             -- log_c = "COL"
             brick_block = brick_block:union(br, false)
@@ -46,26 +46,30 @@ br_handler = collision_handler:new({
   end,
 
   handle_brick_block=function(self,b,brick_block)
-    local col, s = collision_engine:is_circle_rect_collision_side(b, brick_block)
+    local col, s = collision_engine:is_circle_rect_colliding(b, brick_block)
     if col then
       local hit_c = brick_block:on_collision(b)
       _lvl.br_left -= hit_c
       self:ball_dir(b, s) 
       --powerup
-      if(hit_c>0 and _pup_cooldown==0) then
-        local pup_id = pup_gatcha_pull()
-        if(pup_id) then 
-          local pup = powerup:new({s=pup_id, 
-            x=brick_block.x,
-            y=brick_block.y
-          })
-          pup:state("visible")
-          pup_cd_reset()
-          -- log2(pup)
-          add(_pups, pup)
-        end
-      end
+      if(hit_c>0) self:pup(brick_block.x, brick_block.y)
     end  
+  end,
+
+  pup=function(self,pup_x,pup_y)
+    if(_pup_cooldown==0) then
+      local pup_id = pup_gatcha_pull()
+      if(pup_id) then 
+        local pup = powerup:new({s=pup_id, 
+          x=pup_x,
+          y=pup_y
+        })
+        pup:state("visible")
+        pup_cd_reset()
+        -- log2(pup)
+        add(_pups, pup)
+      end
+    end
   end,
 
   ball_dir=function(self, b, s)
