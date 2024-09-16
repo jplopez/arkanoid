@@ -15,54 +15,32 @@ function parse_level(lvl)
 
   local rows = split(lvl_def, _lvl_map["row_sep"])
   for r=1,_max_rows do
-    grid[r] = {}
-    br_y = _screen_top + (r*brick.h)
-    br_x = _screen_left
+    grid[r]={}
+    br_y=_screen_top+(r*brick.h)
+    br_x=_screen_left
     if(is_empty(rows[r])) then
       grid[r] = nil_line()
     else
-      local cols = split(rows[r], _lvl_map["col_sep"])
+      local cols=split(rows[r],_lvl_map["col_sep"])
       for c=1,_max_cols do
-        local br_map = cols[c]
-        local br, parse_count = parse_brick(br_map, br_x, br_y)
-        -- log("grid["..r.."]["..c.."] : ".. tostr(br_map) .. " count:"..tostr(parse_count))
-        grid[r][c] = br
-        -- log2(grid[r][c])
-        br_count+=parse_count
-        br_total+= (br!=nil) and 1 or 0
-        br_x = _screen_left + (c*brick.w)
-      end 
-    end
-  end
+        local br=parse_brick(cols[c], br_x, br_y)
+        if(br!=nil) then
+          grid[r][c] = br
+          br_count+=(br.unbreakable) and 0 or 1 --parse_count
+          br_total+= 1
+        end
+        br_x=_screen_left+(c*brick.w)
+      end -- cols
+    end 
+  end -- rows
   return grid, br_count, br_total
 end
 
-function parse_brick(br_map, br_x, br_y)
+function parse_brick(br_map,br_x,br_y)
   local br_def = _lvl_map[br_map]
   if(br_def==nil) return nil,0
   local br = br_def["type"]()
-  br.x, br.y= br_x, br_y
+  br.x,br.y=br_x,br_y
   br:state("visible")
-  return br, (br_def["count"]) and 1 or 0
+  return br
 end
-
-function add_lvl_map(key, value, c)
-  if(key == nil or value == nil) return false
-
-  if(key == "col_sep" or key == "row_sep") then
-    log("warning: level_parser_mapping '"..key.."' is a reserved name, it will not be saved")
-    return false
-  end
-  local old_map = _lvl_map[key]
-  if(old_map != nil) then
-    log("warn: level_parser_mapping '"..key.."' already exists, it will be overrride")
-    log("warn: previous map:")
-    log2(old_map)
-  end 
-
-  c = c or true
-  _lvl_map[key] = { 
-      type = value,
-      count = c }
-end
-

@@ -23,7 +23,7 @@ function composite_brick()
     on_collision = function(self, b)
       local hit=0
       for br in all(self.bricks) do
-        if(br:on_collision(b)=="hit") hit+=1
+        if(br:on_collision(b)=="hit" and not br.unbreakable) hit+=1
       end
       return hit
     end,

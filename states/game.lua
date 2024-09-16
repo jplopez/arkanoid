@@ -20,24 +20,21 @@ game_gamestate = state_handler:new({
   end,
 
   draw=function(self)
-    -- log("draw state: game")
     cls(0)
     shake_screen()
     draw_game_level()
     draw_game_ui()
     draw_players()
     draw_bonus()
-
-    local px = print("dx,dy:".._pball.dx..",".._pball.dy, _screen_left+2,_screen_top+2, 7)
-    print(_pball:state(),px+1,_screen_top+2, 7)
+    -- local px = print("dx,dy:".._pball.dx..",".._pball.dy, _screen_left+2,_screen_top+2, 7)
+    -- print(_pball:state(),px+1,_screen_top+2, 7)
   end
 })
 
 function draw_game_level()
   _lvl:draw() -- current level
-  draw_pups() -- powerups
-  
-  if(_debug) rect(_screen_left, _screen_top, _screen_right, _screen_bot, 2)
+  draw_pups() -- powerups  
+  -- if(_debug) rect(_screen_left, _screen_top, _screen_right, _screen_bot, 2)
 end
 
 function draw_game_ui()

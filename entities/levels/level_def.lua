@@ -1,31 +1,19 @@
 function nil_line()
   local line={}
-  for i=1,_max_cols do
-    add(line,nil)
-  end
+  for i=1,_max_cols do add(line,nil) end
   return line
 end
 _lvl_map={col_sep=",",row_sep="|",n=nil,
-  default={type=function()return brick:new()end,
-    count=true},
-  b={type=function()return brick:new() end,
-    count=true},
-  bo={type=function()return brick:new({s=20})end,
-    count=true},
-  br={type=function()return brick:new({s=21})end,
-    count=true},
-  bg={type=function()return brick:new({s=22})end,
-    count=true},
-  bb={type=function()return brick:new({s=23})end,
-    count=true},
-  bp={type=function()return brick:new({s=36})end,
-    count=true},
-  s={type=function()return shieldbrick(2)end,
-    count=true},
-  ti={type=function()return shieldbrick(4)end,
-    count=true},
-  g={type=function()return brick:new({unbreakable=true,s=38})end,
-    count=false}
+  default={type=function()return brick:new()end},
+  b={type=function()return brick:new() end},
+  bo={type=function()return brick:new({s=20})end},
+  br={type=function()return brick:new({s=21})end},
+  bg={type=function()return brick:new({s=22})end},
+  bb={type=function()return brick:new({s=23})end},
+  bp={type=function()return brick:new({s=36})end},
+  s={type=function()return shieldbrick(2)end},
+  ti={type=function()return shieldbrick(4)end},
+  g={type=function()return brick:new({unbreakable=true,s=38})end}
 }
 _lvl_def2={
   -- [1] = "|"..

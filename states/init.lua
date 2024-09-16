@@ -22,7 +22,8 @@ function init_players()
   _score:reset()
 end
 
-function init_objects()
+function init_world()
+  init_gamestates()
   _lvl=level:new()-- current level
   init_collisions() --collision engine
   init_bonus()      --bonus - extra 1up

@@ -56,17 +56,14 @@ __lua__
 -------------
 
 function _init()
-  log("INI " .. time(), true)
-  --log(stat(1))
+  log("Parkanoid init...", true)
   cls()
-  music(0,6000,_music_channels)
-  init_gamestates()
   init_sys()
   init_players()
-  init_objects()
-  --start screen state
+  init_world()
   gamestate("start")
-  log("INI gamestate=".. gamestate())
+  music(0,6000,_music_channels)
+  log("done! gamestate:".. gamestate())
 end
 
 -- called every frame
