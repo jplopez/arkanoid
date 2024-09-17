@@ -1,8 +1,14 @@
-gameover_gamestate = start_gamestate:new({
+gameover_gamestate={
+
+  snd=true,
   
   update=function(self)
     --play gameover music
     music(-1)
+    if(stat(46)==-1 and self.snd) then 
+      sfx(30)
+      self.snd=false
+    end
     _plevel=1
     -- start game delay
     local timer = _timers["start_timer"]
@@ -12,6 +18,7 @@ gameover_gamestate = start_gamestate:new({
       if btn(5) then
         sfx(3)
         timer:restart()
+        self.y=_screen_bot
       end
     end
   end,
@@ -23,4 +30,4 @@ gameover_gamestate = start_gamestate:new({
     if(_score:is_high_score()) printoc("New high score!", 42, _pal_h2, _pal_h2o)
     printoc("press ❎ to start", 80,_pal_h2, _pal_h2o)
   end
-})
+}

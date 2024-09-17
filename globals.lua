@@ -4,7 +4,7 @@
 
 --System
 _version="0.4.0"
-_debug=false --debug mode
+_debug=true --debug mode
 
 -- Cart Data
 _cdata_id = "parkanoid"
