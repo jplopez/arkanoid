@@ -55,7 +55,7 @@ _colle=nil      -- collision engine
 _maps = {
   { x=0, y=2,m=1}, -- ice
   { x=16,y=2,m=3}, -- brick
-  { x=32,y=2,m=4}  -- grass
+  { x=32,y=2,m=6}  -- grass
 }
 
 -- toggleable aspects
