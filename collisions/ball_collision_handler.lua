@@ -2,8 +2,7 @@ bscr_handler = collision_handler:new({
   
   handle = function(self, ball, side)
     if(ball:is_state("sticky") or ball:is_state("hidden")) return false
-    log("bscr " .. print_side(side))
-    if (ball.y>=_screen_bot)self:handle_loose_ball(ball)
+    if (ball.y>=_screen_bot)self:handle_loose_ball(ball)return
     -- ball direction according to side
     if(side==_top) ball.dy = abs(ball.dy)
     if(side==_bottom) ball.dy = abs(ball.dy)
@@ -32,6 +31,7 @@ bscr_handler = collision_handler:new({
         _pball:state("sticky")
         _pball:serve()
         disable_all_aspects()
+        log2(_pball)
       end
     end
   end

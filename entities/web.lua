@@ -17,7 +17,7 @@ web=object:new({
   },
   update=function(self)
     if(self.hit>=self.shield) then
-      toggle_aspect_by_name("web", false)
+      toggle_aspect_by_name("web",false)
       sfx(31)
       self.hit=0
     end
@@ -41,8 +41,5 @@ web=object:new({
     end
   end,
 
-  on_collision=function(self,b)
-    self.hit+=b:hits()
-    sfx(9)
-  end
+  on_collision=function(self,b)self.hit+=b:hits()sfx(9)end
 })

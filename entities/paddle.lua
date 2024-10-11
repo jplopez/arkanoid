@@ -17,10 +17,8 @@ end
 
 paddle.update=function(self)
   local dir=0 -- no movement
-  -- local tol = collision_engine.tolerance
-  if(btn(0)) dir=-1 -- move left
-  if(btn(1)) dir=1  -- move right
-
+  if(btn(0))dir=-1 -- move left
+  if(btn(1))dir=1  -- move right
   self.x=mid(_screen_left+_tol,self.x+(dir*self.dx),
       _screen_right-self.w-_tol)
   self:state("move")

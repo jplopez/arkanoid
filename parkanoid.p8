@@ -10,12 +10,8 @@ __lua__
 #include core/log.lua
 #include core/collision_engine.lua
 #include core/gamestates.lua
-#include core/utils/timers.lua
 #include core/utils/utils.lua
 #include core/aspects.lua
-
--- tiny numbers
-#include sprites/tiny_numbers.lua
 
 -- Entities
 #include entities/paddle.lua
@@ -54,30 +50,24 @@ __lua__
 -------------
 --game loop
 -------------
-
 function _init()
-  log("Parkanoid init...", true)
-  cls()
-  init_sys()
-  init_players()
-  init_world()
+  log("Parkanoid init...",true)
+  cls()init_sys()init_players()init_world()
   gamestate("start")
   music(0,6000,_music_channels)
-  log("done! gamestate:".. gamestate())
+  log("done! gamestate:"..gamestate())
 end
 
 -- called every frame
 function _update60()
   upd_gamestate()
   -- powerup cooldown count
-  pup_cd_next()
-  upd_bdg_menu()
+  pup_cd_next()upd_bdg_menu()
 end
 
 -- called every frame
 function _draw()
-  draw_gamestate()
-  draw_bdg_menu()
+  draw_gamestate()draw_bdg_menu()
 end
 
 
@@ -261,7 +251,7 @@ __music__
 02 57551715
 01 4118191a
 02 4118191a
-00 41262425
+05 41262425
 01 41421b1d
 02 41421c1d
 

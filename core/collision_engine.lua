@@ -4,8 +4,8 @@ collision_engine=class:new({
   tolerance=1,
 
   new = function(self, tolerance)
-    local tbl = class:new(self)
-    tbl.tolerance = tolerance
+    local tbl=class:new(self)
+    tbl.tolerance=tolerance
     return tbl
   end,
 
@@ -42,9 +42,9 @@ collision_engine=class:new({
     side values are defined in globals
   ]]
   is_circle_rect_colliding = function(self, c, rec)
-    local closest_x = mid(rec.x, c.x, rec.x + rec.w)
-    local closest_y = mid(rec.y, c.y, rec.y + rec.h)
-    local tol=c.r + self.tolerance
+    local closest_x=mid(rec.x,c.x,rec.x+rec.w)
+    local closest_y=mid(rec.y,c.y,rec.y+rec.h)
+    local tol=c.r+self.tolerance
 
     local dx=c.x-closest_x
     local dy=c.y-closest_y
@@ -52,27 +52,23 @@ collision_engine=class:new({
     local side=nil --,vside,hside=nil,nil,nil
     --determine side of collision in rect
     if coll then
-      if(dx<0) side=_left
-      if(dx>0) side=_right
-      if(dx==0 or abs(dy)<abs(dx)) then
-        if(dy<0) side=_top
-        if(dy>0) side=_bottom
+      if(dx<0)side=_left
+      if(dx>0)side=_right
+      if(dx==0 or abs(dy)<abs(dx))then
+        if(dy<0)side=_top
+        if(dy>0)side=_bottom
       else  --corner
-        if(dy<0) side=_top+side
-        if(dy>0) side=_bottom+side
+        if(dy<0)side=_top+side
+        if(dy>0)side=_bottom+side
       end
-
-      -- log("closest x:"..closest_x.." dx:"..dx)
-      -- log("closest y:"..closest_y.." dy:"..dy)
-      -- log("side: " .. print_side(side))
     end
-    return coll, side
+    return coll,side
   end,
 
   is_rect_colliding=function(self,rect1,rect2)
-    return rect1.x < rect2.x + rect2.w + self.tolerance
-        and rect1.x + rect1.w > rect2.x - self.tolerance
-        and rect1.y < rect2.y + rect2.h + self.tolerance
-        and rect1.y + rect1.h > rect2.y - self.tolerance
+    return rect1.x < rect2.x+rect2.w+self.tolerance
+        and rect1.x+rect1.w > rect2.x-self.tolerance
+        and rect1.y<rect2.y + rect2.h+self.tolerance
+        and rect1.y+rect1.h > rect2.y-self.tolerance
   end
 })

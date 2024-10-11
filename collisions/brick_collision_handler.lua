@@ -66,7 +66,6 @@ br_handler = collision_handler:new({
         })
         pup:state("visible")
         pup_cd_reset()
-        -- log2(pup)
         add(_pups, pup)
       end
     end

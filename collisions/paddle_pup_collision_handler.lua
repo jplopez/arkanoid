@@ -26,8 +26,7 @@ pup_handler = collision_handler:new({
     if(pup.s==_pup_web) toggle_aspect_by_name("web", true)
   end,
 
-  pup_score = function(self, pup) 
-    --_pscore+=_pup_score_val
+  pup_score=function(self,pup) 
     _score:add(_pup_score_val)
     sfx(32)
     pup=self:pup_msg(pup,tostr(_pup_score_val))
@@ -48,7 +47,7 @@ pup_handler = collision_handler:new({
         if(this.c==0) then 
           this:state("hidden")
         else 
-          printt(msg,this.x-5, this.y-5, 8+rnd(3));
+          print(msg,this.x-5, this.y-5, 8+rnd(3));
         end
       end
     end

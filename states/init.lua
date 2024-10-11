@@ -28,19 +28,6 @@ function init_world()
   init_collisions() --collision engine
   init_bonus()      --bonus - extra 1up
   init_aspects()    -- aspects are used for powerups
-  --timers
-  local st=timer:new60(30,_noop,
-    function()startgame(_plevel) end)
-  local lt=timer:new60(30,_noop,
-    function()levelup() end) 
-  local tt=timer:new60(30,_noop,
-    function()_begin_anim_title=true end)
-  st:init()
-  lt:init()
-  tt:init()
-  _timers["start_timer"]=st
-  _timers["levelup_timer"]=lt
-  _timers["anim_title"]=tt
 end
 
 function init_collisions()

@@ -11,16 +11,12 @@ gameover_gamestate={
     end
     _plevel=1
     -- start game delay
-    local timer = _timers["start_timer"]
-    if timer.active then
-      timer:update()
-    else
-      if btn(5) then
-        sfx(3)
-        timer:restart()
-        self.y=_screen_bot
-      end
+    if btn(5) then
+      sfx(3)
+      delay(6,startgame,_plevel)
+      self.y=_screen_bot
     end
+
   end,
 
   draw=function(self)

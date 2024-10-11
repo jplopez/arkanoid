@@ -39,7 +39,6 @@ _music_channels=12 -- channels 2 and 3
 -- world definitions--
 _begin_anim_title = false
 _shake = 0 -- shake>0 shakes the screen. The larger shake's value, the longer the shake  
-_timers={} -- timers
 _lvl_def = {} --level definitions
 -- level brick grid
 _max_rows=10
