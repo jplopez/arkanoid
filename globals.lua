@@ -3,7 +3,7 @@
 -----------
 
 --System
-_version="0.4.0"
+_version="1.0.0"
 _debug=true --debug mode
 
 -- Cart Data
