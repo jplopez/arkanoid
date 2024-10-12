@@ -13,9 +13,16 @@ _high_score=0
 
 --utils
 _noop=function()end
+global=_ENV
 
 --gamestates
 _states = {"start", "game", "gameover", "levelup"}
+--ball states
+idle=100
+moving=110
+sticky=120
+hidden=130
+
 
 --screen
 _screen_margin=4 -- margin from edge of visible screen

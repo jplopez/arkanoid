@@ -1,7 +1,7 @@
 br_handler = collision_handler:new({
 
   handle = function(self, b, grid, side)
-    if(b:is_state("sticky")) return false
+    if(b:is(sticky))return false
 
     --obtain vecinity of bricks potentially hit
     local first_col, first_row, last_col, last_row =
@@ -74,7 +74,7 @@ br_handler = collision_handler:new({
   ball_dir=function(self, b, s)
     -- log("b direction s: "..print_side(s))
     -- log("   b pre (dx,dy)=("..b.dx..","..b.dy..")")
-    if(b:power()==_pwr_fury) return false
+    if(b.power==_pwr_fury) return false
     if(s==nil) then
       b.dy*=-1
       b.dx*=-1

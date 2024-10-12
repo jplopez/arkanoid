@@ -37,12 +37,12 @@ brick=object:new({
 
   on_collision=function(self,b)
     b=b or _pball
-    if(self.unbreakable and b:power()!=_pwr_fury)then  -- only fury ball (red) beats unbreakable bricks
+    if(self.unbreakable and b.power~=_pwr_fury)then  -- only fury ball (red) beats unbreakable bricks
         b.pwr+=_pwrbar_increment
         sfx(6) -- metal cling sound
         return self:state("visible")
     end
-    self:score_hit(b:hits(),b:power()) 
+    self:score_hit(b.hits,b.power) 
     return self:state("hit")
   end,
 

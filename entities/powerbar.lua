@@ -9,7 +9,7 @@ powerbar=class:new({
   update=function(self)
     self.bars = mid(0,ceil((_pball.pwr/_pwr_max)*self.max),self.max)
     self.pre_pwr=self.pwr
-    self.pwr=_pball:power()
+    self.pwr=_pball.power
   end,
 
   draw=function(self)

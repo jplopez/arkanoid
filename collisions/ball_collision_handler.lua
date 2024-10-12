@@ -1,7 +1,7 @@
 bscr_handler = collision_handler:new({
   
   handle = function(self, ball, side)
-    if(ball:is_state("sticky") or ball:is_state("hidden")) return false
+    if(ball:is(sticky) or ball:is(hidden)) return false
     if (ball.y>=_screen_bot)self:handle_loose_ball(ball)return
     -- ball direction according to side
     if(side==_top) ball.dy = abs(ball.dy)
@@ -9,9 +9,9 @@ bscr_handler = collision_handler:new({
     if(side==_left) ball.dx = abs(ball.dx)
     if(side==_right) ball.dx = -abs(ball.dx)
     -- ball bouncing wall sfx and screen shake
-    if(ball:power()==_pwr_off)  sfx(0)
-    if(ball:power()==_pwr_ball) sfx(0)
-    if(ball:power()==_pwr_fury) then 
+    if(ball.power==_pwr_off)  sfx(0)
+    if(ball.power==_pwr_ball) sfx(0)
+    if(ball.power==_pwr_fury) then 
       _shake+=1
       sfx(0,0)
       sfx(7,1)  
@@ -20,7 +20,7 @@ bscr_handler = collision_handler:new({
 
   handle_loose_ball=function(self, ball)
     sfx(4)
-    ball:state("hidden")
+    ball:set(hidden)
     del(_colle.balls,ball)
     del(_pup_extra_balls,ball)
     if(#_colle.balls==0) then
@@ -28,10 +28,9 @@ bscr_handler = collision_handler:new({
       if(_plives==0) then gamestate("gameover")
       else 
         _colle.balls={_pball}
-        _pball:state("sticky")
+        _pball:set(sticky)
         _pball:serve()
         disable_all_aspects()
-        log2(_pball)
       end
     end
   end

@@ -16,9 +16,9 @@ function shieldbrick(sh)
   
     on_collision = function(self, b)
       -- log("shield brick on collision")
-      local n_hits = b:hits()
+      local n_hits = b.hits
       self.hits += n_hits
-      self:score_hit(n_hits, b:power())
+      self:score_hit(n_hits, b.power)
       if(self.hits < self.shield) then
         sfx(5)
         self.hc = self.hf

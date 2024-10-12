@@ -64,9 +64,9 @@ function pup_gatcha_pull()
 end
 
 function gatcha_combo()
-  if(_pball:power()==_pwr_fury)return 1
+  if(_pball.power==_pwr_fury)return 1
   local c=mid(1,_pcombo,7)
-  if(_pball:power()==_pwr_ball)return flr(c/2)
+  if(_pball.power==_pwr_ball)return flr(c/2)
   return c
 end
 

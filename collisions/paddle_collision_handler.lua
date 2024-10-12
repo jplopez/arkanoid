@@ -1,7 +1,7 @@
 pb_handler = collision_handler:new({
 
   handle=function(self, b, p, s)
-    if(b:is_state("sticky")) return false
+    if(b:is(sticky))return false
     --paddle resets current combo
     _pcombo=1
     
@@ -34,12 +34,12 @@ pb_handler = collision_handler:new({
       end  
     end
     --paddle hit
-    if(b:power() == _pwr_fury) then
-      b:state("sticky")
+    if(b.power==_pwr_fury) then
+      b:set(sticky)
       b.pwr=0 
       sfx(8)
     elseif(_aspects["paddle_glue"].enabled) then
-      b:state("sticky")  
+      b:set(sticky)  
     else
       b.pwr=max(0,b.pwr-_paddle_pen)
       sfx(1)

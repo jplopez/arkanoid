@@ -41,5 +41,5 @@ web=object:new({
     end
   end,
 
-  on_collision=function(self,b)self.hit+=b:hits()sfx(9)end
+  on_collision=function(self,b)sfx(9)self.hit+=b.hits end
 })

@@ -8,8 +8,8 @@ function init_gamestates()
 end
 
 function init_players()
-  _pball=ball:new()
-  _pball:state("idle")
+  _pball=ball()
+  _pball:set(idle)
   _ppaddle=paddle:new()
   _ppwrbar=powerbar:new()
   _ppwrbar.bars=0
@@ -48,7 +48,7 @@ function init_collisions()
     _colle.update=function(self)
         for b in all(self.balls) do 
             --ball-paddle collision
-            if(b:is_state("move")) then
+            if(b:is(moving))then
               local col, side = self:is_circle_rect_colliding(b, _ppaddle)
               if(col) pb_handler:handle(b, _ppaddle, side)
               --ball-screen edges collision

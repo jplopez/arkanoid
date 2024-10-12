@@ -1,3 +1,57 @@
+-- source: https://github.com/kevinthompson/object-oriented-pico-8/blob/main/heartseeker.p8#L293
+-- author: https://github.com/kevinthompson 
+class2=setmetatable({
+  extend=function(self,tbl)
+    tbl=tbl or {}
+    tbl.__index=tbl
+    return setmetatable(
+      tbl,{__index=self,__call=function(self,...)
+        return self:new(...)end})
+  end,
+  new=function(self,tbl)tbl=setmetatable(tbl or {},self)tbl:init()return tbl end,
+  init=_noop
+},{__index=_ENV})
+
+entity=class2:extend({
+	-- class
+	pool={},
+	-- instance
+	x=0,
+	y=0,
+	w=8,
+	h=8,
+
+	extend=function(_ENV,tbl)tbl=class2.extend(_ENV,tbl)tbl.pool={}return tbl	end,
+	each=function(_ENV,method,...)for e in all(pool)do if(e[method])e[method](e,...)end end,
+	init=function(_ENV)add(entity.pool,_ENV) if(pool!=entity.pool)add(pool,_ENV)end,
+	detect=function(_ENV,other,callback)if(collide(_ENV,other)) callback(_ENV)end,
+	destroy=function(_ENV)del(entity.pool,_ENV)if(pool!=entity.pool)del(pool,_ENV)end,
+	collide=function(_ENV,other)
+		return x<other.x+other.w and
+			x+w>other.x and
+			y<other.y+other.h and
+			h+y>other.y
+	end,
+
+_st={cur=nil}, -- state container
+sett=function(_ENV,k,on,off)
+  if(k!=nil) then
+    local f=function()end
+    _st[k]=_st[k]or{key=k,on=f,off=f}
+    if(on)_st[k].on=on 
+    if(off)_st[k].off=off 
+    local o=_st.cur
+    if(o)_st[o].off(o,k)
+    _st.cur=k
+    _st[k].on(o,k)
+  end
+  return _st.cur
+end,
+set=function(_ENV,k)return sett(_ENV,k)end,
+is=function(_ENV,k)return _st.cur==k end,
+})
+
+
 class=setmetatable({
 	new=function(self,tbl)
 		tbl=tbl or {}

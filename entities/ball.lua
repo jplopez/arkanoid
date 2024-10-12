@@ -1,78 +1,55 @@
-ball=object:new({
+ball=entity:extend({
   x=_screen_left, 
   y=_screen_bot-20,
   dx=0.5,
   dy=-1,
   r=1.75,
+  _st={idle,moving,sticky,hidden},
+  
+  sx=0,
+  sy=8,
+  hits=1,
   pwr=0,
-  -- sprite flip and count
-  fl_x={false,true,true,false},
-  fl_y={false,false,true,true},
-  fl_c=0,
-  states={"idle","move","sticky","hidden"},
+  power=_pwr_off,
+  stats={
+    [_pwr_off]={sx=0,sy=8,hits=_pwr_off_hit},
+    [_pwr_ball]={sx=8,sy=8,hits=_pwr_ball_hit},
+    [_pwr_fury]={sx=16,sy=8,hits=_pwr_fury_hit},
+  },
 
-  new=function(self,tbl)
-    tbl=tbl or {}
-    tbl=class.new(ball,tbl)
-    return tbl
-  end,
-
-  update=function(self)
+  update=function(_ENV)
     -- serve ball
-    if(btn(4)and(not _pball:is_state("hidden")))_pball:serve()
-    if self:is_state("sticky")then
-      if(btn(0))self.dx=-abs(self.dx) -- move left
-      if(btn(1))self.dx=abs(self.dx)  -- move right 
-      if(btn(5))self:state("move") -- launch ball
-      self.x=_ppaddle.x+(_ppaddle.w/2)
+    if(btn(4)and(is(_ENV,hidden)))serve(_ENV)
+    if(is(_ENV,sticky))then
+      if(btn(0))dx=-abs(dx) -- move left
+      if(btn(1))dx=abs(dx)  -- move right 
+      if(btn(5))set(_ENV,moving) -- launch ball
+      x=_ppaddle.x+(_ppaddle.w/2)
     end
-    if self:is_state("move") then
-      self.x+=self.dx
-      self.y+=self.dy
-      --flip the ball every 24 frames
-      self.fl_c=(self.fl_c+1)%20
+    if(is(_ENV,moving))then
+      x+=dx
+      y+=dy
     end
+    --update attributes impacted by powerbar
+    if(pwr<_pwr_ball)power=_pwr_off
+    if(pwr>=_pwr_ball and pwr<_pwr_fury)power=_pwr_ball
+    if(pwr>=_pwr_fury)power=_pwr_fury
+    local stat=stats[power]
+    sx,sy,hits=stat.sx,stats.sy,stats.hits
   end,
 
-  draw=function(self)
-    if(self:is_state("hidden"))return false
-    --aliases to save tokens
-    local c,fx,fy,dx,dy=self.fl_c,self.fl_x,self.fl_y,self.x-self.r,self.y-self.r
-    local sx,sy=self:ball_spr()
-    if(self:is_state("move"))then
-      sspr(sx,sy,5,5,dx,dy,5,5,fx[ceil(c/5)],fy[ceil(c/5)]) 
-    else sspr(sx,sy,5,5,dx,dy,5,5)end
-    self.fl_c=c
-  end,
- 
-  ball_spr=function(self)
-    if(self.pwr< _pwr_ball)return 0, 8
-    if(self.pwr>=_pwr_ball and self.pwr<_pwr_fury)return 8,8
-    if(self.pwr>=_pwr_fury)return 16,8
-  end,
+  draw=function(_ENV)if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
 
-  power=function(self)
-    if(self.pwr< _pwr_ball)return _pwr_off
-    if(self.pwr>=_pwr_ball and self.pwr<_pwr_fury)return _pwr_ball
-    if(self.pwr>=_pwr_fury)return _pwr_fury
-  end,
 
-  hits=function(self)
-    if(self:power()==_pwr_off)return _pwr_off_hit
-    if(self:power()==_pwr_ball)return _pwr_ball_hit
-    if(self:power()==_pwr_fury)return _pwr_fury_hit
-    return 1-- to cover edge case
-  end,
-
-  serve=function(self, tbl)
+  serve=function(_ENV,tbl)
     tbl=tbl or {}
-    self:state("sticky")
+    set(_ENV,sticky)
     --resets paddle and ball
-    self.pwr=0
+    pwr=0
     --adjust ball x only if it is outside of paddle
-    self.x=tbl.x or _ppaddle.x+(_ppaddle.w/2)
-    self.y=tbl.y or _ppaddle.y-(self.r)
-    if(not _aspects["paddle_glue"].enabled) self.dx=tbl.dx or 0.5
-    self.dy=tbl.dy or -abs(self.dy)
+    x=tbl.x or _ppaddle.x+(_ppaddle.w/2)
+    y=tbl.y or _ppaddle.y-(r)
+    if(not _aspects["paddle_glue"].enabled) dx=tbl.dx or 0.5
+    dy=tbl.dy or -abs(dy)
   end
 })
