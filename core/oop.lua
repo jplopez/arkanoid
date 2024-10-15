@@ -33,22 +33,23 @@ entity=class2:extend({
 			h+y>other.y
 	end,
 
-_st={cur=nil}, -- state container
-sett=function(_ENV,k,on,off)
-  if(k!=nil) then
-    local f=function()end
-    _st[k]=_st[k]or{key=k,on=f,off=f}
-    if(on)_st[k].on=on 
-    if(off)_st[k].off=off 
-    local o=_st.cur
-    if(o)_st[o].off(o,k)
-    _st.cur=k
-    _st[k].on(o,k)
-  end
-  return _st.cur
-end,
-set=function(_ENV,k)return sett(_ENV,k)end,
-is=function(_ENV,k)return _st.cur==k end,
+	_st={}, -- state container
+	_cur=nil,
+	sett=function(_ENV,k,on,off)
+		if(k!=nil) then
+			--local f=function()end
+			_st[k]=_st[k]or{key=k,on=_noop,off=_noop}
+			if(on)_st[k].on=on 
+			if(off)_st[k].off=off 
+			local o=_cur
+			if(_st[o] and _st[o].off)_st[o].off(o,k)
+			_cur=k
+			if(_st[k].on)_st[k].on(o,k)
+		end
+		return _cur
+	end,
+	set=function(_ENV,k)return sett(_ENV,k)end,
+	is=function(_ENV,k)return _cur==k end,
 })
 
 

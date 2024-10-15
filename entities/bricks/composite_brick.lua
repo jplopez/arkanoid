@@ -1,31 +1,25 @@
-function composite_brick()
-  return brick:new({
-    bricks = {},
-    oob_bricks = {},
-    union = function(self, other, oob)
-      if other != nil then
-        if #self.bricks == 0 then
-          self.x = other.x
-          self.y = other.y
-          self.w = other.w
-          self.h = other.h
-          self.clr = other.clr
-          self.state = other.state
-        else
-          self = self:join(self, other)
-        end
-        if(oob) add(self.oob_bricks, other)
-        if(not oob) add(self.bricks, other)
+function composite_brick(_ENV)
+  return brick:extend({
+    bricks={},
+    oob_bricks={},
+    union=function(_ENV,other,oob)
+      if other!=nil then
+        if #bricks==0 then
+          x,y,w,h=other.x,other.y,other.w,other.h
+          set(_ENV,other:set())
+        else join(_ENV,other) end
+        if(oob)then add(oob_bricks,other)
+        else add(bricks,other) end
       end
-      return self
     end,
 
-    on_collision = function(self, b)
-      local hit=0
-      for br in all(self.bricks) do
-        if(br:on_collision(b)=="hit" and not br.unbreakable) hit+=1
+    on_collision=function(_ENV,b)
+      local hit_count=0
+      for br in all(bricks)do
+        br:on_collision(b)
+        if(br:is(hit) and (not br.unbreakable))hit_count+=1
       end
-      return hit
+      return hit_count
     end,
   })
 end

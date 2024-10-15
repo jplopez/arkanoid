@@ -4,16 +4,16 @@ function nil_line()
   return line
 end
 _lvl_map={col_sep=",",row_sep="|",n=nil,
-  default={type=function()return brick:new()end},
-  b={type=function()return brick:new() end},
-  bo={type=function()return brick:new({s=20})end},
-  br={type=function()return brick:new({s=21})end},
-  bg={type=function()return brick:new({s=22})end},
-  bb={type=function()return brick:new({s=23})end},
-  bp={type=function()return brick:new({s=36})end},
+  default={type=function()return brick()end},
+  b={type=function()return brick()end},
+  bo={type=function()return brick({s=20})end},
+  br={type=function()return brick({s=21})end},
+  bg={type=function()return brick({s=22})end},
+  bb={type=function()return brick({s=23})end},
+  bp={type=function()return brick({s=36})end},
   s={type=function()return shieldbrick(2)end},
   ti={type=function()return shieldbrick(4)end},
-  g={type=function()return brick:new({unbreakable=true,s=38})end}
+  g={type=function()return brick({unbreakable=true,s=38})end}
 }
 _lvl_def2={
   -- [1] = "|"..

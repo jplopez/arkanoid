@@ -13,7 +13,7 @@ game_gamestate = state_handler:new({
     --world objects
     _score:update()
     upd_pups()
-    update_bonus()
+    --update_bonus()
     -- detect if all bricks were hit 
     if(_lvl.br_left <= 0) gamestate("levelup")
 
@@ -25,7 +25,7 @@ game_gamestate = state_handler:new({
     draw_game_level()
     draw_game_ui()
     draw_players()
-    draw_bonus()
+    --draw_bonus()
     -- local px = print("dx,dy:".._pball.dx..",".._pball.dy, _screen_left+2,_screen_top+2, 7)
     -- print(_pball:state(),px+1,_screen_top+2, 7)
   end

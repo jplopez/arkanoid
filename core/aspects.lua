@@ -21,8 +21,8 @@ function disable_all_aspects()
 end
 
 function init_aspects()
-  _aspects["web"].enter=function()_pweb:state("show")end
-  _aspects["web"].exit=function()_pweb:state("hidden")end
+  _aspects["web"].enter=function()_pweb:set(idle)end
+  _aspects["web"].exit=function()_pweb:set(hidden)end
 
   _aspects["paddle_expand"].enter=function()sfx(34)_ppaddle.w=mid(24,_ppaddle.w+4,32)end
   _aspects["paddle_expand"].exit=function()_ppaddle.w=paddle.w end

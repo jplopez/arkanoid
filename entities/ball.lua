@@ -4,7 +4,6 @@ ball=entity:extend({
   dx=0.5,
   dy=-1,
   r=1.75,
-  _st={idle,moving,sticky,hidden},
   
   sx=0,
   sy=8,
@@ -16,6 +15,11 @@ ball=entity:extend({
     [_pwr_ball]={sx=8,sy=8,hits=_pwr_ball_hit},
     [_pwr_fury]={sx=16,sy=8,hits=_pwr_fury_hit},
   },
+  
+  init=function(_ENV)
+    _st={idle,moving,sticky,hidden}
+    _cur=idle
+  end,
 
   update=function(_ENV)
     -- serve ball
@@ -39,7 +43,6 @@ ball=entity:extend({
   end,
 
   draw=function(_ENV)if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
-
 
   serve=function(_ENV,tbl)
     tbl=tbl or {}

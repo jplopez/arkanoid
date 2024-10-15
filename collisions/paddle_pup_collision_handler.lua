@@ -4,11 +4,11 @@ pup_handler = collision_handler:new({
     -- log("paddle-pup handle")
     for pup in all(_pups) do
       -- log("paddle-pup " .. pup.s .. " " .. tostr(pup:state()))
-      if(pup:is_state("visible")) then
+      if(pup:is(visible)) then
         local col = collision_engine:is_rect_colliding(paddle, pup)
         -- log("paddle-pup " .. pup.s .. " collision: ".. tostr(col))
         if(col) then
-          pup:state("hidden")
+          pup:set(hidden)
           self:handle_powerup(pup)
           --modify paddle behavior
         end
@@ -38,17 +38,14 @@ pup_handler = collision_handler:new({
   end,
 
   pup_msg=function(self,pup,msg)
-    pup:state("idle")
+    pup:set(idle)
     pup.c=0
-    pup.update=function(this) this.y-=1 end
-    pup.draw=function(this)
-      if(this:is_state("idle")) then
-        this.c=(this.c+1)%12
-        if(this.c==0) then 
-          this:state("hidden")
-        else 
-          print(msg,this.x-5, this.y-5, 8+rnd(3));
-        end
+    pup.update=function(_ENV)y-=1 end
+    pup.draw=function(_ENV)
+      if(is(_ENV,idle))then
+        c=(c+1)%12
+        if(c==0)then set(_ENV,hidden)
+        else print(msg,x-5,y-5,8+rnd(3))end
       end
     end
     return pup

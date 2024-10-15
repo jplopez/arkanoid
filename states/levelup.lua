@@ -22,7 +22,7 @@ function levelup()
   local cur_lvl=_plevel
   -- reset paddle and ball
   _ppaddle:init()
-  _pball.serve(global,{dy=-1,dx=0.5})
+  _pball:serve({dy=-1,dx=0.5})
   _pups={}
   --increase level and load
   _plevel+=1

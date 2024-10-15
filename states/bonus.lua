@@ -2,18 +2,18 @@ bonus_fx_i = 0
 bonus_fx_n = 20
 
 function init_bonus()
-  _bonus = {
-    [1] = { score = 2000, claimed = false },
-    [2] = { score = 5000, claimed = false },
-    [3] = { score = 10000, claimed = false },
-    [4] = { score = 20000, claimed = false }
+  _bonus={
+    [1]={score="002000",claimed=false},
+    [2]={score="005000",claimed=false},
+    [3]={score="010000",claimed=false},
+    [4]={score="020000",claimed=false}
   }
 end
 
 function update_bonus()
   for n=1,#_bonus do
     if not _bonus[n]["claimed"] then
-      if _pscore >= _bonus[n]["score"] then
+      if _score >= _bonus[n]["score"] then
         extra_live()
         _bonus[n]["claimed"] = true
         return false

@@ -1,33 +1,28 @@
-paddle=object:new():extends(
-  { x=52, y=112, w=24, h=8, dx=2,
-    states={"idle","move","hit"} })
+paddle=entity:extend({ 
+  x=52,y=112,w=24,h=8,dx=2,
+  states={"idle","move","hit"}, 
 
-paddle.new=function(self,tbl)
-  tbl=tbl or {}
-  tbl=class.new(paddle,tbl)
-  return tbl
-end
+  init=function(_ENV)
+    _st={idle,moving,hit} 
+    local mid_screen=_screen_left+(_screen_right-_screen_left)/2
+    x,dx=mid_screen-w/2,2
+    set(_ENV,idle)
+  end,
 
-paddle.init=function(self)
-  local mid_screen=_screen_left+(_screen_right-_screen_left)/2
-  self.x=mid_screen-self.w/2
-  self.dx=2
-  self:state("idle")
-end
+  update=function(_ENV)
+    local dir=0 --no movement
+    if(btn(0))dir=-1 --move left
+    if(btn(1))dir=1  --move right
+    x=mid(_screen_left+_tol,x+(dir*dx),
+      _screen_right-w-_tol)
+    set(_ENV,moving)
+  end,
 
-paddle.update=function(self)
-  local dir=0 -- no movement
-  if(btn(0))dir=-1 -- move left
-  if(btn(1))dir=1  -- move right
-  self.x=mid(_screen_left+_tol,self.x+(dir*self.dx),
-      _screen_right-self.w-_tol)
-  self:state("move")
-end
+  draw=function(_ENV)
+    sspr(40,40,8,8,x,y,8,h,false,false)     --left wing
+    sspr(48,40,8,8,x+8,y,w-16,h,false,false)--center
+    sspr(40,40,8,8,x+w-8,y,8,h,true,false)  --right wing
+  end,
 
-paddle.draw=function(self)
-  sspr(40,40,8,8,self.x,self.y,8,self.h, false, false)
-  sspr(48,40,8,8,self.x+8,self.y,self.w-16,self.h, false, false)
-  sspr(40,40,8,8,self.x+self.w-8,self.y,8,self.h, true, false)
-end
-
-paddle.on_collision=function(self) end
+  on_collision=_noop,
+})

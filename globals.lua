@@ -22,6 +22,8 @@ idle=100
 moving=110
 sticky=120
 hidden=130
+visible=140
+hit=150
 
 
 --screen

@@ -1,4 +1,4 @@
-powerup=object:new({
+powerup=entity:extend({
   s= 0, 
   x=_screen_left+rnd(_screen_right),
   y=_screen_top+rnd(64),
@@ -6,22 +6,28 @@ powerup=object:new({
   h=8,
   speed=0.5,
   states={"visible","hidden","idle"},
-
-  new=function(self,tbl)
-    tbl=tbl or {}
-    tbl=class.new(powerup,tbl)
-    return tbl
+  
+  init=function(_ENV)
+    _st={visible,hidden,idle}
+    set(_ENV,visible)
   end,
-  update=function(self)
-    if self:is_state("visible")then
-      self.x=mid(_screen_left,self.x+cos(t()),_screen_right-8) 
-      self.y=max(_screen_top,self.y+self.speed)
+
+  -- new=function(self,tbl)
+  --   tbl=tbl or {}
+  --   tbl=class.new(powerup,tbl)
+  --   return tbl
+  -- end,
+
+  update=function(_ENV)
+    if is(_ENV,visible)then
+      x=mid(_screen_left,x+cos(t()),_screen_right-8) 
+      y=max(_screen_top,y+speed)
     end
     -- hide powerup if is off the screen
-    if(self.y>_screen_bot)self:state("hidden")
+    if(y>_screen_bot)set(_ENV,hidden)
   end, 
-  draw=function(self)if(self:is_state("visible"))spr(self.s,self.x,self.y)end,
-  on_collision=function(self) end
+  draw=function(_ENV)if(is(_ENV,visible))spr(s,x,y)end,
+  on_collision=_noop,
 })
 
 _pup_s_tier={_pup_web,}
@@ -64,10 +70,10 @@ function pup_gatcha_pull()
 end
 
 function gatcha_combo()
-  if(_pball.power==_pwr_fury)return 1
-  local c=mid(1,_pcombo,7)
-  if(_pball.power==_pwr_ball)return flr(c/2)
-  return c
+  local c=_pcombo
+  if(_pball.power==_pwr_fury)c=1
+  if(_pball.power==_pwr_ball)c=ceil(c*0.66)
+  return mid(1,c,7)
 end
 
 function chance(perc)return (1+rnd(100))<=perc end

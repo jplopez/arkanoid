@@ -1,4 +1,4 @@
-web=object:new({
+web=entity:extend({
   x1=_screen_left,
   y1=_screen_bot-11,
   x2=_screen_right,
@@ -8,6 +8,7 @@ web=object:new({
   hit=0,
   _fc=0,
   states={"show","visible", "hidden"},
+  
   -- sprites to animate the net lights
   spr_map={
   --{sx,sy,sw,sh,dx,dy}
@@ -15,31 +16,34 @@ web=object:new({
     {49,33,3,3,2,1},
     {48,32,5,5,3,2},
   },
-  update=function(self)
-    if(self.hit>=self.shield) then
+
+  init=function(_ENV) 
+    _st={idle,visible,hidden}
+    set(_ENV,hidden)
+  end,
+
+  update=function(_ENV)
+    if(hit>=shield)then
       toggle_aspect_by_name("web",false)
       sfx(31)
-      self.hit=0
+      hit=0
     end
-    self._fc=(self._fc+1)%30
+    _fc=(_fc+1)%30
   end,
 
-  draw=function(self)
-    if(self:is_state("show")) then
-      sfx(10)
-      self:state("visible")
-    end
-    if(self:is_state("visible")) then
+  draw=function(_ENV)
+    if(is(_ENV,idle))sfx(10)set(_ENV,visible)
+    
+    if(is(_ENV,visible))then
       local px2=_ppaddle.x+_ppaddle.w
-      line(self.x1,self.y1,_ppaddle.x,self.y2,self.clr)
-      line(px2,self.y1,self.x2,self.y2,self.clr)
-
+      line(x1,y1,_ppaddle.x,y2,clr)
+      line(px2,y1,x2,y2,clr)
       --animates the net lights
-      local s=self.spr_map[flr(self._fc/10)+1]
-      sspr(s[1],s[2],s[3],s[4],_ppaddle.x-s[5],self.y1-s[6],s[3],s[4])
-      sspr(s[1],s[2],s[3],s[4],px2-s[5],self.y1-s[6],s[3],s[4])
+      local s=spr_map[flr(self._fc/10)+1]
+      sspr(s[1],s[2],s[3],s[4],_ppaddle.x-s[5],y1-s[6],s[3],s[4])
+      sspr(s[1],s[2],s[3],s[4],px2-s[5],y1-s[6],s[3],s[4])
     end
   end,
 
-  on_collision=function(self,b)sfx(9)self.hit+=b.hits end
+  on_collision=function(_ENV,b)sfx(9)hit+=b.hits end
 })

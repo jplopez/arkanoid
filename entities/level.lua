@@ -9,22 +9,19 @@ level = class:new({
     self.grid,self.br_left,self.br_count=parse_level(lvl)
     self.map=rnd(_maps)
     music(-1)
-    log("map music on")
     music(self.map.m,6000,_music_channels)
   end,
 
   update=function(self)
-    log("update level")
     -- detect if all bricks were hit 
     if(self.br_left<= 0)then 
-      log("update level 1")
       music(-1)
       gamestate("levelup")
     else -- update bricks
       for r=1,_max_rows do
         for c=1,_max_cols do
           local br=self.grid[r][c]
-          if(br!=nil and br:is_state("visible"))br:update()
+          if(br!=nil and br:is(visible))br:update()
         end
       end
     end

@@ -41,7 +41,7 @@ function startgame(l)
   _score:reset()
   _plevel=l
   _pcombo=0
-  init_bonus()
+  --init_bonus()
   _lvl:init(l)
   _pups={}
   gameover_gamestate.snd=true

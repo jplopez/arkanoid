@@ -1,30 +1,26 @@
 function shieldbrick(sh)
-  return brick:new({
-    shield = sh or 2,
-    hits = 0,
-    s = 37,
-    hf = 3, -- frames for hit anim
-    hc = 0,  -- hit counter
+  return brick:extend({
+    shield=sh or 2,
+    hits=0,
+    s=37,
+    hf=3, -- frames for hit anim
+    hc=0,  -- hit counter
   
-    update = function(self)
-      self.s = 37
-      if self.hc>0 then
-        self.s=4
-        self.hc-=1
-      end
+    update=function(_ENV)
+      s=37
+      if(hc>0)then s,hc=4,1 end
     end,
   
-    on_collision = function(self, b)
+    on_collision=function(_ENV,b)
       -- log("shield brick on collision")
-      local n_hits = b.hits
-      self.hits += n_hits
-      self:score_hit(n_hits, b.power)
-      if(self.hits < self.shield) then
-        sfx(5)
-        self.hc = self.hf
-        return self:state("visible")
+      local n_hits=b.hits
+      hits+=n_hits
+      score_hit(n_hits,b.power)
+      if(hits<shield)then
+        sfx(5)hc=hf
+        return set(visible)
       end
-      return (self:state("hit"))
+      return set(hit)
     end
   })
 end

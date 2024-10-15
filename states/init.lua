@@ -9,15 +9,13 @@ end
 
 function init_players()
   _pball=ball()
-  _pball:set(idle)
-  _ppaddle=paddle:new()
+  _ppaddle=paddle()
   _ppwrbar=powerbar:new()
   _ppwrbar.bars=0
   _plevel=1
   _plives=3
   _pserves=99
-  _pweb=web
-  _pweb:state("hidden")
+  _pweb=web()
   _score=score
   _score:reset()
 end
@@ -26,7 +24,7 @@ function init_world()
   init_gamestates()
   _lvl=level:new()-- current level
   init_collisions() --collision engine
-  init_bonus()      --bonus - extra 1up
+  --init_bonus()      --bonus - extra 1up
   init_aspects()    -- aspects are used for powerups
 end
 
