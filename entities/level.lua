@@ -16,7 +16,7 @@ level = class:new({
     -- detect if all bricks were hit 
     if(self.br_left<= 0)then 
       music(-1)
-      gamestate("levelup")
+      gset(levelup)
     else -- update bricks
       for r=1,_max_rows do
         for c=1,_max_cols do

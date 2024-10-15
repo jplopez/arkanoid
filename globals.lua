@@ -17,6 +17,12 @@ global=_ENV
 
 --gamestates
 _states = {"start", "game", "gameover", "levelup"}
+
+intro=1
+game=2
+gameover=3
+levelup=4
+
 --ball states
 idle=100
 moving=110

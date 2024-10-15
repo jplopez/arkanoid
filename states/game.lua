@@ -1,7 +1,6 @@
--- game state
-game_gamestate = state_handler:new({
+game_gst=gst_handler:extend({
 
-  update=function(self)
+  update=function(_ENV)
     _lvl:update() -- level
     _colle:update() -- collision engine
 
@@ -15,11 +14,11 @@ game_gamestate = state_handler:new({
     upd_pups()
     --update_bonus()
     -- detect if all bricks were hit 
-    if(_lvl.br_left <= 0) gamestate("levelup")
+    if(_lvl.br_left <= 0) gset(levelup)
 
   end,
 
-  draw=function(self)
+  draw=function(_ENV)
     cls(0)
     shake_screen()
     draw_game_level()

@@ -8,8 +8,8 @@ __lua__
 #include core/utils/extend_table.lua
 #include core/oop.lua
 #include core/log.lua
-#include core/collision_engine.lua
 #include core/gamestates.lua
+#include core/collision_engine.lua
 #include core/utils/utils.lua
 #include core/aspects.lua
 
@@ -38,7 +38,6 @@ __lua__
 #include states/game.lua
 #include states/gameover.lua
 #include states/levelup.lua
---#include states/bonus.lua
 
 -- collision handlers
 #include collisions/paddle_collision_handler.lua
@@ -53,21 +52,21 @@ __lua__
 function _init()
   log("Parkanoid init...",true)
   cls()init_sys()init_players()init_world()
-  gamestate("start")
+  --gset(intro)
   music(0,6000,_music_channels)
-  log("done! gamestate:"..gamestate())
+  log("done! gamestate:"..gset())
 end
 
 -- called every frame
 function _update60()
-  upd_gamestate()
+  _gamestates:update()
   -- powerup cooldown count
   pup_cd_next()upd_bdg_menu()
 end
 
 -- called every frame
 function _draw()
-  draw_gamestate()draw_bdg_menu()
+  _gamestates:draw()draw_bdg_menu()
 end
 
 

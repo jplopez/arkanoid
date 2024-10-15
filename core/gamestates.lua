@@ -1,19 +1,7 @@
-state_handler=class:new({
-  enter=function(self)end,
-  exit=function(self)end,
-  update=function(self)end,
-  draw=function(self)end
+gst_handler=class2:extend({on=_noop,off=_noop,update=_noop,draw=_noop})
+_gamestates=entity:extend({
+  _cur=intro,
+  update=function(_ENV)_st[_cur]:update()end,
+  draw=function(_ENV)_st[_cur]:draw()end,
 })
-_gamestates=object:new({
-  states=_states,
-  states_fn={}
-})
-
-function add_gamestate(key,new_state) 
-  _gamestates:add_state(key)
-  _gamestates.states_fn[key]=new_state 
-end
--- if key==nil, returns current state
-function gamestate(key)return _gamestates:state(key)end
-function upd_gamestate()_gamestates.states_fn[_gamestates:state()]:update()end
-function draw_gamestate()_gamestates.states_fn[_gamestates:state()]:draw()end
+function gset(key)return _gamestates:set(key)end

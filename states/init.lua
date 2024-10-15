@@ -1,10 +1,13 @@
 -- init
 function init_gamestates()
-  add_gamestate("start",start_gamestate)
-  add_gamestate("game",game_gamestate)
-  add_gamestate("gameover",gameover_gamestate)
-  add_gamestate("levelup",levelup_gamestate)
-  gamestate("start")
+
+  _gamestates._st={
+      [intro]=start_gst,
+      [game]=game_gst,
+      [gameover]=gameover_gst,
+      [levelup]=levelup_gst
+  }
+  gset(intro)
 end
 
 function init_players()
@@ -74,8 +77,8 @@ function init_sys()
     menuitem(1,"badges",function()
       _is_dialog_open=true end)
     menuitem(2,"levelup",function()
-      gamestate("levelup") end)
+      gset(levelup) end)
     menuitem(3,"gameover",function()
-      gamestate("gameover") end)
+      gset(gameover) end)
   end
 end

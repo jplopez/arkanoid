@@ -25,7 +25,7 @@ bscr_handler = collision_handler:new({
     del(_pup_extra_balls,ball)
     if(#_colle.balls==0) then
       _plives-=1
-      if(_plives==0) then gamestate("gameover")
+      if(_plives==0) then gset(gameover)
       else 
         _colle.balls={_pball}
         _pball:set(sticky)

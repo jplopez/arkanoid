@@ -42,9 +42,9 @@ entity=class2:extend({
 			if(on)_st[k].on=on 
 			if(off)_st[k].off=off 
 			local o=_cur
-			if(_st[o] and _st[o].off)_st[o].off(o,k)
+			if(_st[o] and _st[o].off)_st[o]:off(o,k)
 			_cur=k
-			if(_st[k].on)_st[k].on(o,k)
+			if(_st[k].on)_st[k]:on(o,k)
 		end
 		return _cur
 	end,
