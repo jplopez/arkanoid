@@ -1,4 +1,4 @@
-start_gst=gst_handler:extend({
+intro_gst=gst_handler:extend({
   ty=16,-- 'arkanoid' title y coordinate
   _t=0, -- timer count to animate
   ph=0, -- hight of 'pico' logo for animation
@@ -15,7 +15,7 @@ start_gst=gst_handler:extend({
       end
     end
     -- start game delay
-    if(btn(5))sfx(3)delay(6,startgame,_plevel)
+    if(btn(5))sfx(3)delay(6,function()gset(game)end) --startgame,_plevel)
   end,
 
   draw=function(_ENV)
@@ -30,25 +30,6 @@ start_gst=gst_handler:extend({
   end,
 
 })
-
-function startgame(l)
-  l=l or 1 
-  -- reset paddle and ball
-  _ppaddle:init()
-  _pball:serve({dy=-1,dx=0.5})
-  -- reset player data
-  _plives=3
-  --_pscore = 0
-  _score:reset()
-  _plevel=l
-  _pcombo=0
-  --init_bonus()
-  _lvl:init(l)
-  _pups={}
-  --gameover_gamestate.snd=true
-  gset(game)
-  disable_all_aspects()
-end
 
 function stamp_title(dx,dy,tw,th) sspr(0,64,128,32,dx,dy,tw,th,false,false) end
 

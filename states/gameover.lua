@@ -2,6 +2,7 @@ gameover_gst=gst_handler:extend({
   snd=true,
 
   on=function(_ENV)snd=true end,
+  off=function(_ENV)_score:reset()end,
   
   update=function(_ENV)
     --play gameover music
@@ -12,11 +13,10 @@ gameover_gst=gst_handler:extend({
     end
     _plevel=1
     -- start game delay
-    if btn(5) then
-      sfx(3)
-      delay(6,startgame,_plevel)
+    if(btn(5))sfx(3)delay(6,function()gset(game)end)
+      --delay(6,startgame,_plevel)
       --self.y=_screen_bot
-    end
+    -- end
   end,
 
   draw=function(_ENV)

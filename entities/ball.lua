@@ -44,6 +44,19 @@ ball=entity:extend({
 
   draw=function(_ENV)if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
 
+  --Return col[bool] and side[number]
+  collide=function(_ENV,other)
+    local col,side=false,nil
+    if(is(_ENV,moving))then
+      if(other and other.w)then 
+        col,side=_colle:is_circle_rect_colliding({x=x,y=y,r=r},other)
+      else 
+        col,side=_colle:is_circle_screen_colliding({x=x,y=y,r=r})
+      end
+    end
+    return col,side
+  end,
+
   serve=function(_ENV,tbl)
     tbl=tbl or {}
     set(_ENV,sticky)

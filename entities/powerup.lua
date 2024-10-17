@@ -12,12 +12,6 @@ powerup=entity:extend({
     set(_ENV,visible)
   end,
 
-  -- new=function(self,tbl)
-  --   tbl=tbl or {}
-  --   tbl=class.new(powerup,tbl)
-  --   return tbl
-  -- end,
-
   update=function(_ENV)
     if is(_ENV,visible)then
       x=mid(_screen_left,x+cos(t()),_screen_right-8) 

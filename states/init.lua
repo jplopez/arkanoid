@@ -1,13 +1,11 @@
 -- init
 function init_gamestates()
-
   _gamestates._st={
-      [intro]=start_gst,
+      [intro]=intro_gst,
       [game]=game_gst,
       [gameover]=gameover_gst,
       [levelup]=levelup_gst
   }
-  gset(intro)
 end
 
 function init_players()
@@ -24,22 +22,22 @@ function init_players()
 end
 
 function init_world()
-  init_gamestates()
-  _lvl=level:new()-- current level
+  _lvl=level()-- current level
   init_collisions() --collision engine
   --init_bonus()      --bonus - extra 1up
   init_aspects()    -- aspects are used for powerups
+  init_gamestates()
 end
 
 function init_collisions()
     _colle = collision_engine:new(_tol)
 
     -- brick area of collisions
-    local br_area = {x=_screen_left,y=_screen_top,w=_screen_left+(brick.w*_max_cols),h=_screen_top+(brick.h*_max_rows)}
+    br_area = {x=_screen_left,y=_screen_top,w=_screen_left+(brick.w*_max_cols),h=_screen_top+(brick.h*_max_rows)}
     -- powerup area colliding w/paddle 
-    local pup_area={x=_screen_left,y=paddle.y,w=_screen_right,h=paddle.h}
+    pup_area={x=_screen_left,y=paddle.y,w=_screen_right,h=paddle.h}
     -- web pup area
-    local web_area={x=_pweb.x1,
+    web_area={x=_pweb.x1,
         y=_pweb.y1-1,
         w=_pweb.x2-_pweb.x1,
         h=_pweb.y2+1}
@@ -67,6 +65,7 @@ function init_collisions()
         --powerups-paddle collision
         if(self:is_rect_colliding(_ppaddle, pup_area)) pup_handler:handle(_ppaddle, pup_area)
     end
+    _colle.draw=_noop
 end
 
 function init_sys()

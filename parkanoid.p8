@@ -34,7 +34,7 @@ __lua__
 
 -- Game States
 #include states/init.lua
-#include states/start.lua
+#include states/intro.lua
 #include states/game.lua
 #include states/gameover.lua
 #include states/levelup.lua
@@ -52,7 +52,7 @@ __lua__
 function _init()
   log("Parkanoid init...",true)
   cls()init_sys()init_players()init_world()
-  --gset(intro)
+  gset(intro)
   music(0,6000,_music_channels)
   log("done! gamestate:"..gset())
 end

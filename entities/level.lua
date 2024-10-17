@@ -1,39 +1,34 @@
-level = class:new({
+level=entity:extend({
   grid={},
   lvl=1,
   br_count=0,
   br_left=0,
-  map=nil,
+  lvl_map=nil,
 
-  init=function(self,lvl)
-    self.grid,self.br_left,self.br_count=parse_level(lvl)
-    self.map=rnd(_maps)
+  init=function(_ENV)
+    grid,br_left,br_count=parse_level(lvl)
+    lvl_map=rnd(_maps)
     music(-1)
-    music(self.map.m,6000,_music_channels)
+    music(lvl_map.m,6000,_music_channels)
   end,
 
-  update=function(self)
-    -- detect if all bricks were hit 
-    if(self.br_left<= 0)then 
-      music(-1)
-      gset(levelup)
-    else -- update bricks
-      for r=1,_max_rows do
-        for c=1,_max_cols do
-          local br=self.grid[r][c]
-          if(br!=nil and br:is(visible))br:update()
-        end
+  update=function(_ENV)
+    if(br_left<=0) return
+    for r=1,_max_rows do
+      for c=1,_max_cols do
+        local br=grid[r][c]
+        if(br!=nil and br:is(visible))br:update()
       end
     end
   end,
 
-  draw=function(self)
+  draw=function(_ENV)
     -- level map
-    map(self.map.x,self.map.y,0,_screen_top,16,16)  
+    map(lvl_map.x,lvl_map.y,0,_screen_top,16,16)  
     -- bricks
     for r=1,_max_rows do
       for c=1,_max_cols do
-        local br=self.grid[r][c]
+        local br=grid[r][c]
         if(br!=nil) br:draw()
       end
     end
