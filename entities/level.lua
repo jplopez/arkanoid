@@ -6,6 +6,7 @@ level=entity:extend({
   lvl_map=nil,
 
   init=function(_ENV)
+    entity.init(_ENV)
     grid,br_left,br_count=parse_level(lvl)
     lvl_map=rnd(_maps)
     music(-1)

@@ -11,6 +11,7 @@ brick=entity:extend({
   spr_hit={40,41,42,43,44},
   
   init=function(_ENV)
+    entity.init(_ENV)
     _st={visible,hit,hidden}
     _cur=visible
   end,

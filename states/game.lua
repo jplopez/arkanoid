@@ -3,7 +3,7 @@ game_gst=gst_handler:extend({
   --TODO add pup cool down here
 
   on=function(_ENV)
-    world={global._lvl,global._colle,global._pball,global._ppaddle,global._ppwrbar,global._pweb,global._score}
+    world={global._lvl,global._pball,global._ppaddle,global._ppwrbar,global._pweb,global._score}
     global._ppaddle:init()
     global._pball:serve({dy=-1,dx=0.5})
     global._pcombo=0
@@ -22,10 +22,18 @@ game_gst=gst_handler:extend({
     if(global._lvl.br_left<=0)gset(levelup)
   
     -- collisions
-    --ball:each("detect",nil,)
-    ball:each("detect",_ppaddle,pb_handler.handle,)
-
-
+    ball:each("detect",_ppaddle,function(obj)
+        pb_handler:handle(obj,_ppaddle)end)
+    ball:each("detect",nil,function(obj)
+        bscr_handler:handle(obj)end)
+    ball:each("detect",_pweb,function(obj)
+        web_handler:handle(obj,_pweb)end)
+    ball:each("detect",br_area,function(obj)
+        br_handler:handle(obj,br_area)end)
+  
+    powerup:each("detect",_ppaddle,function(obj)
+        pup_handler:handle(_ppaddle,obj)end)
+  
   end,
 
   draw=function(_ENV)

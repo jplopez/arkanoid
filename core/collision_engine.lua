@@ -1,11 +1,10 @@
-collision_handler=class2:new({handle=function(self,obj1,obj2)end})
+collision_handler=class2:extend({
+  handle=function(self,obj1,obj2)end})
 
-collision_engine=entity:extend({
+collision_engine=class2:extend({
   tolerance=1,
   init=function(_ENV)tolerance=global._tol end,
-  update=_noop,
-  draw=_noop,
-
+ 
   is_circle_colliding=function(_ENV,c1,c2)
     local dx=c1.x-c2.x
     local dy =c1.y-c2.y
@@ -30,7 +29,7 @@ collision_engine=entity:extend({
   --[[
     Checks if a circle and a rectangle are colliding.
     c: circle
-    rec:rectanble
+    rec:rectangle
 
     Returns boolean for collision, and a number representing
     the side of the collision on the rectangle.

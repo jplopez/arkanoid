@@ -17,6 +17,7 @@ ball=entity:extend({
   },
   
   init=function(_ENV)
+    entity.init(_ENV)
     _st={idle,moving,sticky,hidden}
     _cur=idle
   end,

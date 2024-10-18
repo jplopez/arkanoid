@@ -20,11 +20,21 @@ entity=class2:extend({
 	y=0,
 	w=8,
 	h=8,
+	col_side=nil,
+
+	update=_noop,
+	draw=_noop,
 
 	extend=function(_ENV,tbl)tbl=class2.extend(_ENV,tbl)tbl.pool={}return tbl	end,
 	each=function(_ENV,method,...)for e in all(pool)do if(e[method])e[method](e,...)end end,
 	init=function(_ENV)add(entity.pool,_ENV) if(pool!=entity.pool)add(pool,_ENV)end,
-	detect=function(_ENV,other,callback)if(collide(_ENV,other)) callback(_ENV)end,
+	detect=function(_ENV,other,callback)
+		local col,side=collide(_ENV,other)
+		if(col)then
+			col_side=side
+			callback(_ENV)
+		end 
+	end,
 	destroy=function(_ENV)del(entity.pool,_ENV)if(pool!=entity.pool)del(pool,_ENV)end,
 	collide=function(_ENV,other)
 		return x<other.x+other.w and

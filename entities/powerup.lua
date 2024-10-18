@@ -5,9 +5,9 @@ powerup=entity:extend({
   w=8,
   h=8,
   speed=0.5,
-  states={"visible","hidden","idle"},
   
   init=function(_ENV)
+    entity.init(_ENV)
     _st={visible,hidden,idle}
     set(_ENV,visible)
   end,
@@ -22,6 +22,12 @@ powerup=entity:extend({
   end, 
   draw=function(_ENV)if(is(_ENV,visible))spr(s,x,y)end,
   on_collision=_noop,
+
+  collide=function(_ENV,other) 
+    return (is(_ENV,visible) and 
+          global._colle:is_rect_colliding(_ENV,other))
+  end,
+
 })
 
 _pup_s_tier={_pup_web,}
