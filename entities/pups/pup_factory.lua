@@ -26,10 +26,10 @@ end
 
 pup_factory={
   [_pup_1up] = pup_1up,
-  [_pup_large] = function(tbl)return aspect_pup(tbl,_pup_small,"paddle_expand") end,
-  [_pup_small] = function(tbl)return aspect_pup(tbl,_pup_large,"paddle_shrink") end,
-  [_pup_3balls] = function(tbl)return aspect_pup(tbl,_pup_3balls,"extra_ball") end,
+  [_pup_large] = function(tbl)return aspect_pup(tbl,_pup_small,paddle_expand) end,
+  [_pup_small] = function(tbl)return aspect_pup(tbl,_pup_large,paddle_shrink) end,
+  [_pup_3balls] = function(tbl)return aspect_pup(tbl,_pup_3balls,extra_ball) end,
   [_pup_score] = pup_score,
-  [_pup_web] = function(tbl)return aspect_pup(tbl,_pup_web,"web") end,
-  [_pup_glue] = function(tbl)return aspect_pup(tbl,_pup_glue,"paddle_glue") end,
+  [_pup_web] = function(tbl)return aspect_pup(tbl,_pup_web,paddle_web) end,
+  [_pup_glue] = function(tbl)return aspect_pup(tbl,_pup_glue,paddle_glue) end,
 }

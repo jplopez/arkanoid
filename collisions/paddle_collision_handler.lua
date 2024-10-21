@@ -39,7 +39,7 @@ pb_handler=collision_handler:extend({
       b:set(sticky)
       b.pwr=0 
       sfx(8)
-    elseif(_aspects["paddle_glue"].enabled) then
+    elseif(_aspects[paddle_glue].enabled) then
       b:set(sticky)  
     else
       b.pwr=max(0,b.pwr-_paddle_pen)

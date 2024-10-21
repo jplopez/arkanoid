@@ -45,3 +45,32 @@ function init_collisions()
     web={x=_pweb.x1, y=_pweb.y1-1, w=_pweb.x2-_pweb.x1, h=_pweb.y2+1}
   }
 end
+
+function init_aspects()
+  _aspects[paddle_web].enter=function()_pweb:set(idle)end
+  _aspects[paddle_web].exit=function()_pweb:set(hidden)end
+
+  _aspects[paddle_expand].enter=function()sfx(34)_ppaddle.w=mid(24,_ppaddle.w+4,32)end
+  _aspects[paddle_expand].exit=function()_ppaddle.w=paddle.w end
+
+  _aspects[paddle_shrink].enter=function()sfx(35)
+    _ppaddle.w=mid(16,_ppaddle.w-4,24)
+    _pwrbar_increment=mid(1,_pwrbar_increment+1,3)
+    _pwrbar_combo_factor=mid(1,_pwrbar_combo_factor-1,3)
+  end
+  _aspects[paddle_shrink].exit=function() 
+    _ppaddle.w=paddle.w
+    _pwrbar_increment=1
+    _pwrbar_combo_factor=3
+  end
+
+  _aspects[extra_ball].enter=function() 
+    if(#ball.pool>_max_balls)return false
+    local b = ball(_ENV,{main=false})
+    b:serve()
+  end
+  --won't destroy _pball
+  _aspects[extra_ball].exit=function()ball:each("destroy")end
+
+  _aspects[paddle_glue].enter=function()sfx(33)end 
+end

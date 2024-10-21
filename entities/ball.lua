@@ -79,7 +79,7 @@ ball=entity:extend({
     --adjust ball x only if it is outside of paddle
     x=tbl.x or _ppaddle.x+(_ppaddle.w/2)
     y=tbl.y or _ppaddle.y-(r)
-    if(not _aspects["paddle_glue"].enabled) dx=tbl.dx or 0.5
+    if(not _aspects[paddle_glue].enabled) dx=tbl.dx or 0.5
     dy=tbl.dy or -abs(dy)
   end,
 

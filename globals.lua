@@ -74,39 +74,45 @@ _maps = {
 }
 
 -- toggleable aspects
+paddle_expand=1
+paddle_shrink=2
+paddle_web=3
+extra_ball=4
+paddle_glue=5
+
 _aspects = {
-  paddle_expand = {
-    id=1, 
+  [paddle_expand] = {
+    name="paddle_expand", 
     enabled=false, 
     enter=_noop, 
     exit=_noop,
-    disables={"paddle_shrink","paddle_glue"}},
-  paddle_shrink = {
-    id=2, 
+    disables={paddle_shrink,paddle_glue}},
+  [paddle_shrink] = {
+    name="paddle_shrink", 
     enabled=false, 
     enter=_noop, 
     exit=_noop,
-    disables={"paddle_expand","paddle_glue"}},
-  web = {
-    id=3, 
+    disables={paddle_expand,paddle_glue}},
+  [paddle_web] = {
+    name="paddle_web", 
     enabled=false,
     enter=_noop, 
     exit=_noop,
-    disables={"paddle_shrink","paddle_expand","paddle_glue"}
+    disables={paddle_shrink,paddle_expand,paddle_glue}
   },
-  extra_ball = {
-    id=4,
+  [extra_ball] = {
+    name="extra_ball",
     enabled=false,
     enter=_noop, 
     exit=_noop,
-    disables={"paddle_glue"}
+    disables={paddle_glue}
   },
-  paddle_glue = {
-    id=5, 
+  [paddle_glue] = {
+    name="paddle_glue",
     enabled=false,
     enter=_noop, 
     exit=_noop,
-    disables={"paddle_shrink","paddle_expand"}
+    disables={paddle_shrink,paddle_expand}
   },
 }
 
