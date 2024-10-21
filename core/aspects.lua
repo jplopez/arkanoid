@@ -40,17 +40,15 @@ function init_aspects()
 
   _aspects["extra_ball"].enter=function() 
     if(#_colle.balls>_max_balls)return false
-    local b=ball(_ENV)
-    b.ball_spr=function(self)return 16,0 end
-    b.power=function(self)return _pwr_off end
-    b.hits=function(self)return _pwr_off_hit end
-    add(_pup_extra_balls,b)
-    add(_colle.balls,b) 
-    b.serve(_ENV)
+    local b = ball(_ENV,{main=false})
+    -- add(_pup_extra_balls,b)
+    -- add(_colle.balls,b) 
+    b:serve()
   end
   _aspects["extra_ball"].exit=function()
-    _pup_extra_balls={}
-    _colle.balls={_pball}
+    -- _pup_extra_balls={}
+    -- _colle.balls={_pball}
+    ball:each("destroy") --won't destroy _pball
   end
 
   _aspects["paddle_glue"].enter=function()sfx(33)end 

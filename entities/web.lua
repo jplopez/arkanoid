@@ -7,7 +7,6 @@ web=entity:extend({
   shield=1,
   hit=0,
   _fc=0,
-  states={"show","visible", "hidden"},
   
   -- sprites to animate the net lights
   spr_map={

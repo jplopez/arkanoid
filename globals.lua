@@ -30,6 +30,7 @@ sticky=120
 hidden=130
 visible=140
 hit=150
+picked=160
 
 
 --screen

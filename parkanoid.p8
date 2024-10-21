@@ -24,6 +24,11 @@ __lua__
 #include entities/score.lua
 #include entities/web.lua
 
+--powerups
+#include entities/pups/gatcha.lua
+#include entities/pups/pup_factory.lua
+
+
 --brick types
 #include entities/bricks/composite_brick.lua
 #include entities/bricks/shield_brick.lua
@@ -33,6 +38,7 @@ __lua__
 #include entities/levels/level_parser.lua
 
 -- Game States
+#include states/commons.lua
 #include states/init.lua
 #include states/intro.lua
 #include states/game.lua

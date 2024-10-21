@@ -7,6 +7,11 @@ level=entity:extend({
 
   init=function(_ENV)
     entity.init(_ENV)
+    load(_ENV)
+  end,
+
+  load=function(_ENV, _lvl) 
+    lvl=_lvl or lvl
     grid,br_left,br_count=parse_level(lvl)
     lvl_map=rnd(_maps)
     music(-1)

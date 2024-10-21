@@ -20,19 +20,17 @@ bscr_handler=collision_handler:extend({
   end,
 
   handle_loose_ball=function(_ENV,b)
-    sfx(4)
     b:set(hidden)
-    del(global._colle.balls,b)
-    del(global._pup_extra_balls,b)
-    if(#global._colle.balls==0)then
+    delay(4,sfx,4)
+    if(#ball.pool==1)then
       global._plives-=1
       if(global._plives==0)then gset(gameover)
-      else 
-        global._colle.balls={global._pball}
+      else
+        ball:each("destroy")
         global._pball:set(sticky)
         global._pball:serve()
         disable_all_aspects()
       end
-    end
+    else b:destroy() end
   end
 })

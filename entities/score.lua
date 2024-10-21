@@ -1,8 +1,15 @@
-score=class2:extend({
+score=entity:extend({
   v=0,
+  
+  init=function(_ENV)
+    entity.init(_ENV)
+    reset(_ENV)
+  end,
+
   reset=function(_ENV)v=0end,
 
   is_high_score=function(_ENV)return(v>=_high_score)end,
+
 
   update=function(_ENV) 
     if(v>_high_score)dset(_high_score_index,v)

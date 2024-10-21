@@ -1,10 +1,13 @@
 paddle=entity:extend({ 
   x=52,y=112,w=24,h=8,dx=2,
-  states={"idle","move","hit"}, 
 
   init=function(_ENV)
     entity.init(_ENV)
     _st={idle,moving,hit} 
+    serve(_ENV)
+  end,
+
+  serve=function(_ENV) 
     local mid_screen=_screen_left+(_screen_right-_screen_left)/2
     x,dx=mid_screen-w/2,2
     set(_ENV,idle)

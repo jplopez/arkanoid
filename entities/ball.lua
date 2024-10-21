@@ -1,4 +1,5 @@
 ball=entity:extend({
+  main=true,
   x=_screen_left, 
   y=_screen_bot-20,
   dx=0.5,
@@ -14,6 +15,7 @@ ball=entity:extend({
     [_pwr_off]={sx=0,sy=8,hits=_pwr_off_hit},
     [_pwr_ball]={sx=8,sy=8,hits=_pwr_ball_hit},
     [_pwr_fury]={sx=16,sy=8,hits=_pwr_fury_hit},
+    ["extra_ball"]={sx=16,sy=0,hits=_pwr_off_hit}
   },
   
   init=function(_ENV)
@@ -35,15 +37,26 @@ ball=entity:extend({
       x+=dx
       y+=dy
     end
-    --update attributes impacted by powerbar
-    if(pwr<_pwr_ball)power=_pwr_off
-    if(pwr>=_pwr_ball and pwr<_pwr_fury)power=_pwr_ball
-    if(pwr>=_pwr_fury)power=_pwr_fury
-    local stat=stats[power]
+    --updates attrs affected by power or main values
+    update_attr(_ENV)
+  end,
+  
+  update_attr=function(_ENV)
+    local stat=stats.extra_ball
+    power=_pwr_off
+    if(main) then
+      --update attributes impacted by powerbar
+      if(pwr<_pwr_ball)power=_pwr_off
+      if(pwr>=_pwr_ball and pwr<_pwr_fury)power=_pwr_ball
+      if(pwr>=_pwr_fury)power=_pwr_fury
+      stat=stats[power]
+    end
     sx,sy,hits=stat.sx,stats.sy,stats.hits
   end,
 
-  draw=function(_ENV)if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
+
+  draw=function(_ENV)
+    if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
 
   --Return col[bool] and side[number]
   collide=function(_ENV,other)
@@ -68,5 +81,10 @@ ball=entity:extend({
     y=tbl.y or _ppaddle.y-(r)
     if(not _aspects["paddle_glue"].enabled) dx=tbl.dx or 0.5
     dy=tbl.dy or -abs(dy)
-  end
+  end,
+
+  destroy=function(_ENV,force_main)
+    local proceed=(main) and force_main or false
+    if(proceed) entity.destroy(_ENV)
+  end,
 })

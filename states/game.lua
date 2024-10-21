@@ -2,22 +2,12 @@ game_gst=gst_handler:extend({
 
   --TODO add pup cool down here
 
-  on=function(_ENV)
-    world={global._lvl,global._pball,global._ppaddle,global._ppwrbar,global._pweb,global._score}
-    global._ppaddle:init()
-    global._pball:serve({dy=-1,dx=0.5})
-    global._pcombo=0
-    global._lvl.lvl=global._plevel
-    global._lvl:init()
-    global._pups={}
-    disable_all_aspects()
-  end,
-
+  on=function(_ENV)startgame()end,
   off=function(_ENV)music(-1)end,
 
   update=function(_ENV)
-    for i in all(world)do i:update()end
-    uarray(_ENV,global._pups)uarray(_ENV,global._pup_extra_balls)    
+    log("game update")
+    entity:each("update")
     -- detect if all bricks were hit 
     if(global._lvl.br_left<=0)gset(levelup)
   
@@ -28,8 +18,8 @@ game_gst=gst_handler:extend({
         bscr_handler:handle(obj)end)
     ball:each("detect",_pweb,function(obj)
         web_handler:handle(obj,_pweb)end)
-    ball:each("detect",br_area,function(obj)
-        br_handler:handle(obj,br_area)end)
+    ball:each("detect",hit_blocks.brick,function(obj)
+        br_handler:handle(obj,hit_blocks.brick)end)
   
     powerup:each("detect",_ppaddle,function(obj)
         pup_handler:handle(_ppaddle,obj)end)
@@ -40,8 +30,12 @@ game_gst=gst_handler:extend({
     cls(0)
     shake_screen()
     draw_game_ui(_ENV)
-    for i in all(world)do i:draw()end
-    darray(_ENV,global._pups)darray(_ENV,global._pup_extra_balls)
+    global._lvl:draw()
+    global._score:draw()
+    global._ppwrbar:draw()
+    global._ppaddle:draw()
+    ball:each("draw")
+    powerup:each("draw")
   end,
   
   draw_game_ui=function(_ENV)
@@ -51,17 +45,4 @@ game_gst=gst_handler:extend({
     --current level
     print("level:"..pad(global._plevel,2),_screen_left+1,7,7)
   end,
-
-  uarray=function(_ENV,a) for p in all(a)do p:update()end end,
-  darray=function(_ENV,a) for p in all(a)do p:draw()end end,
 })
-
-function shake_screen()
-  local sh_x, sh_y = 0, 0
-  if(_shake > 0) then
-    sh_x=(4-rnd(8)) * _shake
-    sh_y=(4-rnd(8)) * _shake
-    _shake = (_shake<0.05) and 0 or (_shake*0.95)
-  end
-  camera(sh_x,sh_y)
-end

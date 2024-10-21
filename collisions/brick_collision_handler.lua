@@ -33,8 +33,9 @@ handle_hit_block=function(self,b,hit_block)
     if(_pup_cooldown==0) then
       local pup_id=pup_gatcha_pull()
       if(pup_id)then 
-        local pup=powerup({s=pup_id, 
-          x=pup_x,y=pup_y })
+        -- local pup=powerup({s=pup_id, 
+        local pup=powerup:new_by_id(pup_id,{
+            x=pup_x,y=pup_y })
         --pup:state("visible")
         pup_cd_reset()
         add(_pups,pup)
