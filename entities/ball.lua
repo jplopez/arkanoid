@@ -1,5 +1,5 @@
 ball=entity:extend({
-  main=true,
+  main=true, --to distinguish the initial  ball from extra balls
   x=_screen_left, 
   y=_screen_bot-20,
   dx=0.5,
@@ -11,6 +11,7 @@ ball=entity:extend({
   hits=1,
   pwr=0,
   power=_pwr_off,
+
   stats={
     [_pwr_off]={sx=0,sy=8,hits=_pwr_off_hit},
     [_pwr_ball]={sx=8,sy=8,hits=_pwr_ball_hit},
@@ -42,18 +43,13 @@ ball=entity:extend({
   end,
   
   update_attr=function(_ENV)
-    local stat=stats.extra_ball
-    power=_pwr_off
-    if(main) then
-      --update attributes impacted by powerbar
-      if(pwr<_pwr_ball)power=_pwr_off
-      if(pwr>=_pwr_ball and pwr<_pwr_fury)power=_pwr_ball
-      if(pwr>=_pwr_fury)power=_pwr_fury
-      stat=stats[power]
-    end
-    sx,sy,hits=stat.sx,stats.sy,stats.hits
+    --update attributes impacted by powerbar
+    if(pwr<_pwr_ball)power=_pwr_off
+    if(pwr>=_pwr_ball and pwr<_pwr_fury)power=_pwr_ball
+    if(pwr>=_pwr_fury)power=_pwr_fury
+    local stat=stats[power]
+    sx,sy,hits=stat.sx,stat.sy,stat.hits
   end,
-
 
   draw=function(_ENV)
     if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
@@ -83,8 +79,20 @@ ball=entity:extend({
     dy=tbl.dy or -abs(dy)
   end,
 
-  destroy=function(_ENV,force_main)
-    local proceed=(main) and force_main or false
-    if(proceed) entity.destroy(_ENV)
+  destroy_extra_balls=function(_ENV)
+    for b in all(pool)do if(not b.main)b:destroy()end
   end,
+
+  create_extra_ball=function(_ENV)
+    return ball({
+      main=false,
+      sx=16,
+      sy=0,
+      hits=_pwr_off_hit,
+      pwr=0,
+      power=_pwr_off,
+      update_attr=_noop,
+    })
+  end
+
 })

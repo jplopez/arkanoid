@@ -10,7 +10,7 @@ __lua__
 #include core/log.lua
 #include core/gamestates.lua
 #include core/collision_engine.lua
-#include core/utils/utils.lua
+#include core/utils.lua
 #include core/aspects.lua
 
 -- Entities

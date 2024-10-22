@@ -6,7 +6,7 @@ game_gst=gst_handler:extend({
   off=function(_ENV)music(-1)end,
 
   update=function(_ENV)
-    log("game update")
+    --log("game update")
     entity:each("update")
     -- detect if all bricks were hit 
     if(global._lvl.br_left<=0)gset(levelup)
@@ -23,7 +23,8 @@ game_gst=gst_handler:extend({
   
     powerup:each("detect",_ppaddle,function(obj)
         pup_handler:handle(_ppaddle,obj)end)
-  
+
+    monitor_balls()
   end,
 
   draw=function(_ENV)

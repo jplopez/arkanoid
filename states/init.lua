@@ -66,11 +66,11 @@ function init_aspects()
 
   _aspects[extra_ball].enter=function() 
     if(#ball.pool>_max_balls)return false
-    local b = ball(_ENV,{main=false})
+    local b=ball:create_extra_ball()
     b:serve()
   end
   --won't destroy _pball
-  _aspects[extra_ball].exit=function()ball:each("destroy")end
+  _aspects[extra_ball].exit=function()ball:destroy_extra_balls()end
 
   _aspects[paddle_glue].enter=function()sfx(33)end 
 end

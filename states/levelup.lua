@@ -18,17 +18,3 @@ levelup_gst=gst_handler:extend({
     if(muted())printoc("press ❎ to start next level",80,_pal_h2,_pal_h2o)
   end
 })
-
--- function levelup()
---   log("levelup")
---   local cur_lvl=_plevel
---   -- reset paddle and ball
---   _ppaddle:init()
---   _pball:serve({dy=-1,dx=0.5})
---   _pups={}
---   --increase level and load
---   _plevel+=1
---   for b in all(_pup_extra_balls)do b:serve({dy=-1,dx=0.5})end
---   gset(game)
---   _lvl=level({lvl=_plevel})
--- end

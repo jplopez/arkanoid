@@ -1,11 +1,11 @@
 function startgame()
   log("startgame")
-  _ppaddle:serve()
+  ball:destroy_extra_balls()
+  powerup:each("destroy")
   _pball:serve({dy=-1,dx=0.5})
+  _ppaddle:serve()
   _pcombo=0
   _lvl:load(global._plevel)
-  powerup:each("destroy")
-  ball:each("destroy") --does not destroy _pball
   disable_all_aspects()
 end
 

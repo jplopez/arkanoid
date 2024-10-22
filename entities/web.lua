@@ -23,7 +23,7 @@ web=entity:extend({
 
   update=function(_ENV)
     if(hit>=shield)then
-      toggle_aspect_by_name("web",false)
+      toggle_aspect_by_name(paddle_web,false)
       sfx(31)
       hit=0
     end

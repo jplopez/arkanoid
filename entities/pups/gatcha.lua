@@ -10,8 +10,9 @@ _pup_a_tier={
   _pup_small,
 }
 _pup_b_tier={
-  _pup_score, 
-  _pup_glue,
+  _pup_3balls,
+  -- _pup_score, 
+  -- _pup_glue,
 }
 
 -- lvl_chance = 0.2

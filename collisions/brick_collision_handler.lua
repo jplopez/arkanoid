@@ -1,9 +1,9 @@
-br_handler=collision_handler:new({
-  handle=function(self,b,grid,side)
+br_handler=collision_handler:extend({
+  handle=function(_ENV,b,grid,side)
     if(b:is(sticky))return false
     --obtain vecinity of bricks potentially hit
     local first_col,first_row,last_col,last_row=
-        self:near_bricks(b,grid)
+        near_bricks(_ENV,b,grid)
     local hit_block=composite_brick(_ENV)
     -- check bricks colliding in the vecinity
     for r=first_row,last_row do
@@ -15,35 +15,32 @@ br_handler=collision_handler:new({
         end
       end -- end for cols
     end -- end for rows
-    if(#hit_block.bricks>0)self:handle_hit_block(b,hit_block)
+    if(#hit_block.bricks>0)handle_hit_block(_ENV,b,hit_block)
   end,
 
-handle_hit_block=function(self,b,hit_block)
+handle_hit_block=function(_ENV,b,hit_block)
     local col,s=collision_engine:is_circle_rect_colliding(b,hit_block)
     if col then
       local hit_c=hit_block:on_collision(b)
       _lvl.br_left-=hit_c
-      self:ball_dir(b,s) 
+      ball_dir(_ENV,b,s) 
       --powerup
-      if(hit_c>0)self:pup(hit_block.x,hit_block.y)
+      if(hit_c>0)pup(_ENV,hit_block.x,hit_block.y)
     end  
   end,
 
-  pup=function(self,pup_x,pup_y)
+  pup=function(_ENV,pup_x,pup_y)
     if(_pup_cooldown==0) then
       local pup_id=pup_gatcha_pull()
       if(pup_id)then 
-        -- local pup=powerup({s=pup_id, 
         local pup=powerup:new_by_id(pup_id,{
             x=pup_x,y=pup_y })
-        --pup:state("visible")
         pup_cd_reset()
-        add(_pups,pup)
       end
     end
   end,
 
-  ball_dir=function(self,b,s)
+  ball_dir=function(_ENV,b,s)
     if(b.power==_pwr_fury) return false
     if(s==nil) then
       b.dy*=-1
@@ -53,10 +50,9 @@ handle_hit_block=function(self,b,hit_block)
     if((s==_bottom_left or s==_bottom_right or s==_bottom)and(b.dy<0)) b.dy*=-1
     if((s==_top_left or s==_bottom_left or s==_left)and(b.dx>0)) b.dx*=-1
     if((s==_top_right or s==_bottom_right or s==_right)and(b.dx<0)) b.dx*=-1
---    log("b post (dx,dy)=("..b.dx..","..b.dy..")")
   end,
 
-  near_bricks=function(self, b, grid)
+  near_bricks=function(_ENV, b, grid)
     local col_w = brick.w
     local row_h = brick.h
     

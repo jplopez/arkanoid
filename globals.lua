@@ -63,7 +63,6 @@ _bacc=0.7        -- ball acceleration
 _bonus={}       -- score bonus
 
 -- world objects
-_pups={}        -- powerups
 _lvl=nil         -- current level
 _colle=nil      -- collision engine
 
@@ -82,33 +81,33 @@ paddle_glue=5
 
 _aspects = {
   [paddle_expand] = {
-    name="paddle_expand", 
+    name="paddle expand", 
     enabled=false, 
     enter=_noop, 
     exit=_noop,
     disables={paddle_shrink,paddle_glue}},
   [paddle_shrink] = {
-    name="paddle_shrink", 
+    name="paddle shrink", 
     enabled=false, 
     enter=_noop, 
     exit=_noop,
     disables={paddle_expand,paddle_glue}},
   [paddle_web] = {
-    name="paddle_web", 
+    name="paddle web", 
     enabled=false,
     enter=_noop, 
     exit=_noop,
     disables={paddle_shrink,paddle_expand,paddle_glue}
   },
   [extra_ball] = {
-    name="extra_ball",
+    name="extra ball",
     enabled=false,
     enter=_noop, 
     exit=_noop,
     disables={paddle_glue}
   },
   [paddle_glue] = {
-    name="paddle_glue",
+    name="paddle glue",
     enabled=false,
     enter=_noop, 
     exit=_noop,

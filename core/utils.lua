@@ -23,6 +23,7 @@ function pad(str,len,char)
 end
 
 function spaces(len)
+  len=max(0,len) --prevetn errors with neg values
   if(len==0)return ""
   return " "..spaces(len-1)
 end
@@ -70,4 +71,31 @@ function debug()if(not _debug)return
 -- px=print(_pball.dx..",".._pball.dy,px,_screen_bot-5,13)
 -- px=print(stat(46).." "..stat(47).." "..stat(48).." "..stat(49),px+1,_screen_bot-5,13)
 -- print(" m:"..stat(54),px+1,_screen_bot-5,13)
+
+
+end
+
+function monitor_balls()
+  log(tostr(t()))
+  local i=1
+  for b in all(ball.pool) do 
+    local main = (b.main==true) and "main " or "extra"
+    local st = "" 
+    if(b:is(idle))   st="idle  "
+    if(b:is(moving)) st="moving"
+    if(b:is(sticky)) st="sticky"
+    if(b:is(hidden)) st="hidden"
+    local pos = "(x,y):"..b.x..","..b.y
+    local pwr = "unk  "
+    if(b.power==_pwr_off)pwr="off  "
+    if(b.power==_pwr_ball)pwr="power"
+    if(b.power==_pwr_fury)pwr="fury "
+    local sxy="spr(x,y):"..b.sx..","..b.sy
+    log("["..i.."] "..main
+    --..pos..spaces(25-#pos)
+    .." st:"..st
+     .." pwr:"..pwr
+     .." "..sxy)
+    i+=1
+  end
 end

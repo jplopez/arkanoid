@@ -41,13 +41,13 @@ function draw_bdg_dialog()
   -- Title
   print("badges",20,13,0)
   -- List game aspects and their status
-  local y_pos=1
-  for i=1,_length do
+
+  for i=1,#_aspects do
 --  for k,aspect in pairs(_aspects)do
     local status=(_aspects[i].enabled) and"on"or"off"
     local color=(i==_sel_aspect) and 3 or 0 -- Highlight selected aspect
-    print(tostr(_aspects[i].name)..": ".. status,20,22+(y_pos-1)*7,color)
-    y_pos+=1
+    local name = _aspects[i].name
+    print(tostr(name)..": "..spaces(15-#name).. status,20,22+(i-1)*7,color)
   end
   --_length=y_pos
   -- Instructions
@@ -60,10 +60,10 @@ end
 function handle_dialog_input()
   if btnp(2)then -- Up
     _sel_aspect-=1
-    if(_sel_aspect<1)then _sel_aspect=_length end
+    if(_sel_aspect<1)then _sel_aspect=#_aspects end
   elseif btnp(3)then -- Down
     _sel_aspect+=1
-    if(_sel_aspect>_length)_sel_aspect=1
+    if(_sel_aspect>#_aspects)_sel_aspect=1
   elseif btnp(4)then toggle_selected_aspect() --"O" button
   elseif btnp(5)then _is_dialog_open=false --"X" button
   end
