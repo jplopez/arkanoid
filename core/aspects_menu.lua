@@ -1,52 +1,26 @@
--- _aspects are defined in globals.lua
--- Function to toggle an aspect
-function toggle_aspect_by_name(name,enable)
-  local a =_aspects[name]
-  if(a)a.enabled=enable
-  if(a.enabled)then
-    if(a.disables)then
-      for d in all(a.disables)do
-        if(_aspects[d].enabled)then
-          _aspects[d].exit()
-          _aspects[d].enabled=false
-        end
-      end
-    end
-    a.enter()
-  else a.exit()end
-end
-
-function disable_all_aspects()
-  for k,v in pairs(_aspects)do toggle_aspect_by_name(k,false)end
-end
-
---[[
-  MENU DIALOG METHODS
-]]
-
 -- Variable to track whether the dialog is open
 _is_dialog_open=false
 _sel_aspect=1
-_length=5
+
 function toggle_selected_aspect()
-  local a=_aspects[_sel_aspect]
-  toggle_aspect_by_name(_sel_aspect,not a.enabled)
+  local a=aspect.pool[_sel_aspect]
+  if(a)a:toggle()
 end
 
 -- Function to draw the dialog
 function draw_bdg_dialog()
-  log(_aspects)
+  log(aspect.pool)
   -- Draw the dialog background
   rectfill(10,10,118,118,15) -- White background
   -- Title
-  print("badges",20,13,0)
+  print("aspects",20,13,0)
   -- List game aspects and their status
 
-  for i=1,#_aspects do
---  for k,aspect in pairs(_aspects)do
-    local status=(_aspects[i].enabled) and"on"or"off"
+  for i=1,#aspect.pool do
+    local a=aspect.pool[i]
+    local status=(a.enabled) and"on"or"off"
     local color=(i==_sel_aspect) and 3 or 0 -- Highlight selected aspect
-    local name = _aspects[i].name
+    local name = a.name
     print(tostr(name)..": "..spaces(15-#name).. status,20,22+(i-1)*7,color)
   end
   --_length=y_pos
@@ -60,10 +34,10 @@ end
 function handle_dialog_input()
   if btnp(2)then -- Up
     _sel_aspect-=1
-    if(_sel_aspect<1)then _sel_aspect=#_aspects end
+    if(_sel_aspect<1)then _sel_aspect=#aspect.pool end
   elseif btnp(3)then -- Down
     _sel_aspect+=1
-    if(_sel_aspect>#_aspects)_sel_aspect=1
+    if(_sel_aspect>#aspect.pool)_sel_aspect=1
   elseif btnp(4)then toggle_selected_aspect() --"O" button
   elseif btnp(5)then _is_dialog_open=false --"X" button
   end

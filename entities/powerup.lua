@@ -39,11 +39,6 @@ powerup=entity:extend({
     else set(_ENV,hidden)end
   end,
 
-  collide=function(_ENV,other)
-    return (is(_ENV,visible) and 
-          global._colle:is_rect_colliding({x=x,y=y,w=w,h=h},other))
-  end,
-
   apply=function(_ENV,...)end,
 
   new_by_id=function(_ENV,id,tbl) 

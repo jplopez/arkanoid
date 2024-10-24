@@ -15,7 +15,7 @@ bscr_handler=collision_handler:extend({
     if(b.power==_pwr_fury)then 
       _shake+=1
       sfx(0,0)
-      sfx(7,1)  
+      sfx(7,1)
     end
   end,
 
@@ -27,7 +27,7 @@ bscr_handler=collision_handler:extend({
       if(global._plives==0) then gset(gameover)
       else
         ball:destroy_extra_balls()
-        disable_all_aspects()
+        aspect:each("off")
         global._pball:serve()
       end
     else b:destroy() end

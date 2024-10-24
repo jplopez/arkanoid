@@ -1,10 +1,35 @@
-collision_handler=class2:extend({
+collision_handler=object:extend({
   handle=function(self,obj1,obj2)end})
 
-collision_engine=class2:extend({
+collision_engine=object:extend({
   tolerance=1,
-  init=function(_ENV)tolerance=global._tol end,
- 
+
+  init=function(_ENV)
+    object.init(_ENV)
+    tolerance=global._tol 
+  end,
+  
+  collide=function(_ENV, obj1,obj2)
+    if(obj1==nil and obj2==nil)return false
+    local sh1="screen"
+    if(obj1) then
+      if(obj1.r)sh1="circ"
+      if(obj1.w and obj1.h)sh1="rect"
+    end
+    local sh2="screen"
+    if(obj2) then 
+      if(obj2.r)sh2="circ"
+      if(obj2.w and obj2.h)sh2="rect"
+    end
+    if(sh1=="circ" and sh2=="screen")return is_circle_screen_colliding(_ENV,obj1)
+    if(sh1=="screen" and sh2=="circ")return is_circle_screen_colliding(_ENV,obj2)
+    if(sh1=="rect" and sh2=="rect")return is_rect_colliding(_ENV, obj1, obj2)
+    if(sh1=="circ" and sh2=="circ")return is_circle_colliding(_ENV, obj1, obj2)
+    if(sh1=="rect" and sh2=="circ")return is_circle_rect_colliding(_ENV, obj2, obj1)
+    if(sh1=="circ" and sh2=="rect")return is_circle_rect_colliding(_ENV, obj1, obj2)
+    return false,nil
+  end,
+
   is_circle_colliding=function(_ENV,c1,c2)
     local dx=c1.x-c2.x
     local dy =c1.y-c2.y

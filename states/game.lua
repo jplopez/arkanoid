@@ -9,22 +9,20 @@ game_gst=gst_handler:extend({
     --log("game update")
     entity:each("update")
     -- detect if all bricks were hit 
-    if(global._lvl.br_left<=0)gset(levelup)
+    if(global._lvl.br_left<=0)delay(7,gset,levelup)
   
-    -- collisions
+    -- detect collisions
     ball:each("detect",_ppaddle,function(obj)
         pb_handler:handle(obj,_ppaddle)end)
     ball:each("detect",nil,function(obj)
         bscr_handler:handle(obj)end)
-    ball:each("detect",_pweb,function(obj)
-        web_handler:handle(obj,_pweb)end)
     ball:each("detect",hit_blocks.brick,function(obj)
         br_handler:handle(obj,hit_blocks.brick)end)
+    ball:each("detect",hit_blocks.web,function(obj)
+      web_handler:handle(obj,global._pweb)end)
   
     powerup:each("detect",_ppaddle,function(obj)
         pup_handler:handle(_ppaddle,obj)end)
-
-    monitor_balls()
   end,
 
   draw=function(_ENV)
@@ -35,6 +33,7 @@ game_gst=gst_handler:extend({
     global._score:draw()
     global._ppwrbar:draw()
     global._ppaddle:draw()
+    global._pweb:draw()
     ball:each("draw")
     powerup:each("draw")
   end,
@@ -46,4 +45,8 @@ game_gst=gst_handler:extend({
     --current level
     print("level:"..pad(global._plevel,2),_screen_left+1,7,7)
   end,
+
+  detect=function(_ENV)
+  end,
+  
 })

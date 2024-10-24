@@ -5,15 +5,15 @@ __lua__
 #include globals.lua
 
 -- Core functions and utilities
-#include core/utils/extend_table.lua
 #include core/oop.lua
 #include core/log.lua
 #include core/gamestates.lua
 #include core/collision_engine.lua
 #include core/utils.lua
-#include core/aspects.lua
+#include core/aspects_menu.lua
 
 -- Entities
+#include entities/aspect.lua
 #include entities/paddle.lua
 #include entities/ball.lua
 #include entities/score.lua
@@ -23,6 +23,9 @@ __lua__
 #include entities/powerup.lua
 #include entities/score.lua
 #include entities/web.lua
+
+--EXPERIMENTAL
+--#include entities/player.lua
 
 --powerups
 #include entities/pups/gatcha.lua

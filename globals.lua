@@ -73,47 +73,11 @@ _maps = {
 }
 
 -- toggleable aspects
-paddle_expand=1
-paddle_shrink=2
-paddle_web=3
-extra_ball=4
-paddle_glue=5
-
-_aspects = {
-  [paddle_expand] = {
-    name="paddle expand", 
-    enabled=false, 
-    enter=_noop, 
-    exit=_noop,
-    disables={paddle_shrink,paddle_glue}},
-  [paddle_shrink] = {
-    name="paddle shrink", 
-    enabled=false, 
-    enter=_noop, 
-    exit=_noop,
-    disables={paddle_expand,paddle_glue}},
-  [paddle_web] = {
-    name="paddle web", 
-    enabled=false,
-    enter=_noop, 
-    exit=_noop,
-    disables={paddle_shrink,paddle_expand,paddle_glue}
-  },
-  [extra_ball] = {
-    name="extra ball",
-    enabled=false,
-    enter=_noop, 
-    exit=_noop,
-    disables={paddle_glue}
-  },
-  [paddle_glue] = {
-    name="paddle glue",
-    enabled=false,
-    enter=_noop, 
-    exit=_noop,
-    disables={paddle_shrink,paddle_expand}
-  },
-}
+_paddle_expand=1
+_paddle_shrink=2
+_paddle_web=3
+_extra_ball=4
+_paddle_glue=5
 
 --playable objects 
 
@@ -207,7 +171,7 @@ _pup_fire = 27
 
 _pup_score_val=500
 
-_pup_extra_balls = { }
+_pup__extra_balls = { }
 _max_balls = 3
 
 --collissions

@@ -17,13 +17,14 @@ web=entity:extend({
   },
 
   init=function(_ENV) 
+    entity.init(_ENV)
     _st={idle,visible,hidden}
     set(_ENV,hidden)
   end,
 
   update=function(_ENV)
     if(hit>=shield)then
-      toggle_aspect_by_name(paddle_web,false)
+      global.paddle_web:toggle(false)
       sfx(31)
       hit=0
     end
@@ -38,10 +39,15 @@ web=entity:extend({
       line(x1,y1,_ppaddle.x,y2,clr)
       line(px2,y1,x2,y2,clr)
       --animates the net lights
-      local s=spr_map[flr(self._fc/10)+1]
+      local s=spr_map[flr(_fc/10)+1]
       sspr(s[1],s[2],s[3],s[4],_ppaddle.x-s[5],y1-s[6],s[3],s[4])
       sspr(s[1],s[2],s[3],s[4],px2-s[5],y1-s[6],s[3],s[4])
     end
+  end,
+
+  collide=function(_ENV,other)
+    if(other.r) return collision_engine:is_circle_rect_colliding(other,hit_blocks.web)
+    return false
   end,
 
   on_collision=function(_ENV,b)sfx(9)hit+=b.hits end

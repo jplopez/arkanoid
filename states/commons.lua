@@ -6,7 +6,7 @@ function startgame()
   _ppaddle:serve()
   _pcombo=0
   _lvl:load(global._plevel)
-  disable_all_aspects()
+  aspect:each("off")
 end
 
 function shake_screen()

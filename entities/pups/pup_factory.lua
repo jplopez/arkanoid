@@ -1,7 +1,12 @@
-function aspect_pup(tbl,_s,aspect) 
+function aspect_pup(tbl,_s,aspect,toggle) 
   local pup=powerup(tbl)
   pup.s=_s
-  pup.apply=function(_ENV)toggle_aspect_by_name(aspect,true)end
+  pup.aspect=aspect
+  if(toggle) then
+    pup.apply=function(_ENV)aspect:toggle()end
+  else 
+    pup.apply=function(_ENV)aspect:on()end
+  end
   return pup
 end
 

@@ -54,19 +54,6 @@ ball=entity:extend({
   draw=function(_ENV)
     if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
 
-  --Return col[bool] and side[number]
-  collide=function(_ENV,other)
-    local col,side=false,nil
-    if(is(_ENV,moving))then
-      if(other and other.w)then 
-        col,side=_colle:is_circle_rect_colliding({x=x,y=y,r=r},other)
-      else 
-        col,side=_colle:is_circle_screen_colliding({x=x,y=y,r=r})
-      end
-    end
-    return col,side
-  end,
-
   serve=function(_ENV,tbl)
     tbl=tbl or {}
     set(_ENV,sticky)
@@ -75,7 +62,7 @@ ball=entity:extend({
     --adjust ball x only if it is outside of paddle
     x=tbl.x or _ppaddle.x+(_ppaddle.w/2)
     y=tbl.y or _ppaddle.y-(r)
-    if(not _aspects[paddle_glue].enabled) dx=tbl.dx or 0.5
+    if(not paddle_glue.enabled) dx=tbl.dx or 0.5
     dy=tbl.dy or -abs(dy)
   end,
 
