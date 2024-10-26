@@ -94,9 +94,6 @@ paddle_web=aspect({
   aspectid=_paddle_web,
   name="web",
   overwrites={_paddle_glue},
-  enter=function(_ENV)
-    log("paddle_web_enter")log(global._pweb)
-    global._pweb:set(visible)
-  end,
+  enter=function(_ENV)global._pweb:set(visible)end,
   exit=function(_ENV)global._pweb:set(hidden)end
 })

@@ -1,3 +1,10 @@
+brick_hit_anim=animation:extend({
+  start=40,
+  frames=5,
+  speed=20,
+  fr=60,
+  loop=false
+})
 
 brick=entity:extend({
   x=_screen_left + 12,
@@ -5,10 +12,12 @@ brick=entity:extend({
   w=8,
   h=5,
   s=20,
-  cnt=0,
   unbreakable=false,
   score_mul=5,
-  spr_hit={40,41,42,43,44},
+  
+  hit_anim=brick_hit_anim(),
+  --spr_hit={40,41,42,43,44},
+  -- cnt=0,
   
   init=function(_ENV)
     entity.init(_ENV)
@@ -19,16 +28,28 @@ brick=entity:extend({
   update=_noop,
 
   draw=function(_ENV)
+    log(hit_anim.playing)
     if(is(_ENV,hidden))return true
     if(is(_ENV,visible))spr(s,x,y)
     if(is(_ENV,hit))draw_hit(_ENV)
   end,
 
   draw_hit=function(_ENV)
-    local m,hs=#spr_hit,spr_hit
-    cnt=(cnt+1)%m 
-    if(cnt==0)then set(_ENV,hidden)
-    else spr(hs[cnt+1],x,y) end
+    log("update brick")
+    log(hit_anim.playing)
+    log(hit_anim.cur)
+    hit_anim:update()
+    log("draw brick")
+    log(hit_anim.playing)
+    log(hit_anim.cur)
+
+    if(hit_anim.playing) then 
+      hit_anim:draw({x=x,y=y})
+    else return set(_ENV,hidden) end
+    -- local m,hs=#spr_hit,spr_hit
+    -- cnt=(cnt+1)%m 
+    -- if(cnt==0)then set(_ENV,hidden)
+    -- else spr(hs[cnt+1],x,y) end
   end,
 
   on_collision=function(_ENV,b)

@@ -23,7 +23,7 @@ game=2
 gameover=3
 levelup=4
 
---ball states
+--entity states
 idle=100
 moving=110
 sticky=120
@@ -31,6 +31,10 @@ hidden=130
 visible=140
 hit=150
 picked=160
+--anim
+playing=170
+stopped=180
+paused=190
 
 
 --screen

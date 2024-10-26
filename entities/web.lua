@@ -1,3 +1,11 @@
+web_anim=animation({
+  start=101,
+  frames=3,
+  fr=60,
+  speed=10,
+  loop=true
+})
+
 web=entity:extend({
   x1=_screen_left,
   y1=_screen_bot-11,
@@ -6,15 +14,8 @@ web=entity:extend({
   clr=3,
   shield=1,
   hit=0,
-  _fc=0,
-  
-  -- sprites to animate the net lights
-  spr_map={
-  --{sx,sy,sw,sh,dx,dy}
-    {53,33,3,3,2,1},
-    {49,33,3,3,2,1},
-    {48,32,5,5,3,2},
-  },
+
+  anim=web_anim,
 
   init=function(_ENV) 
     entity.init(_ENV)
@@ -27,8 +28,12 @@ web=entity:extend({
       global.paddle_web:toggle(false)
       sfx(31)
       hit=0
+      web_anim:set(stopped)
     end
-    _fc=(_fc+1)%30
+    if(is(_ENV,visible)) then
+      if(not web_anim:is(playing))web_anim:set(playing)
+      web_anim:update()
+    end
   end,
 
   draw=function(_ENV)
@@ -38,10 +43,8 @@ web=entity:extend({
       local px2=_ppaddle.x+_ppaddle.w
       line(x1,y1,_ppaddle.x,y2,clr)
       line(px2,y1,x2,y2,clr)
-      --animates the net lights
-      local s=spr_map[flr(_fc/10)+1]
-      sspr(s[1],s[2],s[3],s[4],_ppaddle.x-s[5],y1-s[6],s[3],s[4])
-      sspr(s[1],s[2],s[3],s[4],px2-s[5],y1-s[6],s[3],s[4])
+      web_anim:draw({x=_ppaddle.x-2,y=y1-2})
+      web_anim:draw({x=px2-2,y=y1-2})
     end
   end,
 
