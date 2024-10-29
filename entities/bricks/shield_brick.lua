@@ -8,19 +8,18 @@ function shieldbrick(sh)
   
     update=function(_ENV)
       s=37
-      if(hc>0)then s,hc=4,1 end
+      if(hc>0)then s,hc=4,hc-1 end
     end,
   
     on_collision=function(_ENV,b)
-      -- log("shield brick on collision")
-      local n_hits=b.hits
-      hits+=n_hits
-      score_hit(n_hits,b.power)
+      hits+=b.hits
+      score_hit(_ENV,b)
       if(hits<shield)then
         sfx(5)hc=hf
-        return set(visible)
+        return set(_ENV,visible)
       end
-      return set(hit)
+      hit_anim:rewind()
+      return set(_ENV,hit)
     end
   })
 end

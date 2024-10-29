@@ -25,7 +25,6 @@ animation=object:extend({
 
   update=function(_ENV)
     if(not playing) return false
-    log("1 anim upd "..cur)
     step+=1
     if not reverse then
       if(step%flr(fr/speed)==0)cur+=1 
@@ -38,7 +37,6 @@ animation=object:extend({
         if(loop)then cur=0 else playing=false end
       end
     end
-    log("2 anim upd "..cur)
   end,
 
   draw=function(_ENV,obj,offx,offy)

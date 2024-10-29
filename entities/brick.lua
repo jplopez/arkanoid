@@ -5,13 +5,6 @@ brick_hit_anim=animation:extend({
   fr=60,
   loop=false,
   playing=false,
-
-  tostring=function(_ENV)
-    log("star  "..start)
-    log("cur   "..cur)
-    log("step  "..step)
-    log("play  "..tostr(playing))
-  end,
 })
 
 brick=entity:extend({
@@ -24,14 +17,11 @@ brick=entity:extend({
   score_mul=5,
   
   hit_anim=brick_hit_anim(),
-  --spr_hit={40,41,42,43,44},
-  -- cnt=0,
   
   init=function(_ENV)
     entity.init(_ENV)
     _st={visible,hit,hidden}
     _cur=visible
-    hit_anim=brick_hit_anim()
   end,
 
   update=_noop,
@@ -43,17 +33,10 @@ brick=entity:extend({
   end,
 
   draw_hit=function(_ENV)
-    log("brick "..x..","..y)
-    log(hit_anim:tostring())
-
     hit_anim:update()
     if(hit_anim.playing) then 
       hit_anim:draw({x=x,y=y})
     else return set(_ENV,hidden) end
-    -- local m,hs=#spr_hit,spr_hit
-    -- cnt=(cnt+1)%m 
-    -- if(cnt==0)then set(_ENV,hidden)
-    -- else spr(hs[cnt+1],x,y) end
   end,
 
   on_collision=function(_ENV,b)
@@ -63,23 +46,22 @@ brick=entity:extend({
       sfx(6) -- metal cling sound
       return set(_ENV,visible)
     end
-    score_hit(_ENV,b.hits,b.power) 
+    score_hit(_ENV,b)
     hit_anim:rewind()
     return set(_ENV,hit)
   end,
 
-  score_hit=function(_ENV,n_hits,b_pwr)
-    n_hits=n_hits or 1
-    b_pwr=b_pwr or _pwr_off
-    local new_combo=_pcombo+n_hits    
+  score_hit=function(_ENV,b)
+    b=b or _pball
+    local new_combo=_pcombo+b.hits    
     -- Update player's score and combo and ball pwr 
     _score:add(score_mul*new_combo)
-    _pball.pwr+=ceil(new_combo/_pwrbar_combo_factor)
     _pcombo=new_combo
+
+    b.pwr+=ceil(new_combo/_pwrbar_combo_factor)
     -- brick hit sound: combo sfx goes up to 7
-    if(b_pwr==_pwr_off)sfx(10+mid(1,new_combo,7))
-    if(b_pwr==_pwr_ball or b_pwr==_pwr_fury)sfx(09)
-    --return _pcombo,_pball.pwr,_score:tostr()
+    if(b.power==_pwr_off)sfx(10+mid(1,new_combo,7))
+    if(b.power==_pwr_ball or b.power==_pwr_fury)sfx(09)
   end,
 
   join=function(_ENV,other)
