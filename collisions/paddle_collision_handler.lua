@@ -5,69 +5,46 @@ pb_handler=collision_handler:extend({
     if(b:is(sticky) or b:is(hidden))return false
     --paddle resets current combo
     _pcombo=1
-    
-    --flip DY to up, calc new DX
-    if(s==_top and b.dy>0)handle_top_bounce(_ENV,b,p)
-    --flip DY to down
-    if(s==_bottom)b.dy=abs(b.dy)
-
-    --flip both DX and Dy, wide angle and more speed
-    if(s==_top_left)then
-      b.dx=-2.5
-      b.dy=-abs(b.dy) 
-    elseif(s==_top_right)then
-      b.dx=2.5
-      b.dy=-abs(b.dy) 
-    end
+    b.dx=calc_dx(_ENV,p,b,s)
+    b.dy=calc_dy(_ENV,p,b,s)
+    upd_ball(_ENV,p,b,s)
   end,
 
-  handle_top_bounce=function(_ENV,b,p)
-    -- local x_pos=flr(b.x-p.x)
-    -- local seg=flr(p.w/6)
-    -- b.dy=-(abs(b.dy)+rnd(_bacc*0.05))
-    -- for i=1,6 do
-    --   if (x_pos<=i*seg and x_pos>(i-1)*seg)then
-    --     if i<=3 then
-    --       b.dx=-((4-i)*_bacc)
-    --     else
-    --       b.dx=(i-3)*_bacc
-    --     end
-    --   end  
-    -- end
-    --paddle hit
-    if(b.power==_pwr_fury) then
-      b:set(sticky)
-      b.pwr=0 
-      sfx(8)
---    elseif(_aspects[_paddle_glue].enabled) then
-    elseif(paddle_glue.enabled) then
+  calc_dy=function(_ENV,paddle,ball,side)
+    if(side==_top) return -(abs(ball.dy)+rnd(_bacc*0.05))
+    if(side==_top_left or side==_top_right)return -abs(ball.dy)
+    --side==_bottom or _bottom_left or _bottom_right
+    return abs(ball.dy)
+  end,
+
+  calc_dx=function(_ENV,paddle,ball,side)
+    if(side==_top_left or side==_bottom_left)return -2.5
+    if(side==_top_right or side==_bottom_right)return 2.5
+    if(side==_top) return handle_top_bounce(_ENV,paddle,ball)
+  end,
+
+  upd_ball=function(_ENV,p,b)
+    if(b.power==_pwr_fury)then
+      b:set(sticky)sfx(8)b.pwr=0
+    elseif(paddle_glue.enabled)then
       b:set(sticky)
     else
-      b.pwr=max(0,b.pwr-_paddle_pen)
-      sfx(1)
-    end
-    b.dx,b.dy=calc_ball_dir(_ENV,b,p)
+      b.pwr=max(0,b.pwr-global._paddle_pen)
+      sfx(1)end
   end,
 
-  calc_ball_dir=function(_ENV,b,p)
-    local dx,dy
-
+  --calc ball dx angle when hitting the 
+  --paddle in the top side
+  handle_top_bounce=function(_ENV,p,b)
+    local dx
     local x_pos=flr(b.x-p.x)
     local seg=flr(p.w/6)
-
-    dy=-(abs(b.dy)+rnd(_bacc*0.05))
-
     for i=1,6 do
       if (x_pos<=i*seg and x_pos>(i-1)*seg)then
-        if i<=3 then
-          dx=-((4-i)*_bacc)
-        else
-          dx=(i-3)*_bacc
-        end
+        if i<=3 then dx=-((4-i)*global._bacc)
+        else dx=(i-3)*global._bacc end
       end  
     end
-
-    return dx,dy
+    return dx
   end,
-
 })

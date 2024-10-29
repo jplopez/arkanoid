@@ -18,12 +18,14 @@ animation=object:extend({
   loop=false,
   reverse=false,
 
-  playing=true,
+  playing=false,
 
-  reset=function(_ENV)cur=0 end,
+  play=function(_ENV)playing=true end,
+  rewind=function(_ENV)cur=(0)play(_ENV) end,
 
   update=function(_ENV)
     if(not playing) return false
+    log("1 anim upd "..cur)
     step+=1
     if not reverse then
       if(step%flr(fr/speed)==0)cur+=1 
@@ -36,6 +38,7 @@ animation=object:extend({
         if(loop)then cur=0 else playing=false end
       end
     end
+    log("2 anim upd "..cur)
   end,
 
   draw=function(_ENV,obj,offx,offy)

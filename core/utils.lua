@@ -32,6 +32,7 @@ function serialize(tbl,level)
   if(tbl==nil)then return "" end
   level=level or 0
   local result={}
+
   for k,v in pairs(tbl)do
     local field=""
     if type(v)=="string"then field=tostr(k)..' : "'..v..'"'

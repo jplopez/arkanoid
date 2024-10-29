@@ -3,7 +3,15 @@ brick_hit_anim=animation:extend({
   frames=5,
   speed=20,
   fr=60,
-  loop=false
+  loop=false,
+  playing=false,
+
+  tostring=function(_ENV)
+    log("star  "..start)
+    log("cur   "..cur)
+    log("step  "..step)
+    log("play  "..tostr(playing))
+  end,
 })
 
 brick=entity:extend({
@@ -23,26 +31,22 @@ brick=entity:extend({
     entity.init(_ENV)
     _st={visible,hit,hidden}
     _cur=visible
+    hit_anim=brick_hit_anim()
   end,
 
   update=_noop,
 
   draw=function(_ENV)
-    log(hit_anim.playing)
     if(is(_ENV,hidden))return true
     if(is(_ENV,visible))spr(s,x,y)
     if(is(_ENV,hit))draw_hit(_ENV)
   end,
 
   draw_hit=function(_ENV)
-    log("update brick")
-    log(hit_anim.playing)
-    log(hit_anim.cur)
-    hit_anim:update()
-    log("draw brick")
-    log(hit_anim.playing)
-    log(hit_anim.cur)
+    log("brick "..x..","..y)
+    log(hit_anim:tostring())
 
+    hit_anim:update()
     if(hit_anim.playing) then 
       hit_anim:draw({x=x,y=y})
     else return set(_ENV,hidden) end
@@ -60,6 +64,7 @@ brick=entity:extend({
       return set(_ENV,visible)
     end
     score_hit(_ENV,b.hits,b.power) 
+    hit_anim:rewind()
     return set(_ENV,hit)
   end,
 

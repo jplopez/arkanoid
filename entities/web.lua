@@ -3,7 +3,8 @@ web_anim=animation({
   frames=3,
   fr=60,
   speed=10,
-  loop=true
+  loop=true,
+  playing=true,
 })
 
 web=entity:extend({
