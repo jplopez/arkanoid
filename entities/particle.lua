@@ -10,19 +10,30 @@ particle=entity:extend({
 
   move=_noop,
   update=function(_ENV)
-    if(life<0)destroy(_ENV)
     move(_ENV)
     life-=1
+    if(life<0)destroy(_ENV)
   end,
   draw=function(_ENV)circfill(x,y,rad,clr) end,
 })
 -- fireworks particle
 function frwpart(tbl)
   tbl.move=function(_ENV) 
-      x+=dx
-      y+=dy
-      dy+=g
-      clr=rnd(clrs)
-    end
+    x+=dx
+    y+=dy
+    dy+=g
+    clr=rnd(clrs)
+  end
+  return particle(tbl)
+end
+
+function tailpart(tbl)
+  tbl.move=function(_ENV)
+    x+=dx
+    y+=dy
+    dx*=0.001
+    dy*=0.001
+    clr=rnd(clrs)
+  end
   return particle(tbl)
 end

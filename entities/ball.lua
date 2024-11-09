@@ -12,6 +12,8 @@ ball=entity:extend({
   pwr=0,
   power=_pwr_off,
 
+  pars={},
+
   stats={
     [_pwr_off]={sx=0,sy=8,hits=_pwr_off_hit},
     [_pwr_ball]={sx=8,sy=8,hits=_pwr_ball_hit},
@@ -37,6 +39,7 @@ ball=entity:extend({
     if(is(_ENV,moving))then
       x+=dx
       y+=dy
+      create_particle(_ENV)
     end
     --updates attrs affected by power or main values
     update_attr(_ENV)
@@ -52,7 +55,8 @@ ball=entity:extend({
   end,
 
   draw=function(_ENV)
-    if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)end,
+    if(not is(_ENV,hidden))sspr(sx,sy,5,5,x-r,y-r,5,5)
+  end,
 
   serve=function(_ENV,tbl)
     tbl=tbl or {}
@@ -80,6 +84,28 @@ ball=entity:extend({
       power=_pwr_off,
       update_attr=_noop,
     })
-  end
+  end,
 
+  create_particle=function(_ENV)
+    if(flr(t()*30)%5==0) then
+      tbl={
+        x=x+(rnd(r+1)-r),
+        y=y+(rnd(r+1)-r),
+        dx=dx/2,
+        dy=dy/2,
+        clrs={12,13,7},
+        clr=12,
+        life=20,
+        rad=0 }
+      if(power==_pwr_ball) then
+        tbl.clrs={9,10,7}
+        tbl.clr=9
+      elseif(power==_pwr_fury) then
+        tbl.clrs={8,9,10}
+        tbl.clr=8
+        tbl.rad=rnd(2)
+      end
+      tailpart(tbl)
+    end
+  end,
 })

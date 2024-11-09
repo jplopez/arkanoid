@@ -80,6 +80,9 @@ end
 -- called every frame
 function _draw()
   _gamestates:draw()draw_bdg_menu()
+
+  print("M:"..tostr(flr(stat(0))),80,120,6)
+  print("C:"..stat(1),100,120,6)
 end
 
 
