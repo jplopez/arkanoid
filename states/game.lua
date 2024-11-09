@@ -1,12 +1,11 @@
 game_gst=gst_handler:extend({
 
   --TODO add pup cool down here
-
   on=function(_ENV)startgame()end,
   off=function(_ENV)music(-1)end,
 
   update=function(_ENV)
-    --log("game update")
+    -- log("game update")
     entity:each("update")
     -- detect if all bricks were hit 
     if(global._lvl.br_left<=0)delay(7,gset,levelup)
@@ -32,6 +31,7 @@ game_gst=gst_handler:extend({
     global._lvl:draw()
     global._score:draw()
     global._ppwrbar:draw()
+    particle:each("draw")
     global._ppaddle:draw()
     global._pweb:draw()
     ball:each("draw")
@@ -41,12 +41,10 @@ game_gst=gst_handler:extend({
   draw_game_ui=function(_ENV)
     --player lives
     spr(0,_screen_left,0)
-    print(" x "..pad(global._plives,2),_screen_left+8,1,7)
+    print(" x "..lpad(global._plives,2),_screen_left+8,1,7)
     --current level
-    print("level:"..pad(global._plevel,2),_screen_left+1,7,7)
+    print("level:"..lpad(global._plevel,2),_screen_left+1,7,7)
   end,
 
-  detect=function(_ENV)
-  end,
-  
+  detect=_noop
 })

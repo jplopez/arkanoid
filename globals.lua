@@ -8,8 +8,12 @@ _debug=true --debug mode
 
 -- Cart Data
 _cdata_id = "parkanoid"
-_high_score_index=0
+_highest_score_index=0
 _high_score=0
+
+_hs_index_flag=1
+_hs_index=10
+
 
 --utils
 _noop=function()end
@@ -22,6 +26,8 @@ intro=1
 game=2
 gameover=3
 levelup=4
+howto=5
+highscores=6
 
 --entity states
 idle=100

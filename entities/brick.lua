@@ -7,6 +7,20 @@ brick_hit_anim=animation:extend({
   playing=false,
 })
 
+brick_entry_anim=animation:extend({
+  start=4,
+  frames=5,
+  loop=false,
+  playing=false,
+
+  draw=function(_ENV,obj,offx,offy) 
+    local cur2=cur
+    cur=0
+    animation.draw(_ENV,obj,offx,offy)
+    cur=cur2
+  end,
+})
+
 brick=entity:extend({
   x=_screen_left + 12,
   y=_screen_top + 10,

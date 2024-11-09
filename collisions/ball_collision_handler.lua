@@ -9,14 +9,19 @@ bscr_handler=collision_handler:extend({
     if(side==_bottom)b.dy=abs(b.dy)
     if(side==_left)b.dx=abs(b.dx)
     if(side==_right)b.dx=-abs(b.dx)
+
+    local pcount=4
     -- b bouncing wall sfx and screen shake
     if(b.power==_pwr_off)sfx(0)
-    if(b.power==_pwr_ball)sfx(0)
+    if(b.power==_pwr_ball)sfx(0)pcount=6
     if(b.power==_pwr_fury)then 
+      pcount=10
       _shake+=1
       sfx(0,0)
       sfx(7,1)
     end
+    -- create particles for screen hit
+    create_particles(_ENV,b,pcount)
   end,
 
   handle_loose_ball=function(_ENV,b)
@@ -31,5 +36,15 @@ bscr_handler=collision_handler:extend({
         global._pball:serve()
       end
     else b:destroy() end
-  end
+  end,
+
+  create_particles=function(_ENV,b,pcount) 
+    for i=1,pcount do
+      local _dx=b.dx*i/2
+      local _dy=b.dy-rnd(i)
+      p=frwpart({x=b.x,y=b.y,
+        life=8,dx=_dx,dy=_dy})
+    end
+  end,
+
 })

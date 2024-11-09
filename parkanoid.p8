@@ -9,6 +9,7 @@ __lua__
 #include core/log.lua
 #include core/gamestates.lua
 #include core/collision_engine.lua
+#include core/print_utils.lua
 #include core/utils.lua
 #include core/aspects_menu.lua
 #include core/animation.lua
@@ -22,6 +23,7 @@ __lua__
 #include entities/level.lua
 #include entities/powerbar.lua
 #include entities/powerup.lua
+#include entities/particle.lua
 #include entities/score.lua
 #include entities/web.lua
 
@@ -48,6 +50,7 @@ __lua__
 #include states/game.lua
 #include states/gameover.lua
 #include states/levelup.lua
+--#include states/highscores.lua
 
 -- collision handlers
 #include collisions/paddle_collision_handler.lua

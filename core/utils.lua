@@ -1,32 +1,5 @@
 -- Utils Functions
 function is_empty(str)return(str==nil or str=="")end
--- print centered
-function printc(str,y,clr)local x=(64-(#str*4)/2)print(str,x,y,clr)end
--- print shadow
-function prints(str,x,y,clr)print(str,x+1,y+1,7)print(str,x,y,clr)end
--- print shadow centered
-function printsc(str,y,c)prints(str,(64-(#str*4)/2),y,c)end
--- print outlined
-function printo(s,x,y,c,o) -- 34 tokens, 5.7 seconds
-  color(o)
-  ?'\-f'..s..'\^g\-h'..s..'\^g\|f'..s..'\^g\|h'..s,x,y
-  ?s,x,y,c
-end
--- print outlined centered
-function printoc(s,y,c,o)printo(s,64-(#s*4)/2,y,c,o)end
--- left pad
-function pad(str,len,char)
-  str=tostr(str)
-  char=char or "0"
-  if(#str==len)return str
-  return char..pad(str,len-1)
-end
-
-function spaces(len)
-  len=max(0,len) --prevetn errors with neg values
-  if(len==0)return ""
-  return " "..spaces(len-1)
-end
 
 function serialize(tbl,level)
   if(tbl==nil)then return "" end
@@ -60,6 +33,11 @@ function get(table,value)
   for i in all(table)do if(i==value)return i end
   return nil
 end
+
+function one_of(table, value)
+  return get(table,value)~=nil
+end
+
 
 function muted()return(stat(48)-stat(49)==0)end
 
