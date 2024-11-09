@@ -9,7 +9,6 @@ end
 
 -- Function to draw the dialog
 function draw_bdg_dialog()
-  log(aspect.pool)
   -- Draw the dialog background
   rectfill(10,10,118,118,15) -- White background
   -- Title

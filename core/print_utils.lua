@@ -21,12 +21,12 @@ function lpad(str,len,char)
   return char..lpad(str,len-1)
 end
 
-function rpad(str,len,char)
-  str=tostr(str)
-  char=char or "0"
-  if(#str==len)return str
-  return rpad(str,len-1)..char
-end
+-- function rpad(str,len,char)
+--   str=tostr(str)
+--   char=char or "0"
+--   if(#str==len)return str
+--   return rpad(str,len-1)..char
+-- end
 
 function spaces(len)
   len=max(0,len) --prevetn errors with neg values

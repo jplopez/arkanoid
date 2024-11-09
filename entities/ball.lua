@@ -35,6 +35,7 @@ ball=entity:extend({
       if(btn(1))dx=abs(dx)  -- move right 
       if(btn(5))set(_ENV,moving) -- launch ball
       x=_ppaddle.x+(_ppaddle.w/2)
+      y=_ppaddle.y-r
     end
     if(is(_ENV,moving))then
       x+=dx

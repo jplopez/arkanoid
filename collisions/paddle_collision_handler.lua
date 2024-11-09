@@ -11,27 +11,27 @@ pb_handler=collision_handler:extend({
   end,
 
   calc_dy=function(_ENV,paddle,ball,side)
-    if(side==_top) return -(abs(ball.dy)+rnd(_bacc*0.05))
-    if(side==_top_left or side==_top_right)return -abs(ball.dy)
-    --side==_bottom or _bottom_left or _bottom_right
+    if(one_of({_top,_left,_right},side)) return -(abs(ball.dy)+rnd(_bacc*0.05))
+    if(one_of({_top_left,_top_right},side))return -abs(ball.dy)
+    --if(one_of({_bottom,_bottom_left,_bottom_right},side))return abs(ball.dy)
     return abs(ball.dy)
   end,
 
   calc_dx=function(_ENV,paddle,ball,side)
-    if(side==_top_left or side==_bottom_left)return -2.5
-    if(side==_top_right or side==_bottom_right)return 2.5
+    if(one_of({_top_left,_bottom_left},side))return -2.5
+    if(one_of({_top_right,_bottom_right},side))return 2.5
     if(side==_top) return handle_top_bounce(_ENV,paddle,ball)
   end,
 
-  upd_ball=function(_ENV,p,b)
+  upd_ball=function(_ENV,p,b,s)
     if(b.power==_pwr_fury)then
       b:set(sticky)sfx(8)b.pwr=0
-    elseif(paddle_glue.enabled)then
+    elseif(paddle_glue.enabled and s==_top)then
       b:set(sticky)
     else
       b.pwr=max(0,b.pwr-global._paddle_pen)
       sfx(1)end
-  end,
+    end,
 
   --calc ball dx angle when hitting the 
   --paddle in the top side
