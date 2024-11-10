@@ -1,11 +1,5 @@
 log.p8l
-arkanoid.p8.png
-arkanoid.png
-exports/html/arkanoid.html
-exports/html/arkanoid.js
-index.html
-index.js
-parkanoid.html
-parkanoid.js
-parkanoid.p8.png
-parkanoid.zip
+*.png
+*.html
+*.js
+*.zip
