@@ -71,7 +71,7 @@ paddle_shrink=aspect({
 })
 
 paddle_glue=aspect({
-  aspectid=paddle_glue,
+  aspectid=_paddle_glue,
   name="glue",
   overwrites={_paddle_shrink,_paddle_expand},
   enter=function(_ENV)sfx(33)end,
@@ -94,6 +94,6 @@ paddle_web=aspect({
   aspectid=_paddle_web,
   name="web",
   overwrites={_paddle_glue},
-  enter=function(_ENV)global._pweb:set(visible)end,
+  enter=function(_ENV)global._pweb:set(idle)end,
   exit=function(_ENV)global._pweb:set(hidden)end
 })

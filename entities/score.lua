@@ -5,20 +5,20 @@ score=entity:extend({
   init=function(_ENV)
     entity.init(_ENV)
     reset(_ENV)
-    load_highscores(_ENV)
+    --load_highscores(_ENV)
   end,
 
   reset=function(_ENV)v=0end,
 
   is_highest=function(_ENV)return(v>=_high_score)end,
 
-  is_highscore=function(_ENV) 
-    highscores = highscores or load_highscores()
-    for sc in all(highscores) do
-      if(v>sc.score) return true
-    end
-    return false
-  end,
+  -- is_highscore=function(_ENV) 
+  --   highscores = highscores or load_highscores()
+  --   for sc in all(highscores) do
+  --     if(v>sc.score) return true
+  --   end
+  --   return false
+  -- end,
 
 
   update=function(_ENV) 
@@ -42,19 +42,19 @@ score=entity:extend({
     return lpad(s32_tostr(_v),6)
   end,
 
-  load_highscores=function(_ENV)
-    highscores={}
-    for i=1,3 do
-      local sc = {}
-      sc.score= tostring(_ENV, dget(_hs_index*i))
-      sc.name=chr(
-        dget(_hs_index*i+1),
-        dget(_hs_index*i+2),
-        dget(_hs_index*i+3))
-      add(highscores,sc)
-    end
-    return highscores
-  end,
+  -- load_highscores=function(_ENV)
+  --   highscores={}
+  --   for i=1,3 do
+  --     local sc = {}
+  --     sc.score= tostring(_ENV, dget(_hs_index*i))
+  --     sc.name=chr(
+  --       dget(_hs_index*i+1),
+  --       dget(_hs_index*i+2),
+  --       dget(_hs_index*i+3))
+  --     add(highscores,sc)
+  --   end
+  --   return highscores
+  -- end,
 })
 
 function s32_tostr(_v)
